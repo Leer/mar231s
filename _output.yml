@@ -1,0 +1,29 @@
+# bookdown::bs4_book:
+#   includes:
+#     # in_header: ga_course.html
+#   theme:
+#     primary: "#1A1A1A"
+#     # !expr bslib::bs_theme(bootswatch = "spacelab")
+# # 
+bookdown::gitbook:
+  # includes:
+  #   in_header: [ga_course.html]
+  number_sections: false
+  config:
+    toc:
+      collapse: section
+      before: |
+        <li><a href="./">R course</a></li>
+      after: null
+      scroll_highlight: yes
+    # download: ["pdf", "epub"]
+    sharing: no
+    toolbar:
+      position: static
+      
+# bookdown::pdf_book:
+#   config:
+#     toc:
+#       collapse: section
+#   latex_engine: xelatex
+

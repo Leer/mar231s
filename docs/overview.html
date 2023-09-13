@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Введение | Автоматизированный сбор больших данных в экономико-социологических исследованиях</title>
+  <meta name="description" content="Введение | Автоматизированный сбор больших данных в экономико-социологических исследованиях" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Введение | Автоматизированный сбор больших данных в экономико-социологических исследованиях" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Введение | Автоматизированный сбор больших данных в экономико-социологических исследованиях" />
+  
+  
+  
+
+<meta name="author" content="Ph.A.Upravitelev" />
+
+
+<meta name="date" content="2023-09-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R course</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Intro</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i>Введение</a>
+<ul>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#запись-занятия"><i class="fa fa-check"></i>Запись занятия</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#data-culture"><i class="fa fa-check"></i>Data culture</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#обо-мне"><i class="fa fa-check"></i>Обо мне</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#contacts"><i class="fa fa-check"></i>Contacts</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#mm-invite-link"><i class="fa fa-check"></i>MM invite link</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#syllabus"><i class="fa fa-check"></i>Syllabus</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#r-intro"><i class="fa fa-check"></i>R intro</a>
+<ul>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#short-history"><i class="fa fa-check"></i>Short history</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#r-ecosystem"><i class="fa fa-check"></i>R ecosystem</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#r-rstudio"><i class="fa fa-check"></i>R + RStudio</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#альтернативные-ide"><i class="fa fa-check"></i>Альтернативные IDE</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#style-guide"><i class="fa fa-check"></i>Style guide</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#синтаксис"><i class="fa fa-check"></i>Синтаксис</a>
+<ul>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#структура-выражения"><i class="fa fa-check"></i>Структура выражения</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#вывод-на-печать"><i class="fa fa-check"></i>Вывод на печать</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#присваивание"><i class="fa fa-check"></i>Присваивание</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#операторы-присвоения"><i class="fa fa-check"></i>Операторы присвоения</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#арифметические-операторы"><i class="fa fa-check"></i>Арифметические операторы</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#операторы-сравнения"><i class="fa fa-check"></i>Операторы сравнения</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#логические-операторы"><i class="fa fa-check"></i>Логические операторы</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#комментарии-и-кавычки"><i class="fa fa-check"></i>Комментарии и кавычки</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#окружение-и-подсказки"><i class="fa fa-check"></i>Окружение и подсказки</a>
+<ul>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#полезные-функции-для-работы-с-окружением"><i class="fa fa-check"></i>Полезные функции для работы с окружением</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#help"><i class="fa fa-check"></i>help</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#стандартные-ошибки-в-синтаксисе"><i class="fa fa-check"></i>Стандартные ошибки в синтаксисе</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#object-not-found"><i class="fa fa-check"></i>Object not found</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#дополнительные-материалы"><i class="fa fa-check"></i>Дополнительные материалы</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#домашнее-задание"><i class="fa fa-check"></i>Домашнее задание</a>
+<ul>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#организационное"><i class="fa fa-check"></i>Организационное</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#r"><i class="fa fa-check"></i>R</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Автоматизированный сбор больших данных в экономико-социологических исследованиях</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="overview" class="section level1 unnumbered hasAnchor">
+<h1>Введение<a href="overview.html#overview" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="запись-занятия" class="section level2 unnumbered hasAnchor">
+<h2>Запись занятия<a href="overview.html#запись-занятия" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Запись занятия 9 сентября:</p>
+</div>
+<div id="data-culture" class="section level2 unnumbered hasAnchor">
+<h2>Data culture<a href="overview.html#data-culture" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Проект Data Culture направлен на то, чтобы у студентов всех программ бакалавриата Высшей школы экономики появилось понимание возможностей современных технологий в области Data Science.</p>
+<p><a href="https://www.hse.ru/dataculture/" class="uri">https://www.hse.ru/dataculture/</a></p>
+<p><br></p>
+</div>
+<div id="обо-мне" class="section level2 unnumbered hasAnchor">
+<h2>Обо мне<a href="overview.html#обо-мне" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>продуктовый аналитик в Pixonic</p></li>
+<li><p>продуктовый аналитик в GameInsight</p></li>
+<li><p>аналитик в Консультант+</p></li>
+<li><p>аспирант СПбГУ (когнитивная психология)</p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="contacts" class="section level2 unnumbered hasAnchor">
+<h2>Contacts<a href="overview.html#contacts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p><span class="citation">@konhis</span> в <a href="mar221.slack.com"><em>mar221.slack.com</em></a> (основное средство коммуникации)</p></li>
+<li><p><a href="mailto:upravitelev@gmail.com" class="email">upravitelev@gmail.com</a> (дополнительное средство коммуникации)</p></li>
+<li><p>+7-965-425-5919 (для экстренных случаев)</p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="mm-invite-link" class="section level2 unnumbered hasAnchor">
+<h2>MM invite link<a href="overview.html#mm-invite-link" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Все взаимодействие по курсу будем вести в Slack, это мессенджер для команд, очень популярен в IT и среди датасаентистов.</p>
+</div>
+<div id="syllabus" class="section level2 unnumbered hasAnchor">
+<h2>Syllabus<a href="overview.html#syllabus" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Основы синтаксиса R.</p>
+<p>Виды источников данных. Импорт данных из разных типов файлов данныx - SPSS, Excel, *.csv и прочих.</p>
+<p>Методы сбора удаленных данных. Скрапинг полуструктурированных сайтов. Изучим XPath и как извлекать данные из html-кода страницы сайтов. Попутно научимся писать циклы и функции.</p>
+<p>Удаленные базы данных и API: простейшие API — что такое, зачем, как читать документацию. Работа с API VK и погодного сервиса.</p>
+<p>Анализ и представление результатов исследования: много времени будем уделять визуализациям.</p>
+<p><br></p>
+</div>
+<div id="r-intro" class="section level2 unnumbered hasAnchor">
+<h2>R intro<a href="overview.html#r-intro" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="short-history" class="section level3 unnumbered hasAnchor">
+<h3>Short history<a href="overview.html#short-history" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>1976: S language</li>
+<li>1991-1993: R language by Ross Ihaka and Robert Gentleman</li>
+<li>2000: stable beta</li>
+<li>2011: RStudio</li>
+<li>2011: Oracle R Enterprise</li>
+<li>2015: Microsoft bought Revolution R</li>
+<li>2017: Just-in-time compilations</li>
+<li>2018: Speed improvements</li>
+</ul>
+<p><br></p>
+</div>
+<div id="r-ecosystem" class="section level3 unnumbered hasAnchor">
+<h3>R ecosystem<a href="overview.html#r-ecosystem" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>R Foundation <a href="https://www.r-project.org/foundation/" class="uri">https://www.r-project.org/foundation/</a></li>
+<li>The Comprehensive R Archive Network: <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a></li>
+<li>RStudio &amp; Hadley Wickham</li>
+<li>community</li>
+</ul>
+<p><br></p>
+</div>
+<div id="r-rstudio" class="section level3 unnumbered hasAnchor">
+<h3>R + RStudio<a href="overview.html#r-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>R: <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a> (нужно установить самым первым)</li>
+<li>RStudio: <a href="https://www.rstudio.com/products/rstudio/download/" class="uri">https://www.rstudio.com/products/rstudio/download/</a> (после установки R)</li>
+</ul>
+<p><br></p>
+</div>
+<div id="альтернативные-ide" class="section level3 unnumbered hasAnchor">
+<h3>Альтернативные IDE<a href="overview.html#альтернативные-ide" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><a href="https://colab.research.google.com/#create=true&amp;language=r" class="uri">https://colab.research.google.com/#create=true&amp;language=r</a> (создает colab-ноутбук с R-ядром)</li>
+<li><a href="https://posit.cloud/" class="uri">https://posit.cloud/</a> (онлайн-версия RStudio)</li>
+</ul>
+</div>
+<div id="style-guide" class="section level3 unnumbered hasAnchor">
+<h3>Style guide<a href="overview.html#style-guide" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><a href="http://style.tidyverse.org/index.html" class="uri">http://style.tidyverse.org/index.html</a></p>
+<p><br></p>
+</div>
+</div>
+<div id="синтаксис" class="section level2 unnumbered hasAnchor">
+<h2>Синтаксис<a href="overview.html#синтаксис" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="структура-выражения" class="section level3 unnumbered hasAnchor">
+<h3>Структура выражения<a href="overview.html#структура-выражения" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="overview.html#cb1-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="at">x =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><code>sqrt()</code> - функция. <code>sqrt</code> - название функции, в <code>()</code> указываются аргументы, к которым будет применяться функция с таким названием.</p>
+<p><code>x</code> - обозначение аргумента функции (в разных функциях аргументы могут называться по-разному)</p>
+<p><code>4</code> - значение, которое мы передаем в аргумент функции (к коротому будет применена функция)</p>
+<p><code>&lt;-</code> - знак присваивания</p>
+<p><code>result</code> - объект, в который мы записываем результат выполнения функции. Название объектов может быть разным (лучше придерживаться style guide при нейминге)</p>
+<p><br></p>
+</div>
+<div id="вывод-на-печать" class="section level3 unnumbered hasAnchor">
+<h3>Вывод на печать<a href="overview.html#вывод-на-печать" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Прямое указание:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="overview.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(result)</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>Можно просто вызвать сам объект:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="overview.html#cb4-1" aria-hidden="true" tabindex="-1"></a>result</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p><br></p>
+</div>
+<div id="присваивание" class="section level3 unnumbered hasAnchor">
+<h3>Присваивание<a href="overview.html#присваивание" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Оператор <code>&lt;-</code> - это оператор присваивания. Если до этого объект не был создан, то таким образом мы создадим объект <code>x</code>, в котором содержится значение <code>5</code>. Если до этого объект существовал, то ему будет присвоено новое значение.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="overview.html#cb6-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb6-2"><a href="overview.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<p>Когда значение или результат функции записываем в объект, ничего не печатается.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="overview.html#cb8-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="at">x =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p>Если нет присвоения, а только простой вызов функции, то результат будет напечатан, как если это был какой-то объект.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="overview.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="at">x =</span> <span class="dv">4</span>)</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p><br></p>
+</div>
+<div id="операторы-присвоения" class="section level3 unnumbered hasAnchor">
+<h3>Операторы присвоения<a href="overview.html#операторы-присвоения" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p><code>&lt;-</code> (основной оператор)</p></li>
+<li><p><code>=</code> (не рекомендуется, если только очень хочется)</p></li>
+<li><p><code>-&gt;</code> (существует, но использовать крайне не рекомендуется)</p></li>
+<li><p><code>&lt;&lt;-</code>, <code>-&gt;&gt;</code> (надо понимать, когда использовать, встречаются редко, лучше использовать <code>assign()</code>)</p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="арифметические-операторы" class="section level3 unnumbered hasAnchor">
+<h3>Арифметические операторы<a href="overview.html#арифметические-операторы" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>В R помимо оператора присвоения есть другие операторы, в частности, арифметические операторы, операторы сравнения или логического выбора. Операторы сравнения или логические операторы обычно используются при необходимости указать какие-то условия для выбора элементов вектора или таблицы, а также в конструкциях <code>if/else</code>.</p>
+<ul>
+<li><p>Сложение: <code>+</code></p></li>
+<li><p>Вычитание: <code>-</code></p></li>
+<li><p>Умножение: <code>*</code></p></li>
+<li><p>Деление: <code>/</code></p></li>
+<li><p>Возведение в степень: <code>^</code>, <code>**</code></p></li>
+<li><p>Остаток от деления: <code>%%</code> (5 %% 2 дает 1)</p></li>
+<li><p>Неполное частное деления: <code>%/%</code> (5 %/% 2 дает 2)</p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="операторы-сравнения" class="section level3 unnumbered hasAnchor">
+<h3>Операторы сравнения<a href="overview.html#операторы-сравнения" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>тождество (равенство): <code>==</code></p></li>
+<li><p>не равно: <code>!=</code></p></li>
+<li><p>больше/меньше или равно: <code>&gt;=</code>, <code>&lt;=</code></p></li>
+<li><p>пропущено ли: <code>is.na()</code> (проверяет, является ли значение пропущенным, NA)</p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="логические-операторы" class="section level3 unnumbered hasAnchor">
+<h3>Логические операторы<a href="overview.html#логические-операторы" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>И: <code>&amp;</code>, <code>&amp;&amp;</code></p></li>
+<li><p>ИЛИ: <code>|</code>, <code>||</code></p></li>
+<li><p>НЕ (Обратно): <code>!</code> (TRUE превращает в FALSE и наоборот)</p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="комментарии-и-кавычки" class="section level3 unnumbered hasAnchor">
+<h3>Комментарии и кавычки<a href="overview.html#комментарии-и-кавычки" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p><code>#</code>: строка, которая идет после этого знака, считается комментарием и не выполняется. Используется для того, чтобы прокомментировать код или скрыть от выполнения часть кода.</p></li>
+<li><p><code>''</code>, <code>""</code>: использутся для создания строковых объектов, можно сочетать одной строке, они не взаимозаменяемы</p></li>
+<li><p>``:обратные апострофы, используются в редких случаях, обычно в RMarkdown, инфиксных операторах или кириллических названиях объектов.</p></li>
+</ul>
+<p><br></p>
+</div>
+</div>
+<div id="окружение-и-подсказки" class="section level2 unnumbered hasAnchor">
+<h2>Окружение и подсказки<a href="overview.html#окружение-и-подсказки" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="полезные-функции-для-работы-с-окружением" class="section level3 unnumbered hasAnchor">
+<h3>Полезные функции для работы с окружением<a href="overview.html#полезные-функции-для-работы-с-окружением" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>При работе с R:</p>
+<ul>
+<li><p><code>install.packages('pkg')</code> - установить пакет <code>pkg</code> или список пакетов. Делается однократно при настройке R</p></li>
+<li><p><code>library('pkg')</code> - подключение установленного пакета - делается при каждом новом запуске сессии, если этот пакет планируется использовать</p></li>
+<li><p><code>getwd()</code> - узнать адрес рабочей папки</p></li>
+<li><p><code>setwd()</code> - никогда не использовать! Это мешает при работе с несколькими коллегами, может вызвать сбои при каких-то изменениях в структуре папок, да и в целом дурной тон. Лучше использовать проекты в RStudio, которые формируют отдельную папку под каждый проект.</p></li>
+<li><p><code>ls()</code> - возвращает список созданных объектов рабочего окружения</p></li>
+<li><p><code>rm()</code> - удалить какой-нибудь объект</p></li>
+<li><p><code>rm(list = ls())</code> - удалить все объекты рабочего окружения</p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="help" class="section level3 unnumbered hasAnchor">
+<h3>help<a href="overview.html#help" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p><code>help()</code>, <code>?</code> (например, <code>?round</code>)или <code>??</code>. Проще всего выделить функцию и нажать F1 на клавиатуре.</p></li>
+<li><p>cheatsheets: <a href="https://www.rstudio.com/resources/cheatsheets/" class="uri">https://www.rstudio.com/resources/cheatsheets/</a></p></li>
+<li><p>google it!</p></li>
+<li><p>stackoverflow</p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="стандартные-ошибки-в-синтаксисе" class="section level3 unnumbered hasAnchor">
+<h3>Стандартные ошибки в синтаксисе<a href="overview.html#стандартные-ошибки-в-синтаксисе" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>пропущенная / лишняя запятая</p></li>
+<li><p>пропущенная / лишняя / другого типа скобка</p></li>
+</ul>
+</div>
+<div id="object-not-found" class="section level3 unnumbered hasAnchor">
+<h3>Object not found<a href="overview.html#object-not-found" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>опечатки (пропуск буквы, удвоение буквы, разный регистр, <code>c</code> кириллическая)</p></li>
+<li><p>no object / file / function / package</p></li>
+</ul>
+<p><br></p>
+</div>
+</div>
+<div id="дополнительные-материалы" class="section level2 unnumbered hasAnchor">
+<h2>Дополнительные материалы<a href="overview.html#дополнительные-материалы" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>textbook.rintro.ru – мой учебник по основам R</li>
+<li>Курсы на <a href="https://www.datacamp.com/courses/tech:r"><strong>data.camp</strong></a>. Они, как и все онлайн-курсы, несколько дробные и избыточные, но базам конструкций научить могут.</li>
+<li>На русском языке есть <a href="https://stepik.org/course/129/promo"><strong>курс</strong></a> на степике. Вполне нормальный, особенно в первых частях.</li>
+<li>Еще есть <a href="https://stepik.org/course/497/promo"><strong>курс</strong></a> Тони Антонова, он посложнее, но в чем-то получше и поосновательнее курса Карпова и Иванчея.</li>
+<li>Мороз Г. А. , Поздняков И. С. - <a href="https://agricolamz.github.io/DS_for_DH/"><strong>Наука о данных в R для программы Цифровых гуманитарных исследований</strong></a></li>
+<li>Селезнёв А. - <a href="https://selesnow.github.io/r4excel_users/">Язык R для пользователей Excel</a></li>
+<li>Long J., Teetor P. - <a href="https://rc2e.com/"><strong>R cookbook</strong></a></li>
+<li>Bryan J. - <a href="https://stat545.com/"><strong>STAT 545 Data wrangling, exploration, and analysis with R</strong></a></li>
+<li><a href="https://www.tidyverse.org/blog/2017/12/workflow-vs-script/">Почему не надо использовать setwd()</a></li>
+</ul>
+</div>
+<div id="домашнее-задание" class="section level2 unnumbered hasAnchor">
+<h2>Домашнее задание<a href="overview.html#домашнее-задание" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="организационное" class="section level3 unnumbered hasAnchor">
+<h3>Организационное<a href="overview.html#организационное" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>Проверьте и при необходимости отредактируйте профиль в Slack: необходимо указать имя и фамилию (латиницей, в виде <code>Name Family name</code>), по возможности поставьте свою фотографию на аватарку.</p></li>
+<li><p>В канале #welcome напишите несколько слов о себе: тему своей магистерской (если уже известна), какой опыт работы с R и вообще языками программирования, какие ожидания от курса.</p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="r" class="section level3 unnumbered hasAnchor">
+<h3>R<a href="overview.html#r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="установка-r-и-rstudio" class="section level4 unnumbered hasAnchor">
+<h4>Установка R и RStudio<a href="overview.html#установка-r-и-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>установите язык R (<a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a>)<br />
+</li>
+<li>установите Rstudio (RStudio: <a href="https://www.rstudio.com/products/rstudio/download/" class="uri">https://www.rstudio.com/products/rstudio/download/</a>)</li>
+</ul>
+<p>Или воспользуйтесь онлайн-вариантами (Colab / Posit Cloud)</p>
+<p><br></p>
+</div>
+<div id="операторы-и-создание-векторов" class="section level4 unnumbered hasAnchor">
+<h4>Операторы и создание векторов<a href="overview.html#операторы-и-создание-векторов" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Задание необязательное, но настоятельно рекомендую прорешать всем, кто ни разу не сталкивался с R или давно все забыл и не уверен в своих знаниях. Если решение какого-то задания вызвало у вас сомнения, напишите мне об этом в личке в slack.</p>
+<p>При работе используйте <a href="http://style.tidyverse.org/index.html"><em>гайд</em></a> по стилю оформления кода.</p>
+<p>Старайтесь, чтобы код был максимально простым. Если каждое упражнение занимает больше одной-двух строк - скорее всего вы что-то делаете не так.</p>
+<ul>
+<li><p>Создайте объект <code>x</code> со значением 5. Создайте объект <code>y</code>, который равен <code>3 * x</code>. Выведите его на печать.</p></li>
+<li><p>Проверьте, что значение выражения <code>x</code> - <code>y</code> не равно 84.</p></li>
+<li><p>Запишите в объект <code>alarm</code> результат сравнения, больше ли <code>x</code> чем <code>y</code>. Выведите объект на печать.</p></li>
+<li><p>Создайте вектор <code>vec</code> из трех элементов со значениями: <code>5</code>, <code>'a'</code>, <code>56</code>. Выведите на печать.</p></li>
+<li><p>Симулируйте выпадение какой-либо грани двенадцатигранного кубика (одно значение). Вам потребуется функция <code>sample()</code></p></li>
+<li><p>Создайте вектор <code>vec_dice</code> с результатами десяти бросков восьмигранного кубика (d8). Вам потребуется функция <code>sample()</code></p></li>
+<li><p>Найдите длину меньшего катета прямоугольного треугольника с катетом длиной 4 и гипотенузой длиной 8, и округлите длину до третьего знака. Вам потребуются оператор возведения в степень и функции <code>sqrt()</code> и <code>round()</code>. На всякий случай напомню, квадрат гипотенузы равен сумме квадратов катетов.</p></li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "static"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

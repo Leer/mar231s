@@ -1,0 +1,29 @@
+book_filename: 'mar231s'
+delete_merged_file: true
+new_session: yes
+output_dir: 'docs'
+
+rmd_files: [
+  'index.Rmd',
+  "01_intro.Rmd",
+  # "02_vectors.Rmd",
+  # "03_lists.Rmd",
+  # "04_dt_pt1.Rmd",
+  # "05_dt_pt2.Rmd",
+  # "06_dt_pt3.Rmd",
+  # "07_dt_pt4.Rmd",
+  # "08_etl.Rmd",
+  # "09_dt_pt4.Rmd",
+  # "10_dataviz.Rmd",
+  # "10_ggplot2_pt1.Rmd",
+  # "11_ggplot2_pt2.Rmd",
+  # "12_plotly.Rmd",
+  # "13_rvest.Rmd",
+  # "14_programming.Rmd",
+  # "15_rvest_2.Rmd",
+  # "16_api.Rmd",
+  # "17_api.Rmd",
+  # "17_vk_api.Rmd",
+  # "HW1.Rmd",
+  # "HW2.Rmd"
+]
