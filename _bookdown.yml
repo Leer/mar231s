@@ -6,7 +6,7 @@ output_dir: 'docs'
 rmd_files: [
   'index.Rmd',
   "01_intro.Rmd",
-  # "02_vectors.Rmd",
+  "02_vectors.Rmd",
   # "03_lists.Rmd",
   # "04_dt_pt1.Rmd",
   # "05_dt_pt2.Rmd",
