@@ -352,7 +352,7 @@ dt1[, lapply(.SD, class), .SDcols = c('month_names', 'month_ord', 'is_winter')]
 
 Создайте датасет:
 
- - несколько пользователей 
+ - несколько пользователей
  - по 5 сессий на каждого пользователя. 
  - поле логина, тип -- дата и время (таймстамп), все логины в интервале 1-9 сентября. В юникс-формате или просто дата и время, на ваше усмотрение.
  - для каждой сессии создайте случайную длину сессии (достаточно просто вектор длиной со всю таблицу, без учета пользователей) в секундах. Длина сессии должна варьировать в пределах 120 - 600 секунд
@@ -363,6 +363,7 @@ dt1[, lapply(.SD, class), .SDcols = c('month_names', 'month_ord', 'is_winter')]
 - датасет лучше создавать в несколько шагов
 - есть полезная функция `expand.grid()`
 - для генерации времени поможет функция `as.POSIXct()`, плюс есть немного справочных материалов в учебнике: [раз](https://textbook.rintro.ru/objects.html#objects-time), [два](https://textbook.rintro.ru/manipulations.html#manipulations-time)
+
 
 ```{r, echo=FALSE}
 my_dt <- expand.grid(
@@ -375,7 +376,7 @@ setkey(my_dt, 'uid')
 
 time_seq <- seq(as.POSIXct("2023-09-01 00:00:00"), as.POSIXct("2023-09-09 23:59:59"), by = "s")
 
-my_dt[, login_ts := sample(time_seq, .N)]
+my_dt[, login_ts := sort(sample(time_seq, .N))]
 my_dt[, session_length := sample(120:600, .N)]
 
 head(my_dt)
@@ -387,7 +388,7 @@ my_dt[, list(
   n_users = uniqueN(uid),
   total_sessions = .N,
   session_per_user = round(.N / uniqueN(uid), 1),
-  session_length_mn = mean(session_length)
+  session_length_mn = round(mean(session_length), 1)
 )]
 ```
 
