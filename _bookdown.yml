@@ -9,7 +9,7 @@ rmd_files: [
   "02_vectors.Rmd",
   "03_lists.Rmd",
   "04_dt_pt1.Rmd",
-  # "05_dt_pt2.Rmd",
+  "05_dt_pt2.Rmd",
   # "06_dt_pt3.Rmd",
   # "07_dt_pt4.Rmd",
   # "08_etl.Rmd",

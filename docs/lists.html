@@ -23,7 +23,7 @@
 <meta name="author" content="Ph.A.Upravitelev" />
 
 
-<meta name="date" content="2023-10-02" />
+<meta name="date" content="2023-10-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -270,6 +270,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="data.table-pt1.html"><a href="data.table-pt1.html#для-тех-кто-любит-посложнее"><i class="fa fa-check"></i>для тех, кто любит посложнее</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html"><i class="fa fa-check"></i>data.table pt2</a>
+<ul>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#запись-занятия-3"><i class="fa fa-check"></i>Запись занятия</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#разбор-домашней-работы-1"><i class="fa fa-check"></i>Разбор домашней работы</a>
+<ul>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#работа-с-колонками-2"><i class="fa fa-check"></i>работа с колонками</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#для-тех-кто-любит-посложнее-1"><i class="fa fa-check"></i>для тех, кто любит посложнее</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#применение-функций"><i class="fa fa-check"></i>Применение функций</a>
+<ul>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#dataset"><i class="fa fa-check"></i>dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#применение-функций-1"><i class="fa fa-check"></i>Применение функций</a>
+<ul>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#количество-строк-и-значений-.n-uniquen"><i class="fa fa-check"></i>Количество строк и значений: .N, uniqueN</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#ветвления-ifelse-fifelse"><i class="fa fa-check"></i>Ветвления: ifelse / fifelse</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#агрегации"><i class="fa fa-check"></i>Агрегации</a>
+<ul>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#вычисления-по-одной-колонке-1"><i class="fa fa-check"></i>Вычисления по одной колонке</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#вычисления-по-нескольким-колонкам"><i class="fa fa-check"></i>Вычисления по нескольким колонкам</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#группировка-по-нескольким-полям-1"><i class="fa fa-check"></i>Группировка по нескольким полям</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#манипуляции-с-таблицами"><i class="fa fa-check"></i>Манипуляции с таблицами</a>
+<ul>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#rbind"><i class="fa fa-check"></i>rbind()</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#cbind"><i class="fa fa-check"></i>cbind()</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#домашнее-задание-4"><i class="fa fa-check"></i>Домашнее задание</a>
+<ul>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#level-1-iatytd"><i class="fa fa-check"></i>level 1 (IATYTD)</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#level-2-hntr"><i class="fa fa-check"></i>level 2 (HNTR)</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#level-3-hmp"><i class="fa fa-check"></i>level 3 (HMP)</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#level-4-uv"><i class="fa fa-check"></i>level 4 (UV)</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#level-5-n"><i class="fa fa-check"></i>level 5 (N)</a></li>
+</ul></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -344,9 +381,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Например, функция <code>round()</code>, если в качестве аргумента использовать вектор значений, округлит до нужного знака каждый элемент вектора:</p>
 <div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="lists.html#cb63-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">5</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
 <span id="cb63-2"><a href="lists.html#cb63-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
-<pre><code>## [1] -0.3839165  0.5953020 -0.3441210 -0.7315857  0.9704083</code></pre>
+<pre><code>## [1]  0.1816840 -0.9473022  0.5919901 -0.7626200  1.2431996</code></pre>
 <div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="lists.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(x, <span class="dv">3</span>)</span></code></pre></div>
-<pre><code>## [1] -0.384  0.595 -0.344 -0.732  0.970</code></pre>
+<pre><code>## [1]  0.182 -0.947  0.592 -0.763  1.243</code></pre>
 <p>В какой-то мере к векторизованным операциям можно отнести и простые арифметические операции над векторами. В частности, если мы попробуем сложить или умножить векторы одинаковой длины, то произойдет попарные сумма или произведение элементов векторов:</p>
 <div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="lists.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co"># создаем векторы</span></span>
 <span id="cb67-2"><a href="lists.html#cb67-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>)</span>
