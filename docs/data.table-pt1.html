@@ -23,7 +23,7 @@
 <meta name="author" content="Ph.A.Upravitelev" />
 
 
-<meta name="date" content="2023-10-12" />
+<meta name="date" content="2023-10-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -305,6 +305,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#level-3-hmp"><i class="fa fa-check"></i>level 3 (HMP)</a></li>
 <li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#level-4-uv"><i class="fa fa-check"></i>level 4 (UV)</a></li>
 <li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#level-5-n"><i class="fa fa-check"></i>level 5 (N)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html"><i class="fa fa-check"></i>data.table pt3</a>
+<ul>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#запись-занятия-4"><i class="fa fa-check"></i>Запись занятия</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#разбор-домашней-работы-2"><i class="fa fa-check"></i>Разбор домашней работы</a>
+<ul>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#level-3-hmp-1"><i class="fa fa-check"></i>level 3 (HMP)</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#level-4-uv-1"><i class="fa fa-check"></i>level 4 (UV)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#манипуляции-с-таблицами-1"><i class="fa fa-check"></i>Манипуляции с таблицами</a>
+<ul>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#long-wide-форматы-данных"><i class="fa fa-check"></i>long / wide-форматы данных</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#dcast"><i class="fa fa-check"></i>dcast()</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#melt"><i class="fa fa-check"></i>melt()</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#соотношение-list-и-в-операциях-над-колонками."><i class="fa fa-check"></i>Соотношение list() и <code>:=</code> в операциях над колонками.</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#домашнее-задание-5"><i class="fa fa-check"></i>Домашнее задание</a>
+<ul>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#level-1-iatytd-1"><i class="fa fa-check"></i>level 1 (IATYTD)</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#level-2-hntr-1"><i class="fa fa-check"></i>level 2 (HNTR)</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#level-3-hmp-2"><i class="fa fa-check"></i>level 3 (HMP)</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#level-4-uv-2"><i class="fa fa-check"></i>level 4 (UV)</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#level-5-n-1"><i class="fa fa-check"></i>level 5 (N)</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -791,7 +815,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## [1] 12</code></pre>
 <div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="data.table-pt1.html#cb197-1" aria-hidden="true" tabindex="-1"></a><span class="co"># вычисление среднего значения по какой-то колонке</span></span>
 <span id="cb197-2"><a href="data.table-pt1.html#cb197-2" aria-hidden="true" tabindex="-1"></a>dt1[, <span class="fu">mean</span>(new_col_2)]</span></code></pre></div>
-<pre><code>## [1] 0.5354803</code></pre>
+<pre><code>## [1] 0.5576797</code></pre>
 </div>
 <div id="группировка-по-нескольким-полям" class="section level3 unnumbered hasAnchor">
 <h3>Группировка по нескольким полям<a href="data.table-pt1.html#группировка-по-нескольким-полям" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -808,7 +832,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb199-10"><a href="data.table-pt1.html#cb199-10" aria-hidden="true" tabindex="-1"></a><span class="co"># в результате получаем вторую табличку</span></span>
 <span id="cb199-11"><a href="data.table-pt1.html#cb199-11" aria-hidden="true" tabindex="-1"></a>dt2</span></code></pre></div>
 <pre><code>##    n_rows new_col_1_mn new_col_2_md
-## 1:     12   -0.4396481    0.6272924</code></pre>
+## 1:     12   -0.2908332     0.539535</code></pre>
 <!-- ## Соотношение list() и `:=` в операциях над колонками. -->
 <!-- Нередко многие путаются в синтаксисе создания новых колонок и в выражении `list()`. Различие следующее: -->
 <!-- ```{r} -->
@@ -840,18 +864,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Например:</p>
 <div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="data.table-pt1.html#cb201-1" aria-hidden="true" tabindex="-1"></a><span class="co"># смотрим содержание таблицы</span></span>
 <span id="cb201-2"><a href="data.table-pt1.html#cb201-2" aria-hidden="true" tabindex="-1"></a>dt1[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
-<pre><code>##    month_names month_abb month_ord is_winter month_ord_sqrt  new_col_1
-## 1:     January       Jan         1      TRUE       1.000000 -0.2252635
-## 2:    February       Feb         2      TRUE       1.414214 -0.1282866
-## 3:       March       Mar         3     FALSE       1.732051 -0.6563281
-## 4:       April       Apr         4     FALSE       2.000000  0.3094759
-## 5:         May       May         5     FALSE       2.236068  0.8596518
+<pre><code>##    month_names month_abb month_ord is_winter month_ord_sqrt   new_col_1
+## 1:     January       Jan         1      TRUE       1.000000 -0.45663026
+## 2:    February       Feb         2      TRUE       1.414214  1.35650201
+## 3:       March       Mar         3     FALSE       1.732051 -0.05190682
+## 4:       April       Apr         4     FALSE       2.000000  1.23172415
+## 5:         May       May         5     FALSE       2.236068  0.29295544
 ##    new_col_2
-## 1: 0.9052890
-## 2: 0.6221405
-## 3: 0.7389963
-## 4: 0.4892931
-## 5: 0.6376371</code></pre>
+## 1: 0.8214500
+## 2: 0.5469062
+## 3: 0.7340156
+## 4: 0.8997922
+## 5: 0.1560612</code></pre>
 <div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="data.table-pt1.html#cb203-1" aria-hidden="true" tabindex="-1"></a><span class="co"># выделяем первую и третью колонки датасета</span></span>
 <span id="cb203-2"><a href="data.table-pt1.html#cb203-2" aria-hidden="true" tabindex="-1"></a>dt1[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, .SD, .SDcols <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)]</span></code></pre></div>
 <pre><code>##    month_names month_ord
@@ -931,15 +955,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>для генерации времени поможет функция <code>as.POSIXct()</code>, плюс есть немного справочных материалов в учебнике: <a href="https://textbook.rintro.ru/objects.html#objects-time">раз</a>, <a href="https://textbook.rintro.ru/manipulations.html#manipulations-time">два</a></li>
 </ul>
 <pre><code>##       uid sid            login_ts session_length
-## 1: user_1   1 2023-09-04 08:05:03            598
-## 2: user_1   2 2023-09-04 11:01:51            420
-## 3: user_1   3 2023-09-05 00:12:16            316
-## 4: user_1   4 2023-09-05 15:28:15            562
-## 5: user_1   5 2023-09-06 04:41:31            495
-## 6: user_2   1 2023-09-06 14:25:46            493</code></pre>
+## 1: user_1   1 2023-09-01 01:18:48            232
+## 2: user_1   2 2023-09-01 01:38:35            227
+## 3: user_1   3 2023-09-01 08:40:59            231
+## 4: user_1   4 2023-09-01 16:23:07            300
+## 5: user_1   5 2023-09-02 22:09:18            158
+## 6: user_2   1 2023-09-03 17:25:48            298</code></pre>
 <p>Статистики:</p>
 <pre><code>##    n_users total_sessions session_per_user session_length_mn
-## 1:       3             15                5             375.5</code></pre>
+## 1:       3             15                5             339.5</code></pre>
 
 </div>
 </div>

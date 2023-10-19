@@ -23,7 +23,7 @@
 <meta name="author" content="Ph.A.Upravitelev" />
 
 
-<meta name="date" content="2023-10-12" />
+<meta name="date" content="2023-10-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -307,6 +307,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#level-5-n"><i class="fa fa-check"></i>level 5 (N)</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html"><i class="fa fa-check"></i>data.table pt3</a>
+<ul>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#запись-занятия-4"><i class="fa fa-check"></i>Запись занятия</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#разбор-домашней-работы-2"><i class="fa fa-check"></i>Разбор домашней работы</a>
+<ul>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#level-3-hmp-1"><i class="fa fa-check"></i>level 3 (HMP)</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#level-4-uv-1"><i class="fa fa-check"></i>level 4 (UV)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#манипуляции-с-таблицами-1"><i class="fa fa-check"></i>Манипуляции с таблицами</a>
+<ul>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#long-wide-форматы-данных"><i class="fa fa-check"></i>long / wide-форматы данных</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#dcast"><i class="fa fa-check"></i>dcast()</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#melt"><i class="fa fa-check"></i>melt()</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#соотношение-list-и-в-операциях-над-колонками."><i class="fa fa-check"></i>Соотношение list() и <code>:=</code> в операциях над колонками.</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#домашнее-задание-5"><i class="fa fa-check"></i>Домашнее задание</a>
+<ul>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#level-1-iatytd-1"><i class="fa fa-check"></i>level 1 (IATYTD)</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#level-2-hntr-1"><i class="fa fa-check"></i>level 2 (HNTR)</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#level-3-hmp-2"><i class="fa fa-check"></i>level 3 (HMP)</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#level-4-uv-2"><i class="fa fa-check"></i>level 4 (UV)</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#level-5-n-1"><i class="fa fa-check"></i>level 5 (N)</a></li>
+</ul></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -375,9 +399,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>sample()</code> — создание последовательности случайно выбранных значений из какого-то заданного вектора значений. Первый аргумент задает выборку, из которой необходимо извлечь подвыборку, второй аргумент (<code>size</code>) определяет объем извлекаемой выборки. Аргумент <code>replace</code> определяет, выборка извлекается с возвращением элементов или нет:</li>
 </ul>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="vectors.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">size =</span> <span class="dv">5</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<pre><code>## [1] 2 4 5 3 1</code></pre>
+<pre><code>## [1] 1 5 2 3 4</code></pre>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="vectors.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">size =</span> <span class="dv">5</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<pre><code>## [1] 3 1 5 4 4</code></pre>
+<pre><code>## [1] 1 1 3 3 2</code></pre>
 </div>
 <div id="приведение-типов" class="section level3 unnumbered hasAnchor">
 <h3>Приведение типов<a href="vectors.html#приведение-типов" class="anchor-section" aria-label="Anchor link to header"></a></h3>

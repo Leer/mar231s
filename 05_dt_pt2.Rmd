@@ -225,7 +225,7 @@ cbind(dt1, dt2)
 ```{r, echo = FALSE}
 library(data.table)
 sw <- fread('http://bit.ly/39aOUne')
-str(sw)
+# str(sw)
 ```
 
 
@@ -256,8 +256,6 @@ sw[, .N, by = gender_2]
  - сделайте сводную таблицу `planet_chars` по персонажам каждой планеты, где в колонках будет количество персонажей, их средний рост и вес (оригинальный и скорректированный).
  
  - округлите значения до 1 знака после запятой
-
- - выполните предыдущее задание без создания промежуточной колонки `gender_2`
 
 Первые 5 строк результата:
 ```{r, echo = FALSE}
@@ -300,5 +298,50 @@ planet_chars[1:5]
 
 
 
+```{r, echo=FALSE, include=FALSE}
+library(data.table)
+
+my_dt <- data.table(
+  user_id = paste('uid', seq_len(180), sep = '_'),
+  user_type = sample(c('short', 'medium', 'long'), 180, replace = TRUE)
+)
+
+my_dt[, n_sessions := sample(10, 1), by = user_id]
+my_dt_sessions <- my_dt[, list(
+  login_ts = sample(
+    seq(as.POSIXct("2023-09-01 00:00:00"), as.POSIXct("2023-09-09 23:59:59"), by = "s"), 
+    n_sessions)
+  ), by = list(user_id, user_type)]
+
+my_dt_sessions <- my_dt_sessions[order(user_id, login_ts)]
+my_dt_sessions[, session_num := seq_len(.N), by = user_id]
+my_dt_sessions[, session_coeff := fcase(
+  user_type == 'short', (1 + runif(1, 0.00001, 1)),
+  user_type == 'medium', (1 + runif(1, 1.00001, 3)),
+  user_type == 'long', (1 + runif(1, 5.00001, 7))
+), by = user_id]
+
+my_dt_sessions[, session_length := sample(120:600, .N, replace = TRUE) * session_coeff]
+my_dt_sessions[, logout_ts := login_ts + session_length]
+my_dt_sessions[, since_last_login := login_ts - shift(logout_ts), by = user_id]
+
+rbind(
+  my_dt_sessions[, list(
+    n_users = uniqueN(user_id),
+    n_session_mn = round(.N / uniqueN(user_id), 2),
+    session_length_mn = round(mean(session_length)),
+    since_last_login_mn = round(mean(since_last_login, na.rm = TRUE))
+    ),
+    by = user_type],
+  my_dt_sessions[, list(
+    user_type = 'total',
+    n_users = uniqueN(user_id),
+    n_session_mn = round(.N / uniqueN(user_id), 2),
+    session_length_mn = round(mean(session_length)),
+    since_last_login_mn = round(mean(since_last_login, na.rm = TRUE))
+    )]  
+)
+
+```
 
 

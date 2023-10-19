@@ -115,12 +115,12 @@ head(my_dt)
 
 ```
 ##       uid sid            login_ts session_length
-## 1: user_1   1 2023-09-01 11:16:49            410
-## 2: user_1   2 2023-09-01 15:23:25            487
-## 3: user_1   3 2023-09-02 01:51:42            310
-## 4: user_1   4 2023-09-02 01:52:43            321
-## 5: user_1   5 2023-09-02 08:45:17            499
-## 6: user_2   1 2023-09-02 21:18:47            254
+## 1: user_1   1 2023-09-01 09:51:54            580
+## 2: user_1   2 2023-09-01 18:24:08            464
+## 3: user_1   3 2023-09-02 14:23:18            375
+## 4: user_1   4 2023-09-03 17:51:01            193
+## 5: user_1   5 2023-09-04 23:43:11            590
+## 6: user_2   1 2023-09-05 13:53:27            298
 ```
 
 
@@ -335,12 +335,12 @@ rbind(dt1, dt2, fill = TRUE)
 
 ```
 ##         tb col1           col3 col2           col4
-## 1: table_1    3 only in table1    n           <NA>
-## 2: table_1    7 only in table1    z           <NA>
-## 3: table_1    4 only in table1    g           <NA>
-## 4: table_2    6           <NA>    l only in table2
-## 5: table_2    4           <NA>    u only in table2
-## 6: table_2    3           <NA>    w only in table2
+## 1: table_1    6 only in table1    w           <NA>
+## 2: table_1    4 only in table1    b           <NA>
+## 3: table_1    2 only in table1    r           <NA>
+## 4: table_2    6           <NA>    q only in table2
+## 5: table_2    9           <NA>    o only in table2
+## 6: table_2    2           <NA>    t only in table2
 ```
 
 
@@ -360,9 +360,9 @@ print(dt1)
 
 ```
 ##         tb col1           col3 col2
-## 1: table_1    3 only in table1    n
-## 2: table_1    7 only in table1    z
-## 3: table_1    4 only in table1    g
+## 1: table_1    6 only in table1    w
+## 2: table_1    4 only in table1    b
+## 3: table_1    2 only in table1    r
 ```
 
 ```r
@@ -371,9 +371,9 @@ print(dt2)
 
 ```
 ##         tb           col4 col1 col2
-## 1: table_2 only in table2    6    l
-## 2: table_2 only in table2    4    u
-## 3: table_2 only in table2    3    w
+## 1: table_2 only in table2    6    q
+## 2: table_2 only in table2    9    o
+## 3: table_2 only in table2    2    t
 ```
 
 ```r
@@ -390,9 +390,9 @@ cbind(dt1, dt2)
 
 ```
 ##         tb col1           col3 col2 indx      tb           col4 col1 col2 indx
-## 1: table_1    3 only in table1    n    1 table_2 only in table2    3    w    3
-## 2: table_1    7 only in table1    z    2 table_2 only in table2    4    u    2
-## 3: table_1    4 only in table1    g    3 table_2 only in table2    6    l    1
+## 1: table_1    6 only in table1    w    1 table_2 only in table2    2    t    3
+## 2: table_1    4 only in table1    b    2 table_2 only in table2    9    o    2
+## 3: table_1    2 only in table1    r    3 table_2 only in table2    6    q    1
 ```
 
 В целом, `cbind()` --- весьма редко используемый способ объединения таблиц. Его стоит использовать только тогда, когда есть однозначная уверенность в структуре данных (одинаковое количество строк, разные названия колонок, идентичная сортировка и т. д.), в противном случае это место, в котором очень легко ошибиться, при этом эту ошибку будет очень сложно найти.
@@ -405,16 +405,6 @@ cbind(dt1, dt2)
 
 Импортируйте данные по Star Wars, файл по ссылке: http://bit.ly/39aOUne. Посмотрите структуру объекта. Посчитайте, сколько в таблице строк. 
 
-```
-## Classes 'data.table' and 'data.frame':	77 obs. of  6 variables:
-##  $ name       : chr  "Luke Skywalker" "C-3PO" "Darth Vader" "Owen Lars" ...
-##  $ height     : int  172 167 202 178 165 97 183 188 163 183 ...
-##  $ mass       : num  77 75 136 120 75 32 84 84 NA NA ...
-##  $ skin_color : chr  "fair" "gold" "white" "light" ...
-##  $ gender     : chr  "male" "n/a" "male" "male" ...
-##  $ planet_name: chr  "Tatooine" "Tatooine" "Tatooine" "Tatooine" ...
-##  - attr(*, ".internal.selfref")=<externalptr>
-```
 
 
 ### level 2 (HNTR) {-}
@@ -446,8 +436,6 @@ cbind(dt1, dt2)
  - сделайте сводную таблицу `planet_chars` по персонажам каждой планеты, где в колонках будет количество персонажей, их средний рост и вес (оригинальный и скорректированный).
  
  - округлите значения до 1 знака после запятой
-
- - выполните предыдущее задание без создания промежуточной колонки `gender_2`
 
 Первые 5 строк результата:
 
@@ -484,6 +472,7 @@ cbind(dt1, dt2)
   - средний интервал между концом одной сессии и началом другой сессии (обратите внимание на функцию `shift`)
 
 Расчеты в группах по `user_type` и `total` (без группировки). В итоговой таблице должно быть 4 строки и 5 колонок.
+
 
 
 
