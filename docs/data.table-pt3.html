@@ -23,7 +23,7 @@
 <meta name="author" content="Ph.A.Upravitelev" />
 
 
-<meta name="date" content="2023-10-19" />
+<meta name="date" content="2023-11-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="data.table-pt2.html"/>
-
+<link rel="next" href="dt-etl.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -52,6 +52,13 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.10.2/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -317,6 +324,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#манипуляции-с-таблицами-1"><i class="fa fa-check"></i>Манипуляции с таблицами</a>
 <ul>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#merge"><i class="fa fa-check"></i>merge()</a></li>
 <li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#long-wide-форматы-данных"><i class="fa fa-check"></i>long / wide-форматы данных</a></li>
 <li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#dcast"><i class="fa fa-check"></i>dcast()</a></li>
 <li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#melt"><i class="fa fa-check"></i>melt()</a></li>
@@ -330,6 +338,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#level-4-uv-2"><i class="fa fa-check"></i>level 4 (UV)</a></li>
 <li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#level-5-n-1"><i class="fa fa-check"></i>level 5 (N)</a></li>
 </ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html"><i class="fa fa-check"></i>dt + ETL</a>
+<ul>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#запись-занятия-5"><i class="fa fa-check"></i>Запись занятия</a></li>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#разбор-домашней-работы-3"><i class="fa fa-check"></i>Разбор домашней работы</a>
+<ul>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#level-3-hmp-3"><i class="fa fa-check"></i>level 3 (HMP)</a></li>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#level-4-uv-3"><i class="fa fa-check"></i>level 4 (UV)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#etl"><i class="fa fa-check"></i>ETL</a>
+<ul>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#чтение-и-запись-текстовых-файлов"><i class="fa fa-check"></i>Чтение и запись текстовых файлов</a></li>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#чтение-файлов-ms-excel"><i class="fa fa-check"></i>Чтение файлов MS Excel</a></li>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#чтение-файлов-spss"><i class="fa fa-check"></i>Чтение файлов SPSS</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#дополнительная-литература"><i class="fa fa-check"></i>Дополнительная литература</a></li>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#домашнее-задание-6"><i class="fa fa-check"></i>Домашнее задание</a>
+<ul>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#level-1-iatytd-2"><i class="fa fa-check"></i>level 1 (IATYTD)</a></li>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#level-2-hntr-2"><i class="fa fa-check"></i>level 2 (HNTR)</a></li>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#level-3-hmp-4"><i class="fa fa-check"></i>level 3 (HMP)</a></li>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#level-4-uv-4"><i class="fa fa-check"></i>level 4 (UV)</a></li>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#level-5-n-2"><i class="fa fa-check"></i>level 5 (N)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="hw-1.html"><a href="hw-1.html"><i class="fa fa-check"></i>HW 1</a>
+<ul>
+<li class="chapter" data-level="" data-path="hw-1.html"><a href="hw-1.html#общие-замечания"><i class="fa fa-check"></i>Общие замечания</a></li>
+<li class="chapter" data-level="" data-path="hw-1.html"><a href="hw-1.html#задание-1.-дома-в-игре-престолов."><i class="fa fa-check"></i>Задание 1. Дома в Игре престолов.</a>
+<ul>
+<li class="chapter" data-level="" data-path="hw-1.html"><a href="hw-1.html#импорт-данных"><i class="fa fa-check"></i>импорт данных</a></li>
+<li class="chapter" data-level="" data-path="hw-1.html"><a href="hw-1.html#чистка-данных"><i class="fa fa-check"></i>чистка данных</a></li>
+<li class="chapter" data-level="" data-path="hw-1.html"><a href="hw-1.html#график-численности-кланов"><i class="fa fa-check"></i>график численности кланов</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="hw-1.html"><a href="hw-1.html#задание-2.-агрессивность-персонажей-в-книгах-о-гарри-поттере."><i class="fa fa-check"></i>Задание 2. Агрессивность персонажей в книгах о Гарри Поттере.</a></li>
+<li class="chapter" data-level="" data-path="hw-1.html"><a href="hw-1.html#задание-3.-динамика-среднегодовой-температуры-в-период-1750-2015"><i class="fa fa-check"></i>Задание 3. Динамика среднегодовой температуры в период 1750-2015</a></li>
 </ul></li>
 </ul>
 
@@ -413,38 +457,129 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="манипуляции-с-таблицами-1" class="section level2 hasAnchor">
 <h2>Манипуляции с таблицами<a href="data.table-pt3.html#манипуляции-с-таблицами-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="merge" class="section level3 unnumbered hasAnchor">
+<h3>merge()<a href="data.table-pt3.html#merge" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Одна из самых, наверное, важных операций при работе с таблицами - построчное слияние двух или нескольких таблиц. При использовании функции <code>merge()</code> каждому значению в ключевой колонке первой таблицы сопоставляется строка параметров наблюдения другой таблицы, с таким же значением в ключевой колонке, как и в первой таблице. В других языках программирования, в SQL, в частности, аналогичная функция может называться <code>join</code>.
+Несмотря на сложность формулировки, выглядит это достаточно просто:</p>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="data.table-pt3.html#cb261-1" aria-hidden="true" tabindex="-1"></a><span class="co"># создаем датасет 1, в синтасисе data.table</span></span>
+<span id="cb261-2"><a href="data.table-pt3.html#cb261-2" aria-hidden="true" tabindex="-1"></a>dt1 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">key_col =</span> <span class="fu">c</span>(<span class="st">&#39;r1&#39;</span>, <span class="st">&#39;r2&#39;</span>, <span class="st">&#39;r3&#39;</span>),</span>
+<span id="cb261-3"><a href="data.table-pt3.html#cb261-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">col_num =</span> <span class="fu">seq_len</span>(<span class="dv">3</span>))</span>
+<span id="cb261-4"><a href="data.table-pt3.html#cb261-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb261-5"><a href="data.table-pt3.html#cb261-5" aria-hidden="true" tabindex="-1"></a><span class="co"># создаем датасет 2, в синтасисе data.table</span></span>
+<span id="cb261-6"><a href="data.table-pt3.html#cb261-6" aria-hidden="true" tabindex="-1"></a>dt2 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">key_col =</span> <span class="fu">c</span>(<span class="st">&#39;r3&#39;</span>, <span class="st">&#39;r1&#39;</span>, <span class="st">&#39;r2&#39;</span>),</span>
+<span id="cb261-7"><a href="data.table-pt3.html#cb261-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">col_char =</span> <span class="fu">c</span>(<span class="st">&#39;c&#39;</span>, <span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>))</span>
+<span id="cb261-8"><a href="data.table-pt3.html#cb261-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb261-9"><a href="data.table-pt3.html#cb261-9" aria-hidden="true" tabindex="-1"></a><span class="co"># сливаем построчно по значениям в колонке key_col</span></span>
+<span id="cb261-10"><a href="data.table-pt3.html#cb261-10" aria-hidden="true" tabindex="-1"></a><span class="fu">merge</span>(<span class="at">x =</span> dt1, <span class="at">y =</span> dt2, <span class="at">by =</span> <span class="st">&#39;key_col&#39;</span>)</span></code></pre></div>
+<pre><code>##    key_col col_num col_char
+## 1:      r1       1        a
+## 2:      r2       2        b
+## 3:      r3       3        c</code></pre>
+<p>Здесь первая таблица задается аргументом <code>x</code>, вторая таблица - аргументом <code>y</code>, а колонка (или колонки), по значениям которой происходит слияние таблиц, задается аргументом <code>by</code>. Если аргумент <code>by</code> не указан, то слияние происходит по тем колонкам, которые имеют одинаковое название в сливаемых таблицах. Притом, таблицы можно сливать по значениям колонок разными именами, тогда надо отдельно указать, по значениям каких колонок в первой и второй таблице происходит слияние, и для этого вместо общего аргумента <code>by</code> используют аргументы <code>by.x</code> и <code>by.y</code> для первой и второй таблицы соответственно.</p>
+<p>В первом приближении операция слияния <code>merge()</code> похожа на результат работы функции <code>cbind()</code>. Однако, из-за того, что при слиянии происходит сопоставление по значениям ключевых колонок, в результате получается решается проблема слияния колонок, в которых разный порядок строк. Сравните:</p>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="data.table-pt3.html#cb263-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(dt1, dt2)</span></code></pre></div>
+<pre><code>##    key_col col_num key_col col_char
+## 1:      r1       1      r3        c
+## 2:      r2       2      r1        a
+## 3:      r3       3      r2        b</code></pre>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="data.table-pt3.html#cb265-1" aria-hidden="true" tabindex="-1"></a><span class="fu">merge</span>(<span class="at">x =</span> dt1, <span class="at">y =</span> dt2, <span class="at">by =</span> <span class="st">&#39;key_col&#39;</span>)</span></code></pre></div>
+<pre><code>##    key_col col_num col_char
+## 1:      r1       1        a
+## 2:      r2       2        b
+## 3:      r3       3        c</code></pre>
+<p>Второе существенное отличие от <code>cbind()</code> - обработка ситуаций, когда в таблицах разное количество наблюдений. Например, в первой таблице данные по первой волне опросов, а во второй - данные по тем, кто из принявших участие в первой волне, принял участие и во второй волне, а так же какие-то новые опрошенные респонденты. Разное количество наблюдений в сливаемых таблицах порождает четыре варианта слияния, все они задаются аргументом <code>all</code> с постфикасми.</p>
+<p>Варианты направлений слияния (мерджа) таблиц:</p>
+<ul>
+<li><code>all</code> = FALSE. Значение аргумента по умолчанию, в результате слияния будет таблица с наблюдениями, которые есть и в первой, и во второй таблице. То есть, наблюдения из первой таблицы, которым нет сопоставления из второй таблицы, отбрасываются. В примере с волнами это будет таблица только по тем, кто принял участи и в первой, и во второй волнах опросов:</li>
+</ul>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="data.table-pt3.html#cb267-1" aria-hidden="true" tabindex="-1"></a><span class="co"># сливаем так, чтобы оставить только тех, кто был в обеих таблицах, это значение по умолчанию</span></span>
+<span id="cb267-2"><a href="data.table-pt3.html#cb267-2" aria-hidden="true" tabindex="-1"></a><span class="fu">merge</span>(<span class="at">x =</span> dt1, <span class="at">y =</span> dt2, <span class="at">by =</span> <span class="st">&#39;key_col&#39;</span>, <span class="at">all =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>##    key_col col_num col_char
+## 1:      r1       1        a
+## 2:      r2       2        b
+## 3:      r3       3        c</code></pre>
+<ul>
+<li><code>all.x</code> = TRUE. Всем наблюдениям из первой таблицы сопоставляются значения из второй. Если во второй таблице нет соответствующих наблюдений, то пропуски заполняются <code>NA</code>-значениями (в нашем примере в колонке <code>col2</code>):</li>
+</ul>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="data.table-pt3.html#cb269-1" aria-hidden="true" tabindex="-1"></a><span class="fu">merge</span>(<span class="at">x =</span> dt1, <span class="at">y =</span> dt2, <span class="at">by =</span> <span class="st">&#39;key_col&#39;</span>, <span class="at">all.x =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>##    key_col col_num col_char
+## 1:      r1       1        a
+## 2:      r2       2        b
+## 3:      r3       3        c</code></pre>
+<ul>
+<li><code>all.y</code> = TRUE. Обратная ситуация, когда всем наблюдениям из второй таблицы сопоставляются значения из первой, и пропущенные значения заполняются <code>NA</code>-значениями (в нашем примере в колонке <code>co12</code>):</li>
+</ul>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="data.table-pt3.html#cb271-1" aria-hidden="true" tabindex="-1"></a><span class="fu">merge</span>(<span class="at">x =</span> dt1, <span class="at">y =</span> dt2, <span class="at">by =</span> <span class="st">&#39;key_col&#39;</span>, <span class="at">all.y =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>##    key_col col_num col_char
+## 1:      r1       1        a
+## 2:      r2       2        b
+## 3:      r3       3        c</code></pre>
+<ul>
+<li><code>all</code> = TRUE. Объединение предыдущих двух вариантов - создается таблица по всему набору уникальных значений из ключевых таблиц, по которым происходит слияние. и если в какой-то из таблиц нет соответствующих наблюдений, то пропуски также заполняются <code>NA</code>-значениями:</li>
+</ul>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="data.table-pt3.html#cb273-1" aria-hidden="true" tabindex="-1"></a><span class="fu">merge</span>(<span class="at">x =</span> dt1, <span class="at">y =</span> dt2, <span class="at">by =</span> <span class="st">&#39;key_col&#39;</span>, <span class="at">all =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>##    key_col col_num col_char
+## 1:      r1       1        a
+## 2:      r2       2        b
+## 3:      r3       3        c</code></pre>
+<p>При работе с несколькими таблицами можно столкнуться с ограничением, что базовая функциz <code>merge()</code> работает только с парами таблиц. То есть, если вдруг необходимо слить по одному ключу сразу несколько таблиц (например, не две волны опросов, а пять), то придется строить последовательные цепочки попарных слияний.</p>
+<p><strong>Alarm!</strong>
+Необходимо помнить, что в ситуациях, когда одному значению ключа в первой таблице соответствует одна строка, а во второй таблице - несколько строк, то в результате слияния таблиц значения из первой таблицы размножатся по количеству строк во второй таблице:</p>
+<p>Создаем данные:</p>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="data.table-pt3.html#cb275-1" aria-hidden="true" tabindex="-1"></a><span class="co"># создаем датасет 1, в синтасисе data.table</span></span>
+<span id="cb275-2"><a href="data.table-pt3.html#cb275-2" aria-hidden="true" tabindex="-1"></a>dt1 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">key_col =</span> <span class="fu">c</span>(<span class="st">&#39;r1&#39;</span>, <span class="st">&#39;r2&#39;</span>, <span class="st">&#39;r3&#39;</span>, <span class="st">&#39;r4&#39;</span>, <span class="st">&#39;r1&#39;</span>),</span>
+<span id="cb275-3"><a href="data.table-pt3.html#cb275-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">col_num =</span> <span class="fu">seq_len</span>(<span class="dv">5</span>))</span>
+<span id="cb275-4"><a href="data.table-pt3.html#cb275-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb275-5"><a href="data.table-pt3.html#cb275-5" aria-hidden="true" tabindex="-1"></a><span class="co"># создаем датасет 2, в синтасисе data.table</span></span>
+<span id="cb275-6"><a href="data.table-pt3.html#cb275-6" aria-hidden="true" tabindex="-1"></a>dt2 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">key_col =</span> <span class="fu">c</span>(<span class="st">&#39;r3&#39;</span>, <span class="st">&#39;r1&#39;</span>, <span class="st">&#39;r2&#39;</span>, <span class="st">&#39;r5&#39;</span>, <span class="st">&#39;r1&#39;</span>, <span class="st">&#39;r1&#39;</span>),</span>
+<span id="cb275-7"><a href="data.table-pt3.html#cb275-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">col_char =</span> <span class="fu">c</span>(<span class="st">&#39;c&#39;</span>, <span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;d&#39;</span>, <span class="st">&#39;e&#39;</span>, <span class="st">&#39;f&#39;</span>))</span></code></pre></div>
+<p>Тут мы видим, что в первой таблице есть две строки с <code>key_col = r1</code>, а во второй таблице – три строки.</p>
+<p>Сливаем и получаем размножение значений из первой таблицы для ключа <code>key_col = r1</code>, значения <code>1</code> и <code>5</code> из колонки <code>col1</code> теперь встречается три раза. А значения <code>a</code>, <code>e</code> и <code>f</code> встречаются по два раза:</p>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="data.table-pt3.html#cb276-1" aria-hidden="true" tabindex="-1"></a><span class="fu">merge</span>(dt1, dt2, <span class="at">by =</span> <span class="st">&#39;key_col&#39;</span>, <span class="at">all.x =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>##    key_col col_num col_char
+## 1:      r1       1        a
+## 2:      r1       1        e
+## 3:      r1       1        f
+## 4:      r1       5        a
+## 5:      r1       5        e
+## 6:      r1       5        f
+## 7:      r2       2        b
+## 8:      r3       3        c
+## 9:      r4       4     &lt;NA&gt;</code></pre>
+<p>То есть три значения из второй таблицы повторились для каждого значения из первой таблицы. В результате у нас получилось шесть строк.</p>
+</div>
 <div id="long-wide-форматы-данных" class="section level3 unnumbered hasAnchor">
 <h3>long / wide-форматы данных<a href="data.table-pt3.html#long-wide-форматы-данных" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Обычная форма представления данных в таблицах — когда одна строка является одним наблюдением, а в значениях колонок отражены те или иные характеристики этого наблюдения. Такой формат традиционно называется <code>wide</code>-форматом, потому что при увеличении количества характеристик таблица будет расти вширь, путем увеличения числа колонок. Пример таблицы в <code>wide</code>-формате.</p>
-<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="data.table-pt3.html#cb261-1" aria-hidden="true" tabindex="-1"></a><span class="co"># создаем таблицу с идентификатором респондента, его возрастом, ростом и весом</span></span>
-<span id="cb261-2"><a href="data.table-pt3.html#cb261-2" aria-hidden="true" tabindex="-1"></a>dt_wide <span class="ot">&lt;-</span> <span class="fu">data.table</span>(</span>
-<span id="cb261-3"><a href="data.table-pt3.html#cb261-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">wave =</span> <span class="fu">paste0</span>(<span class="st">&#39;wave_&#39;</span>, <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">each =</span> <span class="dv">2</span>)),</span>
-<span id="cb261-4"><a href="data.table-pt3.html#cb261-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">id =</span> <span class="fu">paste0</span>(<span class="st">&#39;id_&#39;</span>, <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)),</span>
-<span id="cb261-5"><a href="data.table-pt3.html#cb261-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">68</span>, <span class="dv">47</span>, <span class="dv">69</span>),</span>
-<span id="cb261-6"><a href="data.table-pt3.html#cb261-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="fu">c</span>(<span class="dv">163</span>, <span class="dv">142</span>, <span class="dv">164</span>, <span class="dv">140</span>),</span>
-<span id="cb261-7"><a href="data.table-pt3.html#cb261-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">weight =</span> <span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">47</span>))</span>
-<span id="cb261-8"><a href="data.table-pt3.html#cb261-8" aria-hidden="true" tabindex="-1"></a>dt_wide</span></code></pre></div>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="data.table-pt3.html#cb278-1" aria-hidden="true" tabindex="-1"></a><span class="co"># создаем таблицу с идентификатором респондента, его возрастом, ростом и весом</span></span>
+<span id="cb278-2"><a href="data.table-pt3.html#cb278-2" aria-hidden="true" tabindex="-1"></a>dt_wide <span class="ot">&lt;-</span> <span class="fu">data.table</span>(</span>
+<span id="cb278-3"><a href="data.table-pt3.html#cb278-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">wave =</span> <span class="fu">paste0</span>(<span class="st">&#39;wave_&#39;</span>, <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">each =</span> <span class="dv">2</span>)),</span>
+<span id="cb278-4"><a href="data.table-pt3.html#cb278-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">id =</span> <span class="fu">paste0</span>(<span class="st">&#39;id_&#39;</span>, <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)),</span>
+<span id="cb278-5"><a href="data.table-pt3.html#cb278-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">68</span>, <span class="dv">47</span>, <span class="dv">69</span>),</span>
+<span id="cb278-6"><a href="data.table-pt3.html#cb278-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="fu">c</span>(<span class="dv">163</span>, <span class="dv">142</span>, <span class="dv">164</span>, <span class="dv">140</span>),</span>
+<span id="cb278-7"><a href="data.table-pt3.html#cb278-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">weight =</span> <span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">47</span>))</span>
+<span id="cb278-8"><a href="data.table-pt3.html#cb278-8" aria-hidden="true" tabindex="-1"></a>dt_wide</span></code></pre></div>
 <pre><code>##      wave   id age height weight
 ## 1: wave_1 id_1  45    163     55
 ## 2: wave_1 id_2  68    142     40
 ## 3: wave_2 id_1  47    164     50
 ## 4: wave_2 id_2  69    140     47</code></pre>
 <p>Тем не менее, нередко встречается другой формат, в котором на одно наблюдение может приходиться несколько строк (по количеству измеренных характеристик этого наблюдения). В таком случае таблица состоит из колонки, в которой содержится какой-то идентификатор объекта, одной или нескольких колонок, в которых содержатся идентификаторы характеристик объекта, и колонки, в которой содержатся значения этих характеристик. Такой формат называется длинным, <code>long</code>-форматом данных, потому что при увеличении количества измеряемых характеристик таблица будет расти в длину увеличением строк.</p>
-<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="data.table-pt3.html#cb263-1" aria-hidden="true" tabindex="-1"></a><span class="co"># создаем таблицу с идентификатором респондента, его возрастом, ростом и весом</span></span>
-<span id="cb263-2"><a href="data.table-pt3.html#cb263-2" aria-hidden="true" tabindex="-1"></a>dt_long <span class="ot">&lt;-</span> <span class="fu">data.table</span>(</span>
-<span id="cb263-3"><a href="data.table-pt3.html#cb263-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># две волны, по два респондента в каждой</span></span>
-<span id="cb263-4"><a href="data.table-pt3.html#cb263-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">wave =</span> <span class="fu">paste0</span>(<span class="st">&#39;wave_&#39;</span>, <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">each =</span> <span class="dv">6</span>)),</span>
-<span id="cb263-5"><a href="data.table-pt3.html#cb263-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># на каждого респондента задаем три строки</span></span>
-<span id="cb263-6"><a href="data.table-pt3.html#cb263-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">id =</span> <span class="fu">paste0</span>(<span class="st">&#39;id_&#39;</span>, <span class="fu">rep</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">each =</span> <span class="dv">3</span>), <span class="dv">2</span>)),</span>
-<span id="cb263-7"><a href="data.table-pt3.html#cb263-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># три характеристики повторяем для четырех респондентов</span></span>
-<span id="cb263-8"><a href="data.table-pt3.html#cb263-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">variable =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&#39;age&#39;</span>, <span class="st">&#39;height&#39;</span>, <span class="st">&#39;weight&#39;</span>), <span class="dv">4</span>),</span>
-<span id="cb263-9"><a href="data.table-pt3.html#cb263-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># задаем значения характеристик, с учетом того, как упорядочены первые две колонки</span></span>
-<span id="cb263-10"><a href="data.table-pt3.html#cb263-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">value =</span> <span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">163</span>, <span class="dv">55</span>,</span>
-<span id="cb263-11"><a href="data.table-pt3.html#cb263-11" aria-hidden="true" tabindex="-1"></a>            <span class="dv">68</span>, <span class="dv">142</span>, <span class="dv">40</span>,</span>
-<span id="cb263-12"><a href="data.table-pt3.html#cb263-12" aria-hidden="true" tabindex="-1"></a>            <span class="dv">47</span>, <span class="dv">164</span>, <span class="dv">50</span>,</span>
-<span id="cb263-13"><a href="data.table-pt3.html#cb263-13" aria-hidden="true" tabindex="-1"></a>            <span class="dv">69</span>, <span class="dv">140</span>, <span class="dv">47</span>))</span>
-<span id="cb263-14"><a href="data.table-pt3.html#cb263-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb263-15"><a href="data.table-pt3.html#cb263-15" aria-hidden="true" tabindex="-1"></a>dt_long</span></code></pre></div>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="data.table-pt3.html#cb280-1" aria-hidden="true" tabindex="-1"></a><span class="co"># создаем таблицу с идентификатором респондента, его возрастом, ростом и весом</span></span>
+<span id="cb280-2"><a href="data.table-pt3.html#cb280-2" aria-hidden="true" tabindex="-1"></a>dt_long <span class="ot">&lt;-</span> <span class="fu">data.table</span>(</span>
+<span id="cb280-3"><a href="data.table-pt3.html#cb280-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># две волны, по два респондента в каждой</span></span>
+<span id="cb280-4"><a href="data.table-pt3.html#cb280-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">wave =</span> <span class="fu">paste0</span>(<span class="st">&#39;wave_&#39;</span>, <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">each =</span> <span class="dv">6</span>)),</span>
+<span id="cb280-5"><a href="data.table-pt3.html#cb280-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># на каждого респондента задаем три строки</span></span>
+<span id="cb280-6"><a href="data.table-pt3.html#cb280-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">id =</span> <span class="fu">paste0</span>(<span class="st">&#39;id_&#39;</span>, <span class="fu">rep</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">each =</span> <span class="dv">3</span>), <span class="dv">2</span>)),</span>
+<span id="cb280-7"><a href="data.table-pt3.html#cb280-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># три характеристики повторяем для четырех респондентов</span></span>
+<span id="cb280-8"><a href="data.table-pt3.html#cb280-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">variable =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&#39;age&#39;</span>, <span class="st">&#39;height&#39;</span>, <span class="st">&#39;weight&#39;</span>), <span class="dv">4</span>),</span>
+<span id="cb280-9"><a href="data.table-pt3.html#cb280-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># задаем значения характеристик, с учетом того, как упорядочены первые две колонки</span></span>
+<span id="cb280-10"><a href="data.table-pt3.html#cb280-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">value =</span> <span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">163</span>, <span class="dv">55</span>,</span>
+<span id="cb280-11"><a href="data.table-pt3.html#cb280-11" aria-hidden="true" tabindex="-1"></a>            <span class="dv">68</span>, <span class="dv">142</span>, <span class="dv">40</span>,</span>
+<span id="cb280-12"><a href="data.table-pt3.html#cb280-12" aria-hidden="true" tabindex="-1"></a>            <span class="dv">47</span>, <span class="dv">164</span>, <span class="dv">50</span>,</span>
+<span id="cb280-13"><a href="data.table-pt3.html#cb280-13" aria-hidden="true" tabindex="-1"></a>            <span class="dv">69</span>, <span class="dv">140</span>, <span class="dv">47</span>))</span>
+<span id="cb280-14"><a href="data.table-pt3.html#cb280-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb280-15"><a href="data.table-pt3.html#cb280-15" aria-hidden="true" tabindex="-1"></a>dt_long</span></code></pre></div>
 <pre><code>##       wave   id variable value
 ##  1: wave_1 id_1      age    45
 ##  2: wave_1 id_1   height   163
@@ -464,7 +599,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3>dcast()<a href="data.table-pt3.html#dcast" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Для того, чтобы трансформировать <code>long</code>-формат в <code>wide</code>-формат, используется функция <code>dcast()</code> пакета <code>data.table</code> (либо <code>cast()</code> пакета <code>reshape2</code>). Также можно использовать функцию <code>reshape()</code> из базового набора функций R, однако эта функция достаточно медленная по скорости работы.</p>
 <p>Для того, чтобы превратить созданную выше таблицу в <code>long</code>-формате в широкий формат, выражение будет выглядеть следующим образом (сама операция называется решейп):</p>
-<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="data.table-pt3.html#cb265-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dcast</span>(<span class="at">data =</span> dt_long, <span class="at">formula =</span> wave <span class="sc">+</span> id <span class="sc">~</span> variable, <span class="at">value.var =</span> <span class="st">&#39;value&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="data.table-pt3.html#cb282-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dcast</span>(<span class="at">data =</span> dt_long, <span class="at">formula =</span> wave <span class="sc">+</span> id <span class="sc">~</span> variable, <span class="at">value.var =</span> <span class="st">&#39;value&#39;</span>)</span></code></pre></div>
 <pre><code>##      wave   id age height weight
 ## 1: wave_1 id_1  45    163     55
 ## 2: wave_1 id_2  68    142     40
@@ -474,9 +609,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Аргумент <code>formula</code> задает, что в результирующей таблице будет задавать уникальное наблюдение, и значения какой колонки будут разделены на самостоятельные колонки. Формулу можно прочитать как <code>строки ~ колонки</code> в результирующей таблице. В нашем случае уникальное наблюдение мы задаем парой переменных <code>wave</code> и <code>id</code>, поэтому мы их указываем до тильды через <code>+</code>. Колонки же мы создаем по значениям переменной <code>variable</code>, после тильды. Следует отметить, что ситуация, когда строка задается несколькими переменными через оператор <code>+</code>, весьма частая, а вот в правой части формулы несколько переменных встречаются достаточно редко, обычно все же на колонки раскладывают по значениям одной переменной.</p>
 <p>Аргумент <code>value.var</code> содержит текстовое название переменной, значения которой будут отражены в результирующей таблице по колонкам для каждого наблюдения.</p>
 <p>Иногда случаются ситуации, когда необходимо провести сначала агрегацию по одной из колонок, описывающих наблюдение. Например, вычислить средние значения возраста, роста и веса для каждой волны. Это можно сделать в два этапа - сначала провести агрегацию, и потом решейп. Также можно сразу сделать решейп, и воспользоваться дополнительным аргументом <code>fun.aggregate</code>, который сразу, при решейпе, агрегирует данные. Например, если использовать сначала агрегацию, а потом трансформацию в <code>wide</code>-формат:</p>
-<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="data.table-pt3.html#cb267-1" aria-hidden="true" tabindex="-1"></a><span class="co"># агрегируем наблюдения по волнам и характеристикам</span></span>
-<span id="cb267-2"><a href="data.table-pt3.html#cb267-2" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> dt_long[, <span class="fu">list</span>(<span class="at">value =</span> <span class="fu">mean</span>(value)), by <span class="ot">=</span> <span class="fu">list</span>(wave, variable)]</span>
-<span id="cb267-3"><a href="data.table-pt3.html#cb267-3" aria-hidden="true" tabindex="-1"></a>tmp</span></code></pre></div>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="data.table-pt3.html#cb284-1" aria-hidden="true" tabindex="-1"></a><span class="co"># агрегируем наблюдения по волнам и характеристикам</span></span>
+<span id="cb284-2"><a href="data.table-pt3.html#cb284-2" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> dt_long[, <span class="fu">list</span>(<span class="at">value =</span> <span class="fu">mean</span>(value)), by <span class="ot">=</span> <span class="fu">list</span>(wave, variable)]</span>
+<span id="cb284-3"><a href="data.table-pt3.html#cb284-3" aria-hidden="true" tabindex="-1"></a>tmp</span></code></pre></div>
 <pre><code>##      wave variable value
 ## 1: wave_1      age  56.5
 ## 2: wave_1   height 152.5
@@ -484,13 +619,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4: wave_2      age  58.0
 ## 5: wave_2   height 152.0
 ## 6: wave_2   weight  48.5</code></pre>
-<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="data.table-pt3.html#cb269-1" aria-hidden="true" tabindex="-1"></a><span class="co"># трансформируем в wide-формат. колонки id уже нет в таблице, поэтому удаляем из формулы</span></span>
-<span id="cb269-2"><a href="data.table-pt3.html#cb269-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dcast</span>(<span class="at">data =</span> tmp, <span class="at">formula =</span> wave <span class="sc">~</span> variable, <span class="at">value.var =</span> <span class="st">&#39;value&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="data.table-pt3.html#cb286-1" aria-hidden="true" tabindex="-1"></a><span class="co"># трансформируем в wide-формат. колонки id уже нет в таблице, поэтому удаляем из формулы</span></span>
+<span id="cb286-2"><a href="data.table-pt3.html#cb286-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dcast</span>(<span class="at">data =</span> tmp, <span class="at">formula =</span> wave <span class="sc">~</span> variable, <span class="at">value.var =</span> <span class="st">&#39;value&#39;</span>)</span></code></pre></div>
 <pre><code>##      wave  age height weight
 ## 1: wave_1 56.5  152.5   47.5
 ## 2: wave_2 58.0  152.0   48.5</code></pre>
 <p>Аналогично, но с использованием аргумента <code>fun.aggregate</code>. В значения аргумента передаём название функции без кавычек и скобок, в нашем случае это <code>fun.aggregate = mean</code>:</p>
-<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="data.table-pt3.html#cb271-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dcast</span>(<span class="at">data =</span> tmp, <span class="at">formula =</span> wave <span class="sc">~</span> variable, <span class="at">value.var =</span> <span class="st">&#39;value&#39;</span>, <span class="at">fun.aggregate =</span> mean)</span></code></pre></div>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="data.table-pt3.html#cb288-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dcast</span>(<span class="at">data =</span> tmp, <span class="at">formula =</span> wave <span class="sc">~</span> variable, <span class="at">value.var =</span> <span class="st">&#39;value&#39;</span>, <span class="at">fun.aggregate =</span> mean)</span></code></pre></div>
 <pre><code>##      wave  age height weight
 ## 1: wave_1 56.5  152.5   47.5
 ## 2: wave_2 58.0  152.0   48.5</code></pre>
@@ -499,11 +634,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="melt" class="section level3 unnumbered hasAnchor">
 <h3>melt()<a href="data.table-pt3.html#melt" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Обратная трансформация также возможна, из <code>wide</code>-формата в <code>long</code>-формат. Для этого используется функция <code>melt()</code>:</p>
-<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="data.table-pt3.html#cb273-1" aria-hidden="true" tabindex="-1"></a><span class="fu">melt</span>(<span class="at">data =</span> dt_wide, </span>
-<span id="cb273-2"><a href="data.table-pt3.html#cb273-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">id.vars =</span> <span class="fu">c</span>(<span class="st">&#39;wave&#39;</span>, <span class="st">&#39;id&#39;</span>),</span>
-<span id="cb273-3"><a href="data.table-pt3.html#cb273-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">measure.vars =</span> <span class="fu">c</span>(<span class="st">&#39;age&#39;</span>, <span class="st">&#39;height&#39;</span>, <span class="st">&#39;weight&#39;</span>),</span>
-<span id="cb273-4"><a href="data.table-pt3.html#cb273-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">variable.name =</span> <span class="st">&#39;variable&#39;</span>,</span>
-<span id="cb273-5"><a href="data.table-pt3.html#cb273-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">value.name =</span> <span class="st">&#39;value&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="data.table-pt3.html#cb290-1" aria-hidden="true" tabindex="-1"></a><span class="fu">melt</span>(<span class="at">data =</span> dt_wide, </span>
+<span id="cb290-2"><a href="data.table-pt3.html#cb290-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">id.vars =</span> <span class="fu">c</span>(<span class="st">&#39;wave&#39;</span>, <span class="st">&#39;id&#39;</span>),</span>
+<span id="cb290-3"><a href="data.table-pt3.html#cb290-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">measure.vars =</span> <span class="fu">c</span>(<span class="st">&#39;age&#39;</span>, <span class="st">&#39;height&#39;</span>, <span class="st">&#39;weight&#39;</span>),</span>
+<span id="cb290-4"><a href="data.table-pt3.html#cb290-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">variable.name =</span> <span class="st">&#39;variable&#39;</span>,</span>
+<span id="cb290-5"><a href="data.table-pt3.html#cb290-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">value.name =</span> <span class="st">&#39;value&#39;</span>)</span></code></pre></div>
 <pre><code>##       wave   id variable value
 ##  1: wave_1 id_1      age    45
 ##  2: wave_1 id_2      age    68
@@ -523,8 +658,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="соотношение-list-и-в-операциях-над-колонками." class="section level2 hasAnchor">
 <h2>Соотношение list() и <code>:=</code> в операциях над колонками.<a href="data.table-pt3.html#соотношение-list-и-в-операциях-над-колонками." class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>На занятии я заметил, что многие путаются в синтаксисе создания новых колонок и в выражении <code>list()</code>. Различие следующее:</p>
-<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="data.table-pt3.html#cb275-1" aria-hidden="true" tabindex="-1"></a>sw[, new_value <span class="sc">:</span><span class="er">=</span> <span class="st">&#39;bla-bla-bla&#39;</span>]</span>
-<span id="cb275-2"><a href="data.table-pt3.html#cb275-2" aria-hidden="true" tabindex="-1"></a>sw[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="data.table-pt3.html#cb292-1" aria-hidden="true" tabindex="-1"></a>sw[, new_value <span class="sc">:</span><span class="er">=</span> <span class="st">&#39;bla-bla-bla&#39;</span>]</span>
+<span id="cb292-2"><a href="data.table-pt3.html#cb292-2" aria-hidden="true" tabindex="-1"></a>sw[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
 <pre><code>##                  name height mass skin_color gender planet_name gender_2
 ## 1:     Luke Skywalker    172   77       fair   male    Tatooine     male
 ## 2:              C-3PO    167   75       gold  other    Tatooine    other
@@ -538,9 +673,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4:            120     100.2 bla-bla-bla
 ## 5:             75      75.0 bla-bla-bla</code></pre>
 <p>Здесь выражение <code>sw[, new_value := 'bla-bla-bla']</code> можно прочитать как <code>в таблице sw создай новую колонку new_value и запиши в нее значение 'bla-bla-bla'</code>. Одинарное значение будет размножено по количеству строк. Вместо <code>'bla-bla-bla'</code> также может быть и какая-нибудь функция, которая создает вектор такой же длины, сколько строк в таблице (если больше или меньше, то выдаст ошибку):</p>
-<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="data.table-pt3.html#cb277-1" aria-hidden="true" tabindex="-1"></a><span class="co"># в таблице 77 строк, поэтому можем просто указать 77:1</span></span>
-<span id="cb277-2"><a href="data.table-pt3.html#cb277-2" aria-hidden="true" tabindex="-1"></a>sw[, new_value2 <span class="sc">:</span><span class="er">=</span> <span class="dv">77</span><span class="sc">:</span><span class="dv">1</span>]</span>
-<span id="cb277-3"><a href="data.table-pt3.html#cb277-3" aria-hidden="true" tabindex="-1"></a>sw[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="data.table-pt3.html#cb294-1" aria-hidden="true" tabindex="-1"></a><span class="co"># в таблице 77 строк, поэтому можем просто указать 77:1</span></span>
+<span id="cb294-2"><a href="data.table-pt3.html#cb294-2" aria-hidden="true" tabindex="-1"></a>sw[, new_value2 <span class="sc">:</span><span class="er">=</span> <span class="dv">77</span><span class="sc">:</span><span class="dv">1</span>]</span>
+<span id="cb294-3"><a href="data.table-pt3.html#cb294-3" aria-hidden="true" tabindex="-1"></a>sw[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
 <pre><code>##                  name height mass skin_color gender planet_name gender_2
 ## 1:     Luke Skywalker    172   77       fair   male    Tatooine     male
 ## 2:              C-3PO    167   75       gold  other    Tatooine    other
@@ -555,9 +690,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5:             75      75.0 bla-bla-bla         73</code></pre>
 <p>Выражение <em>sw[, new_value2 := 77:1]</em> можно прочитать как <strong>в таблице sw создай новую колонку new_value2 и запиши в нее вектор, который получится в результате выполнения выражения 77:1</strong>.</p>
 <p>Конструкция с <code>list()</code> используется тогда, когда на основе существующей таблицы надо создать новую таблицу. Фактически это создание нового списка на основе колонок таблицы, просто в результате будет таблица и класс data.table:</p>
-<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="data.table-pt3.html#cb279-1" aria-hidden="true" tabindex="-1"></a>new_dt <span class="ot">&lt;-</span> sw[, <span class="fu">list</span>(<span class="at">total_users =</span> <span class="fu">uniqueN</span>(name), </span>
-<span id="cb279-2"><a href="data.table-pt3.html#cb279-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">height_mn =</span> <span class="fu">mean</span>(height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))]</span>
-<span id="cb279-3"><a href="data.table-pt3.html#cb279-3" aria-hidden="true" tabindex="-1"></a>new_dt</span></code></pre></div>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="data.table-pt3.html#cb296-1" aria-hidden="true" tabindex="-1"></a>new_dt <span class="ot">&lt;-</span> sw[, <span class="fu">list</span>(<span class="at">total_users =</span> <span class="fu">uniqueN</span>(name), </span>
+<span id="cb296-2"><a href="data.table-pt3.html#cb296-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">height_mn =</span> <span class="fu">mean</span>(height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))]</span>
+<span id="cb296-3"><a href="data.table-pt3.html#cb296-3" aria-hidden="true" tabindex="-1"></a>new_dt</span></code></pre></div>
 <pre><code>##    total_users height_mn
 ## 1:          77  176.2078</code></pre>
 <p>Здесь выражение <strong>new_dt &lt;- sw[, list(total_users = uniqueN(name), height_mn = mean(height, na.rm = TRUE))]</strong> можно прочитать следующим образом: <strong>на основе таблицы sw создай таблицу, в которой в колонку total_users запиши количество уникальных значений из колонки name, а в height_mn - среднее значение по колонке height Полученную таблицу запиши в объект new_dt</strong>.
@@ -640,8 +775,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="data.table-pt2.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="data.table-pt2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="dt-etl.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

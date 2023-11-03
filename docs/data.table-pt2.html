@@ -23,7 +23,7 @@
 <meta name="author" content="Ph.A.Upravitelev" />
 
 
-<meta name="date" content="2023-10-19" />
+<meta name="date" content="2023-11-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,6 +52,13 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.10.2/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -317,6 +324,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#манипуляции-с-таблицами-1"><i class="fa fa-check"></i>Манипуляции с таблицами</a>
 <ul>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#merge"><i class="fa fa-check"></i>merge()</a></li>
 <li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#long-wide-форматы-данных"><i class="fa fa-check"></i>long / wide-форматы данных</a></li>
 <li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#dcast"><i class="fa fa-check"></i>dcast()</a></li>
 <li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#melt"><i class="fa fa-check"></i>melt()</a></li>
@@ -330,6 +338,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#level-4-uv-2"><i class="fa fa-check"></i>level 4 (UV)</a></li>
 <li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#level-5-n-1"><i class="fa fa-check"></i>level 5 (N)</a></li>
 </ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html"><i class="fa fa-check"></i>dt + ETL</a>
+<ul>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#запись-занятия-5"><i class="fa fa-check"></i>Запись занятия</a></li>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#разбор-домашней-работы-3"><i class="fa fa-check"></i>Разбор домашней работы</a>
+<ul>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#level-3-hmp-3"><i class="fa fa-check"></i>level 3 (HMP)</a></li>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#level-4-uv-3"><i class="fa fa-check"></i>level 4 (UV)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#etl"><i class="fa fa-check"></i>ETL</a>
+<ul>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#чтение-и-запись-текстовых-файлов"><i class="fa fa-check"></i>Чтение и запись текстовых файлов</a></li>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#чтение-файлов-ms-excel"><i class="fa fa-check"></i>Чтение файлов MS Excel</a></li>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#чтение-файлов-spss"><i class="fa fa-check"></i>Чтение файлов SPSS</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#дополнительная-литература"><i class="fa fa-check"></i>Дополнительная литература</a></li>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#домашнее-задание-6"><i class="fa fa-check"></i>Домашнее задание</a>
+<ul>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#level-1-iatytd-2"><i class="fa fa-check"></i>level 1 (IATYTD)</a></li>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#level-2-hntr-2"><i class="fa fa-check"></i>level 2 (HNTR)</a></li>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#level-3-hmp-4"><i class="fa fa-check"></i>level 3 (HMP)</a></li>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#level-4-uv-4"><i class="fa fa-check"></i>level 4 (UV)</a></li>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#level-5-n-2"><i class="fa fa-check"></i>level 5 (N)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="hw-1.html"><a href="hw-1.html"><i class="fa fa-check"></i>HW 1</a>
+<ul>
+<li class="chapter" data-level="" data-path="hw-1.html"><a href="hw-1.html#общие-замечания"><i class="fa fa-check"></i>Общие замечания</a></li>
+<li class="chapter" data-level="" data-path="hw-1.html"><a href="hw-1.html#задание-1.-дома-в-игре-престолов."><i class="fa fa-check"></i>Задание 1. Дома в Игре престолов.</a>
+<ul>
+<li class="chapter" data-level="" data-path="hw-1.html"><a href="hw-1.html#импорт-данных"><i class="fa fa-check"></i>импорт данных</a></li>
+<li class="chapter" data-level="" data-path="hw-1.html"><a href="hw-1.html#чистка-данных"><i class="fa fa-check"></i>чистка данных</a></li>
+<li class="chapter" data-level="" data-path="hw-1.html"><a href="hw-1.html#график-численности-кланов"><i class="fa fa-check"></i>график численности кланов</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="hw-1.html"><a href="hw-1.html#задание-2.-агрессивность-персонажей-в-книгах-о-гарри-поттере."><i class="fa fa-check"></i>Задание 2. Агрессивность персонажей в книгах о Гарри Поттере.</a></li>
+<li class="chapter" data-level="" data-path="hw-1.html"><a href="hw-1.html#задание-3.-динамика-среднегодовой-температуры-в-период-1750-2015"><i class="fa fa-check"></i>Задание 3. Динамика среднегодовой температуры в период 1750-2015</a></li>
 </ul></li>
 </ul>
 
@@ -443,12 +487,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb221-13"><a href="data.table-pt2.html#cb221-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb221-14"><a href="data.table-pt2.html#cb221-14" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(my_dt)</span></code></pre></div>
 <pre><code>##       uid sid            login_ts session_length
-## 1: user_1   1 2023-09-01 09:51:54            580
-## 2: user_1   2 2023-09-01 18:24:08            464
-## 3: user_1   3 2023-09-02 14:23:18            375
-## 4: user_1   4 2023-09-03 17:51:01            193
-## 5: user_1   5 2023-09-04 23:43:11            590
-## 6: user_2   1 2023-09-05 13:53:27            298</code></pre>
+## 1: user_1   1 2023-09-02 03:05:11            568
+## 2: user_1   2 2023-09-02 12:45:43            385
+## 3: user_1   3 2023-09-03 09:01:06            366
+## 4: user_1   4 2023-09-03 10:34:47            134
+## 5: user_1   5 2023-09-03 13:37:23            485
+## 6: user_2   1 2023-09-04 00:24:21            305</code></pre>
 </div>
 </div>
 <div id="применение-функций" class="section level2 unnumbered hasAnchor">
@@ -582,12 +626,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb245-13"><a href="data.table-pt2.html#cb245-13" aria-hidden="true" tabindex="-1"></a><span class="co"># объединяем по строкам</span></span>
 <span id="cb245-14"><a href="data.table-pt2.html#cb245-14" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(dt1, dt2, <span class="at">fill =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>##         tb col1           col3 col2           col4
-## 1: table_1    6 only in table1    w           &lt;NA&gt;
-## 2: table_1    4 only in table1    b           &lt;NA&gt;
-## 3: table_1    2 only in table1    r           &lt;NA&gt;
-## 4: table_2    6           &lt;NA&gt;    q only in table2
-## 5: table_2    9           &lt;NA&gt;    o only in table2
-## 6: table_2    2           &lt;NA&gt;    t only in table2</code></pre>
+## 1: table_1    3 only in table1    d           &lt;NA&gt;
+## 2: table_1    7 only in table1    r           &lt;NA&gt;
+## 3: table_1    9 only in table1    k           &lt;NA&gt;
+## 4: table_2    7           &lt;NA&gt;    f only in table2
+## 5: table_2    9           &lt;NA&gt;    w only in table2
+## 6: table_2    3           &lt;NA&gt;    o only in table2</code></pre>
 </div>
 <div id="cbind" class="section level3 unnumbered hasAnchor">
 <h3>cbind()<a href="data.table-pt2.html#cbind" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -597,14 +641,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="data.table-pt2.html#cb247-1" aria-hidden="true" tabindex="-1"></a><span class="co"># выведем ранее созданные таблицы</span></span>
 <span id="cb247-2"><a href="data.table-pt2.html#cb247-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(dt1)</span></code></pre></div>
 <pre><code>##         tb col1           col3 col2
-## 1: table_1    6 only in table1    w
-## 2: table_1    4 only in table1    b
-## 3: table_1    2 only in table1    r</code></pre>
+## 1: table_1    3 only in table1    d
+## 2: table_1    7 only in table1    r
+## 3: table_1    9 only in table1    k</code></pre>
 <div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="data.table-pt2.html#cb249-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(dt2)</span></code></pre></div>
 <pre><code>##         tb           col4 col1 col2
-## 1: table_2 only in table2    6    q
-## 2: table_2 only in table2    9    o
-## 3: table_2 only in table2    2    t</code></pre>
+## 1: table_2 only in table2    7    f
+## 2: table_2 only in table2    9    w
+## 3: table_2 only in table2    3    o</code></pre>
 <div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="data.table-pt2.html#cb251-1" aria-hidden="true" tabindex="-1"></a><span class="co"># создадим колонки-номера строк</span></span>
 <span id="cb251-2"><a href="data.table-pt2.html#cb251-2" aria-hidden="true" tabindex="-1"></a>dt1[, indx <span class="sc">:</span><span class="er">=</span> <span class="dv">1</span><span class="sc">:</span>.N]</span>
 <span id="cb251-3"><a href="data.table-pt2.html#cb251-3" aria-hidden="true" tabindex="-1"></a>dt2[, indx <span class="sc">:</span><span class="er">=</span> <span class="dv">1</span><span class="sc">:</span>.N]</span>
@@ -615,9 +659,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb251-8"><a href="data.table-pt2.html#cb251-8" aria-hidden="true" tabindex="-1"></a><span class="co"># таблица получилась, но в строках бардак</span></span>
 <span id="cb251-9"><a href="data.table-pt2.html#cb251-9" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(dt1, dt2)</span></code></pre></div>
 <pre><code>##         tb col1           col3 col2 indx      tb           col4 col1 col2 indx
-## 1: table_1    6 only in table1    w    1 table_2 only in table2    2    t    3
-## 2: table_1    4 only in table1    b    2 table_2 only in table2    9    o    2
-## 3: table_1    2 only in table1    r    3 table_2 only in table2    6    q    1</code></pre>
+## 1: table_1    3 only in table1    d    1 table_2 only in table2    3    o    3
+## 2: table_1    7 only in table1    r    2 table_2 only in table2    9    w    2
+## 3: table_1    9 only in table1    k    3 table_2 only in table2    7    f    1</code></pre>
 <p>В целом, <code>cbind()</code> — весьма редко используемый способ объединения таблиц. Его стоит использовать только тогда, когда есть однозначная уверенность в структуре данных (одинаковое количество строк, разные названия колонок, идентичная сортировка и т. д.), в противном случае это место, в котором очень легко ошибиться, при этом эту ошибку будет очень сложно найти.</p>
 </div>
 </div>

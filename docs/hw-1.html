@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Введение | Автоматизированный сбор больших данных в экономико-социологических исследованиях</title>
-  <meta name="description" content="Введение | Автоматизированный сбор больших данных в экономико-социологических исследованиях" />
+  <title>HW 1 | Автоматизированный сбор больших данных в экономико-социологических исследованиях</title>
+  <meta name="description" content="HW 1 | Автоматизированный сбор больших данных в экономико-социологических исследованиях" />
   <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Введение | Автоматизированный сбор больших данных в экономико-социологических исследованиях" />
+  <meta property="og:title" content="HW 1 | Автоматизированный сбор больших данных в экономико-социологических исследованиях" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Введение | Автоматизированный сбор больших данных в экономико-социологических исследованиях" />
+  <meta name="twitter:title" content="HW 1 | Автоматизированный сбор больших данных в экономико-социологических исследованиях" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="vectors.html"/>
+<link rel="prev" href="dt-etl.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -392,299 +392,77 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="overview" class="section level1 unnumbered hasAnchor">
-<h1>Введение<a href="overview.html#overview" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="запись-занятия" class="section level2 unnumbered hasAnchor">
-<h2>Запись занятия<a href="overview.html#запись-занятия" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Запись занятия 9 сентября:</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/4z50mnQHpV8?si=jqPIuvrs6HgplKfM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
-</iframe>
-</div>
-<div id="data-culture" class="section level2 unnumbered hasAnchor">
-<h2>Data culture<a href="overview.html#data-culture" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Проект Data Culture направлен на то, чтобы у студентов всех программ бакалавриата Высшей школы экономики появилось понимание возможностей современных технологий в области Data Science.</p>
-<p><a href="https://www.hse.ru/dataculture/" class="uri">https://www.hse.ru/dataculture/</a></p>
-<p><br></p>
-</div>
-<div id="обо-мне" class="section level2 unnumbered hasAnchor">
-<h2>Обо мне<a href="overview.html#обо-мне" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="hw-1" class="section level1 unnumbered hasAnchor">
+<h1>HW 1<a href="hw-1.html#hw-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="общие-замечания" class="section level2 unnumbered hasAnchor">
+<h2>Общие замечания<a href="hw-1.html#общие-замечания" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li><p>продуктовый аналитик в Pixonic</p></li>
-<li><p>продуктовый аналитик в GameInsight</p></li>
-<li><p>аналитик в Консультант+</p></li>
-<li><p>аспирант СПбГУ (когнитивная психология)</p></li>
+<li><p>Срок сдачи работы: 26 ноября 2023 включительно.</p></li>
+<li><p>Домашнее задание должно быть выполнено в виде R-скрипта или Rmd-скрипта c чанками, кому что удобнее.</p></li>
+<li><p>Свой файл с кодом решения назовите по структуре <code>mar231_hw1_&lt;ваша фамилия латиницей&gt;.Rmd</code> или <code>mar231_hw1_&lt;ваша фамилия латиницей&gt;.R</code> и пришлите в личных сообщениях в mattermost</p></li>
+<li><p>Старайтесь комментировать каждую значимую строчку кода (т. е., в которой происходит сложное или не очень прозрачное преобразование). Комментарии нужны, в первую очередь, для того, чтобы вы могли продемонстрировать, что понимаете, что и зачем делаете. Если некоторые операции однозначны и очевидны, комментарии можно опустить. В частности, при подключении пакетов можно ограничиться одним комментарием ко всем командам подключения пакетов. Если используете какое-то выражение или функцию, которое нагуглили, объясните, зачем и приложите ссылку.</p></li>
+<li><p>Соблюдайте <a href="http://adv-r.had.co.nz/Style.html">гайд</a> по стилю оформления кода и/или используйте автоформатирование RStudio (ctr+shift+A на выделенном коде для Win/*nix). Отсутствие комментариев, неопрятность и/или нечитаемость кода, несоблюдение конвенций гайда по стилю — на все это я буду обращать внимание и, в случае существенных помарок, снижать оценку на один балл.</p></li>
+<li><p>Выполняйте задание самостоятельно. Если у меня возникнут затруднения в объективной оценке, то договоримся о созвоне и я попрошу прокомментировать то или иное решение, или же дам небольшое задание из аналогичных, чтобы сравнить стиль решения.</p></li>
+<li><p>Если при выполнении задания все же возникнут какие-то вопросы - можете спросить меня (все вопросы в mattermost: либо в личке, либо в канале ~random). Не гарантирую, что отвечу максимально подробно, но дать минимальную подсказку или прояснить неясность задания постараюсь.</p></li>
+<li><p>Все задания основаны на уже пройденных нами материалах, ничего запредельно сложного для вас быть не должно. Некоторые моменты могут потребовать гугления, но это минимально. Функции, примеры и алгоритмы можно найти на сайте в материалах. Если вы не знаете, как подступиться к задаче — попробуйте ее разложить на подзадачи, цепочку операций.</p></li>
+<li><p>Для того, чтобы не писать полный адрес к файлам данных, файлы должны лежать в той же папке, что и R/Rmd-файл, который использует эти файлы. Тогда импортировать можно без указание пути, просто через указание названия файла и его расширения. Например, <code>my_fun_import('file_to_import.csv')</code>.</p></li>
+<li><p>Я рассчитываю, что вы будете использовать в работе какой-то один стиль синтаксиса - data.table (которому я вас учил), либо data.frame / tidyverse — если вы в них чувствуете себя комфортно. Пожалуйста, если вы не планируете использовать data.table, сообщите мне это заранее.</p></li>
+<li><p>Если вы увереннее чувствуете себя в Python, можете выполнить задание в нем (также скажите об этом заранее). Но тогда будьте готовы к тому, что я могу попросить созвониться и прокомментировать какие-нибудь выражения из вашего решения.</p></li>
+<li><p>Пожалуйста, избегайте зоопарка пакетов и стилей. Чем меньше используется пакетов и чем согласованнее по стилю и лаконичнее код – тем лучше.</p></li>
 </ul>
-<p><br></p>
+<!-- - В чанках с ggplot-графиками добавьте в чанк параметр fig.width=12, вот так: `{r, fig.width=12}`. В чанки с plotly - `{r, fig.width=9.5}` -->
 </div>
-<div id="contacts" class="section level2 unnumbered hasAnchor">
-<h2>Contacts<a href="overview.html#contacts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li><p><span class="citation">@konhis</span> в <a href="https://mm.upravitelev.info/"><em>https://mm.upravitelev.info/</em></a> (основное средство коммуникации)</p></li>
-<li><p><a href="mailto:upravitelev@gmail.com" class="email">upravitelev@gmail.com</a> (дополнительное средство коммуникации)</p></li>
-<li><p>+7-965-425-5919 (для экстренных случаев)</p></li>
-</ul>
-<p><br></p>
+<div id="задание-1.-дома-в-игре-престолов." class="section level2 unnumbered hasAnchor">
+<h2>Задание 1. Дома в Игре престолов.<a href="hw-1.html#задание-1.-дома-в-игре-престолов." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="импорт-данных" class="section level3 unnumbered hasAnchor">
+<h3>импорт данных<a href="hw-1.html#импорт-данных" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Импортируйте датасет по персонажам <code>Game of Thrones</code> (ссылка на файл: <a href="https://gitlab.com/hse_mar/mar221s/-/raw/master/data/character-predictions_pose.csv" class="uri">https://gitlab.com/hse_mar/mar221s/-/raw/master/data/character-predictions_pose.csv</a>).
+Назовите таблицу <code>got_chars</code></p>
 </div>
-<div id="mm-invite-link" class="section level2 unnumbered hasAnchor">
-<h2>MM invite link<a href="overview.html#mm-invite-link" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Все взаимодействие по курсу будем вести в Mattermost (аналог Slack), это мессенджер для команд, очень популярен в IT и среди датасаентистов.
-<a href="https://mm.upravitelev.info/signup_user_complete/?id=cfm9gfrwstg3jfkybb9t65eo6e" class="uri">https://mm.upravitelev.info/signup_user_complete/?id=cfm9gfrwstg3jfkybb9t65eo6e</a></p>
+<div id="чистка-данных" class="section level3 unnumbered hasAnchor">
+<h3>чистка данных<a href="hw-1.html#чистка-данных" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Замените пустое название Дома (house == ’’) на <code>Unknown</code>.
+<!-- Для того, чтобы изменить пустое название Дома (`house == ''`) используйте выражение (весь мой код в синтаксисе data.table): -->
+<!-- got_chars[house == '', house := 'Unknown'] -->
+<!-- Напишите в комментариях, как работает это выражение. --></p>
+<p>Удалите строки, в которых возраст отрицательный (age &lt; 0).</p>
 </div>
-<div id="syllabus" class="section level2 unnumbered hasAnchor">
-<h2>Syllabus<a href="overview.html#syllabus" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Основы синтаксиса R.</p>
-<p>Виды источников данных. Импорт данных из разных типов файлов данныx - SPSS, Excel, *.csv и прочих.</p>
-<p>Методы сбора удаленных данных. Скрапинг полуструктурированных сайтов. Изучим XPath и как извлекать данные из html-кода страницы сайтов. Попутно научимся писать циклы и функции.</p>
-<p>Удаленные базы данных и API: простейшие API — что такое, зачем, как читать документацию. Работа с API VK и погодного сервиса.</p>
-<p>Анализ и представление результатов исследования: много времени будем уделять визуализациям.</p>
-<p><br></p>
-</div>
-<div id="r-intro" class="section level2 unnumbered hasAnchor">
-<h2>R intro<a href="overview.html#r-intro" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="short-history" class="section level3 unnumbered hasAnchor">
-<h3>Short history<a href="overview.html#short-history" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>1976: S language</li>
-<li>1991-1993: R language by Ross Ihaka and Robert Gentleman</li>
-<li>2000: stable beta</li>
-<li>2011: RStudio</li>
-<li>2011: Oracle R Enterprise</li>
-<li>2015: Microsoft bought Revolution R</li>
-<li>2017: Just-in-time compilations</li>
-<li>2018: Speed improvements</li>
-</ul>
-<p><br></p>
-</div>
-<div id="r-ecosystem" class="section level3 unnumbered hasAnchor">
-<h3>R ecosystem<a href="overview.html#r-ecosystem" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>R Foundation <a href="https://www.r-project.org/foundation/" class="uri">https://www.r-project.org/foundation/</a></li>
-<li>The Comprehensive R Archive Network: <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a></li>
-<li>RStudio &amp; Hadley Wickham</li>
-<li>community</li>
-</ul>
-<p><br></p>
-</div>
-<div id="r-rstudio" class="section level3 unnumbered hasAnchor">
-<h3>R + RStudio<a href="overview.html#r-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>R: <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a> (нужно установить самым первым)</li>
-<li>RStudio: <a href="https://www.rstudio.com/products/rstudio/download/" class="uri">https://www.rstudio.com/products/rstudio/download/</a> (после установки R)</li>
-</ul>
-<p><br></p>
-</div>
-<div id="альтернативные-ide" class="section level3 unnumbered hasAnchor">
-<h3>Альтернативные IDE<a href="overview.html#альтернативные-ide" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><a href="https://colab.research.google.com/#create=true&amp;language=r" class="uri">https://colab.research.google.com/#create=true&amp;language=r</a> (создает colab-ноутбук с R-ядром)</li>
-<li><a href="https://posit.cloud/" class="uri">https://posit.cloud/</a> (онлайн-версия RStudio)</li>
-</ul>
-</div>
-<div id="style-guide" class="section level3 unnumbered hasAnchor">
-<h3>Style guide<a href="overview.html#style-guide" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><a href="http://style.tidyverse.org/index.html" class="uri">http://style.tidyverse.org/index.html</a></p>
-<p><br></p>
+<div id="график-численности-кланов" class="section level3 unnumbered hasAnchor">
+<h3>график численности кланов<a href="hw-1.html#график-численности-кланов" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Создайте из <code>got_chars</code> объект <code>got_chars_bar</code>, где будет статистика по количеству людей в клане, а также по количеству мужчин и женщин.</p>
+<p>Нарисуйте в ggplot2 или plotly барчарт по количеству членов в клане, возьмите первые 10 домов по численности, включая <code>'Unknown'</code>. Для того, чтобы на графике бары были отсортированы, сначала надо отсортировать датасет по убыванию по количеству членов в клане. После этого выполнить это выражение:</p>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="hw-1.html#cb342-1" aria-hidden="true" tabindex="-1"></a><span class="co"># делаем название клана в две строки</span></span>
+<span id="cb342-2"><a href="hw-1.html#cb342-2" aria-hidden="true" tabindex="-1"></a>got_chars_bar[, house <span class="sc">:</span><span class="er">=</span> <span class="fu">gsub</span>(<span class="st">&#39;</span><span class="sc">\\</span><span class="st">s+&#39;</span>, <span class="st">&#39;&lt;br&gt;&#39;</span>, house)]</span>
+<span id="cb342-3"><a href="hw-1.html#cb342-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb342-4"><a href="hw-1.html#cb342-4" aria-hidden="true" tabindex="-1"></a><span class="co"># задаем сортировку домов</span></span>
+<span id="cb342-5"><a href="hw-1.html#cb342-5" aria-hidden="true" tabindex="-1"></a>got_chars_bar[, house <span class="sc">:</span><span class="er">=</span> <span class="fu">factor</span>(house, <span class="at">levels =</span> house)]</span></code></pre></div>
+<p>Если рисуете в plotly - добавьте ховер (hover) с информацией о названии клана, количестве членов в клане, количестве мужчин и количестве женщин в клане. Если используете ggplot2 — добавьте какую-нибудь тему не по умолчанию и заголовки графика и осей.</p>
+<p><em>Дополнительно</em>: удалите кнопки <code>plotly</code> (Zoom/Autoscale и т.д.). Выполнение этого пункта на оценку не влияет.</p>
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-4a045c5e74f0f57c50b6" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-4a045c5e74f0f57c50b6">{"x":{"visdat":{"25558550ecb5e":["function () ","plotlyVisDat"]},"cur_data":"25558550ecb5e","attrs":{"25558550ecb5e":{"x":{},"y":{},"text":{},"textposition":"none","hoverinfo":"text","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Численность Домов в GoT","xaxis":{"domain":[0,1],"automargin":true,"title":"","type":"category","categoryorder":"array","categoryarray":["Unknown","Night's<br>Watch","House<br>Frey","House<br>Stark","House<br>Targaryen","House<br>Lannister","House<br>Greyjoy","House<br>Tyrell","House<br>Martell","House<br>Osgrey","Faith<br>of<br>the<br>Seven","House<br>Arryn","House<br>Hightower","House<br>Bracken","House<br>Botley","House<br>Bolton","House<br>Baratheon","House<br>Florent","Brave<br>Companions","House<br>Tully","House<br>Velaryon","House<br>Whent","Brotherhood<br>without<br>banners","House<br>Crakehall","House<br>Waynwood","House<br>Westerling","House<br>Clegane","Stone<br>Crows","House<br>Baratheon<br>of<br>Dragonstone","House<br>Redwyne","House<br>Royce","House<br>Seaworth","House<br>Swyft","House<br>Wylde","House<br>Brax","House<br>Drumm","House<br>Karstark","House<br>Swann","House<br>Mormont","House<br>Manderly","House<br>of<br>Loraq","House<br>Royce<br>of<br>the<br>Gates<br>of<br>the<br>Moon","House<br>Paege","House<br>Baelish","Alchemists'<br>Guild","House<br>Plumm","Brotherhood<br>Without<br>Banners","House<br>Webber","House<br>Dayne","House<br>Tallhart","House<br>Ryswell","House<br>Stokeworth","House<br>Beesbury","House<br>Redfort","House<br>Harlaw","House<br>Goodbrother","House<br>Mallister","House<br>Umber","House<br>Estermont","House<br>Haigh","House<br>Darry","House<br>Blackwood","House<br>Blackfyre","House<br>Ashford","House<br>Hollard","House<br>Connington","House<br>Crabb","Drowned<br>men","Second<br>Sons","House<br>Oakheart","House<br>Caswell","Kingsguard","Chataya's<br>brothel","House<br>Norcross","House<br>Vance<br>of<br>Atranta","House<br>Caron","House<br>Glover","House<br>Crane","House<br>Farwynd<br>of<br>the<br>Lonely<br>Light","Happy<br>Port","Kingswood<br>Brotherhood","House<br>Vance<br>of<br>Wayfarer's<br>Rest","House<br>Tarth","House<br>Darklyn","House<br>Fossoway<br>of<br>Cider<br>Hall","House<br>Ironmaker","House<br>Qorgyle","House<br>Ambrose","House<br>Manwoody","House<br>Corbray","House<br>Hornwood","House<br>Lefford","House<br>Strong","House<br>Lothston","House<br>Farring","House<br>Cassel","House<br>Vance","House<br>Hunter","House<br>Goodbrook","Blacks","House<br>Reed","House<br>Baratheon<br>of<br>King's<br>Landing","House<br>Yronwood","House<br>Kettleblack","House<br>Santagar","House<br>Stout","Stormcrows","House<br>Spicer","House<br>Staunton","House<br>Tarly","House<br>Costayne","Moon<br>Brothers","House<br>Frey<br>of<br>Riverrun","House<br>Sharp","House<br>Butterwell","House<br>Bulwer","House<br>Smallwood","House<br>Payne","House<br>Slynt","House<br>of<br>Galare","R'hllor","House<br>Morrigen","House<br>Grafton","House<br>Fossoway<br>of<br>New<br>Barrel","House<br>Penrose","House<br>Piper","House<br>Blackmont","House<br>Stackspear","House<br>Vypren","House<br>Marbrand","House<br>Hardyng","House<br>Allyrion","House<br>Locke","House<br>Mooton","House<br>Hewett","House<br>Uller","House<br>Humble","House<br>Fell","Burned<br>Men","Kingdom<br>of<br>the<br>Three<br>Daughters","House<br>Nayland","House<br>Rowan","House<br>Lonmouth","House<br>Lynderly","House<br>Heddle","House<br>Ryger","Faceless<br>Men","House<br>Hunt","House<br>Dalt","House<br>Charlton","House<br>Blacktyde","Black<br>Ears","House<br>Codd","House<br>Willum","House<br>Uffering","House<br>Clifton","House<br>Blackberry","House<br>Penny","House<br>Serry","House<br>Lorch","House<br>Meadows","House<br>Mullendore","House<br>Inchfield","House<br>Kenning<br>of<br>Harlaw","House<br>Shepherd","House<br>Wynch","House<br>Belmore","House<br>Brune<br>of<br>Brownhollow","House<br>Rosby","House<br>Cuy","House<br>Cerwyn","House<br>Vaith","House<br>Prester","House<br>Greenfield","House<br>Peake","Good<br>Masters","House<br>Sunglass","House<br>Wull","House<br>Lydden","House<br>Kenning<br>of<br>Kayce","House<br>of<br>Pahl","House<br>Flint<br>of<br>Widow's<br>Watch","House<br>Selmy","House<br>Jordayne","Iron<br>Bank<br>of<br>Braavos","House<br>Wythers","House<br>Norrey","House<br>Thorne","House<br>Flint","House<br>Wells","House<br>Toyne","House<br>Hetherspoon","House<br>Tollett","House<br>Poole","Golden<br>Company","Unsullied","House<br>Merryweather","House<br>Wode","wildling","House<br>Farrow","House<br>Reyne","House<br>Weaver","House<br>Harclay","House<br>Lannister<br>of<br>Lannisport","Antler<br>Men","House<br>Stonetree","House<br>Leygood","House<br>Sparr","House<br>Varner","Peach","Sea<br>watch","Band<br>of<br>Nine","House<br>Bushy","House<br>Cafferen","House<br>Buckler","House<br>Conklyn","House<br>Greenhill","House<br>Deddings","House<br>Risley","Pureborn","House<br>Gaunt","House<br>Grandison","House<br>Sawyer","House<br>Bolling","House<br>Cupps","House<br>Tawney","Windblown","House<br>Roote","House<br>Hardy","Queensguard","House<br>Dondarrion","House<br>Yew","House<br>Mertyns","House<br>Boggs","House<br>Woods","House<br>Pemford","House<br>Staedmon","City<br>Watch<br>of<br>King's<br>Landing","House<br>Cockshaw","House<br>Graceford","House<br>Jast","House<br>Celtigar","House<br>of<br>Ghazeen","House<br>Byrch","House<br>Hawick","House<br>Broom","House<br>Harlaw<br>of<br>Harridan<br>Hill","House<br>Shett<br>of<br>Gull<br>Tower","House<br>Bar<br>Emmon","House<br>Norridge","House<br>Hayford","House<br>Brune<br>of<br>the<br>Dyre<br>Den","House<br>Fowler","House<br>Gower","House<br>Borrell","Citadel","Wise<br>Masters","House<br>Grimm","The<br>Citadel","House<br>Mollen","House<br>Hoare","House<br>Rambton","House<br>Harlaw<br>of<br>the<br>Tower<br>of<br>Glimmering","House<br>Wagstaff","House<br>Vyrwel","House<br>Bettley","House<br>Myre","House<br>Turnberry","House<br>Blackbar","House<br>Woolfield","House<br>Fossoway","House<br>Mallery","House<br>Chyttering","House<br>Lychester","House<br>Vikary","House<br>Volmark","House<br>Merlyn","House<br>Sarsfield","House<br>of<br>Merreq","House<br>Chester","House<br>Goodbrother<br>of<br>Shatterstone","House<br>Toland","House<br>Foote","House<br>Chelsted","House<br>Banefort","House<br>Ball","House<br>Cox","House<br>Ruttiger","House<br>Estren","House<br>Rykker","House<br>Longwaters","House<br>Moreland","House<br>Hogg","House<br>Longthorpe","House<br>Coldwater","House<br>Leek","House<br>Farman","House<br>Harlaw<br>of<br>Harlaw<br>Hall","House<br>Templeton","House<br>Liddle","House<br>Gargalen","House<br>Mudd","House<br>Farwynd","House<br>Sunderland","House<br>Wayn","Maesters","House<br>Blanetree","House<br>Blount","Company<br>of<br>the<br>Cat","House<br>Suggs","Khal","House<br>Nymeros<br>Martell","House<br>Drinkwater","House<br>Harlaw<br>of<br>Grey<br>Garden","Summer<br>Islands","House<br>Condon","House<br>Lannister<br>of<br>Casterly<br>Rock","House<br>Moore","House<br>Trant","House<br>Yarwyck","Undying<br>Ones","House<br>Stonehouse","House<br>Bolton<br>of<br>the<br>Dreadfort","Thenn","House<br>Hasty","House<br>Cole","Graces","House<br>Tyrell<br>of<br>Brightwater<br>Keep","House<br>Dayne<br>of<br>High<br>Hermitage","House<br>Strickland","House<br>Bywater","House<br>Massey","Brotherhood<br>without<br>Banners","House<br>Rhysling","House<br>Potter","House<br>Horpe","House<br>of<br>Kandaq","House<br>of<br>Reznak","House<br>Peckledon","House<br>Dustin","Mance<br>Rayder","House<br>Egen","House<br>Errol","Thirteen","House<br>Erenford","House<br>Grell","brotherhood<br>without<br>banners","Three-eyed<br>crow"]},"yaxis":{"domain":[0,1],"automargin":true,"title":""},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displayModeBar":false},"data":[{"x":["Unknown","Night's<br>Watch","House<br>Frey","House<br>Stark","House<br>Targaryen","House<br>Lannister","House<br>Greyjoy","House<br>Tyrell","House<br>Martell","House<br>Osgrey"],"y":[427,105,97,72,59,49,41,36,28,21],"text":["house = Unknown<br>total members = 427<br>males = 245<br>females = 182","house = Night's<br>Watch<br>total members = 105<br>males = 79<br>females = 26","house = House<br>Frey<br>total members = 97<br>males = 54<br>females = 43","house = House<br>Stark<br>total members = 72<br>males = 49<br>females = 23","house = House<br>Targaryen<br>total members = 59<br>males = 31<br>females = 28","house = House<br>Lannister<br>total members = 49<br>males = 31<br>females = 18","house = House<br>Greyjoy<br>total members = 41<br>males = 29<br>females = 12","house = House<br>Tyrell<br>total members = 36<br>males = 18<br>females = 18","house = House<br>Martell<br>total members = 28<br>males = 10<br>females = 18","house = House<br>Osgrey<br>total members = 21<br>males = 14<br>females = 7"],"textposition":["none","none","none","none","none","none","none","none","none","none"],"hoverinfo":["text","text","text","text","text","text","text","text","text","text"],"type":"bar","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
-<div id="синтаксис" class="section level2 unnumbered hasAnchor">
-<h2>Синтаксис<a href="overview.html#синтаксис" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="структура-выражения" class="section level3 unnumbered hasAnchor">
-<h3>Структура выражения<a href="overview.html#структура-выражения" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="overview.html#cb1-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="at">x =</span> <span class="dv">4</span>)</span></code></pre></div>
-<p><code>sqrt()</code> - функция. <code>sqrt</code> - название функции, в <code>()</code> указываются аргументы, к которым будет применяться функция с таким названием.</p>
-<p><code>x</code> - обозначение аргумента функции (в разных функциях аргументы могут называться по-разному)</p>
-<p><code>4</code> - значение, которое мы передаем в аргумент функции (к коротому будет применена функция)</p>
-<p><code>&lt;-</code> - знак присваивания</p>
-<p><code>result</code> - объект, в который мы записываем результат выполнения функции. Название объектов может быть разным (лучше придерживаться style guide при нейминге)</p>
-<p><br></p>
+<div id="задание-2.-агрессивность-персонажей-в-книгах-о-гарри-поттере." class="section level2 unnumbered hasAnchor">
+<h2>Задание 2. Агрессивность персонажей в книгах о Гарри Поттере.<a href="hw-1.html#задание-2.-агрессивность-персонажей-в-книгах-о-гарри-поттере." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Импортируйте файл <a href="https://gitlab.com/hse_mar/mar221s/-/raw/master/data/aggressive_actions.xlsx">aggressive_actions.xlsx</a>. Вам потребуются данные с листа <code>DataSet</code>. Объект с данными с листа назовите <code>actions</code>.</p>
+<p>По возможности напишите код так, чтобы исключить ручное скачивание файла на диск и потом импорт в R, т.е. сделать все средствами R.</p>
+<p>В датасете есть орфографическая ошибка, <code>Ron Wealsey</code> вместо <code>Ron Weasley</code>. Исправьте это.</p>
+<p>Отсортируйте по убыванию колонки <code>tot</code>, и возьмите первые 15 строк. Выполните следующие два выражения. Попробуйте проинтерпретировать смысл этих действий, что значат аргументы функций (на оценку наличие/корректность интерпретации не влияет).</p>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="hw-1.html#cb343-1" aria-hidden="true" tabindex="-1"></a>actions[, names_ordered <span class="sc">:</span><span class="er">=</span> <span class="fu">gsub</span>(<span class="st">&#39;</span><span class="sc">\\</span><span class="st">s+&#39;</span>, <span class="st">&#39;</span><span class="sc">\n</span><span class="st">&#39;</span>, name)]</span>
+<span id="cb343-2"><a href="hw-1.html#cb343-2" aria-hidden="true" tabindex="-1"></a>actions[, names_ordered <span class="sc">:</span><span class="er">=</span> <span class="fu">factor</span>(names_ordered, <span class="at">levels =</span> names_ordered)]</span></code></pre></div>
+<p>Воспроизведите график ниже. Цвет заливки - <code>grey90</code>, цвет контура - <code>grey85</code>. Каждый бар должен быть подписан (количество действий), значение должно размещаться на области бара, чуть ниже, но не касаясь верхней границы бара, цвет текстовых меток - <code>grey30</code>. Выделите цветом <code>darkred</code> метку количества действий персонажей Золотого Трио (<code>Harry</code>, <code>Hermione Granger</code>, <code>Ron Weasley</code>). Выделите цветом <code>darkblue</code> метку количества действий тварей (<code>creature == 1</code>). Заголовок в две линии (вспомните про разделители линий в операционных системах, мы про это в ETL-блоке говорили), ориентация по центру.</p>
+<p>Добавьте на график и отформатируйте <code>caption</code>. Содержание подписи - ваша фамилия, курс и тип графика, по аналогии с <code>mar231_hw1_upravitelev: barchart</code>. Параметры подписи: <code>face = "italic", color = 'grey60'</code>, смещения задайте самостоятельно.</p>
+<p><img src="HW1_files/figure-html/unnamed-chunk-11-1.png" width="768" /></p>
 </div>
-<div id="вывод-на-печать" class="section level3 unnumbered hasAnchor">
-<h3>Вывод на печать<a href="overview.html#вывод-на-печать" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Прямое указание:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="overview.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(result)</span></code></pre></div>
-<pre><code>## [1] 2</code></pre>
-<p>Можно просто вызвать сам объект:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="overview.html#cb4-1" aria-hidden="true" tabindex="-1"></a>result</span></code></pre></div>
-<pre><code>## [1] 2</code></pre>
-<p><br></p>
-</div>
-<div id="присваивание" class="section level3 unnumbered hasAnchor">
-<h3>Присваивание<a href="overview.html#присваивание" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Оператор <code>&lt;-</code> - это оператор присваивания. Если до этого объект не был создан, то таким образом мы создадим объект <code>x</code>, в котором содержится значение <code>5</code>. Если до этого объект существовал, то ему будет присвоено новое значение.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="overview.html#cb6-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb6-2"><a href="overview.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
-<pre><code>## [1] 5</code></pre>
-<p>Когда значение или результат функции записываем в объект, ничего не печатается.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="overview.html#cb8-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="at">x =</span> <span class="dv">4</span>)</span></code></pre></div>
-<p>Если нет присвоения, а только простой вызов функции, то результат будет напечатан, как если это был какой-то объект.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="overview.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="at">x =</span> <span class="dv">4</span>)</span></code></pre></div>
-<pre><code>## [1] 2</code></pre>
-<p><br></p>
-</div>
-<div id="операторы-присвоения" class="section level3 unnumbered hasAnchor">
-<h3>Операторы присвоения<a href="overview.html#операторы-присвоения" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p><code>&lt;-</code> (основной оператор)</p></li>
-<li><p><code>=</code> (не рекомендуется, если только очень хочется)</p></li>
-<li><p><code>-&gt;</code> (существует, но использовать крайне не рекомендуется)</p></li>
-<li><p><code>&lt;&lt;-</code>, <code>-&gt;&gt;</code> (надо понимать, когда использовать, встречаются редко, лучше использовать <code>assign()</code>)</p></li>
-</ul>
-<p><br></p>
-</div>
-<div id="арифметические-операторы" class="section level3 unnumbered hasAnchor">
-<h3>Арифметические операторы<a href="overview.html#арифметические-операторы" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>В R помимо оператора присвоения есть другие операторы, в частности, арифметические операторы, операторы сравнения или логического выбора. Операторы сравнения или логические операторы обычно используются при необходимости указать какие-то условия для выбора элементов вектора или таблицы, а также в конструкциях <code>if/else</code>.</p>
-<ul>
-<li><p>Сложение: <code>+</code></p></li>
-<li><p>Вычитание: <code>-</code></p></li>
-<li><p>Умножение: <code>*</code></p></li>
-<li><p>Деление: <code>/</code></p></li>
-<li><p>Возведение в степень: <code>^</code>, <code>**</code></p></li>
-<li><p>Остаток от деления: <code>%%</code> (5 %% 2 дает 1)</p></li>
-<li><p>Неполное частное деления: <code>%/%</code> (5 %/% 2 дает 2)</p></li>
-</ul>
-<p><br></p>
-</div>
-<div id="операторы-сравнения" class="section level3 unnumbered hasAnchor">
-<h3>Операторы сравнения<a href="overview.html#операторы-сравнения" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p>тождество (равенство): <code>==</code></p></li>
-<li><p>не равно: <code>!=</code></p></li>
-<li><p>больше/меньше или равно: <code>&gt;=</code>, <code>&lt;=</code></p></li>
-<li><p>пропущено ли: <code>is.na()</code> (проверяет, является ли значение пропущенным, NA)</p></li>
-</ul>
-<p><br></p>
-</div>
-<div id="логические-операторы" class="section level3 unnumbered hasAnchor">
-<h3>Логические операторы<a href="overview.html#логические-операторы" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p>И: <code>&amp;</code>, <code>&amp;&amp;</code></p></li>
-<li><p>ИЛИ: <code>|</code>, <code>||</code></p></li>
-<li><p>НЕ (Обратно): <code>!</code> (TRUE превращает в FALSE и наоборот)</p></li>
-</ul>
-<p><br></p>
-</div>
-<div id="комментарии-и-кавычки" class="section level3 unnumbered hasAnchor">
-<h3>Комментарии и кавычки<a href="overview.html#комментарии-и-кавычки" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p><code>#</code>: строка, которая идет после этого знака, считается комментарием и не выполняется. Используется для того, чтобы прокомментировать код или скрыть от выполнения часть кода.</p></li>
-<li><p><code>''</code>, <code>""</code>: использутся для создания строковых объектов, можно сочетать одной строке, они не взаимозаменяемы</p></li>
-<li><p>``:обратные апострофы, используются в редких случаях, обычно в RMarkdown, инфиксных операторах или кириллических названиях объектов.</p></li>
-</ul>
-<p><br></p>
-</div>
-</div>
-<div id="окружение-и-подсказки" class="section level2 unnumbered hasAnchor">
-<h2>Окружение и подсказки<a href="overview.html#окружение-и-подсказки" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="полезные-функции-для-работы-с-окружением" class="section level3 unnumbered hasAnchor">
-<h3>Полезные функции для работы с окружением<a href="overview.html#полезные-функции-для-работы-с-окружением" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>При работе с R:</p>
-<ul>
-<li><p><code>install.packages('pkg')</code> - установить пакет <code>pkg</code> или список пакетов. Делается однократно при настройке R</p></li>
-<li><p><code>library('pkg')</code> - подключение установленного пакета - делается при каждом новом запуске сессии, если этот пакет планируется использовать</p></li>
-<li><p><code>getwd()</code> - узнать адрес рабочей папки</p></li>
-<li><p><code>setwd()</code> - никогда не использовать! Это мешает при работе с несколькими коллегами, может вызвать сбои при каких-то изменениях в структуре папок, да и в целом дурной тон. Лучше использовать проекты в RStudio, которые формируют отдельную папку под каждый проект.</p></li>
-<li><p><code>ls()</code> - возвращает список созданных объектов рабочего окружения</p></li>
-<li><p><code>rm()</code> - удалить какой-нибудь объект</p></li>
-<li><p><code>rm(list = ls())</code> - удалить все объекты рабочего окружения. Использовать только в консоли, никогда не использовать в скриптах, которые могут быть использованы другими людьми.</p></li>
-</ul>
-<p><br></p>
-</div>
-<div id="help" class="section level3 unnumbered hasAnchor">
-<h3>help<a href="overview.html#help" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p><code>help()</code>, <code>?</code> (например, <code>?round</code>)или <code>??</code>. Проще всего выделить функцию и нажать F1 на клавиатуре.</p></li>
-<li><p>cheatsheets: <a href="https://www.rstudio.com/resources/cheatsheets/" class="uri">https://www.rstudio.com/resources/cheatsheets/</a></p></li>
-<li><p>google it!</p></li>
-<li><p>stackoverflow</p></li>
-</ul>
-<p><br></p>
-</div>
-<div id="стандартные-ошибки-в-синтаксисе" class="section level3 unnumbered hasAnchor">
-<h3>Стандартные ошибки в синтаксисе<a href="overview.html#стандартные-ошибки-в-синтаксисе" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p>пропущенная / лишняя запятая</p></li>
-<li><p>пропущенная / лишняя / другого типа скобка</p></li>
-</ul>
-</div>
-<div id="object-not-found" class="section level3 unnumbered hasAnchor">
-<h3>Object not found<a href="overview.html#object-not-found" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p>опечатки (пропуск буквы, удвоение буквы, разный регистр, <code>c</code> кириллическая)</p></li>
-<li><p>no object / file / function / package</p></li>
-</ul>
-<p><br></p>
-</div>
-</div>
-<div id="дополнительные-материалы" class="section level2 unnumbered hasAnchor">
-<h2>Дополнительные материалы<a href="overview.html#дополнительные-материалы" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li><a href="textbook.rintro.ru">textbook.rintro.ru</a> – мой учебник по основам R</li>
-<li>Курсы на <a href="https://www.datacamp.com/courses/tech:r"><strong>data.camp</strong></a>. Они, как и все онлайн-курсы, несколько дробные и избыточные, но базам конструкций научить могут.</li>
-<li>На русском языке есть <a href="https://stepik.org/course/129/promo"><strong>курс</strong></a> на степике. Вполне нормальный, особенно в первых частях.</li>
-<li>Еще есть <a href="https://stepik.org/course/497/promo"><strong>курс</strong></a> Тони Антонова, он посложнее, но в чем-то получше и поосновательнее курса Карпова и Иванчея.</li>
-<li>Мороз Г. А. , Поздняков И. С. - <a href="https://agricolamz.github.io/DS_for_DH/"><strong>Наука о данных в R для программы Цифровых гуманитарных исследований</strong></a></li>
-<li>Селезнёв А. - <a href="https://selesnow.github.io/r4excel_users/">Язык R для пользователей Excel</a></li>
-<li>Long J., Teetor P. - <a href="https://rc2e.com/"><strong>R cookbook</strong></a></li>
-<li>Bryan J. - <a href="https://stat545.com/"><strong>STAT 545 Data wrangling, exploration, and analysis with R</strong></a></li>
-<li><a href="https://www.tidyverse.org/blog/2017/12/workflow-vs-script/">Почему не надо использовать setwd()</a></li>
-</ul>
-</div>
-<div id="домашнее-задание" class="section level2 unnumbered hasAnchor">
-<h2>Домашнее задание<a href="overview.html#домашнее-задание" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="организационное-mm" class="section level3 unnumbered hasAnchor">
-<h3>Организационное / MM<a href="overview.html#организационное-mm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Вся коммуникация по курсу будет идти в mattermost. Для того, чтобы войти, перейдите по ссылке: <a href="https://mm.upravitelev.info/signup_user_complete/?id=cfm9gfrwstg3jfkybb9t65eo6e" class="uri">https://mm.upravitelev.info/signup_user_complete/?id=cfm9gfrwstg3jfkybb9t65eo6e</a></p>
-<p>Вам предложат, какую версию вы хотите, веб-версию (в браузере) или мобильное приложение. Я лично использую обе, веб как основная.</p>
-<p><img src="mm_manual/start.png"></p>
-<p>После этого вам предложат форму регистрации, в которой надо будет указать имя (фио или username как в телеграме, я предпочитаю указывать его), email (на него приходят уведомления о непрочитанных сообщения) и пароль.</p>
-<p><img src="mm_manual/signup.png"></p>
-<p>После этого вы окажетесь в основном окне мессенджера. По умолчанию это будет канал Town Square.</p>
-<p>Вверху справа расположена кнопка редактирования профиля (картинка с первыми буквами имени).</p>
-<p><img src="mm_manual/profile_arrow.png"></p>
-<p>Отредактируйте профиль: необходимо указать имя и фамилию (латиницей, в виде <code>Name Family name</code>), по возможности поставьте свою фотографию на аватарку.</p>
-<p><img src="mm_manual/profile.png"></p>
-<p>Слева расположен список каналов и пользователей. Вверху слева есть форма поиска каналов, найдите канал <em>welcome</em> и зайдите в него.</p>
-<p><img src="mm_manual/channels_arrow.png"></p>
-<p>В канале <em>welcome</em> напишите несколько слов о себе: тему своей магистерской (если уже известна), какой опыт работы с R и вообще языками программирования, какие ожидания от курса.</p>
-<p><br></p>
-</div>
-<div id="r" class="section level3 unnumbered hasAnchor">
-<h3>R<a href="overview.html#r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="установка-r-и-rstudio" class="section level4 unnumbered hasAnchor">
-<h4>Установка R и RStudio<a href="overview.html#установка-r-и-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<ul>
-<li>установите язык R (<a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a>)<br />
-</li>
-<li>установите Rstudio (RStudio: <a href="https://www.rstudio.com/products/rstudio/download/" class="uri">https://www.rstudio.com/products/rstudio/download/</a>)</li>
-</ul>
-<p>Или воспользуйтесь онлайн-вариантами (Colab / Posit Cloud)</p>
-<p><br></p>
-</div>
-</div>
-<div id="rstudio" class="section level3 unnumbered hasAnchor">
-<h3>RStudio<a href="overview.html#rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Если используете RStudio (или VS Code / Pycharm / Posit Cloud) – создайте новый проект. При желании – изучите глобальные настройки и настройки проекта в меню Tools.</p>
-<p>Создайте папку <em>practice</em>. В ней предлагаю хранить скрипты с домашками. В дальнейшем появятся папки <em>seminars</em>, <em>data</em>, <em>lib</em> и другие. Если чувствуете в себе силы, создайте папку <em>practice</em> с помощью кода (надо погуглить соответствующую функцию).</p>
-<p>Тем, кто использует Jupyter Notebook / Jupyter Lab рекомендую создать отдельную папку по курсу и в ней также создать папку <em>practice</em>.</p>
-</div>
-<div id="операторы-и-создание-векторов" class="section level3 unnumbered hasAnchor">
-<h3>Операторы и создание векторов<a href="overview.html#операторы-и-создание-векторов" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Задание необязательное, но настоятельно рекомендую прорешать всем, кто ни разу не сталкивался с R или давно все забыл и не уверен в своих знаниях. Если решение какого-то задания вызвало у вас сомнения, напишите мне об этом в личке в mm.</p>
-<p>При работе используйте <a href="http://style.tidyverse.org/index.html"><em>гайд</em></a> по стилю оформления кода.</p>
-<p>Старайтесь, чтобы код был максимально простым. Если каждое упражнение занимает больше одной-двух строк — скорее всего вы что-то делаете не так.</p>
-<p>В проекте создайте новый скрипт, назовите его <strong>2023-09-12.R</strong> (RStudio предлагает назвать файл при сохранении, а расширение предлагает по умолчанию) в папке <em>practice</em>. Новый скрипт можно создать в меню File &gt; New script, кнопкой вверху слева, комбинацией ctrl+shift+n. Или же в панели внизу справа, где перечислены файлы проекта.</p>
-<p>Дальнейшие задачи выполняйте в этом скрипте.</p>
-<ul>
-<li><p>Создайте объект <code>x</code> со значением 5. Создайте объект <code>y</code>, который равен <code>3 * x</code>. Выведите его на печать.</p></li>
-<li><p>Проверьте, что значение выражения <code>x - y</code> не равно 84.</p></li>
-<li><p>Запишите в объект <code>alarm</code> результат сравнения, больше ли <code>x</code> чем <code>y</code>. Выведите объект на печать.</p></li>
-<li><p>Симулируйте выпадение какой-либо грани двенадцатигранного кубика (одно значение). Вам потребуется функция <code>sample()</code>.</p></li>
-<li><p>Симулируйте выпадение десяти бросков восьмигранного кубика. Задача решается также с помощью функции <code>sample()</code>.</p></li>
-<li><p>Найдите длину меньшего катета прямоугольного треугольника с катетом длиной 4 и гипотенузой длиной 8, и округлите длину до третьего знака. Вам потребуются оператор возведения в степень и функции <code>sqrt()</code> и <code>round()</code>. На всякий случай напомню, квадрат гипотенузы равен сумме квадратов катетов.</p></li>
-</ul>
+<div id="задание-3.-динамика-среднегодовой-температуры-в-период-1750-2015" class="section level2 unnumbered hasAnchor">
+<h2>Задание 3. Динамика среднегодовой температуры в период 1750-2015<a href="hw-1.html#задание-3.-динамика-среднегодовой-температуры-в-период-1750-2015" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Импортируйте файл global_temperature.csv: <a href="https://gitlab.com/hse_mar/mar221s/-/raw/master/data/global_temperature.csv" class="uri">https://gitlab.com/hse_mar/mar221s/-/raw/master/data/global_temperature.csv</a>.
+По возможности исключите ручное скачивание файла на диск.</p>
+<p>Создайте из даты <code>dt</code> переменную года (назовите ее <code>year</code>). Для этого можно воспользоваться функцией <code>year()</code> пакета <code>data.table</code>, или же любым другим методом на ваше усмотрение. Подсчитайте среднюю температуру в год (колонка температуры <code>LandAverageTemperature</code>). У вас должен получиться файл с колонками <code>year</code> и <code>temp_mn</code>, где <code>temp_mn</code> - средняя температура за год.</p>
+<p>Воспроизведите график среднегодовой температуры. Добавьте линии трендов (методы <code>loess</code> и <code>lm</code>). Прозрачность диапазона равна 0.1, цвета - <code>darkred</code> и <code>darkblue</code>. Ваш график не должен вводить в заблуждение по поводу величины вариации между разными годами.</p>
+<p><img src="HW1_files/figure-html/unnamed-chunk-13-1.png" width="576" /></p>
+<p>Корректное выполнение этого задания в <code>plotly</code> — плюс 1 балл к оценке (можно без <code>caption</code>, только график и линии трендов). Функцией <code>ggplotly()</code> пользоваться нельзя.</p>
 
-</div>
 </div>
 </div>
             </section>
@@ -692,8 +470,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="vectors.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="dt-etl.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

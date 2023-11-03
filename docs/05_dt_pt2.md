@@ -115,12 +115,12 @@ head(my_dt)
 
 ```
 ##       uid sid            login_ts session_length
-## 1: user_1   1 2023-09-01 09:51:54            580
-## 2: user_1   2 2023-09-01 18:24:08            464
-## 3: user_1   3 2023-09-02 14:23:18            375
-## 4: user_1   4 2023-09-03 17:51:01            193
-## 5: user_1   5 2023-09-04 23:43:11            590
-## 6: user_2   1 2023-09-05 13:53:27            298
+## 1: user_1   1 2023-09-02 03:05:11            568
+## 2: user_1   2 2023-09-02 12:45:43            385
+## 3: user_1   3 2023-09-03 09:01:06            366
+## 4: user_1   4 2023-09-03 10:34:47            134
+## 5: user_1   5 2023-09-03 13:37:23            485
+## 6: user_2   1 2023-09-04 00:24:21            305
 ```
 
 
@@ -335,12 +335,12 @@ rbind(dt1, dt2, fill = TRUE)
 
 ```
 ##         tb col1           col3 col2           col4
-## 1: table_1    6 only in table1    w           <NA>
-## 2: table_1    4 only in table1    b           <NA>
-## 3: table_1    2 only in table1    r           <NA>
-## 4: table_2    6           <NA>    q only in table2
-## 5: table_2    9           <NA>    o only in table2
-## 6: table_2    2           <NA>    t only in table2
+## 1: table_1    3 only in table1    d           <NA>
+## 2: table_1    7 only in table1    r           <NA>
+## 3: table_1    9 only in table1    k           <NA>
+## 4: table_2    7           <NA>    f only in table2
+## 5: table_2    9           <NA>    w only in table2
+## 6: table_2    3           <NA>    o only in table2
 ```
 
 
@@ -360,9 +360,9 @@ print(dt1)
 
 ```
 ##         tb col1           col3 col2
-## 1: table_1    6 only in table1    w
-## 2: table_1    4 only in table1    b
-## 3: table_1    2 only in table1    r
+## 1: table_1    3 only in table1    d
+## 2: table_1    7 only in table1    r
+## 3: table_1    9 only in table1    k
 ```
 
 ```r
@@ -371,9 +371,9 @@ print(dt2)
 
 ```
 ##         tb           col4 col1 col2
-## 1: table_2 only in table2    6    q
-## 2: table_2 only in table2    9    o
-## 3: table_2 only in table2    2    t
+## 1: table_2 only in table2    7    f
+## 2: table_2 only in table2    9    w
+## 3: table_2 only in table2    3    o
 ```
 
 ```r
@@ -390,9 +390,9 @@ cbind(dt1, dt2)
 
 ```
 ##         tb col1           col3 col2 indx      tb           col4 col1 col2 indx
-## 1: table_1    6 only in table1    w    1 table_2 only in table2    2    t    3
-## 2: table_1    4 only in table1    b    2 table_2 only in table2    9    o    2
-## 3: table_1    2 only in table1    r    3 table_2 only in table2    6    q    1
+## 1: table_1    3 only in table1    d    1 table_2 only in table2    3    o    3
+## 2: table_1    7 only in table1    r    2 table_2 only in table2    9    w    2
+## 3: table_1    9 only in table1    k    3 table_2 only in table2    7    f    1
 ```
 
 В целом, `cbind()` --- весьма редко используемый способ объединения таблиц. Его стоит использовать только тогда, когда есть однозначная уверенность в структуре данных (одинаковое количество строк, разные названия колонок, идентичная сортировка и т. д.), в противном случае это место, в котором очень легко ошибиться, при этом эту ошибку будет очень сложно найти.
