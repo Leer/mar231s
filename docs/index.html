@@ -23,7 +23,7 @@
 <meta name="author" content="Ph.A.Upravitelev" />
 
 
-<meta name="date" content="2023-11-03" />
+<meta name="date" content="2023-11-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -59,6 +59,18 @@
 <script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
 <link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
 <script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.2.0/leaflet.js"></script>
+<link href="libs/leaflet-markercluster-1.0.5/MarkerCluster.css" rel="stylesheet" />
+<link href="libs/leaflet-markercluster-1.0.5/MarkerCluster.Default.css" rel="stylesheet" />
+<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.js"></script>
+<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.freezable.js"></script>
+<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.layersupport.js"></script>
 
 
 <style type="text/css">
@@ -363,6 +375,69 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#level-5-n-2"><i class="fa fa-check"></i>level 5 (N)</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html"><i class="fa fa-check"></i>Dataviz</a>
+<ul>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#запись-занятия-6"><i class="fa fa-check"></i>Запись занятия</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#intro-1"><i class="fa fa-check"></i>Intro</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#инфографика"><i class="fa fa-check"></i>Инфографика</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#типы-графиков"><i class="fa fa-check"></i>Типы графиков</a>
+<ul>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#scatter-plot"><i class="fa fa-check"></i>scatter plot</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#line-chart"><i class="fa fa-check"></i>line chart</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#bar-chart"><i class="fa fa-check"></i>bar chart</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#grouped-bar-chart"><i class="fa fa-check"></i>grouped bar chart</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#stacked-bar-chart"><i class="fa fa-check"></i>stacked bar chart</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#area-plot"><i class="fa fa-check"></i>area plot</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#area-plot-percentiles"><i class="fa fa-check"></i>area plot (percentiles)</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#boxplot"><i class="fa fa-check"></i>boxplot</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#violin-plot"><i class="fa fa-check"></i>violin plot</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#heatmap"><i class="fa fa-check"></i>heatmap</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#geo-plots-leaflet-map"><i class="fa fa-check"></i>geo plots: leaflet map</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#d3-data-driven-documents"><i class="fa fa-check"></i>d3 (Data-Driven Documents)</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#dashboards"><i class="fa fa-check"></i>Dashboards</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#focuses"><i class="fa fa-check"></i>Focuses</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#data-looks-better-naked"><i class="fa fa-check"></i>Data looks better naked</a>
+<ul>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#the-data-ink-ratio"><i class="fa fa-check"></i>the data-ink ratio</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#clear-off-the-table"><i class="fa fa-check"></i>clear-off-the-table</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#principles"><i class="fa fa-check"></i>Principles</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#misleading-charts"><i class="fa fa-check"></i>Misleading charts</a>
+<ul>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#плохой-дизайн"><i class="fa fa-check"></i>Плохой дизайн</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#арифметические-ошибки"><i class="fa fa-check"></i>Арифметические ошибки</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#манипуляция-вниманием"><i class="fa fa-check"></i>Манипуляция вниманием</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#неверный-масштаб"><i class="fa fa-check"></i>Неверный масштаб</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#несоответствие-графиков-цифрам"><i class="fa fa-check"></i>Несоответствие графиков цифрам</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#полезные-материалы"><i class="fa fa-check"></i>Полезные материалы</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html"><i class="fa fa-check"></i>ggplot2 pt1</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#запись-занятий"><i class="fa fa-check"></i>Запись занятий</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#решение-домашней-работы"><i class="fa fa-check"></i>Решение домашней работы</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#level-1-iatytd-3"><i class="fa fa-check"></i>level 1 (IATYTD)</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#level-2-hntr-3"><i class="fa fa-check"></i>level 2 (HNTR)</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#level-3-hmp-5"><i class="fa fa-check"></i>level 3 (HMP)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#ggplot2-package"><i class="fa fa-check"></i>ggplot2 package</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#компоненты-графика"><i class="fa fa-check"></i>Компоненты графика</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#базовые-геомы"><i class="fa fa-check"></i>Базовые геомы</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#геомы-визуальных-акцентов"><i class="fa fa-check"></i>геомы визуальных акцентов</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#дополнительные-материалы-2"><i class="fa fa-check"></i>Дополнительные материалы</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#домашнее-задание-7"><i class="fa fa-check"></i>Домашнее задание</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#задание-1"><i class="fa fa-check"></i>Задание 1</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#задание-2"><i class="fa fa-check"></i>Задание 2</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#задание-3"><i class="fa fa-check"></i>Задание 3</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#задание-4"><i class="fa fa-check"></i>Задание 4</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#задание-5"><i class="fa fa-check"></i>Задание 5</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="hw-1.html"><a href="hw-1.html"><i class="fa fa-check"></i>HW 1</a>
 <ul>
 <li class="chapter" data-level="" data-path="hw-1.html"><a href="hw-1.html#общие-замечания"><i class="fa fa-check"></i>Общие замечания</a></li>
@@ -395,7 +470,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Автоматизированный сбор больших данных в экономико-социологических исследованиях</h1>
 <p class="author"><em>Ph.A.Upravitelev</em></p>
-<p class="date"><em>2023-11-03</em></p>
+<p class="date"><em>2023-11-16</em></p>
 </div>
 <div id="intro" class="section level1 unnumbered hasAnchor">
 <h1>Intro<a href="index.html#intro" class="anchor-section" aria-label="Anchor link to header"></a></h1>

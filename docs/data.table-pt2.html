@@ -23,7 +23,7 @@
 <meta name="author" content="Ph.A.Upravitelev" />
 
 
-<meta name="date" content="2023-11-03" />
+<meta name="date" content="2023-11-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -59,6 +59,18 @@
 <script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
 <link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
 <script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.2.0/leaflet.js"></script>
+<link href="libs/leaflet-markercluster-1.0.5/MarkerCluster.css" rel="stylesheet" />
+<link href="libs/leaflet-markercluster-1.0.5/MarkerCluster.Default.css" rel="stylesheet" />
+<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.js"></script>
+<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.freezable.js"></script>
+<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.layersupport.js"></script>
 
 
 <style type="text/css">
@@ -363,6 +375,69 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#level-5-n-2"><i class="fa fa-check"></i>level 5 (N)</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html"><i class="fa fa-check"></i>Dataviz</a>
+<ul>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#запись-занятия-6"><i class="fa fa-check"></i>Запись занятия</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#intro-1"><i class="fa fa-check"></i>Intro</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#инфографика"><i class="fa fa-check"></i>Инфографика</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#типы-графиков"><i class="fa fa-check"></i>Типы графиков</a>
+<ul>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#scatter-plot"><i class="fa fa-check"></i>scatter plot</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#line-chart"><i class="fa fa-check"></i>line chart</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#bar-chart"><i class="fa fa-check"></i>bar chart</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#grouped-bar-chart"><i class="fa fa-check"></i>grouped bar chart</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#stacked-bar-chart"><i class="fa fa-check"></i>stacked bar chart</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#area-plot"><i class="fa fa-check"></i>area plot</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#area-plot-percentiles"><i class="fa fa-check"></i>area plot (percentiles)</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#boxplot"><i class="fa fa-check"></i>boxplot</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#violin-plot"><i class="fa fa-check"></i>violin plot</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#heatmap"><i class="fa fa-check"></i>heatmap</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#geo-plots-leaflet-map"><i class="fa fa-check"></i>geo plots: leaflet map</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#d3-data-driven-documents"><i class="fa fa-check"></i>d3 (Data-Driven Documents)</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#dashboards"><i class="fa fa-check"></i>Dashboards</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#focuses"><i class="fa fa-check"></i>Focuses</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#data-looks-better-naked"><i class="fa fa-check"></i>Data looks better naked</a>
+<ul>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#the-data-ink-ratio"><i class="fa fa-check"></i>the data-ink ratio</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#clear-off-the-table"><i class="fa fa-check"></i>clear-off-the-table</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#principles"><i class="fa fa-check"></i>Principles</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#misleading-charts"><i class="fa fa-check"></i>Misleading charts</a>
+<ul>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#плохой-дизайн"><i class="fa fa-check"></i>Плохой дизайн</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#арифметические-ошибки"><i class="fa fa-check"></i>Арифметические ошибки</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#манипуляция-вниманием"><i class="fa fa-check"></i>Манипуляция вниманием</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#неверный-масштаб"><i class="fa fa-check"></i>Неверный масштаб</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#несоответствие-графиков-цифрам"><i class="fa fa-check"></i>Несоответствие графиков цифрам</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#полезные-материалы"><i class="fa fa-check"></i>Полезные материалы</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html"><i class="fa fa-check"></i>ggplot2 pt1</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#запись-занятий"><i class="fa fa-check"></i>Запись занятий</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#решение-домашней-работы"><i class="fa fa-check"></i>Решение домашней работы</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#level-1-iatytd-3"><i class="fa fa-check"></i>level 1 (IATYTD)</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#level-2-hntr-3"><i class="fa fa-check"></i>level 2 (HNTR)</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#level-3-hmp-5"><i class="fa fa-check"></i>level 3 (HMP)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#ggplot2-package"><i class="fa fa-check"></i>ggplot2 package</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#компоненты-графика"><i class="fa fa-check"></i>Компоненты графика</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#базовые-геомы"><i class="fa fa-check"></i>Базовые геомы</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#геомы-визуальных-акцентов"><i class="fa fa-check"></i>геомы визуальных акцентов</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#дополнительные-материалы-2"><i class="fa fa-check"></i>Дополнительные материалы</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#домашнее-задание-7"><i class="fa fa-check"></i>Домашнее задание</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#задание-1"><i class="fa fa-check"></i>Задание 1</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#задание-2"><i class="fa fa-check"></i>Задание 2</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#задание-3"><i class="fa fa-check"></i>Задание 3</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#задание-4"><i class="fa fa-check"></i>Задание 4</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#задание-5"><i class="fa fa-check"></i>Задание 5</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="hw-1.html"><a href="hw-1.html"><i class="fa fa-check"></i>HW 1</a>
 <ul>
 <li class="chapter" data-level="" data-path="hw-1.html"><a href="hw-1.html#общие-замечания"><i class="fa fa-check"></i>Общие замечания</a></li>
@@ -487,12 +562,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb221-13"><a href="data.table-pt2.html#cb221-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb221-14"><a href="data.table-pt2.html#cb221-14" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(my_dt)</span></code></pre></div>
 <pre><code>##       uid sid            login_ts session_length
-## 1: user_1   1 2023-09-02 03:05:11            568
-## 2: user_1   2 2023-09-02 12:45:43            385
-## 3: user_1   3 2023-09-03 09:01:06            366
-## 4: user_1   4 2023-09-03 10:34:47            134
-## 5: user_1   5 2023-09-03 13:37:23            485
-## 6: user_2   1 2023-09-04 00:24:21            305</code></pre>
+## 1: user_1   1 2023-09-02 02:28:07            303
+## 2: user_1   2 2023-09-02 16:55:58            353
+## 3: user_1   3 2023-09-02 17:35:09            203
+## 4: user_1   4 2023-09-04 08:15:20            477
+## 5: user_1   5 2023-09-04 09:30:01            570
+## 6: user_2   1 2023-09-04 10:08:46            386</code></pre>
 </div>
 </div>
 <div id="применение-функций" class="section level2 unnumbered hasAnchor">
@@ -626,12 +701,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb245-13"><a href="data.table-pt2.html#cb245-13" aria-hidden="true" tabindex="-1"></a><span class="co"># объединяем по строкам</span></span>
 <span id="cb245-14"><a href="data.table-pt2.html#cb245-14" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(dt1, dt2, <span class="at">fill =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>##         tb col1           col3 col2           col4
-## 1: table_1    3 only in table1    d           &lt;NA&gt;
-## 2: table_1    7 only in table1    r           &lt;NA&gt;
-## 3: table_1    9 only in table1    k           &lt;NA&gt;
-## 4: table_2    7           &lt;NA&gt;    f only in table2
-## 5: table_2    9           &lt;NA&gt;    w only in table2
-## 6: table_2    3           &lt;NA&gt;    o only in table2</code></pre>
+## 1: table_1    8 only in table1    c           &lt;NA&gt;
+## 2: table_1    2 only in table1    n           &lt;NA&gt;
+## 3: table_1    6 only in table1    y           &lt;NA&gt;
+## 4: table_2    3           &lt;NA&gt;    k only in table2
+## 5: table_2    2           &lt;NA&gt;    l only in table2
+## 6: table_2    9           &lt;NA&gt;    x only in table2</code></pre>
 </div>
 <div id="cbind" class="section level3 unnumbered hasAnchor">
 <h3>cbind()<a href="data.table-pt2.html#cbind" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -641,14 +716,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="data.table-pt2.html#cb247-1" aria-hidden="true" tabindex="-1"></a><span class="co"># выведем ранее созданные таблицы</span></span>
 <span id="cb247-2"><a href="data.table-pt2.html#cb247-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(dt1)</span></code></pre></div>
 <pre><code>##         tb col1           col3 col2
-## 1: table_1    3 only in table1    d
-## 2: table_1    7 only in table1    r
-## 3: table_1    9 only in table1    k</code></pre>
+## 1: table_1    8 only in table1    c
+## 2: table_1    2 only in table1    n
+## 3: table_1    6 only in table1    y</code></pre>
 <div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="data.table-pt2.html#cb249-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(dt2)</span></code></pre></div>
 <pre><code>##         tb           col4 col1 col2
-## 1: table_2 only in table2    7    f
-## 2: table_2 only in table2    9    w
-## 3: table_2 only in table2    3    o</code></pre>
+## 1: table_2 only in table2    3    k
+## 2: table_2 only in table2    2    l
+## 3: table_2 only in table2    9    x</code></pre>
 <div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="data.table-pt2.html#cb251-1" aria-hidden="true" tabindex="-1"></a><span class="co"># создадим колонки-номера строк</span></span>
 <span id="cb251-2"><a href="data.table-pt2.html#cb251-2" aria-hidden="true" tabindex="-1"></a>dt1[, indx <span class="sc">:</span><span class="er">=</span> <span class="dv">1</span><span class="sc">:</span>.N]</span>
 <span id="cb251-3"><a href="data.table-pt2.html#cb251-3" aria-hidden="true" tabindex="-1"></a>dt2[, indx <span class="sc">:</span><span class="er">=</span> <span class="dv">1</span><span class="sc">:</span>.N]</span>
@@ -659,9 +734,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb251-8"><a href="data.table-pt2.html#cb251-8" aria-hidden="true" tabindex="-1"></a><span class="co"># таблица получилась, но в строках бардак</span></span>
 <span id="cb251-9"><a href="data.table-pt2.html#cb251-9" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(dt1, dt2)</span></code></pre></div>
 <pre><code>##         tb col1           col3 col2 indx      tb           col4 col1 col2 indx
-## 1: table_1    3 only in table1    d    1 table_2 only in table2    3    o    3
-## 2: table_1    7 only in table1    r    2 table_2 only in table2    9    w    2
-## 3: table_1    9 only in table1    k    3 table_2 only in table2    7    f    1</code></pre>
+## 1: table_1    8 only in table1    c    1 table_2 only in table2    9    x    3
+## 2: table_1    2 only in table1    n    2 table_2 only in table2    2    l    2
+## 3: table_1    6 only in table1    y    3 table_2 only in table2    3    k    1</code></pre>
 <p>В целом, <code>cbind()</code> — весьма редко используемый способ объединения таблиц. Его стоит использовать только тогда, когда есть однозначная уверенность в структуре данных (одинаковое количество строк, разные названия колонок, идентичная сортировка и т. д.), в противном случае это место, в котором очень легко ошибиться, при этом эту ошибку будет очень сложно найти.</p>
 </div>
 </div>
