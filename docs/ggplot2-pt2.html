@@ -499,65 +499,65 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="решение-домашки" class="section level2 hasAnchor">
 <h2>Решение домашки<a href="ggplot2-pt2.html#решение-домашки" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Импорт и подготовка данных:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="ggplot2-pt2.html#cb1-1" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
-<span id="cb1-2"><a href="ggplot2-pt2.html#cb1-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-3"><a href="ggplot2-pt2.html#cb1-3" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="ggplot2-pt2.html#cb1-4" tabindex="-1"></a><span class="co"># задаем тему по умолчанию</span></span>
-<span id="cb1-5"><a href="ggplot2-pt2.html#cb1-5" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_classic</span>())</span>
-<span id="cb1-6"><a href="ggplot2-pt2.html#cb1-6" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="ggplot2-pt2.html#cb1-7" tabindex="-1"></a>diamonds_sample <span class="ot">&lt;-</span> <span class="fu">as.data.table</span>(diamonds)</span>
-<span id="cb1-8"><a href="ggplot2-pt2.html#cb1-8" tabindex="-1"></a>diamonds_sample <span class="ot">&lt;-</span> diamonds_sample[carat <span class="sc">&lt;</span> <span class="dv">3</span>]</span>
-<span id="cb1-9"><a href="ggplot2-pt2.html#cb1-9" tabindex="-1"></a>diamonds_sample <span class="ot">&lt;-</span> diamonds_sample[<span class="fu">sample</span>(.N, <span class="dv">10000</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="ggplot2-pt2.html#cb378-1" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb378-2"><a href="ggplot2-pt2.html#cb378-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb378-3"><a href="ggplot2-pt2.html#cb378-3" tabindex="-1"></a></span>
+<span id="cb378-4"><a href="ggplot2-pt2.html#cb378-4" tabindex="-1"></a><span class="co"># задаем тему по умолчанию</span></span>
+<span id="cb378-5"><a href="ggplot2-pt2.html#cb378-5" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_classic</span>())</span>
+<span id="cb378-6"><a href="ggplot2-pt2.html#cb378-6" tabindex="-1"></a></span>
+<span id="cb378-7"><a href="ggplot2-pt2.html#cb378-7" tabindex="-1"></a>diamonds_sample <span class="ot">&lt;-</span> <span class="fu">as.data.table</span>(diamonds)</span>
+<span id="cb378-8"><a href="ggplot2-pt2.html#cb378-8" tabindex="-1"></a>diamonds_sample <span class="ot">&lt;-</span> diamonds_sample[carat <span class="sc">&lt;</span> <span class="dv">3</span>]</span>
+<span id="cb378-9"><a href="ggplot2-pt2.html#cb378-9" tabindex="-1"></a>diamonds_sample <span class="ot">&lt;-</span> diamonds_sample[<span class="fu">sample</span>(.N, <span class="dv">10000</span>)]</span></code></pre></div>
 <p>Решение заданий 2-5:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="ggplot2-pt2.html#cb2-1" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
-<span id="cb2-2"><a href="ggplot2-pt2.html#cb2-2" tabindex="-1"></a>  <span class="co"># задание 1</span></span>
-<span id="cb2-3"><a href="ggplot2-pt2.html#cb2-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> diamonds_sample,</span>
-<span id="cb2-4"><a href="ggplot2-pt2.html#cb2-4" tabindex="-1"></a>             <span class="co"># добавление color = cut -- решение задания 2</span></span>
-<span id="cb2-5"><a href="ggplot2-pt2.html#cb2-5" tabindex="-1"></a>             <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price, <span class="at">color =</span> cut), </span>
-<span id="cb2-6"><a href="ggplot2-pt2.html#cb2-6" tabindex="-1"></a>             <span class="at">shape =</span> <span class="st">&#39;diamond&#39;</span>) <span class="sc">+</span></span>
-<span id="cb2-7"><a href="ggplot2-pt2.html#cb2-7" tabindex="-1"></a>  <span class="co"># задание 3, закомментировано, так как для заданий 4-5 оно избыточно</span></span>
-<span id="cb2-8"><a href="ggplot2-pt2.html#cb2-8" tabindex="-1"></a>  <span class="co"># geom_vline(xintercept = 2) +</span></span>
-<span id="cb2-9"><a href="ggplot2-pt2.html#cb2-9" tabindex="-1"></a>  <span class="co"># geom_hline(yintercept = 15000) + </span></span>
-<span id="cb2-10"><a href="ggplot2-pt2.html#cb2-10" tabindex="-1"></a>  <span class="co"># задание 4</span></span>
-<span id="cb2-11"><a href="ggplot2-pt2.html#cb2-11" tabindex="-1"></a>  <span class="fu">geom_rect</span>(</span>
-<span id="cb2-12"><a href="ggplot2-pt2.html#cb2-12" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">xmin =</span> <span class="dv">2</span>, <span class="at">xmax =</span> <span class="cn">Inf</span>, <span class="at">ymin =</span> <span class="dv">15000</span>, <span class="at">ymax =</span> <span class="cn">Inf</span>),</span>
-<span id="cb2-13"><a href="ggplot2-pt2.html#cb2-13" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">&#39;green&#39;</span>, <span class="at">alpha =</span> <span class="fl">0.1</span></span>
-<span id="cb2-14"><a href="ggplot2-pt2.html#cb2-14" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
-<span id="cb2-15"><a href="ggplot2-pt2.html#cb2-15" tabindex="-1"></a>  <span class="fu">geom_rect</span>(</span>
-<span id="cb2-16"><a href="ggplot2-pt2.html#cb2-16" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">xmin =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">xmax =</span> <span class="dv">2</span>, <span class="at">ymin =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">ymax =</span> <span class="dv">15000</span>),</span>
-<span id="cb2-17"><a href="ggplot2-pt2.html#cb2-17" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">&#39;red&#39;</span>, <span class="at">alpha =</span> <span class="fl">0.1</span></span>
-<span id="cb2-18"><a href="ggplot2-pt2.html#cb2-18" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
-<span id="cb2-19"><a href="ggplot2-pt2.html#cb2-19" tabindex="-1"></a>  <span class="co"># задание 5, только цвет не &#39;black&#39;</span></span>
-<span id="cb2-20"><a href="ggplot2-pt2.html#cb2-20" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> diamonds_sample[(carat <span class="sc">&lt;</span> <span class="dv">2</span> <span class="sc">&amp;</span> price <span class="sc">&gt;=</span> <span class="dv">15000</span>)],</span>
-<span id="cb2-21"><a href="ggplot2-pt2.html#cb2-21" tabindex="-1"></a>             <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price), <span class="at">color =</span> <span class="st">&#39;grey80&#39;</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
-<span id="cb2-22"><a href="ggplot2-pt2.html#cb2-22" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> diamonds_sample[(carat <span class="sc">&gt;=</span> <span class="dv">2</span> <span class="sc">&amp;</span> price <span class="sc">&lt;</span> <span class="dv">15000</span>)],</span>
-<span id="cb2-23"><a href="ggplot2-pt2.html#cb2-23" tabindex="-1"></a>             <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price), <span class="at">color =</span> <span class="st">&#39;grey80&#39;</span>, <span class="at">size =</span> <span class="dv">1</span>)    </span></code></pre></div>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="ggplot2-pt2.html#cb379-1" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb379-2"><a href="ggplot2-pt2.html#cb379-2" tabindex="-1"></a>  <span class="co"># задание 1</span></span>
+<span id="cb379-3"><a href="ggplot2-pt2.html#cb379-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> diamonds_sample,</span>
+<span id="cb379-4"><a href="ggplot2-pt2.html#cb379-4" tabindex="-1"></a>             <span class="co"># добавление color = cut -- решение задания 2</span></span>
+<span id="cb379-5"><a href="ggplot2-pt2.html#cb379-5" tabindex="-1"></a>             <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price, <span class="at">color =</span> cut), </span>
+<span id="cb379-6"><a href="ggplot2-pt2.html#cb379-6" tabindex="-1"></a>             <span class="at">shape =</span> <span class="st">&#39;diamond&#39;</span>) <span class="sc">+</span></span>
+<span id="cb379-7"><a href="ggplot2-pt2.html#cb379-7" tabindex="-1"></a>  <span class="co"># задание 3, закомментировано, так как для заданий 4-5 оно избыточно</span></span>
+<span id="cb379-8"><a href="ggplot2-pt2.html#cb379-8" tabindex="-1"></a>  <span class="co"># geom_vline(xintercept = 2) +</span></span>
+<span id="cb379-9"><a href="ggplot2-pt2.html#cb379-9" tabindex="-1"></a>  <span class="co"># geom_hline(yintercept = 15000) + </span></span>
+<span id="cb379-10"><a href="ggplot2-pt2.html#cb379-10" tabindex="-1"></a>  <span class="co"># задание 4</span></span>
+<span id="cb379-11"><a href="ggplot2-pt2.html#cb379-11" tabindex="-1"></a>  <span class="fu">geom_rect</span>(</span>
+<span id="cb379-12"><a href="ggplot2-pt2.html#cb379-12" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">xmin =</span> <span class="dv">2</span>, <span class="at">xmax =</span> <span class="cn">Inf</span>, <span class="at">ymin =</span> <span class="dv">15000</span>, <span class="at">ymax =</span> <span class="cn">Inf</span>),</span>
+<span id="cb379-13"><a href="ggplot2-pt2.html#cb379-13" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">&#39;green&#39;</span>, <span class="at">alpha =</span> <span class="fl">0.1</span></span>
+<span id="cb379-14"><a href="ggplot2-pt2.html#cb379-14" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
+<span id="cb379-15"><a href="ggplot2-pt2.html#cb379-15" tabindex="-1"></a>  <span class="fu">geom_rect</span>(</span>
+<span id="cb379-16"><a href="ggplot2-pt2.html#cb379-16" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">xmin =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">xmax =</span> <span class="dv">2</span>, <span class="at">ymin =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">ymax =</span> <span class="dv">15000</span>),</span>
+<span id="cb379-17"><a href="ggplot2-pt2.html#cb379-17" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">&#39;red&#39;</span>, <span class="at">alpha =</span> <span class="fl">0.1</span></span>
+<span id="cb379-18"><a href="ggplot2-pt2.html#cb379-18" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
+<span id="cb379-19"><a href="ggplot2-pt2.html#cb379-19" tabindex="-1"></a>  <span class="co"># задание 5, только цвет не &#39;black&#39;</span></span>
+<span id="cb379-20"><a href="ggplot2-pt2.html#cb379-20" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> diamonds_sample[(carat <span class="sc">&lt;</span> <span class="dv">2</span> <span class="sc">&amp;</span> price <span class="sc">&gt;=</span> <span class="dv">15000</span>)],</span>
+<span id="cb379-21"><a href="ggplot2-pt2.html#cb379-21" tabindex="-1"></a>             <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price), <span class="at">color =</span> <span class="st">&#39;grey80&#39;</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb379-22"><a href="ggplot2-pt2.html#cb379-22" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> diamonds_sample[(carat <span class="sc">&gt;=</span> <span class="dv">2</span> <span class="sc">&amp;</span> price <span class="sc">&lt;</span> <span class="dv">15000</span>)],</span>
+<span id="cb379-23"><a href="ggplot2-pt2.html#cb379-23" tabindex="-1"></a>             <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price), <span class="at">color =</span> <span class="st">&#39;grey80&#39;</span>, <span class="at">size =</span> <span class="dv">1</span>)    </span></code></pre></div>
 <p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 </div>
 <div id="пакеты-и-данные" class="section level2 unnumbered hasAnchor">
 <h2>пакеты и данные<a href="ggplot2-pt2.html#пакеты-и-данные" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="ggplot2-pt2.html#cb3-1" tabindex="-1"></a><span class="co"># подключаем библиотеки</span></span>
-<span id="cb3-2"><a href="ggplot2-pt2.html#cb3-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb3-3"><a href="ggplot2-pt2.html#cb3-3" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
-<span id="cb3-4"><a href="ggplot2-pt2.html#cb3-4" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="ggplot2-pt2.html#cb3-5" tabindex="-1"></a><span class="co"># импорт данных</span></span>
-<span id="cb3-6"><a href="ggplot2-pt2.html#cb3-6" tabindex="-1"></a><span class="co"># imdb_link &lt;- &#39;https://gitlab.com/hse_mar/mar221s/raw/master/data/IMDb movies.csv&#39;</span></span>
-<span id="cb3-7"><a href="ggplot2-pt2.html#cb3-7" tabindex="-1"></a>imdb_link <span class="ot">&lt;-</span> <span class="st">&#39;./data/IMDb movies.csv&#39;</span></span>
-<span id="cb3-8"><a href="ggplot2-pt2.html#cb3-8" tabindex="-1"></a>tg_cols <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;director&quot;</span>, <span class="st">&quot;title&quot;</span>, <span class="st">&quot;original_title&quot;</span>, <span class="st">&quot;year&quot;</span>, </span>
-<span id="cb3-9"><a href="ggplot2-pt2.html#cb3-9" tabindex="-1"></a>             <span class="st">&quot;genre&quot;</span>, <span class="st">&quot;duration&quot;</span>, <span class="st">&quot;country&quot;</span>, <span class="st">&quot;avg_vote&quot;</span>)</span>
-<span id="cb3-10"><a href="ggplot2-pt2.html#cb3-10" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="ggplot2-pt2.html#cb3-11" tabindex="-1"></a>imdb <span class="ot">&lt;-</span> <span class="fu">fread</span>(imdb_link, <span class="at">select =</span> tg_cols)</span>
-<span id="cb3-12"><a href="ggplot2-pt2.html#cb3-12" tabindex="-1"></a>imdb[, year <span class="sc">:=</span> <span class="fu">as.numeric</span>(year)]</span>
-<span id="cb3-13"><a href="ggplot2-pt2.html#cb3-13" tabindex="-1"></a></span>
-<span id="cb3-14"><a href="ggplot2-pt2.html#cb3-14" tabindex="-1"></a>imdb_woody <span class="ot">&lt;-</span> imdb[director <span class="sc">==</span> <span class="st">&#39;Woody Allen&#39;</span>]</span>
-<span id="cb3-15"><a href="ggplot2-pt2.html#cb3-15" tabindex="-1"></a>imdb_martin <span class="ot">&lt;-</span> imdb[director <span class="sc">==</span> <span class="st">&#39;Martin Scorsese&#39;</span>]</span>
-<span id="cb3-16"><a href="ggplot2-pt2.html#cb3-16" tabindex="-1"></a>imdb_lynch <span class="ot">&lt;-</span> imdb[director <span class="sc">==</span> <span class="st">&#39;David Lynch&#39;</span>]</span>
-<span id="cb3-17"><a href="ggplot2-pt2.html#cb3-17" tabindex="-1"></a>imdb_wm <span class="ot">&lt;-</span> <span class="fu">rbind</span>(imdb_woody, imdb_martin)</span>
-<span id="cb3-18"><a href="ggplot2-pt2.html#cb3-18" tabindex="-1"></a></span>
-<span id="cb3-19"><a href="ggplot2-pt2.html#cb3-19" tabindex="-1"></a>imdb_genres <span class="ot">&lt;-</span> imdb[genre <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&#39;Horror&#39;</span>, <span class="st">&#39;Comedy&#39;</span>, <span class="st">&#39;Drama&#39;</span>)]</span>
-<span id="cb3-20"><a href="ggplot2-pt2.html#cb3-20" tabindex="-1"></a>imdb_genres_scores <span class="ot">&lt;-</span> imdb_genres[, </span>
-<span id="cb3-21"><a href="ggplot2-pt2.html#cb3-21" tabindex="-1"></a>                                  <span class="fu">list</span>(<span class="at">n_titles =</span> .N, <span class="at">votes =</span> <span class="fu">mean</span>(avg_vote)), </span>
-<span id="cb3-22"><a href="ggplot2-pt2.html#cb3-22" tabindex="-1"></a>                                  by <span class="ot">=</span> <span class="fu">list</span>(year, genre)] </span></code></pre></div>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="ggplot2-pt2.html#cb380-1" tabindex="-1"></a><span class="co"># подключаем библиотеки</span></span>
+<span id="cb380-2"><a href="ggplot2-pt2.html#cb380-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb380-3"><a href="ggplot2-pt2.html#cb380-3" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb380-4"><a href="ggplot2-pt2.html#cb380-4" tabindex="-1"></a></span>
+<span id="cb380-5"><a href="ggplot2-pt2.html#cb380-5" tabindex="-1"></a><span class="co"># импорт данных</span></span>
+<span id="cb380-6"><a href="ggplot2-pt2.html#cb380-6" tabindex="-1"></a><span class="co"># imdb_link &lt;- &#39;https://gitlab.com/hse_mar/mar221s/raw/master/data/IMDb movies.csv&#39;</span></span>
+<span id="cb380-7"><a href="ggplot2-pt2.html#cb380-7" tabindex="-1"></a>imdb_link <span class="ot">&lt;-</span> <span class="st">&#39;./data/IMDb movies.csv&#39;</span></span>
+<span id="cb380-8"><a href="ggplot2-pt2.html#cb380-8" tabindex="-1"></a>tg_cols <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;director&quot;</span>, <span class="st">&quot;title&quot;</span>, <span class="st">&quot;original_title&quot;</span>, <span class="st">&quot;year&quot;</span>, </span>
+<span id="cb380-9"><a href="ggplot2-pt2.html#cb380-9" tabindex="-1"></a>             <span class="st">&quot;genre&quot;</span>, <span class="st">&quot;duration&quot;</span>, <span class="st">&quot;country&quot;</span>, <span class="st">&quot;avg_vote&quot;</span>)</span>
+<span id="cb380-10"><a href="ggplot2-pt2.html#cb380-10" tabindex="-1"></a></span>
+<span id="cb380-11"><a href="ggplot2-pt2.html#cb380-11" tabindex="-1"></a>imdb <span class="ot">&lt;-</span> <span class="fu">fread</span>(imdb_link, <span class="at">select =</span> tg_cols)</span>
+<span id="cb380-12"><a href="ggplot2-pt2.html#cb380-12" tabindex="-1"></a>imdb[, year <span class="sc">:=</span> <span class="fu">as.numeric</span>(year)]</span>
+<span id="cb380-13"><a href="ggplot2-pt2.html#cb380-13" tabindex="-1"></a></span>
+<span id="cb380-14"><a href="ggplot2-pt2.html#cb380-14" tabindex="-1"></a>imdb_woody <span class="ot">&lt;-</span> imdb[director <span class="sc">==</span> <span class="st">&#39;Woody Allen&#39;</span>]</span>
+<span id="cb380-15"><a href="ggplot2-pt2.html#cb380-15" tabindex="-1"></a>imdb_martin <span class="ot">&lt;-</span> imdb[director <span class="sc">==</span> <span class="st">&#39;Martin Scorsese&#39;</span>]</span>
+<span id="cb380-16"><a href="ggplot2-pt2.html#cb380-16" tabindex="-1"></a>imdb_lynch <span class="ot">&lt;-</span> imdb[director <span class="sc">==</span> <span class="st">&#39;David Lynch&#39;</span>]</span>
+<span id="cb380-17"><a href="ggplot2-pt2.html#cb380-17" tabindex="-1"></a>imdb_wm <span class="ot">&lt;-</span> <span class="fu">rbind</span>(imdb_woody, imdb_martin)</span>
+<span id="cb380-18"><a href="ggplot2-pt2.html#cb380-18" tabindex="-1"></a></span>
+<span id="cb380-19"><a href="ggplot2-pt2.html#cb380-19" tabindex="-1"></a>imdb_genres <span class="ot">&lt;-</span> imdb[genre <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&#39;Horror&#39;</span>, <span class="st">&#39;Comedy&#39;</span>, <span class="st">&#39;Drama&#39;</span>)]</span>
+<span id="cb380-20"><a href="ggplot2-pt2.html#cb380-20" tabindex="-1"></a>imdb_genres_scores <span class="ot">&lt;-</span> imdb_genres[, </span>
+<span id="cb380-21"><a href="ggplot2-pt2.html#cb380-21" tabindex="-1"></a>                                  <span class="fu">list</span>(<span class="at">n_titles =</span> .N, <span class="at">votes =</span> <span class="fu">mean</span>(avg_vote)), </span>
+<span id="cb380-22"><a href="ggplot2-pt2.html#cb380-22" tabindex="-1"></a>                                  by <span class="ot">=</span> <span class="fu">list</span>(year, genre)] </span></code></pre></div>
 </div>
 <div id="статистические-геомы" class="section level2 unnumbered hasAnchor">
 <h2>Статистические геомы<a href="ggplot2-pt2.html#статистические-геомы" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -565,13 +565,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3>geom_bar()<a href="ggplot2-pt2.html#geom_bar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Геом используется для отрисовки столбиковых диаграмм (барчартов). При использовании геома по оси ОХ указывают переменную категорий (даты, строковые значения и проч). У геома есть, среди прочих, есть важный параметр, <code>stat</code>.</p>
 <p>Когда <code>stat = 'count'</code> (это значение по умолчанию), то ось OY указывать не надо. Так как при отрисовке графика происходит вычисление количества наблюдений (строк) на каждое значение по оси OX, и именно по этому вычисленному значению отрисовываются столбики. (предупреждение <code>Removed 108 rows containing non-finite values (stat_count).</code> означает, что есть пропуски в колонке <code>title_year</code>)</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="ggplot2-pt2.html#cb4-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb[genre <span class="sc">==</span> <span class="st">&#39;Horror&#39;</span>], <span class="fu">aes</span>(<span class="at">x =</span> year)) <span class="sc">+</span></span>
-<span id="cb4-2"><a href="ggplot2-pt2.html#cb4-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&#39;count&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="ggplot2-pt2.html#cb381-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb[genre <span class="sc">==</span> <span class="st">&#39;Horror&#39;</span>], <span class="fu">aes</span>(<span class="at">x =</span> year)) <span class="sc">+</span></span>
+<span id="cb381-2"><a href="ggplot2-pt2.html#cb381-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&#39;count&#39;</span>)</span></code></pre></div>
 <p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>Когда <code>stat = 'identity'</code> (это значение надо пропиcывать), то необходимо указать и по значениям какой колонки строится ось OY. Этот вариант предпочтительнее в работе - лучше сначала явно создать отдельный объект, а потом его отрисовать, чем делать неявные вычисления при отрисовке графика. Здесь у нас не таблица с сырыми данными по фильмам, а агрегат по жанрам, который мы подготовили ранее (<code>imdb_genres_scores</code>).</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="ggplot2-pt2.html#cb5-1" tabindex="-1"></a><span class="co"># указываем год как x, а количество строк как y</span></span>
-<span id="cb5-2"><a href="ggplot2-pt2.html#cb5-2" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_genres_scores[genre <span class="sc">==</span> <span class="st">&#39;Horror&#39;</span>], <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> n_titles)) <span class="sc">+</span></span>
-<span id="cb5-3"><a href="ggplot2-pt2.html#cb5-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&#39;identity&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="ggplot2-pt2.html#cb382-1" tabindex="-1"></a><span class="co"># указываем год как x, а количество строк как y</span></span>
+<span id="cb382-2"><a href="ggplot2-pt2.html#cb382-2" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_genres_scores[genre <span class="sc">==</span> <span class="st">&#39;Horror&#39;</span>], <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> n_titles)) <span class="sc">+</span></span>
+<span id="cb382-3"><a href="ggplot2-pt2.html#cb382-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&#39;identity&#39;</span>)</span></code></pre></div>
 <p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p><br></p>
 <div id="geom_bar-aesthetics" class="section level4 unnumbered hasAnchor">
@@ -588,27 +588,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="настройка-визуальных-параметров-3" class="section level4 unnumbered hasAnchor">
 <h4>Настройка визуальных параметров<a href="ggplot2-pt2.html#настройка-визуальных-параметров-3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Как и во всех геомах, можно использовать колонки датасета для того, чтобы задать цвет контура или заливки столбика. Обычно делается только в том случае, когда есть разные группы в датасете, и их надо выделить цветом. Во всех остальных случаях цвета контура и заливки, как правило, задаются фиксировнными значениями:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="ggplot2-pt2.html#cb6-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_genres_scores[genre <span class="sc">==</span> <span class="st">&#39;Horror&#39;</span>], <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> n_titles)) <span class="sc">+</span></span>
-<span id="cb6-2"><a href="ggplot2-pt2.html#cb6-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&#39;identity&#39;</span>,</span>
-<span id="cb6-3"><a href="ggplot2-pt2.html#cb6-3" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">&#39;darkblue&#39;</span>,</span>
-<span id="cb6-4"><a href="ggplot2-pt2.html#cb6-4" tabindex="-1"></a>           <span class="at">fill =</span> <span class="st">&#39;steelblue&#39;</span>,</span>
-<span id="cb6-5"><a href="ggplot2-pt2.html#cb6-5" tabindex="-1"></a>           <span class="at">alpha =</span> <span class="fl">0.1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="ggplot2-pt2.html#cb383-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_genres_scores[genre <span class="sc">==</span> <span class="st">&#39;Horror&#39;</span>], <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> n_titles)) <span class="sc">+</span></span>
+<span id="cb383-2"><a href="ggplot2-pt2.html#cb383-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&#39;identity&#39;</span>,</span>
+<span id="cb383-3"><a href="ggplot2-pt2.html#cb383-3" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">&#39;darkblue&#39;</span>,</span>
+<span id="cb383-4"><a href="ggplot2-pt2.html#cb383-4" tabindex="-1"></a>           <span class="at">fill =</span> <span class="st">&#39;steelblue&#39;</span>,</span>
+<span id="cb383-5"><a href="ggplot2-pt2.html#cb383-5" tabindex="-1"></a>           <span class="at">alpha =</span> <span class="fl">0.1</span>)</span></code></pre></div>
 <p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>Группировка может быть двух видов - “стопкой”, когда в столбике на одном значении OX выделены цветом группы. Это значение по умолчанию, и задается с помощью параметра <code>position - 'stack'</code>. Отрисуем, сколько фильмов разных жанров снимали каждый год. Цвета заливки и контура столбика задаем по значениям колонки genre (каждая страна выделяется одним цветом):</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="ggplot2-pt2.html#cb7-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_genres_scores, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> n_titles)) <span class="sc">+</span></span>
-<span id="cb7-2"><a href="ggplot2-pt2.html#cb7-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(</span>
-<span id="cb7-3"><a href="ggplot2-pt2.html#cb7-3" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">color =</span> genre, <span class="at">fill =</span> genre),</span>
-<span id="cb7-4"><a href="ggplot2-pt2.html#cb7-4" tabindex="-1"></a>    <span class="at">stat =</span> <span class="st">&#39;identity&#39;</span>,</span>
-<span id="cb7-5"><a href="ggplot2-pt2.html#cb7-5" tabindex="-1"></a>    <span class="at">position =</span> <span class="st">&#39;stack&#39;</span></span>
-<span id="cb7-6"><a href="ggplot2-pt2.html#cb7-6" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="ggplot2-pt2.html#cb384-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_genres_scores, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> n_titles)) <span class="sc">+</span></span>
+<span id="cb384-2"><a href="ggplot2-pt2.html#cb384-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(</span>
+<span id="cb384-3"><a href="ggplot2-pt2.html#cb384-3" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">color =</span> genre, <span class="at">fill =</span> genre),</span>
+<span id="cb384-4"><a href="ggplot2-pt2.html#cb384-4" tabindex="-1"></a>    <span class="at">stat =</span> <span class="st">&#39;identity&#39;</span>,</span>
+<span id="cb384-5"><a href="ggplot2-pt2.html#cb384-5" tabindex="-1"></a>    <span class="at">position =</span> <span class="st">&#39;stack&#39;</span></span>
+<span id="cb384-6"><a href="ggplot2-pt2.html#cb384-6" tabindex="-1"></a>  )</span></code></pre></div>
 <p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>Тот же самый график, но с группировкой “рядом”:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="ggplot2-pt2.html#cb8-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_genres_scores, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> n_titles)) <span class="sc">+</span></span>
-<span id="cb8-2"><a href="ggplot2-pt2.html#cb8-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(</span>
-<span id="cb8-3"><a href="ggplot2-pt2.html#cb8-3" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">color =</span> genre, <span class="at">fill =</span> genre),</span>
-<span id="cb8-4"><a href="ggplot2-pt2.html#cb8-4" tabindex="-1"></a>    <span class="at">stat =</span> <span class="st">&#39;identity&#39;</span>,</span>
-<span id="cb8-5"><a href="ggplot2-pt2.html#cb8-5" tabindex="-1"></a>    <span class="at">position =</span> <span class="st">&#39;dodge&#39;</span></span>
-<span id="cb8-6"><a href="ggplot2-pt2.html#cb8-6" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="ggplot2-pt2.html#cb385-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_genres_scores, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> n_titles)) <span class="sc">+</span></span>
+<span id="cb385-2"><a href="ggplot2-pt2.html#cb385-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(</span>
+<span id="cb385-3"><a href="ggplot2-pt2.html#cb385-3" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">color =</span> genre, <span class="at">fill =</span> genre),</span>
+<span id="cb385-4"><a href="ggplot2-pt2.html#cb385-4" tabindex="-1"></a>    <span class="at">stat =</span> <span class="st">&#39;identity&#39;</span>,</span>
+<span id="cb385-5"><a href="ggplot2-pt2.html#cb385-5" tabindex="-1"></a>    <span class="at">position =</span> <span class="st">&#39;dodge&#39;</span></span>
+<span id="cb385-6"><a href="ggplot2-pt2.html#cb385-6" tabindex="-1"></a>  )</span></code></pre></div>
 <p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p><br></p>
 </div>
@@ -617,13 +617,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3>geom_histogram()<a href="ggplot2-pt2.html#geom_histogram" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Гистограммы во многом похожи на барчарты c <code>stat = 'count'</code>, с единственным отличием. Барчарты строятся на дискретных значения оси OX (имя режиссера, дата и проч). А гистограммы строятся на интервальной шкале, то есть, позволяют самим выбирать, сколько значений по оси OX будет в одном столбике. Это задается параметром <code>binwidth</code>:</p>
 <p>Построим гистограмму по количеству фильмов с шагом пять лет:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="ggplot2-pt2.html#cb9-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb, <span class="fu">aes</span>(<span class="at">x =</span> year)) <span class="sc">+</span></span>
-<span id="cb9-2"><a href="ggplot2-pt2.html#cb9-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="ggplot2-pt2.html#cb386-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb, <span class="fu">aes</span>(<span class="at">x =</span> year)) <span class="sc">+</span></span>
+<span id="cb386-2"><a href="ggplot2-pt2.html#cb386-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## Warning: Removed 1 rows containing non-finite values (`stat_bin()`).</code></pre>
 <p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p>Построим гистограмму по количеству фильмов с шагом в 1 год, это должно быть идентично <code>geom_bar()</code>:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="ggplot2-pt2.html#cb11-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb, <span class="fu">aes</span>(<span class="at">x =</span> year)) <span class="sc">+</span></span>
-<span id="cb11-2"><a href="ggplot2-pt2.html#cb11-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="ggplot2-pt2.html#cb388-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb, <span class="fu">aes</span>(<span class="at">x =</span> year)) <span class="sc">+</span></span>
+<span id="cb388-2"><a href="ggplot2-pt2.html#cb388-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## Warning: Removed 1 rows containing non-finite values (`stat_bin()`).</code></pre>
 <p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <p><br></p>
@@ -631,12 +631,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="geom_boxplot" class="section level3 unnumbered hasAnchor">
 <h3>geom_boxplot()<a href="ggplot2-pt2.html#geom_boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Геом для отрисовки боксплотов, по конструкции похож на <code>geom_bar()</code>. Отрисуем боксплоты распределений оценок фильмов трех разных жанров:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="ggplot2-pt2.html#cb13-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_genres_scores, <span class="fu">aes</span>(<span class="at">x =</span> genre, <span class="at">y =</span> votes)) <span class="sc">+</span></span>
-<span id="cb13-2"><a href="ggplot2-pt2.html#cb13-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="ggplot2-pt2.html#cb390-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_genres_scores, <span class="fu">aes</span>(<span class="at">x =</span> genre, <span class="at">y =</span> votes)) <span class="sc">+</span></span>
+<span id="cb390-2"><a href="ggplot2-pt2.html#cb390-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
 <p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <p>Укажем, чтобы цвет заливки и контура боксплота были свои для каждого режиссера. Так как заливка в чистом виде непрозрачная, необходимо отдельно указать параметр <code>alpha</code>, который задаст степень прозрачности заливки:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="ggplot2-pt2.html#cb14-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_genres_scores, <span class="fu">aes</span>(<span class="at">x =</span> genre, <span class="at">y =</span> votes)) <span class="sc">+</span></span>
-<span id="cb14-2"><a href="ggplot2-pt2.html#cb14-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">colour =</span> genre, <span class="at">fill =</span> genre), <span class="at">alpha =</span> <span class="fl">0.1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="ggplot2-pt2.html#cb391-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_genres_scores, <span class="fu">aes</span>(<span class="at">x =</span> genre, <span class="at">y =</span> votes)) <span class="sc">+</span></span>
+<span id="cb391-2"><a href="ggplot2-pt2.html#cb391-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">colour =</span> genre, <span class="at">fill =</span> genre), <span class="at">alpha =</span> <span class="fl">0.1</span>)</span></code></pre></div>
 <p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 <p><br></p>
 </div>
@@ -644,10 +644,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3>geom_smooth()<a href="ggplot2-pt2.html#geom_smooth" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Геом задает линии тренда. Как правило, линии задаются формулой <code>y ~ x</code>, где значения по y - зависимая, а x - независимая, предиктор. Методов построения линии может быть несколько, не только <code>lm</code> и <code>loess</code> (линейная регрессия и локальная полиномиальная регрессия соответственно), подробнее в справке по геому в аргументе <code>method</code>.</p>
 <p>Построим по облаку точек фильмов из жанра <code>Drama</code> тренд imdb-оценок. Нарисуем сначала собственно облако точек, а потом зададим линию тренда с помощью <code>loess</code> и линейной регрессии.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="ggplot2-pt2.html#cb15-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_genres_scores[genre <span class="sc">==</span> <span class="st">&#39;Drama&#39;</span>], <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> votes)) <span class="sc">+</span></span>
-<span id="cb15-2"><a href="ggplot2-pt2.html#cb15-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb15-3"><a href="ggplot2-pt2.html#cb15-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&#39;glm&#39;</span>) <span class="sc">+</span> </span>
-<span id="cb15-4"><a href="ggplot2-pt2.html#cb15-4" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&#39;loess&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="ggplot2-pt2.html#cb392-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_genres_scores[genre <span class="sc">==</span> <span class="st">&#39;Drama&#39;</span>], <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> votes)) <span class="sc">+</span></span>
+<span id="cb392-2"><a href="ggplot2-pt2.html#cb392-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb392-3"><a href="ggplot2-pt2.html#cb392-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&#39;glm&#39;</span>) <span class="sc">+</span> </span>
+<span id="cb392-4"><a href="ggplot2-pt2.html#cb392-4" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&#39;loess&#39;</span>)</span></code></pre></div>
 <pre><code>## `geom_smooth()` using formula = &#39;y ~ x&#39;
 ## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
 <p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
@@ -661,10 +661,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>alpha: прозрачность заливки области доверительного интервала</li>
 <li>se: если se = FALSE, то доверительный интервал скрывается</li>
 </ul>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="ggplot2-pt2.html#cb17-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_genres_scores[genre <span class="sc">==</span> <span class="st">&#39;Drama&#39;</span>], <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> votes)) <span class="sc">+</span></span>
-<span id="cb17-2"><a href="ggplot2-pt2.html#cb17-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb17-3"><a href="ggplot2-pt2.html#cb17-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&#39;glm&#39;</span>, <span class="at">color =</span> <span class="st">&#39;blue&#39;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span> </span>
-<span id="cb17-4"><a href="ggplot2-pt2.html#cb17-4" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&#39;loess&#39;</span>, <span class="at">color =</span> <span class="st">&#39;red&#39;</span>, <span class="at">fill =</span> <span class="st">&#39;red&#39;</span>, <span class="at">alpha =</span> <span class="fl">0.1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="ggplot2-pt2.html#cb394-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_genres_scores[genre <span class="sc">==</span> <span class="st">&#39;Drama&#39;</span>], <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> votes)) <span class="sc">+</span></span>
+<span id="cb394-2"><a href="ggplot2-pt2.html#cb394-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb394-3"><a href="ggplot2-pt2.html#cb394-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&#39;glm&#39;</span>, <span class="at">color =</span> <span class="st">&#39;blue&#39;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span> </span>
+<span id="cb394-4"><a href="ggplot2-pt2.html#cb394-4" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&#39;loess&#39;</span>, <span class="at">color =</span> <span class="st">&#39;red&#39;</span>, <span class="at">fill =</span> <span class="st">&#39;red&#39;</span>, <span class="at">alpha =</span> <span class="fl">0.1</span>)</span></code></pre></div>
 <pre><code>## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
 ## ℹ Please use `linewidth` instead.
 ## This warning is displayed once every 8 hours.
@@ -698,10 +698,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>limits: границы оси (аналогично слою <code>lims()</code>)</li>
 <li>trans: когда нужно трансформировать значения по оси. Варианты трансформаций: “asn”, “atanh”, “boxcox”, “exp”, “identity”, “log”, “log10”, “log1p”, “log2”, “logit”, “probability”, “probit”, “reciprocal”, “reverse”, “sqrt”.</li>
 </ul>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="ggplot2-pt2.html#cb20-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_woody, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> avg_vote)) <span class="sc">+</span></span>
-<span id="cb20-2"><a href="ggplot2-pt2.html#cb20-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb20-3"><a href="ggplot2-pt2.html#cb20-3" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1970</span>, <span class="dv">2000</span>, <span class="dv">2010</span>)) <span class="sc">+</span> </span>
-<span id="cb20-4"><a href="ggplot2-pt2.html#cb20-4" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">7</span>, <span class="fl">7.25</span>, <span class="fl">7.5</span>, <span class="fl">7.75</span>, <span class="dv">8</span>, <span class="dv">10</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="ggplot2-pt2.html#cb397-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_woody, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> avg_vote)) <span class="sc">+</span></span>
+<span id="cb397-2"><a href="ggplot2-pt2.html#cb397-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb397-3"><a href="ggplot2-pt2.html#cb397-3" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1970</span>, <span class="dv">2000</span>, <span class="dv">2010</span>)) <span class="sc">+</span> </span>
+<span id="cb397-4"><a href="ggplot2-pt2.html#cb397-4" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">7</span>, <span class="fl">7.25</span>, <span class="fl">7.5</span>, <span class="fl">7.75</span>, <span class="dv">8</span>, <span class="dv">10</span>))</span></code></pre></div>
 <p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 <p>В том случае, если в слое задано изменение цвета элементов графика в зависимости от вариативности какой-то переменной в датасете (это указывается в аргументах функции aes(), которая задает значения аргумента mapping функции геома), то по умолчанию используются оттенки синего, в диапазоне от черного к белому. Есть необходимость изменить цвета шкалы, то следует воспользоваться одной из соответствующих функций семейства <code>scale_* -</code>scale_(colour|fill)<em>gradient()<code>,</code>scale</em>(colour|fill)_brewer()` и проч. С помощью разных функций можно либо задать свою палитру, либо выбрать из уже сконструированных (BrBG, Accent т.д.), в том числе указать цвет средней точки градиента.</p>
 <p>Основные термины функций:</p>
@@ -712,19 +712,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>distiller</code> - промежуточный вариант между <code>brewer</code> и <code>gradient</code>, который на основе данных интерполирует заданную дискретную палитру к интервальному виду.</li>
 </ul>
 <p><strong>scale_color_gradient()</strong></p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="ggplot2-pt2.html#cb21-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_woody, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> avg_vote)) <span class="sc">+</span></span>
-<span id="cb21-2"><a href="ggplot2-pt2.html#cb21-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> avg_vote), <span class="at">shape =</span> <span class="st">&#39;circle&#39;</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span> </span>
-<span id="cb21-3"><a href="ggplot2-pt2.html#cb21-3" tabindex="-1"></a>  <span class="fu">scale_color_gradient</span>(<span class="at">low =</span> <span class="st">&#39;steelblue4&#39;</span>, <span class="at">high =</span> <span class="st">&#39;steelblue1&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="ggplot2-pt2.html#cb398-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_woody, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> avg_vote)) <span class="sc">+</span></span>
+<span id="cb398-2"><a href="ggplot2-pt2.html#cb398-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> avg_vote), <span class="at">shape =</span> <span class="st">&#39;circle&#39;</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span> </span>
+<span id="cb398-3"><a href="ggplot2-pt2.html#cb398-3" tabindex="-1"></a>  <span class="fu">scale_color_gradient</span>(<span class="at">low =</span> <span class="st">&#39;steelblue4&#39;</span>, <span class="at">high =</span> <span class="st">&#39;steelblue1&#39;</span>)</span></code></pre></div>
 <p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <p><strong>scale_color_distiller()</strong></p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="ggplot2-pt2.html#cb22-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_woody, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> avg_vote)) <span class="sc">+</span></span>
-<span id="cb22-2"><a href="ggplot2-pt2.html#cb22-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> avg_vote), <span class="at">shape =</span> <span class="st">&#39;circle&#39;</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span> </span>
-<span id="cb22-3"><a href="ggplot2-pt2.html#cb22-3" tabindex="-1"></a>  <span class="fu">scale_color_distiller</span>(<span class="at">palette =</span> <span class="st">&#39;Set1&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb399-1"><a href="ggplot2-pt2.html#cb399-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_woody, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> avg_vote)) <span class="sc">+</span></span>
+<span id="cb399-2"><a href="ggplot2-pt2.html#cb399-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> avg_vote), <span class="at">shape =</span> <span class="st">&#39;circle&#39;</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span> </span>
+<span id="cb399-3"><a href="ggplot2-pt2.html#cb399-3" tabindex="-1"></a>  <span class="fu">scale_color_distiller</span>(<span class="at">palette =</span> <span class="st">&#39;Set1&#39;</span>)</span></code></pre></div>
 <p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <p><strong>scale_color_brewer()</strong></p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="ggplot2-pt2.html#cb23-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_woody, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> avg_vote)) <span class="sc">+</span></span>
-<span id="cb23-2"><a href="ggplot2-pt2.html#cb23-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> genre), <span class="at">shape =</span> <span class="st">&#39;circle&#39;</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span> </span>
-<span id="cb23-3"><a href="ggplot2-pt2.html#cb23-3" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">&#39;Set1&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="ggplot2-pt2.html#cb400-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_woody, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> avg_vote)) <span class="sc">+</span></span>
+<span id="cb400-2"><a href="ggplot2-pt2.html#cb400-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> genre), <span class="at">shape =</span> <span class="st">&#39;circle&#39;</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span> </span>
+<span id="cb400-3"><a href="ggplot2-pt2.html#cb400-3" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">&#39;Set1&#39;</span>)</span></code></pre></div>
 <pre><code>## Warning in RColorBrewer::brewer.pal(n, pal): n too large, allowed maximum for palette Set1 is 9
 ## Returning the palette you asked for with that many colors</code></pre>
 <pre><code>## Warning: Removed 17 rows containing missing values (`geom_point()`).</code></pre>
@@ -734,36 +734,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="lims" class="section level3 unnumbered hasAnchor">
 <h3>lims()<a href="ggplot2-pt2.html#lims" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Слой, который задается функцией <code>lims()</code>, позволяет явно ограничить график по осям. Для того, чтобы задать границы оси, надо в соответствующий аргумент передать вектор из двух значений, которые будут интерпертированы как максимальное и минимальное значения оси.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="ggplot2-pt2.html#cb26-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_lynch, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> avg_vote)) <span class="sc">+</span></span>
-<span id="cb26-2"><a href="ggplot2-pt2.html#cb26-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb26-3"><a href="ggplot2-pt2.html#cb26-3" tabindex="-1"></a>  <span class="fu">lims</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">2000</span>, <span class="dv">2010</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="ggplot2-pt2.html#cb403-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_lynch, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> avg_vote)) <span class="sc">+</span></span>
+<span id="cb403-2"><a href="ggplot2-pt2.html#cb403-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb403-3"><a href="ggplot2-pt2.html#cb403-3" tabindex="-1"></a>  <span class="fu">lims</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">2000</span>, <span class="dv">2010</span>))</span></code></pre></div>
 <p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 </div>
 <div id="labs" class="section level3 unnumbered hasAnchor">
 <h3>labs()<a href="ggplot2-pt2.html#labs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Помимо границ оси, можно задать и названия осей, также как и название графика. Функция <code>labs()</code> (от <code>labels</code>) имеет несколько аргументов, которые и отвечают за тексты на соответствующих элементах графика. Так, <code>title</code> задает заголовок всего графика, аргументы <code>x</code> и <code>y</code> - названия осей. Прочие аргументы могут соответствовать параметрам геомов. Например, мы задаем цвет и размер точек в геоме <code>geom_point()</code>. Соответственно, названия легенд для этих параметров могут быть заданы в <code>labs()</code> в аргументах <code>color</code> и <code>shape</code>:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="ggplot2-pt2.html#cb27-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_lynch, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> avg_vote)) <span class="sc">+</span></span>
-<span id="cb27-2"><a href="ggplot2-pt2.html#cb27-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> avg_vote, <span class="at">shape =</span> country), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
-<span id="cb27-3"><a href="ggplot2-pt2.html#cb27-3" tabindex="-1"></a>  <span class="fu">scale_color_gradient</span>(<span class="at">low =</span> <span class="st">&#39;steelblue4&#39;</span>, <span class="at">high =</span> <span class="st">&#39;steelblue1&#39;</span>) <span class="sc">+</span></span>
-<span id="cb27-4"><a href="ggplot2-pt2.html#cb27-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&#39;Рейтинги фильмов Дэвида Линча&#39;</span>,</span>
-<span id="cb27-5"><a href="ggplot2-pt2.html#cb27-5" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&#39;&#39;</span>,</span>
-<span id="cb27-6"><a href="ggplot2-pt2.html#cb27-6" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&#39;avg_vote&#39;</span>,</span>
-<span id="cb27-7"><a href="ggplot2-pt2.html#cb27-7" tabindex="-1"></a>       <span class="at">colour =</span> <span class="st">&#39;imdb score&#39;</span>,</span>
-<span id="cb27-8"><a href="ggplot2-pt2.html#cb27-8" tabindex="-1"></a>       <span class="at">shape =</span> <span class="st">&#39;country&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="ggplot2-pt2.html#cb404-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_lynch, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> avg_vote)) <span class="sc">+</span></span>
+<span id="cb404-2"><a href="ggplot2-pt2.html#cb404-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> avg_vote, <span class="at">shape =</span> country), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
+<span id="cb404-3"><a href="ggplot2-pt2.html#cb404-3" tabindex="-1"></a>  <span class="fu">scale_color_gradient</span>(<span class="at">low =</span> <span class="st">&#39;steelblue4&#39;</span>, <span class="at">high =</span> <span class="st">&#39;steelblue1&#39;</span>) <span class="sc">+</span></span>
+<span id="cb404-4"><a href="ggplot2-pt2.html#cb404-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&#39;Рейтинги фильмов Дэвида Линча&#39;</span>,</span>
+<span id="cb404-5"><a href="ggplot2-pt2.html#cb404-5" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&#39;&#39;</span>,</span>
+<span id="cb404-6"><a href="ggplot2-pt2.html#cb404-6" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&#39;avg_vote&#39;</span>,</span>
+<span id="cb404-7"><a href="ggplot2-pt2.html#cb404-7" tabindex="-1"></a>       <span class="at">colour =</span> <span class="st">&#39;imdb score&#39;</span>,</span>
+<span id="cb404-8"><a href="ggplot2-pt2.html#cb404-8" tabindex="-1"></a>       <span class="at">shape =</span> <span class="st">&#39;country&#39;</span>)</span></code></pre></div>
 <p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
 </div>
 </div>
 <div id="координатная-плоскость" class="section level2 unnumbered hasAnchor">
 <h2>Координатная плоскость<a href="ggplot2-pt2.html#координатная-плоскость" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Любой график немыслим без какой-то определенной системы координат. Стандартно и по умолчанию в <code>ggplot2</code> используется декартова система координат. Тем не менее, доступна также и полярная система координат. Декартова система координат используется по умолчанию, однако ее можно и явно задать и явно:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="ggplot2-pt2.html#cb28-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_genres, <span class="fu">aes</span>(<span class="at">x =</span> genre, <span class="at">y =</span> avg_vote)) <span class="sc">+</span></span>
-<span id="cb28-2"><a href="ggplot2-pt2.html#cb28-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">color =</span> genre)) <span class="sc">+</span> </span>
-<span id="cb28-3"><a href="ggplot2-pt2.html#cb28-3" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="ggplot2-pt2.html#cb405-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_genres, <span class="fu">aes</span>(<span class="at">x =</span> genre, <span class="at">y =</span> avg_vote)) <span class="sc">+</span></span>
+<span id="cb405-2"><a href="ggplot2-pt2.html#cb405-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">color =</span> genre)) <span class="sc">+</span> </span>
+<span id="cb405-3"><a href="ggplot2-pt2.html#cb405-3" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>()</span></code></pre></div>
 <p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
 <p>Несмотря на то, что, на первый взгляд, оси ОХ и ОY идентичны и взаимозаменяемы, это не так. Для достаточно большого количества типов графиков важна ориентация. Например, столбиковые диаграммы (барчарты) и боксплоты ориентированы вертикально и просто сменой осей переориентировать их горизонтально не получится. Для таких целей как раз используют отдельную функцию поворота координатной плоскости, <code>coord_flip()</code>:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="ggplot2-pt2.html#cb29-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_genres, <span class="fu">aes</span>(<span class="at">x =</span> genre, <span class="at">y =</span> avg_vote)) <span class="sc">+</span></span>
-<span id="cb29-2"><a href="ggplot2-pt2.html#cb29-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">color =</span> genre)) <span class="sc">+</span> </span>
-<span id="cb29-3"><a href="ggplot2-pt2.html#cb29-3" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="ggplot2-pt2.html#cb406-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_genres, <span class="fu">aes</span>(<span class="at">x =</span> genre, <span class="at">y =</span> avg_vote)) <span class="sc">+</span></span>
+<span id="cb406-2"><a href="ggplot2-pt2.html#cb406-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">color =</span> genre)) <span class="sc">+</span> </span>
+<span id="cb406-3"><a href="ggplot2-pt2.html#cb406-3" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
 <p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
 </div>
 <div id="фасеты" class="section level2 unnumbered hasAnchor">
@@ -825,25 +825,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>strip.text: текст фасет (element_text)</li>
 </ul>
 <p>Пример кастомизации темы графика:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="ggplot2-pt2.html#cb30-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_genres[country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&#39;USA&#39;</span>, <span class="st">&#39;France&#39;</span>, <span class="st">&#39;Italy&#39;</span>, <span class="st">&#39;India&#39;</span>, <span class="st">&#39;UK&#39;</span>)], </span>
-<span id="cb30-2"><a href="ggplot2-pt2.html#cb30-2" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> genre, <span class="at">y =</span> avg_vote)) <span class="sc">+</span></span>
-<span id="cb30-3"><a href="ggplot2-pt2.html#cb30-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">color =</span> genre)) <span class="sc">+</span> </span>
-<span id="cb30-4"><a href="ggplot2-pt2.html#cb30-4" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="cn">NULL</span>, <span class="at">breaks =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
-<span id="cb30-5"><a href="ggplot2-pt2.html#cb30-5" tabindex="-1"></a>  <span class="fu">facet_grid</span>(. <span class="sc">~</span> country)<span class="sc">+</span> </span>
-<span id="cb30-6"><a href="ggplot2-pt2.html#cb30-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&#39;Пример theme()&#39;</span>,</span>
-<span id="cb30-7"><a href="ggplot2-pt2.html#cb30-7" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">&#39;на основе theme_minimal()&#39;</span>,</span>
-<span id="cb30-8"><a href="ggplot2-pt2.html#cb30-8" tabindex="-1"></a>       <span class="at">x =</span> <span class="cn">NULL</span>,</span>
-<span id="cb30-9"><a href="ggplot2-pt2.html#cb30-9" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&#39;imdb score&#39;</span>) <span class="sc">+</span></span>
-<span id="cb30-10"><a href="ggplot2-pt2.html#cb30-10" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
-<span id="cb30-11"><a href="ggplot2-pt2.html#cb30-11" tabindex="-1"></a>  <span class="co"># theme(legend.background = element_rect(color = &#39;grey80&#39;, fill = &#39;grey95&#39;),</span></span>
-<span id="cb30-12"><a href="ggplot2-pt2.html#cb30-12" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.background =</span> <span class="fu">element_blank</span>(),        </span>
-<span id="cb30-13"><a href="ggplot2-pt2.html#cb30-13" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">&#39;top&#39;</span>,</span>
-<span id="cb30-14"><a href="ggplot2-pt2.html#cb30-14" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb30-15"><a href="ggplot2-pt2.html#cb30-15" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">&#39;bold&#39;</span>, <span class="at">size =</span> <span class="dv">18</span>),        </span>
-<span id="cb30-16"><a href="ggplot2-pt2.html#cb30-16" tabindex="-1"></a>        <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">colour =</span> <span class="st">&#39;grey50&#39;</span>, <span class="at">face =</span> <span class="st">&#39;italic&#39;</span>),</span>
-<span id="cb30-17"><a href="ggplot2-pt2.html#cb30-17" tabindex="-1"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">&#39;grey95&#39;</span>),</span>
-<span id="cb30-18"><a href="ggplot2-pt2.html#cb30-18" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">&#39;grey97&#39;</span>),</span>
-<span id="cb30-19"><a href="ggplot2-pt2.html#cb30-19" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">&#39;italic&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="ggplot2-pt2.html#cb407-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_genres[country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&#39;USA&#39;</span>, <span class="st">&#39;France&#39;</span>, <span class="st">&#39;Italy&#39;</span>, <span class="st">&#39;India&#39;</span>, <span class="st">&#39;UK&#39;</span>)], </span>
+<span id="cb407-2"><a href="ggplot2-pt2.html#cb407-2" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> genre, <span class="at">y =</span> avg_vote)) <span class="sc">+</span></span>
+<span id="cb407-3"><a href="ggplot2-pt2.html#cb407-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">color =</span> genre)) <span class="sc">+</span> </span>
+<span id="cb407-4"><a href="ggplot2-pt2.html#cb407-4" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="cn">NULL</span>, <span class="at">breaks =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb407-5"><a href="ggplot2-pt2.html#cb407-5" tabindex="-1"></a>  <span class="fu">facet_grid</span>(. <span class="sc">~</span> country)<span class="sc">+</span> </span>
+<span id="cb407-6"><a href="ggplot2-pt2.html#cb407-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&#39;Пример theme()&#39;</span>,</span>
+<span id="cb407-7"><a href="ggplot2-pt2.html#cb407-7" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">&#39;на основе theme_minimal()&#39;</span>,</span>
+<span id="cb407-8"><a href="ggplot2-pt2.html#cb407-8" tabindex="-1"></a>       <span class="at">x =</span> <span class="cn">NULL</span>,</span>
+<span id="cb407-9"><a href="ggplot2-pt2.html#cb407-9" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&#39;imdb score&#39;</span>) <span class="sc">+</span></span>
+<span id="cb407-10"><a href="ggplot2-pt2.html#cb407-10" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
+<span id="cb407-11"><a href="ggplot2-pt2.html#cb407-11" tabindex="-1"></a>  <span class="co"># theme(legend.background = element_rect(color = &#39;grey80&#39;, fill = &#39;grey95&#39;),</span></span>
+<span id="cb407-12"><a href="ggplot2-pt2.html#cb407-12" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.background =</span> <span class="fu">element_blank</span>(),        </span>
+<span id="cb407-13"><a href="ggplot2-pt2.html#cb407-13" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">&#39;top&#39;</span>,</span>
+<span id="cb407-14"><a href="ggplot2-pt2.html#cb407-14" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb407-15"><a href="ggplot2-pt2.html#cb407-15" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">&#39;bold&#39;</span>, <span class="at">size =</span> <span class="dv">18</span>),        </span>
+<span id="cb407-16"><a href="ggplot2-pt2.html#cb407-16" tabindex="-1"></a>        <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">colour =</span> <span class="st">&#39;grey50&#39;</span>, <span class="at">face =</span> <span class="st">&#39;italic&#39;</span>),</span>
+<span id="cb407-17"><a href="ggplot2-pt2.html#cb407-17" tabindex="-1"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">&#39;grey95&#39;</span>),</span>
+<span id="cb407-18"><a href="ggplot2-pt2.html#cb407-18" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">&#39;grey97&#39;</span>),</span>
+<span id="cb407-19"><a href="ggplot2-pt2.html#cb407-19" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">&#39;italic&#39;</span>))</span></code></pre></div>
 <p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
 
 </div>

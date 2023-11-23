@@ -438,6 +438,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#задание-5"><i class="fa fa-check"></i>Задание 5</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html"><i class="fa fa-check"></i>ggplot2 pt2</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#запись-занятий-1"><i class="fa fa-check"></i>Запись занятий</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#решение-домашки"><i class="fa fa-check"></i>Решение домашки</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#пакеты-и-данные"><i class="fa fa-check"></i>пакеты и данные</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#статистические-геомы"><i class="fa fa-check"></i>Статистические геомы</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#geom_bar"><i class="fa fa-check"></i>geom_bar()</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#geom_histogram"><i class="fa fa-check"></i>geom_histogram()</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#geom_boxplot"><i class="fa fa-check"></i>geom_boxplot()</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#geom_smooth"><i class="fa fa-check"></i>geom_smooth()</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#кастомизация-графиков"><i class="fa fa-check"></i>Кастомизация графиков</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#параметры-осей"><i class="fa fa-check"></i>Параметры осей</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#lims"><i class="fa fa-check"></i>lims()</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#labs"><i class="fa fa-check"></i>labs()</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#координатная-плоскость"><i class="fa fa-check"></i>Координатная плоскость</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#фасеты"><i class="fa fa-check"></i>Фасеты</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#визуальные-параметры-всего-графика"><i class="fa fa-check"></i>Визуальные параметры всего графика</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="hw-1.html"><a href="hw-1.html"><i class="fa fa-check"></i>HW 1</a>
 <ul>
 <li class="chapter" data-level="" data-path="hw-1.html"><a href="hw-1.html#общие-замечания"><i class="fa fa-check"></i>Общие замечания</a></li>
@@ -518,9 +540,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>sample()</code> — создание последовательности случайно выбранных значений из какого-то заданного вектора значений. Первый аргумент задает выборку, из которой необходимо извлечь подвыборку, второй аргумент (<code>size</code>) определяет объем извлекаемой выборки. Аргумент <code>replace</code> определяет, выборка извлекается с возвращением элементов или нет:</li>
 </ul>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="vectors.html#cb21-1" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">size =</span> <span class="dv">5</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<pre><code>## [1] 4 1 3 5 2</code></pre>
+<pre><code>## [1] 5 2 1 3 4</code></pre>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="vectors.html#cb23-1" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">size =</span> <span class="dv">5</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<pre><code>## [1] 3 4 3 5 1</code></pre>
+<pre><code>## [1] 3 4 2 3 3</code></pre>
 </div>
 <div id="приведение-типов" class="section level3 unnumbered hasAnchor">
 <h3>Приведение типов<a href="vectors.html#приведение-типов" class="anchor-section" aria-label="Anchor link to header"></a></h3>

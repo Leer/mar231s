@@ -438,6 +438,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#задание-5"><i class="fa fa-check"></i>Задание 5</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html"><i class="fa fa-check"></i>ggplot2 pt2</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#запись-занятий-1"><i class="fa fa-check"></i>Запись занятий</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#решение-домашки"><i class="fa fa-check"></i>Решение домашки</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#пакеты-и-данные"><i class="fa fa-check"></i>пакеты и данные</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#статистические-геомы"><i class="fa fa-check"></i>Статистические геомы</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#geom_bar"><i class="fa fa-check"></i>geom_bar()</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#geom_histogram"><i class="fa fa-check"></i>geom_histogram()</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#geom_boxplot"><i class="fa fa-check"></i>geom_boxplot()</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#geom_smooth"><i class="fa fa-check"></i>geom_smooth()</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#кастомизация-графиков"><i class="fa fa-check"></i>Кастомизация графиков</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#параметры-осей"><i class="fa fa-check"></i>Параметры осей</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#lims"><i class="fa fa-check"></i>lims()</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#labs"><i class="fa fa-check"></i>labs()</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#координатная-плоскость"><i class="fa fa-check"></i>Координатная плоскость</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#фасеты"><i class="fa fa-check"></i>Фасеты</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#визуальные-параметры-всего-графика"><i class="fa fa-check"></i>Визуальные параметры всего графика</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="hw-1.html"><a href="hw-1.html"><i class="fa fa-check"></i>HW 1</a>
 <ul>
 <li class="chapter" data-level="" data-path="hw-1.html"><a href="hw-1.html#общие-замечания"><i class="fa fa-check"></i>Общие замечания</a></li>
@@ -934,7 +956,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## [1] 12</code></pre>
 <div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="data.table-pt1.html#cb197-1" tabindex="-1"></a><span class="co"># вычисление среднего значения по какой-то колонке</span></span>
 <span id="cb197-2"><a href="data.table-pt1.html#cb197-2" tabindex="-1"></a>dt1[, <span class="fu">mean</span>(new_col_2)]</span></code></pre></div>
-<pre><code>## [1] 0.5256889</code></pre>
+<pre><code>## [1] 0.3020322</code></pre>
 </div>
 <div id="группировка-по-нескольким-полям" class="section level3 unnumbered hasAnchor">
 <h3>Группировка по нескольким полям<a href="data.table-pt1.html#группировка-по-нескольким-полям" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -951,7 +973,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb199-10"><a href="data.table-pt1.html#cb199-10" tabindex="-1"></a><span class="co"># в результате получаем вторую табличку</span></span>
 <span id="cb199-11"><a href="data.table-pt1.html#cb199-11" tabindex="-1"></a>dt2</span></code></pre></div>
 <pre><code>##    n_rows new_col_1_mn new_col_2_md
-## 1:     12   -0.3741609    0.5839166</code></pre>
+## 1:     12    0.1119814     0.205583</code></pre>
 <!-- ## Соотношение list() и `:=` в операциях над колонками. -->
 <!-- Нередко многие путаются в синтаксисе создания новых колонок и в выражении `list()`. Различие следующее: -->
 <!-- ```{r} -->
@@ -984,17 +1006,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="data.table-pt1.html#cb201-1" tabindex="-1"></a><span class="co"># смотрим содержание таблицы</span></span>
 <span id="cb201-2"><a href="data.table-pt1.html#cb201-2" tabindex="-1"></a>dt1[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
 <pre><code>##    month_names month_abb month_ord is_winter month_ord_sqrt  new_col_1
-## 1:     January       Jan         1      TRUE       1.000000 -1.7704953
-## 2:    February       Feb         2      TRUE       1.414214 -0.9027534
-## 3:       March       Mar         3     FALSE       1.732051  1.2681216
-## 4:       April       Apr         4     FALSE       2.000000  0.1417516
-## 5:         May       May         5     FALSE       2.236068  0.7761156
+## 1:     January       Jan         1      TRUE       1.000000  1.1170677
+## 2:    February       Feb         2      TRUE       1.414214 -0.5914298
+## 3:       March       Mar         3     FALSE       1.732051 -1.0957752
+## 4:       April       Apr         4     FALSE       2.000000  0.4941252
+## 5:         May       May         5     FALSE       2.236068  0.5787017
 ##     new_col_2
-## 1: 0.49633606
-## 2: 0.71173518
-## 3: 0.66944598
-## 4: 0.04408171
-## 5: 0.71494999</code></pre>
+## 1: 0.12124291
+## 2: 0.05942418
+## 3: 0.09447917
+## 4: 0.20890146
+## 5: 0.26373110</code></pre>
 <div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="data.table-pt1.html#cb203-1" tabindex="-1"></a><span class="co"># выделяем первую и третью колонки датасета</span></span>
 <span id="cb203-2"><a href="data.table-pt1.html#cb203-2" tabindex="-1"></a>dt1[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, .SD, .SDcols <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)]</span></code></pre></div>
 <pre><code>##    month_names month_ord
@@ -1074,15 +1096,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>для генерации времени поможет функция <code>as.POSIXct()</code>, плюс есть немного справочных материалов в учебнике: <a href="https://textbook.rintro.ru/objects.html#objects-time">раз</a>, <a href="https://textbook.rintro.ru/manipulations.html#manipulations-time">два</a></li>
 </ul>
 <pre><code>##       uid sid            login_ts session_length
-## 1: user_1   1 2023-09-01 03:27:05            467
-## 2: user_1   2 2023-09-01 03:51:39            415
-## 3: user_1   3 2023-09-01 22:47:59            528
-## 4: user_1   4 2023-09-02 22:25:18            477
-## 5: user_1   5 2023-09-04 22:31:26            543
-## 6: user_2   1 2023-09-05 01:03:02            570</code></pre>
+## 1: user_1   1 2023-09-02 00:43:14            300
+## 2: user_1   2 2023-09-02 07:16:42            503
+## 3: user_1   3 2023-09-02 12:38:43            158
+## 4: user_1   4 2023-09-03 02:37:05            269
+## 5: user_1   5 2023-09-03 05:57:36            418
+## 6: user_2   1 2023-09-03 22:39:13            271</code></pre>
 <p>Статистики:</p>
 <pre><code>##    n_users total_sessions session_per_user session_length_mn
-## 1:       3             15                5             416.1</code></pre>
+## 1:       3             15                5             366.5</code></pre>
 
 </div>
 </div>
