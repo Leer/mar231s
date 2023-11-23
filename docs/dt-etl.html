@@ -23,7 +23,7 @@
 <meta name="author" content="Ph.A.Upravitelev" />
 
 
-<meta name="date" content="2023-11-16" />
+<meta name="date" content="2023-11-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -483,17 +483,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>создайте копию колонки <code>gender</code>, назовите ее <code>gender_2</code>. Замените в ней все <code>n/a</code> и <code>hermaphrodite</code> на <code>other</code>. Посчитайте количество персонажей в зависимости от пола (<code>gender_2</code>):</li>
 </ul>
-<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="dt-etl.html#cb303-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
-<span id="cb303-2"><a href="dt-etl.html#cb303-2" aria-hidden="true" tabindex="-1"></a>sw <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&#39;http://bit.ly/39aOUne&#39;</span>)</span>
-<span id="cb303-3"><a href="dt-etl.html#cb303-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb303-4"><a href="dt-etl.html#cb303-4" aria-hidden="true" tabindex="-1"></a>sw[, gender_2 <span class="sc">:</span><span class="er">=</span> gender]</span>
-<span id="cb303-5"><a href="dt-etl.html#cb303-5" aria-hidden="true" tabindex="-1"></a>sw[gender_2 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&#39;n/a&#39;</span>, <span class="st">&#39;hermaphrodite&#39;</span>), gender_2 <span class="sc">:</span><span class="er">=</span> <span class="st">&#39;other&#39;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="dt-etl.html#cb303-1" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb303-2"><a href="dt-etl.html#cb303-2" tabindex="-1"></a>sw <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&#39;http://bit.ly/39aOUne&#39;</span>)</span>
+<span id="cb303-3"><a href="dt-etl.html#cb303-3" tabindex="-1"></a></span>
+<span id="cb303-4"><a href="dt-etl.html#cb303-4" tabindex="-1"></a>sw[, gender_2 <span class="sc">:=</span> gender]</span>
+<span id="cb303-5"><a href="dt-etl.html#cb303-5" tabindex="-1"></a>sw[gender_2 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&#39;n/a&#39;</span>, <span class="st">&#39;hermaphrodite&#39;</span>), gender_2 <span class="sc">:=</span> <span class="st">&#39;other&#39;</span>]</span></code></pre></div>
 <ul>
 <li>выполните предыдущее задание без создания промежуточной колонки <code>gender_2</code></li>
 </ul>
-<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="dt-etl.html#cb304-1" aria-hidden="true" tabindex="-1"></a><span class="co"># два альтернативных варианта</span></span>
-<span id="cb304-2"><a href="dt-etl.html#cb304-2" aria-hidden="true" tabindex="-1"></a><span class="co"># sw[gender %in% c(&#39;n/a&#39;, &#39;hermaphrodite&#39;), gender := &#39;other&#39;]</span></span>
-<span id="cb304-3"><a href="dt-etl.html#cb304-3" aria-hidden="true" tabindex="-1"></a>sw[, gender <span class="sc">:</span><span class="er">=</span> <span class="fu">fifelse</span>(gender <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&#39;n/a&#39;</span>, <span class="st">&#39;hermaphrodite&#39;</span>), <span class="st">&#39;other&#39;</span>, gender)]</span></code></pre></div>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="dt-etl.html#cb304-1" tabindex="-1"></a><span class="co"># два альтернативных варианта</span></span>
+<span id="cb304-2"><a href="dt-etl.html#cb304-2" tabindex="-1"></a><span class="co"># sw[gender %in% c(&#39;n/a&#39;, &#39;hermaphrodite&#39;), gender := &#39;other&#39;]</span></span>
+<span id="cb304-3"><a href="dt-etl.html#cb304-3" tabindex="-1"></a>sw[, gender <span class="sc">:=</span> <span class="fu">fifelse</span>(gender <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&#39;n/a&#39;</span>, <span class="st">&#39;hermaphrodite&#39;</span>), <span class="st">&#39;other&#39;</span>, gender)]</span></code></pre></div>
 </div>
 <div id="level-4-uv-3" class="section level3 unnumbered hasAnchor">
 <h3>level 4 (UV)<a href="dt-etl.html#level-4-uv-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -502,16 +502,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>округлите значения до 1 знака после запятой</p></li>
 </ul>
 <p>Первые 5 строк результата:</p>
-<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="dt-etl.html#cb305-1" aria-hidden="true" tabindex="-1"></a>sw[, mass_corrected <span class="sc">:</span><span class="er">=</span> mass]</span>
-<span id="cb305-2"><a href="dt-etl.html#cb305-2" aria-hidden="true" tabindex="-1"></a>sw[, mass_mean <span class="sc">:</span><span class="er">=</span> <span class="fu">mean</span>(mass, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), by <span class="ot">=</span> <span class="fu">list</span>(planet_name, gender)]</span>
-<span id="cb305-3"><a href="dt-etl.html#cb305-3" aria-hidden="true" tabindex="-1"></a>sw[<span class="fu">is.na</span>(mass), mass_corrected <span class="sc">:</span><span class="er">=</span> mass_mean]</span>
-<span id="cb305-4"><a href="dt-etl.html#cb305-4" aria-hidden="true" tabindex="-1"></a>planet_chars <span class="ot">&lt;-</span> sw[, <span class="fu">list</span>(</span>
-<span id="cb305-5"><a href="dt-etl.html#cb305-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">n_chars =</span> <span class="fu">uniqueN</span>(name), <span class="co"># или n_chars = .N</span></span>
-<span id="cb305-6"><a href="dt-etl.html#cb305-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">height_mn =</span> <span class="fu">round</span>(<span class="fu">mean</span>(height), <span class="dv">1</span>),</span>
-<span id="cb305-7"><a href="dt-etl.html#cb305-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">mass_mn =</span> <span class="fu">round</span>(<span class="fu">mean</span>(mass, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">1</span>),</span>
-<span id="cb305-8"><a href="dt-etl.html#cb305-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">mass_corrected_mn =</span> <span class="fu">round</span>(<span class="fu">mean</span>(mass_corrected, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">1</span>)</span>
-<span id="cb305-9"><a href="dt-etl.html#cb305-9" aria-hidden="true" tabindex="-1"></a>), by <span class="ot">=</span> planet_name]</span>
-<span id="cb305-10"><a href="dt-etl.html#cb305-10" aria-hidden="true" tabindex="-1"></a>planet_chars[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="dt-etl.html#cb305-1" tabindex="-1"></a>sw[, mass_corrected <span class="sc">:=</span> mass]</span>
+<span id="cb305-2"><a href="dt-etl.html#cb305-2" tabindex="-1"></a>sw[, mass_mean <span class="sc">:=</span> <span class="fu">mean</span>(mass, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), by <span class="ot">=</span> <span class="fu">list</span>(planet_name, gender)]</span>
+<span id="cb305-3"><a href="dt-etl.html#cb305-3" tabindex="-1"></a>sw[<span class="fu">is.na</span>(mass), mass_corrected <span class="sc">:=</span> mass_mean]</span>
+<span id="cb305-4"><a href="dt-etl.html#cb305-4" tabindex="-1"></a>planet_chars <span class="ot">&lt;-</span> sw[, <span class="fu">list</span>(</span>
+<span id="cb305-5"><a href="dt-etl.html#cb305-5" tabindex="-1"></a>        <span class="at">n_chars =</span> <span class="fu">uniqueN</span>(name), <span class="co"># или n_chars = .N</span></span>
+<span id="cb305-6"><a href="dt-etl.html#cb305-6" tabindex="-1"></a>        <span class="at">height_mn =</span> <span class="fu">round</span>(<span class="fu">mean</span>(height), <span class="dv">1</span>),</span>
+<span id="cb305-7"><a href="dt-etl.html#cb305-7" tabindex="-1"></a>        <span class="at">mass_mn =</span> <span class="fu">round</span>(<span class="fu">mean</span>(mass, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">1</span>),</span>
+<span id="cb305-8"><a href="dt-etl.html#cb305-8" tabindex="-1"></a>        <span class="at">mass_corrected_mn =</span> <span class="fu">round</span>(<span class="fu">mean</span>(mass_corrected, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">1</span>)</span>
+<span id="cb305-9"><a href="dt-etl.html#cb305-9" tabindex="-1"></a>), by <span class="ot">=</span> planet_name]</span>
+<span id="cb305-10"><a href="dt-etl.html#cb305-10" tabindex="-1"></a>planet_chars[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
 <pre><code>##    planet_name n_chars height_mn mass_mn mass_corrected_mn
 ## 1:    Tatooine      10     169.8    85.4              85.8
 ## 2:      Kamino       3     208.3    83.1              83.1
@@ -531,8 +531,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>При работе с текстами проще всего читать файлы построчно - весь текст импортируется как вектор строковых значений, а элементы этого вектора - блоки текста, ограниченные переносами строк. Это удобно при импорте текстов, в которых есть смысловые блоки, как в художественных и поэтических текстах. Точно также построчное чтение может быть использовано для импорта файлов с ошибками или даже, в особо экзотических случаях, для чтения скриптов.</p>
 <p>Для построчного чтения обычно используется функция <code>readLines()</code> базового пакета или аналогичные ей. С помощью аргументов функции можно указать, сколько необходимо прочитать строк, задать кодировку и что делать, если в файле меньше строк, чем было задано.</p>
 <p>Прочитаем первые несколько строк текста песни:</p>
-<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="dt-etl.html#cb307-1" aria-hidden="true" tabindex="-1"></a>txt_lines <span class="ot">&lt;-</span> <span class="fu">readLines</span>(<span class="st">&#39;./data/oxxy_gorgorod.txt&#39;</span>, <span class="at">n =</span> <span class="dv">5</span>)</span>
-<span id="cb307-2"><a href="dt-etl.html#cb307-2" aria-hidden="true" tabindex="-1"></a>txt_lines</span></code></pre></div>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="dt-etl.html#cb307-1" tabindex="-1"></a>txt_lines <span class="ot">&lt;-</span> <span class="fu">readLines</span>(<span class="st">&#39;./data/oxxy_gorgorod.txt&#39;</span>, <span class="at">n =</span> <span class="dv">5</span>)</span>
+<span id="cb307-2"><a href="dt-etl.html#cb307-2" tabindex="-1"></a>txt_lines</span></code></pre></div>
 <pre><code>## [1] &quot;####&quot;                                    
 ## [2] &quot;Незаметно поправь её&quot;                    
 ## [3] &quot;Одеяло, за это себя предавая анафеме&quot;    
@@ -576,19 +576,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Вот так выглядит исходный файл в MS Excel:
 <img src="pics/io_xlsx_1.PNG" style="width=80%"></p>
 <p>Импортируем файл:</p>
-<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="dt-etl.html#cb309-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb309-2"><a href="dt-etl.html#cb309-2" aria-hidden="true" tabindex="-1"></a><span class="co"># читаем файл</span></span>
-<span id="cb309-3"><a href="dt-etl.html#cb309-3" aria-hidden="true" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="st">&#39;./data/xls_example.xlsx&#39;</span></span>
-<span id="cb309-4"><a href="dt-etl.html#cb309-4" aria-hidden="true" tabindex="-1"></a>xlsx_data <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(path)</span>
-<span id="cb309-5"><a href="dt-etl.html#cb309-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb309-6"><a href="dt-etl.html#cb309-6" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(xlsx_data)</span></code></pre></div>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="dt-etl.html#cb309-1" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb309-2"><a href="dt-etl.html#cb309-2" tabindex="-1"></a><span class="co"># читаем файл</span></span>
+<span id="cb309-3"><a href="dt-etl.html#cb309-3" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="st">&#39;./data/xls_example.xlsx&#39;</span></span>
+<span id="cb309-4"><a href="dt-etl.html#cb309-4" tabindex="-1"></a>xlsx_data <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(path)</span>
+<span id="cb309-5"><a href="dt-etl.html#cb309-5" tabindex="-1"></a></span>
+<span id="cb309-6"><a href="dt-etl.html#cb309-6" tabindex="-1"></a><span class="fu">str</span>(xlsx_data)</span></code></pre></div>
 <pre><code>## tibble [7 × 5] (S3: tbl_df/tbl/data.frame)
 ##  $ company  : chr [1:7] &quot;xxx&quot; &quot;xxx&quot; &quot;xxx&quot; &quot;yyy&quot; ...
 ##  $ item_code: num [1:7] 20000559 20000779 13117 40000289 40000274 ...
 ##  $ barcode  : num [1:7] 4.60e+12 4.60e+12 4.61e+12 3.57e+12 3.57e+12 ...
 ##  $ amount   : num [1:7] 3 4 2 6 2 1 9
 ##  $ price    : num [1:7] 480.3 26.9 353.8 207.6 174.8 ...</code></pre>
-<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="dt-etl.html#cb311-1" aria-hidden="true" tabindex="-1"></a>xlsx_data</span></code></pre></div>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="dt-etl.html#cb311-1" tabindex="-1"></a>xlsx_data</span></code></pre></div>
 <pre><code>## # A tibble: 7 × 5
 ##   company item_code       barcode amount price
 ##   &lt;chr&gt;       &lt;dbl&gt;         &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
@@ -601,9 +601,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 7 zzz      20000458 4601026308567      9 371.</code></pre>
 <p>При импорте можно указать тип колонок. Делается это с помощью аргумента <code>col_types</code>, в который необходимо передать вектор такой же длины, сколько колонок, состоящий из значений <code>logical</code>, <code>numeric</code>, <code>date</code>, <code>text</code> или <code>list</code>. К сожалению, в отличие от схожего аргумента <code>colClasses</code> в функциях импорта csv/xlsx-файлов (<code>read.table()</code>, <code>read.csv()</code>, <code>data.table::fread()</code>, <code>openxlsx::read.xlsx</code> и проч.), в <code>readxl</code> названия типов не соответствуют названиям атомарных типов данных в R.</p>
 <p>Если для <code>col_types</code> указать <code>NULL</code> или <code>guess</code>, то тип будет выбран на основе анализа минимум 1000 строк (или всех строк, если датасет меньше 1000 строк). Также можно указать вектор типов длиной не по количеству колонок, а только из одного значения, то все колонки будут импортированы в этом типе. Значение <code>skip</code> указывает, что эту колонку не надо импортировать.</p>
-<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="dt-etl.html#cb313-1" aria-hidden="true" tabindex="-1"></a><span class="co"># читаем файл с указанием типа text для всех колонок</span></span>
-<span id="cb313-2"><a href="dt-etl.html#cb313-2" aria-hidden="true" tabindex="-1"></a>xlsx_data <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(path, <span class="at">col_types =</span> <span class="st">&#39;text&#39;</span>)</span>
-<span id="cb313-3"><a href="dt-etl.html#cb313-3" aria-hidden="true" tabindex="-1"></a>xlsx_data</span></code></pre></div>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="dt-etl.html#cb313-1" tabindex="-1"></a><span class="co"># читаем файл с указанием типа text для всех колонок</span></span>
+<span id="cb313-2"><a href="dt-etl.html#cb313-2" tabindex="-1"></a>xlsx_data <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(path, <span class="at">col_types =</span> <span class="st">&#39;text&#39;</span>)</span>
+<span id="cb313-3"><a href="dt-etl.html#cb313-3" tabindex="-1"></a>xlsx_data</span></code></pre></div>
 <pre><code>## # A tibble: 7 × 5
 ##   company item_code barcode       amount price 
 ##   &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;         &lt;chr&gt;  &lt;chr&gt; 
@@ -619,13 +619,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="частичное-чтение-файла" class="section level4 unnumbered hasAnchor">
 <h4>Частичное чтение файла<a href="dt-etl.html#частичное-чтение-файла" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Большинство xlsx-файлов содержит несколько непустых листов. По умолчанию функции импорта читают только первый лист, остальные же игнорируются. Пакеты типа <code>XLConnect</code> могут читать весь файл в отдельный объект. Для чтения названий листов xlsx-файла можно воспользоваться функцией <code>readxl::excel_sheets()</code> и полученный вектор потом циклом или через <code>lapply()</code> передать в функцию импорта:</p>
-<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="dt-etl.html#cb315-1" aria-hidden="true" tabindex="-1"></a><span class="co"># читаем список листов файла</span></span>
-<span id="cb315-2"><a href="dt-etl.html#cb315-2" aria-hidden="true" tabindex="-1"></a>sheets <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">excel_sheets</span>(path)</span>
-<span id="cb315-3"><a href="dt-etl.html#cb315-3" aria-hidden="true" tabindex="-1"></a>sheets</span></code></pre></div>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="dt-etl.html#cb315-1" tabindex="-1"></a><span class="co"># читаем список листов файла</span></span>
+<span id="cb315-2"><a href="dt-etl.html#cb315-2" tabindex="-1"></a>sheets <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">excel_sheets</span>(path)</span>
+<span id="cb315-3"><a href="dt-etl.html#cb315-3" tabindex="-1"></a>sheets</span></code></pre></div>
 <pre><code>## [1] &quot;Sheet1&quot; &quot;Sheet2&quot;</code></pre>
-<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="dt-etl.html#cb317-1" aria-hidden="true" tabindex="-1"></a><span class="co"># читаем все листы в список и смотрим структуру</span></span>
-<span id="cb317-2"><a href="dt-etl.html#cb317-2" aria-hidden="true" tabindex="-1"></a>file_str <span class="ot">&lt;-</span> <span class="fu">lapply</span>(sheets, <span class="cf">function</span>(x) <span class="fu">read_xlsx</span>(path, <span class="at">sheet =</span> x))</span>
-<span id="cb317-3"><a href="dt-etl.html#cb317-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(file_str)</span></code></pre></div>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="dt-etl.html#cb317-1" tabindex="-1"></a><span class="co"># читаем все листы в список и смотрим структуру</span></span>
+<span id="cb317-2"><a href="dt-etl.html#cb317-2" tabindex="-1"></a>file_str <span class="ot">&lt;-</span> <span class="fu">lapply</span>(sheets, <span class="cf">function</span>(x) <span class="fu">read_xlsx</span>(path, <span class="at">sheet =</span> x))</span>
+<span id="cb317-3"><a href="dt-etl.html#cb317-3" tabindex="-1"></a><span class="fu">str</span>(file_str)</span></code></pre></div>
 <pre><code>## List of 2
 ##  $ : tibble [7 × 5] (S3: tbl_df/tbl/data.frame)
 ##   ..$ company  : chr [1:7] &quot;xxx&quot; &quot;xxx&quot; &quot;xxx&quot; &quot;yyy&quot; ...
@@ -637,7 +637,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   ..$ company: chr [1:3] &quot;xxx&quot; &quot;yyy&quot; &quot;zzz&quot;
 ##   ..$ items  : num [1:3] 198 256 32</code></pre>
 <p>В некоторых случаях требуется импортировать только определенный диапазон ячеек со всего листа - например, когда на созданном вручную листе есть и таблица с данными, и графики, и дополнительные материалы. Для чтения определенной ячейки или диапазона ячеек используют аргумент <code>range</code>, в котором в строковом виде указывают диапазон ячеек в Excel-координатах (буквы для колонок и цифры для строк). К сожалению, на данный момент нельзя указать сразу несколько диапазонов. Во-вторых, в прочитанном диапазоне, если не указать обратное, первая строка будет по умолчанию интерпретироваться как строка заголовка. В результате приходится либо прямо задавать названия колонок, либо указывать, что заголовка нет:</p>
-<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="dt-etl.html#cb319-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_xlsx</span>(path, <span class="at">range =</span> <span class="st">&#39;A5:B6&#39;</span>, <span class="at">col_names =</span> <span class="fu">c</span>(<span class="st">&#39;company&#39;</span>, <span class="st">&#39;item_code&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="dt-etl.html#cb319-1" tabindex="-1"></a><span class="fu">read_xlsx</span>(path, <span class="at">range =</span> <span class="st">&#39;A5:B6&#39;</span>, <span class="at">col_names =</span> <span class="fu">c</span>(<span class="st">&#39;company&#39;</span>, <span class="st">&#39;item_code&#39;</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 2
 ##   company item_code
 ##   &lt;chr&gt;       &lt;dbl&gt;
@@ -652,9 +652,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Исходный файл имеет такую структуру (скриншот из SPSS Output):
 <img src="pics/io_spss_1.PNG" style="width=80%"></p>
 <p>Функции <code>read_sav()</code> и <code>read_spss()</code> пакета <code>haven</code> обладают схожим с <code>foreign::read.spss()</code> функционалом при меньшем количестве настроек. При этом эти функции несколько быстрее, а так же не имеют проблем с длинными строками. В результате импорта получается tibble-таблица (так как <code>haven</code> принадлежит экосистеме <code>tidyverse</code>).</p>
-<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="dt-etl.html#cb321-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb321-2"><a href="dt-etl.html#cb321-2" aria-hidden="true" tabindex="-1"></a>spss_data <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="st">&#39;./data/spss_example.sav&#39;</span>)</span>
-<span id="cb321-3"><a href="dt-etl.html#cb321-3" aria-hidden="true" tabindex="-1"></a>spss_data</span></code></pre></div>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="dt-etl.html#cb321-1" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb321-2"><a href="dt-etl.html#cb321-2" tabindex="-1"></a>spss_data <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="st">&#39;./data/spss_example.sav&#39;</span>)</span>
+<span id="cb321-3"><a href="dt-etl.html#cb321-3" tabindex="-1"></a>spss_data</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 3
 ##    var1  var2 var3                 
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl+lbl&gt;            
@@ -665,7 +665,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5     4     4   4                  
 ## 6     3     5 999 [отказ от ответа]</code></pre>
 <p>Функция не имеет настроек, как импортировать значения, для которых заданы метки, и в таблице представлены числовые значения. При необходимости получить значения метки переменных или значений необходимо идти в атрибуты колонок таблицы:</p>
-<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="dt-etl.html#cb323-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(spss_data)</span></code></pre></div>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="dt-etl.html#cb323-1" tabindex="-1"></a><span class="fu">str</span>(spss_data)</span></code></pre></div>
 <pre><code>## tibble [6 × 3] (S3: tbl_df/tbl/data.frame)
 ##  $ var1: num [1:6] 3 4 3 3 4 3
 ##   ..- attr(*, &quot;label&quot;)= chr &quot;Практичный&quot;
@@ -679,13 +679,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##    ..@ labels     : Named num [1:4] 1 2 99 999
 ##    .. ..- attr(*, &quot;names&quot;)= chr [1:4] &quot;среднее&quot; &quot;высшее&quot; &quot;отказ от ответа&quot; &quot;отказ от ответа&quot;</code></pre>
 <p>Пакет <code>haven</code> импортирует данные в свой формат, однако полученный объект можно преобразовать в data.table:</p>
-<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="dt-etl.html#cb325-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
-<span id="cb325-2"><a href="dt-etl.html#cb325-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setDT</span>(spss_data)</span>
-<span id="cb325-3"><a href="dt-etl.html#cb325-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(spss_data)</span></code></pre></div>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="dt-etl.html#cb325-1" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb325-2"><a href="dt-etl.html#cb325-2" tabindex="-1"></a><span class="fu">setDT</span>(spss_data)</span>
+<span id="cb325-3"><a href="dt-etl.html#cb325-3" tabindex="-1"></a><span class="fu">class</span>(spss_data)</span></code></pre></div>
 <pre><code>## [1] &quot;data.table&quot; &quot;data.frame&quot;</code></pre>
 <p>У нас есть колонка <code>var3</code>, для которой в SPSS были заданы метки. В полученном формате метки хранятся в атрибутах колонки — это что-то вроде мета-информации. Посмотрим все атрибуты колонки с помощью функции <code>attributes()</code> (иногда это проще делать через синтаксис списков и оператор <code>$</code>):</p>
-<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="dt-etl.html#cb327-1" aria-hidden="true" tabindex="-1"></a><span class="co"># смотрим атрибуты вектора-колонки var3</span></span>
-<span id="cb327-2"><a href="dt-etl.html#cb327-2" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(spss_data[, var3])</span></code></pre></div>
+<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="dt-etl.html#cb327-1" tabindex="-1"></a><span class="co"># смотрим атрибуты вектора-колонки var3</span></span>
+<span id="cb327-2"><a href="dt-etl.html#cb327-2" tabindex="-1"></a><span class="fu">attributes</span>(spss_data[, var3])</span></code></pre></div>
 <pre><code>## $label
 ## [1] &quot;Образование&quot;
 ## 
@@ -698,8 +698,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## $labels
 ##         среднее          высшее отказ от ответа отказ от ответа 
 ##               1               2              99             999</code></pre>
-<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="dt-etl.html#cb329-1" aria-hidden="true" tabindex="-1"></a><span class="co"># через синтаксис списков</span></span>
-<span id="cb329-2"><a href="dt-etl.html#cb329-2" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(spss_data<span class="sc">$</span>var3)</span></code></pre></div>
+<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="dt-etl.html#cb329-1" tabindex="-1"></a><span class="co"># через синтаксис списков</span></span>
+<span id="cb329-2"><a href="dt-etl.html#cb329-2" tabindex="-1"></a><span class="fu">attributes</span>(spss_data<span class="sc">$</span>var3)</span></code></pre></div>
 <pre><code>## $label
 ## [1] &quot;Образование&quot;
 ## 
@@ -714,8 +714,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##               1               2              99             999</code></pre>
 <p>Мы видим четыре атрибута — метку переменной (<code>$label</code>), SPSS-формат данных (<code>$format.spss</code>), обозначение, что переменная в SPSS имеет метки значений (<code>$class</code>) и собственно вектор меток, которые используются для значений этой колонки (<code>$labels</code>).</p>
 <p>Для того, чтобы сохранить метки значений (а не сами значения), можно создать новую колонку и в нее записать с результат применения функции <code>as_factor</code> пакета <code>haven</code> — эта функция извлекает и сопоставляет значения и их метки.</p>
-<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="dt-etl.html#cb331-1" aria-hidden="true" tabindex="-1"></a>spss_data[, var4 <span class="sc">:</span><span class="er">=</span> <span class="fu">as_factor</span>(var3)]</span>
-<span id="cb331-2"><a href="dt-etl.html#cb331-2" aria-hidden="true" tabindex="-1"></a>spss_data</span></code></pre></div>
+<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="dt-etl.html#cb331-1" tabindex="-1"></a>spss_data[, var4 <span class="sc">:=</span> <span class="fu">as_factor</span>(var3)]</span>
+<span id="cb331-2"><a href="dt-etl.html#cb331-2" tabindex="-1"></a>spss_data</span></code></pre></div>
 <pre><code>##    var1 var2 var3            var4
 ## 1:    3    4    1         среднее
 ## 2:    4    5   NA            &lt;NA&gt;
@@ -754,8 +754,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>У вас есть данные Tate Gallery по художникам и их произведениям. Импортируйте датасеты по художникам, ссылки на файлы ниже. А лучше воспользуйтесь функцией <code>download.file()</code> (не забудьте прочитать справку по функции и ее аргументам) для того, чтобы сохранить эти файлы на диск и потом загружать их уже с диска, а не из интернета.</li>
 </ul>
-<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="dt-etl.html#cb334-1" aria-hidden="true" tabindex="-1"></a>url_artwork <span class="ot">&lt;-</span> <span class="st">&#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-01-12/artwork.csv&#39;</span></span>
-<span id="cb334-2"><a href="dt-etl.html#cb334-2" aria-hidden="true" tabindex="-1"></a>url_artists <span class="ot">&lt;-</span> <span class="st">&quot;https://github.com/tategallery/collection/raw/master/artist_data.csv&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="dt-etl.html#cb334-1" tabindex="-1"></a>url_artwork <span class="ot">&lt;-</span> <span class="st">&#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-01-12/artwork.csv&#39;</span></span>
+<span id="cb334-2"><a href="dt-etl.html#cb334-2" tabindex="-1"></a>url_artists <span class="ot">&lt;-</span> <span class="st">&quot;https://github.com/tategallery/collection/raw/master/artist_data.csv&quot;</span></span></code></pre></div>
 <ul>
 <li><p>С помощью функции <code>setnames()</code> пакета data.table (или <code>names()</code> из базового пакета, если вам так удобнее) переименуйте в файле по художникам колонки <code>yearOfBirth</code> в <code>year_of_birth</code>, колонки <code>yearOFDeath</code>, <code>placeOfBirth</code> и <code>placeOfDeath</code> аналогично.</p></li>
 <li><p>посчитайте, сколько художников из списка живы в настоящий момент.</p></li>
@@ -834,7 +834,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="level-5-n-2" class="section level3 unnumbered hasAnchor">
 <h3>level 5 (N)<a href="dt-etl.html#level-5-n-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Импортируйте файл <a href="https://gitlab.com/hse_mar/mar211s/raw/main/data/extr_version.xls">extr’version.xls</a>. Решение должно уметь импортировать не только этот конкретный файл, но и другие файлы с такими особенностями. Перед импортом надо скачать файл и импортировать его локально (read_excel не умеет импортировать по ссылке).</p>
-<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="dt-etl.html#cb340-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="dt-etl.html#cb340-1" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
 <pre><code>##                                                  Название товара
 ##  1:                                           Солпадеин, тбл №12
 ##  2:      Соль д/ванн &quot;Доктор Сольморей&quot; с эвкалипт.  пакет 500мг

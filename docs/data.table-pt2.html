@@ -23,7 +23,7 @@
 <meta name="author" content="Ph.A.Upravitelev" />
 
 
-<meta name="date" content="2023-11-16" />
+<meta name="date" content="2023-11-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -482,11 +482,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>выделите в отдельный датасет всех погибших пассажиров, оставьте для них только значения пола, возраста и класса билета (<code>pclass</code>), переменную <code>pclass</code> переименуйте в <code>class</code></li>
 </ul>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="data.table-pt2.html#cb215-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
-<span id="cb215-2"><a href="data.table-pt2.html#cb215-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&#39;https://gitlab.com/hse_mar/mar221s/-/raw/master/data/titanic3.csv&#39;</span>)</span>
-<span id="cb215-3"><a href="data.table-pt2.html#cb215-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb215-4"><a href="data.table-pt2.html#cb215-4" aria-hidden="true" tabindex="-1"></a>titanic_not_survived <span class="ot">&lt;-</span> titanic[survived <span class="sc">==</span> <span class="dv">0</span>, <span class="fu">list</span>(sex, age, <span class="at">class =</span> pclass)]</span>
-<span id="cb215-5"><a href="data.table-pt2.html#cb215-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(titanic_not_survived)</span></code></pre></div>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="data.table-pt2.html#cb215-1" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb215-2"><a href="data.table-pt2.html#cb215-2" tabindex="-1"></a>titanic <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&#39;https://gitlab.com/hse_mar/mar221s/-/raw/master/data/titanic3.csv&#39;</span>)</span>
+<span id="cb215-3"><a href="data.table-pt2.html#cb215-3" tabindex="-1"></a></span>
+<span id="cb215-4"><a href="data.table-pt2.html#cb215-4" tabindex="-1"></a>titanic_not_survived <span class="ot">&lt;-</span> titanic[survived <span class="sc">==</span> <span class="dv">0</span>, <span class="fu">list</span>(sex, age, <span class="at">class =</span> pclass)]</span>
+<span id="cb215-5"><a href="data.table-pt2.html#cb215-5" tabindex="-1"></a><span class="fu">str</span>(titanic_not_survived)</span></code></pre></div>
 <pre><code>## Classes &#39;data.table&#39; and &#39;data.frame&#39;:   809 obs. of  3 variables:
 ##  $ sex  : chr  &quot;female&quot; &quot;male&quot; &quot;female&quot; &quot;male&quot; ...
 ##  $ age  : num  2 30 25 39 71 47 NA 24 36 25 ...
@@ -495,18 +495,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>в полученном датасете посчитайте количество пассажиров, их средний и медианный возраст, разброс по возрасту (<code>sd()</code>)</li>
 </ul>
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="data.table-pt2.html#cb217-1" aria-hidden="true" tabindex="-1"></a>titanic_not_survived[, <span class="fu">list</span>(</span>
-<span id="cb217-2"><a href="data.table-pt2.html#cb217-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">n_rows =</span> .N,</span>
-<span id="cb217-3"><a href="data.table-pt2.html#cb217-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">age_mn =</span> <span class="fu">mean</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb217-4"><a href="data.table-pt2.html#cb217-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">age_md =</span> <span class="fu">median</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb217-5"><a href="data.table-pt2.html#cb217-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">age_sd =</span> <span class="fu">sd</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))]</span></code></pre></div>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="data.table-pt2.html#cb217-1" tabindex="-1"></a>titanic_not_survived[, <span class="fu">list</span>(</span>
+<span id="cb217-2"><a href="data.table-pt2.html#cb217-2" tabindex="-1"></a>  <span class="at">n_rows =</span> .N,</span>
+<span id="cb217-3"><a href="data.table-pt2.html#cb217-3" tabindex="-1"></a>  <span class="at">age_mn =</span> <span class="fu">mean</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb217-4"><a href="data.table-pt2.html#cb217-4" tabindex="-1"></a>  <span class="at">age_md =</span> <span class="fu">median</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb217-5"><a href="data.table-pt2.html#cb217-5" tabindex="-1"></a>  <span class="at">age_sd =</span> <span class="fu">sd</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))]</span></code></pre></div>
 <pre><code>##    n_rows   age_mn age_md   age_sd
 ## 1:    809 30.54536     28 13.92255</code></pre>
 <ul>
 <li>*в датасете titanic попробуйте построить логистическую регрессию, которая бы предсказывала вероятность выживания пассажира (<code>survived</code>).</li>
 </ul>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="data.table-pt2.html#cb219-1" aria-hidden="true" tabindex="-1"></a>lm_fit <span class="ot">&lt;-</span> <span class="fu">glm</span>(survived <span class="sc">~</span> sex <span class="sc">+</span> age <span class="sc">+</span> pclass <span class="sc">+</span> fare, <span class="at">data =</span> titanic, <span class="at">family =</span> <span class="st">&#39;binomial&#39;</span>)</span>
-<span id="cb219-2"><a href="data.table-pt2.html#cb219-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm_fit)</span></code></pre></div>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="data.table-pt2.html#cb219-1" tabindex="-1"></a>lm_fit <span class="ot">&lt;-</span> <span class="fu">glm</span>(survived <span class="sc">~</span> sex <span class="sc">+</span> age <span class="sc">+</span> pclass <span class="sc">+</span> fare, <span class="at">data =</span> titanic, <span class="at">family =</span> <span class="st">&#39;binomial&#39;</span>)</span>
+<span id="cb219-2"><a href="data.table-pt2.html#cb219-2" tabindex="-1"></a><span class="fu">summary</span>(lm_fit)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = survived ~ sex + age + pclass + fare, family = &quot;binomial&quot;, 
@@ -547,40 +547,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>есть полезная функция <code>expand.grid()</code></li>
 <li>для генерации времени поможет функция <code>as.POSIXct()</code>, плюс есть немного справочных материалов в учебнике: <a href="https://textbook.rintro.ru/objects.html#objects-time">раз</a>, <a href="https://textbook.rintro.ru/manipulations.html#manipulations-time">два</a></li>
 </ul>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="data.table-pt2.html#cb221-1" aria-hidden="true" tabindex="-1"></a>my_dt <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(</span>
-<span id="cb221-2"><a href="data.table-pt2.html#cb221-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste0</span>(<span class="st">&#39;user_&#39;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>),</span>
-<span id="cb221-3"><a href="data.table-pt2.html#cb221-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
-<span id="cb221-4"><a href="data.table-pt2.html#cb221-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb221-5"><a href="data.table-pt2.html#cb221-5" aria-hidden="true" tabindex="-1"></a>my_dt <span class="ot">&lt;-</span> <span class="fu">as.data.table</span>(my_dt)</span>
-<span id="cb221-6"><a href="data.table-pt2.html#cb221-6" aria-hidden="true" tabindex="-1"></a><span class="fu">setnames</span>(my_dt, <span class="fu">c</span>(<span class="st">&#39;uid&#39;</span>, <span class="st">&#39;sid&#39;</span>))</span>
-<span id="cb221-7"><a href="data.table-pt2.html#cb221-7" aria-hidden="true" tabindex="-1"></a><span class="fu">setkey</span>(my_dt, <span class="st">&#39;uid&#39;</span>)</span>
-<span id="cb221-8"><a href="data.table-pt2.html#cb221-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb221-9"><a href="data.table-pt2.html#cb221-9" aria-hidden="true" tabindex="-1"></a>time_seq <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">as.POSIXct</span>(<span class="st">&quot;2023-09-01 00:00:00&quot;</span>), <span class="fu">as.POSIXct</span>(<span class="st">&quot;2023-09-09 23:59:59&quot;</span>), <span class="at">by =</span> <span class="st">&quot;s&quot;</span>)</span>
-<span id="cb221-10"><a href="data.table-pt2.html#cb221-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb221-11"><a href="data.table-pt2.html#cb221-11" aria-hidden="true" tabindex="-1"></a>my_dt[, login_ts <span class="sc">:</span><span class="er">=</span> <span class="fu">sort</span>(<span class="fu">sample</span>(time_seq, .N))]</span>
-<span id="cb221-12"><a href="data.table-pt2.html#cb221-12" aria-hidden="true" tabindex="-1"></a>my_dt[, session_length <span class="sc">:</span><span class="er">=</span> <span class="fu">sample</span>(<span class="dv">120</span><span class="sc">:</span><span class="dv">600</span>, .N)]</span>
-<span id="cb221-13"><a href="data.table-pt2.html#cb221-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb221-14"><a href="data.table-pt2.html#cb221-14" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(my_dt)</span></code></pre></div>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="data.table-pt2.html#cb221-1" tabindex="-1"></a>my_dt <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(</span>
+<span id="cb221-2"><a href="data.table-pt2.html#cb221-2" tabindex="-1"></a>  <span class="fu">paste0</span>(<span class="st">&#39;user_&#39;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>),</span>
+<span id="cb221-3"><a href="data.table-pt2.html#cb221-3" tabindex="-1"></a>  <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
+<span id="cb221-4"><a href="data.table-pt2.html#cb221-4" tabindex="-1"></a>)</span>
+<span id="cb221-5"><a href="data.table-pt2.html#cb221-5" tabindex="-1"></a>my_dt <span class="ot">&lt;-</span> <span class="fu">as.data.table</span>(my_dt)</span>
+<span id="cb221-6"><a href="data.table-pt2.html#cb221-6" tabindex="-1"></a><span class="fu">setnames</span>(my_dt, <span class="fu">c</span>(<span class="st">&#39;uid&#39;</span>, <span class="st">&#39;sid&#39;</span>))</span>
+<span id="cb221-7"><a href="data.table-pt2.html#cb221-7" tabindex="-1"></a><span class="fu">setkey</span>(my_dt, <span class="st">&#39;uid&#39;</span>)</span>
+<span id="cb221-8"><a href="data.table-pt2.html#cb221-8" tabindex="-1"></a></span>
+<span id="cb221-9"><a href="data.table-pt2.html#cb221-9" tabindex="-1"></a>time_seq <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">as.POSIXct</span>(<span class="st">&quot;2023-09-01 00:00:00&quot;</span>), <span class="fu">as.POSIXct</span>(<span class="st">&quot;2023-09-09 23:59:59&quot;</span>), <span class="at">by =</span> <span class="st">&quot;s&quot;</span>)</span>
+<span id="cb221-10"><a href="data.table-pt2.html#cb221-10" tabindex="-1"></a></span>
+<span id="cb221-11"><a href="data.table-pt2.html#cb221-11" tabindex="-1"></a>my_dt[, login_ts <span class="sc">:=</span> <span class="fu">sort</span>(<span class="fu">sample</span>(time_seq, .N))]</span>
+<span id="cb221-12"><a href="data.table-pt2.html#cb221-12" tabindex="-1"></a>my_dt[, session_length <span class="sc">:=</span> <span class="fu">sample</span>(<span class="dv">120</span><span class="sc">:</span><span class="dv">600</span>, .N)]</span>
+<span id="cb221-13"><a href="data.table-pt2.html#cb221-13" tabindex="-1"></a></span>
+<span id="cb221-14"><a href="data.table-pt2.html#cb221-14" tabindex="-1"></a><span class="fu">head</span>(my_dt)</span></code></pre></div>
 <pre><code>##       uid sid            login_ts session_length
-## 1: user_1   1 2023-09-02 02:28:07            303
-## 2: user_1   2 2023-09-02 16:55:58            353
-## 3: user_1   3 2023-09-02 17:35:09            203
-## 4: user_1   4 2023-09-04 08:15:20            477
-## 5: user_1   5 2023-09-04 09:30:01            570
-## 6: user_2   1 2023-09-04 10:08:46            386</code></pre>
+## 1: user_1   1 2023-09-01 07:26:09            571
+## 2: user_1   2 2023-09-01 16:02:53            429
+## 3: user_1   3 2023-09-02 03:36:08            340
+## 4: user_1   4 2023-09-02 17:50:12            190
+## 5: user_1   5 2023-09-03 13:11:01            300
+## 6: user_2   1 2023-09-04 00:23:08            341</code></pre>
 </div>
 </div>
 <div id="применение-функций" class="section level2 unnumbered hasAnchor">
 <h2>Применение функций<a href="data.table-pt2.html#применение-функций" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="dataset" class="section level3 unnumbered hasAnchor">
 <h3>dataset<a href="data.table-pt2.html#dataset" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="data.table-pt2.html#cb223-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
-<span id="cb223-2"><a href="data.table-pt2.html#cb223-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb223-3"><a href="data.table-pt2.html#cb223-3" aria-hidden="true" tabindex="-1"></a><span class="co"># импортируем по ссылке</span></span>
-<span id="cb223-4"><a href="data.table-pt2.html#cb223-4" aria-hidden="true" tabindex="-1"></a>sw <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&#39;http://bit.ly/39aOUne&#39;</span>)</span>
-<span id="cb223-5"><a href="data.table-pt2.html#cb223-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb223-6"><a href="data.table-pt2.html#cb223-6" aria-hidden="true" tabindex="-1"></a><span class="co"># смотрим структуру объекта</span></span>
-<span id="cb223-7"><a href="data.table-pt2.html#cb223-7" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(sw)</span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="data.table-pt2.html#cb223-1" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb223-2"><a href="data.table-pt2.html#cb223-2" tabindex="-1"></a></span>
+<span id="cb223-3"><a href="data.table-pt2.html#cb223-3" tabindex="-1"></a><span class="co"># импортируем по ссылке</span></span>
+<span id="cb223-4"><a href="data.table-pt2.html#cb223-4" tabindex="-1"></a>sw <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&#39;http://bit.ly/39aOUne&#39;</span>)</span>
+<span id="cb223-5"><a href="data.table-pt2.html#cb223-5" tabindex="-1"></a></span>
+<span id="cb223-6"><a href="data.table-pt2.html#cb223-6" tabindex="-1"></a><span class="co"># смотрим структуру объекта</span></span>
+<span id="cb223-7"><a href="data.table-pt2.html#cb223-7" tabindex="-1"></a><span class="fu">str</span>(sw)</span></code></pre></div>
 <pre><code>## Classes &#39;data.table&#39; and &#39;data.frame&#39;:   77 obs. of  6 variables:
 ##  $ name       : chr  &quot;Luke Skywalker&quot; &quot;C-3PO&quot; &quot;Darth Vader&quot; &quot;Owen Lars&quot; ...
 ##  $ height     : int  172 167 202 178 165 97 183 188 163 183 ...
@@ -597,27 +597,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3>Количество строк и значений: .N, uniqueN<a href="data.table-pt2.html#количество-строк-и-значений-.n-uniquen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>В data.table есть пара полезных функций, которые позволяет быстро и лаконично считать количество значений и количество уникальных значений.</p>
 <p>Считаем количество строк в табличке - для этого используется функция <code>.N</code> (в data.table есть еще несколько функций, которые начинаются с <code>.</code>, но мы их почти не будем касаться).</p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="data.table-pt2.html#cb225-1" aria-hidden="true" tabindex="-1"></a>sw[, .N]</span></code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="data.table-pt2.html#cb225-1" tabindex="-1"></a>sw[, .N]</span></code></pre></div>
 <pre><code>## [1] 77</code></pre>
 <p>Функция <code>uniqueN()</code> считает количество уникальных значений. Аналогична сочетанию двух функций <code>length()</code> + <code>unique()</code>, просто короче и быстрее.</p>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="data.table-pt2.html#cb227-1" aria-hidden="true" tabindex="-1"></a>sw[, <span class="fu">uniqueN</span>(planet_name)]</span></code></pre></div>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="data.table-pt2.html#cb227-1" tabindex="-1"></a>sw[, <span class="fu">uniqueN</span>(planet_name)]</span></code></pre></div>
 <pre><code>## [1] 48</code></pre>
 </div>
 <div id="ветвления-ifelse-fifelse" class="section level3 unnumbered hasAnchor">
 <h3>Ветвления: ifelse / fifelse<a href="data.table-pt2.html#ветвления-ifelse-fifelse" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>В R есть два вида ветвлений с использованием if. Первое - стандартная для многих языков конструкция <code>if {} else{}</code>, она используется при создании функций и т.д. Для работы с таблицами полезнее функция <code>ifelse()</code> или ее быстрый аналог в data.table - <code>fifelse</code> (<code>f</code> от fast).</p>
 <p>В первом аргументе функции мы указываем проверку, в результате которой можно будет сказать TRUE или FALSE. Вторым аргументом - что должно быть возвращено, если результат проверки будет TRUE (логическое утверждение из первого аргумента истинно). Третий аргумент - что должно быть возвращено, если утверждение из первого аргумента ложно. Например, мы проверяем, истинно ли, что 5 тождественно 3. Так как 5 не равно трем, результатом сравнения 5 == 3 будет FALSE (утверждение ложно), соответственно, результатом <code>ifelse()</code> будет <code>'значение если неверно'</code>.</p>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="data.table-pt2.html#cb229-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">==</span> <span class="dv">3</span></span></code></pre></div>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="data.table-pt2.html#cb229-1" tabindex="-1"></a><span class="dv">5</span> <span class="sc">==</span> <span class="dv">3</span></span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="data.table-pt2.html#cb231-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(<span class="dv">5</span> <span class="sc">==</span> <span class="dv">3</span>, <span class="st">&#39;значение если верно&#39;</span>, <span class="st">&#39;значение если неверно&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="data.table-pt2.html#cb231-1" tabindex="-1"></a><span class="fu">ifelse</span>(<span class="dv">5</span> <span class="sc">==</span> <span class="dv">3</span>, <span class="st">&#39;значение если верно&#39;</span>, <span class="st">&#39;значение если неверно&#39;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;значение если неверно&quot;</code></pre>
 <p>Ключевое отличие <code>ifelse()</code> от классического <code>if {} else{}</code> в том, что эта функция векторизована. То есть, если в первом аргументе сравнивать вектор с каким-то значением, то проверка будет применяться к каждому элементу вектора. Соответственно, и результатов <code>ifelse</code> будет столько же, сколько элементов в векторе.</p>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="data.table-pt2.html#cb233-1" aria-hidden="true" tabindex="-1"></a>my_vec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">9</span>)</span>
-<span id="cb233-2"><a href="data.table-pt2.html#cb233-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(my_vec <span class="sc">==</span> <span class="dv">3</span>, <span class="st">&#39;значение если верно&#39;</span>, <span class="st">&#39;значение если неверно&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="data.table-pt2.html#cb233-1" tabindex="-1"></a>my_vec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">9</span>)</span>
+<span id="cb233-2"><a href="data.table-pt2.html#cb233-2" tabindex="-1"></a><span class="fu">ifelse</span>(my_vec <span class="sc">==</span> <span class="dv">3</span>, <span class="st">&#39;значение если верно&#39;</span>, <span class="st">&#39;значение если неверно&#39;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;значение если неверно&quot; &quot;значение если верно&quot;   &quot;значение если неверно&quot;</code></pre>
 <p>Все это позволяет использовать ifelse/fifelse для операций над колонками - например, в примере мы проверяем с помощью функции <code>grepl</code>, встречается ли в значениях ячеек в колонке <code>skin_color</code> слово <code>grey</code>. И если встречается - то в новую колонку будет проставлено значение <code>grey</code>, а если не всречается - <code>no grey</code>.</p>
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="data.table-pt2.html#cb235-1" aria-hidden="true" tabindex="-1"></a>sw[, new <span class="sc">:</span><span class="er">=</span> <span class="fu">fifelse</span>(<span class="fu">grepl</span>(<span class="st">&#39;grey&#39;</span>, skin_color), <span class="st">&#39;grey&#39;</span>, <span class="st">&#39;no grey&#39;</span>)]</span>
-<span id="cb235-2"><a href="data.table-pt2.html#cb235-2" aria-hidden="true" tabindex="-1"></a>sw[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="fu">list</span>(name, skin_color, new)]</span></code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="data.table-pt2.html#cb235-1" tabindex="-1"></a>sw[, new <span class="sc">:=</span> <span class="fu">fifelse</span>(<span class="fu">grepl</span>(<span class="st">&#39;grey&#39;</span>, skin_color), <span class="st">&#39;grey&#39;</span>, <span class="st">&#39;no grey&#39;</span>)]</span>
+<span id="cb235-2"><a href="data.table-pt2.html#cb235-2" tabindex="-1"></a>sw[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="fu">list</span>(name, skin_color, new)]</span></code></pre></div>
 <pre><code>##                   name skin_color     new
 ##  1:     Luke Skywalker       fair no grey
 ##  2:              C-3PO       gold no grey
@@ -639,13 +639,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="вычисления-по-одной-колонке-1" class="section level3 unnumbered hasAnchor">
 <h3>Вычисления по одной колонке<a href="data.table-pt2.html#вычисления-по-одной-колонке-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Можно использовать группировку при применении функции к таблице, но удобнее результат операции с колонкой оборачивать в <code>list()</code>, так как это дает возможность переименовать колонку. В примере ниже мы считаем количество уникальных значений в колонке <code>name</code> для каждой группы по значениям колонки <code>gender</code>:</p>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="data.table-pt2.html#cb237-1" aria-hidden="true" tabindex="-1"></a>sw[, <span class="fu">uniqueN</span>(name), by <span class="ot">=</span> gender]</span></code></pre></div>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="data.table-pt2.html#cb237-1" tabindex="-1"></a>sw[, <span class="fu">uniqueN</span>(name), by <span class="ot">=</span> gender]</span></code></pre></div>
 <pre><code>##           gender V1
 ## 1:          male 57
 ## 2:           n/a  3
 ## 3:        female 16
 ## 4: hermaphrodite  1</code></pre>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="data.table-pt2.html#cb239-1" aria-hidden="true" tabindex="-1"></a>sw[, <span class="fu">list</span>(<span class="at">n_chars =</span> <span class="fu">uniqueN</span>(name)), by <span class="ot">=</span> gender]</span></code></pre></div>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="data.table-pt2.html#cb239-1" tabindex="-1"></a>sw[, <span class="fu">list</span>(<span class="at">n_chars =</span> <span class="fu">uniqueN</span>(name)), by <span class="ot">=</span> gender]</span></code></pre></div>
 <pre><code>##           gender n_chars
 ## 1:          male      57
 ## 2:           n/a       3
@@ -655,10 +655,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="вычисления-по-нескольким-колонкам" class="section level3 unnumbered hasAnchor">
 <h3>Вычисления по нескольким колонкам<a href="data.table-pt2.html#вычисления-по-нескольким-колонкам" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Можно выполнять операции сразу с несколькими колонками:</p>
-<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="data.table-pt2.html#cb241-1" aria-hidden="true" tabindex="-1"></a>sw[, <span class="fu">list</span>(</span>
-<span id="cb241-2"><a href="data.table-pt2.html#cb241-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">n_chars =</span> <span class="fu">uniqueN</span>(name),</span>
-<span id="cb241-3"><a href="data.table-pt2.html#cb241-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">mass_md =</span> <span class="fu">median</span>(mass, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb241-4"><a href="data.table-pt2.html#cb241-4" aria-hidden="true" tabindex="-1"></a>), by <span class="ot">=</span> gender]</span></code></pre></div>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="data.table-pt2.html#cb241-1" tabindex="-1"></a>sw[, <span class="fu">list</span>(</span>
+<span id="cb241-2"><a href="data.table-pt2.html#cb241-2" tabindex="-1"></a>  <span class="at">n_chars =</span> <span class="fu">uniqueN</span>(name),</span>
+<span id="cb241-3"><a href="data.table-pt2.html#cb241-3" tabindex="-1"></a>  <span class="at">mass_md =</span> <span class="fu">median</span>(mass, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb241-4"><a href="data.table-pt2.html#cb241-4" tabindex="-1"></a>), by <span class="ot">=</span> gender]</span></code></pre></div>
 <pre><code>##           gender n_chars mass_md
 ## 1:          male      57    80.0
 ## 2:           n/a       3    32.0
@@ -668,10 +668,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="группировка-по-нескольким-полям-1" class="section level3 unnumbered hasAnchor">
 <h3>Группировка по нескольким полям<a href="data.table-pt2.html#группировка-по-нескольким-полям-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Часто возникает необходимость группировки сразу по нескольким полям - для этого колонки групп также указываются через список. В выражении ниже мы сначала фильтруем датасет и оставляем только строки, где в колонке <code>gender</code> есть значения <code>male</code> и <code>female</code>, после чего в группах по полу и цвету кожи считаем количество персонажей. Результат агрегации записываем в новый объект и выводим на печать только первые 5 строк (просто чтобы сократить вывод).</p>
-<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="data.table-pt2.html#cb243-1" aria-hidden="true" tabindex="-1"></a>sw_grps <span class="ot">&lt;-</span> sw[gender <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&#39;male&#39;</span>, <span class="st">&#39;female&#39;</span>),</span>
-<span id="cb243-2"><a href="data.table-pt2.html#cb243-2" aria-hidden="true" tabindex="-1"></a>              <span class="fu">list</span>(<span class="at">n_chars =</span> <span class="fu">uniqueN</span>(name)),</span>
-<span id="cb243-3"><a href="data.table-pt2.html#cb243-3" aria-hidden="true" tabindex="-1"></a>              by <span class="ot">=</span> <span class="fu">list</span>(gender, skin_color)]</span>
-<span id="cb243-4"><a href="data.table-pt2.html#cb243-4" aria-hidden="true" tabindex="-1"></a>sw_grps[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="data.table-pt2.html#cb243-1" tabindex="-1"></a>sw_grps <span class="ot">&lt;-</span> sw[gender <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&#39;male&#39;</span>, <span class="st">&#39;female&#39;</span>),</span>
+<span id="cb243-2"><a href="data.table-pt2.html#cb243-2" tabindex="-1"></a>              <span class="fu">list</span>(<span class="at">n_chars =</span> <span class="fu">uniqueN</span>(name)),</span>
+<span id="cb243-3"><a href="data.table-pt2.html#cb243-3" tabindex="-1"></a>              by <span class="ot">=</span> <span class="fu">list</span>(gender, skin_color)]</span>
+<span id="cb243-4"><a href="data.table-pt2.html#cb243-4" tabindex="-1"></a>sw_grps[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
 <pre><code>##    gender skin_color n_chars
 ## 1:   male       fair      12
 ## 2:   male      white       2
@@ -686,57 +686,57 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3>rbind()<a href="data.table-pt2.html#rbind" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Функция <code>rbind()</code>(от <code>row bind</code>) используется для объединение двух или более таблиц по строкам. То есть, в результате получается таблица с таким же количеством колонок, но с увеличенным числом строк - по количеству строк в объединяемых таблицах.</p>
 <p>Нередко в объединяемых таблицах отсутствует какая-нибудь колонка или колонки перепутаны. В таких случаях необходимо использовать аргументы <code>use.names = TRUE</code> (проверка названий колонок при объединение) и <code>fill = TRUE</code> (создание колонки с <code>NA</code>-значениями). Обратите внимание, это работает только с <code>data.table</code>-объектами.</p>
-<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="data.table-pt2.html#cb245-1" aria-hidden="true" tabindex="-1"></a><span class="co"># создаем первую таблицу</span></span>
-<span id="cb245-2"><a href="data.table-pt2.html#cb245-2" aria-hidden="true" tabindex="-1"></a>dt1 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">tb =</span> <span class="st">&#39;table_1&#39;</span>,</span>
-<span id="cb245-3"><a href="data.table-pt2.html#cb245-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">col1 =</span> <span class="fu">sample</span>(<span class="dv">9</span>, <span class="dv">3</span>),</span>
-<span id="cb245-4"><a href="data.table-pt2.html#cb245-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">col3 =</span> <span class="st">&#39;only in table1&#39;</span>,</span>
-<span id="cb245-5"><a href="data.table-pt2.html#cb245-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">col2 =</span> <span class="fu">sample</span>(letters, <span class="dv">3</span>))</span>
-<span id="cb245-6"><a href="data.table-pt2.html#cb245-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb245-7"><a href="data.table-pt2.html#cb245-7" aria-hidden="true" tabindex="-1"></a><span class="co"># создаем вторую таблицу</span></span>
-<span id="cb245-8"><a href="data.table-pt2.html#cb245-8" aria-hidden="true" tabindex="-1"></a>dt2 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">tb =</span> <span class="st">&#39;table_2&#39;</span>,</span>
-<span id="cb245-9"><a href="data.table-pt2.html#cb245-9" aria-hidden="true" tabindex="-1"></a>                  <span class="at">col4 =</span> <span class="st">&#39;only in table2&#39;</span>,</span>
-<span id="cb245-10"><a href="data.table-pt2.html#cb245-10" aria-hidden="true" tabindex="-1"></a>                  <span class="at">col1 =</span> <span class="fu">sample</span>(<span class="dv">9</span>, <span class="dv">3</span>),</span>
-<span id="cb245-11"><a href="data.table-pt2.html#cb245-11" aria-hidden="true" tabindex="-1"></a>                  <span class="at">col2 =</span> <span class="fu">sample</span>(letters, <span class="dv">3</span>))</span>
-<span id="cb245-12"><a href="data.table-pt2.html#cb245-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb245-13"><a href="data.table-pt2.html#cb245-13" aria-hidden="true" tabindex="-1"></a><span class="co"># объединяем по строкам</span></span>
-<span id="cb245-14"><a href="data.table-pt2.html#cb245-14" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(dt1, dt2, <span class="at">fill =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="data.table-pt2.html#cb245-1" tabindex="-1"></a><span class="co"># создаем первую таблицу</span></span>
+<span id="cb245-2"><a href="data.table-pt2.html#cb245-2" tabindex="-1"></a>dt1 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">tb =</span> <span class="st">&#39;table_1&#39;</span>,</span>
+<span id="cb245-3"><a href="data.table-pt2.html#cb245-3" tabindex="-1"></a>                  <span class="at">col1 =</span> <span class="fu">sample</span>(<span class="dv">9</span>, <span class="dv">3</span>),</span>
+<span id="cb245-4"><a href="data.table-pt2.html#cb245-4" tabindex="-1"></a>                  <span class="at">col3 =</span> <span class="st">&#39;only in table1&#39;</span>,</span>
+<span id="cb245-5"><a href="data.table-pt2.html#cb245-5" tabindex="-1"></a>                  <span class="at">col2 =</span> <span class="fu">sample</span>(letters, <span class="dv">3</span>))</span>
+<span id="cb245-6"><a href="data.table-pt2.html#cb245-6" tabindex="-1"></a></span>
+<span id="cb245-7"><a href="data.table-pt2.html#cb245-7" tabindex="-1"></a><span class="co"># создаем вторую таблицу</span></span>
+<span id="cb245-8"><a href="data.table-pt2.html#cb245-8" tabindex="-1"></a>dt2 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">tb =</span> <span class="st">&#39;table_2&#39;</span>,</span>
+<span id="cb245-9"><a href="data.table-pt2.html#cb245-9" tabindex="-1"></a>                  <span class="at">col4 =</span> <span class="st">&#39;only in table2&#39;</span>,</span>
+<span id="cb245-10"><a href="data.table-pt2.html#cb245-10" tabindex="-1"></a>                  <span class="at">col1 =</span> <span class="fu">sample</span>(<span class="dv">9</span>, <span class="dv">3</span>),</span>
+<span id="cb245-11"><a href="data.table-pt2.html#cb245-11" tabindex="-1"></a>                  <span class="at">col2 =</span> <span class="fu">sample</span>(letters, <span class="dv">3</span>))</span>
+<span id="cb245-12"><a href="data.table-pt2.html#cb245-12" tabindex="-1"></a></span>
+<span id="cb245-13"><a href="data.table-pt2.html#cb245-13" tabindex="-1"></a><span class="co"># объединяем по строкам</span></span>
+<span id="cb245-14"><a href="data.table-pt2.html#cb245-14" tabindex="-1"></a><span class="fu">rbind</span>(dt1, dt2, <span class="at">fill =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>##         tb col1           col3 col2           col4
-## 1: table_1    8 only in table1    c           &lt;NA&gt;
-## 2: table_1    2 only in table1    n           &lt;NA&gt;
-## 3: table_1    6 only in table1    y           &lt;NA&gt;
-## 4: table_2    3           &lt;NA&gt;    k only in table2
-## 5: table_2    2           &lt;NA&gt;    l only in table2
-## 6: table_2    9           &lt;NA&gt;    x only in table2</code></pre>
+## 1: table_1    8 only in table1    m           &lt;NA&gt;
+## 2: table_1    3 only in table1    v           &lt;NA&gt;
+## 3: table_1    6 only in table1    a           &lt;NA&gt;
+## 4: table_2    1           &lt;NA&gt;    p only in table2
+## 5: table_2    5           &lt;NA&gt;    i only in table2
+## 6: table_2    6           &lt;NA&gt;    k only in table2</code></pre>
 </div>
 <div id="cbind" class="section level3 unnumbered hasAnchor">
 <h3>cbind()<a href="data.table-pt2.html#cbind" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Функция <code>cbind()</code> (от <code>columns bind</code>) используется для объединения нескольких векторов или таблиц равной длины. В результате получается объединённая таблица такой же длины, как каждый из объединяемых векторов. При объединении таблиц — с таким же количеством строк, как в каждой из объединяемых таблиц, и с суммарным количеством колонок.</p>
 <p>При использовании <code>cbind()</code> в работе с таблицами необходимо помнить, что это буквально “склейка” таблиц независимо от порядка наблюдений по строкам. В противном случае можно получить наблюдение, где часть колонок описывает характеристики этого наблюдения, а другая часть — каких-то других наблюдений.</p>
 <p>Другой нюанс, который также необходимо учитывать: при объединении таблиц названия колонок останутся прежними. Так что если в нескольких таблицах встречается, например, колонка <code>col1</code>, то в финальном датасете будет несколько колонок с таким названием — по количеству объединяемых таблиц, в которых она была. В свою очередь, это усложняет задачи выбора колонки по названию и мешает понять, в какой колонке какое содержание.</p>
-<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="data.table-pt2.html#cb247-1" aria-hidden="true" tabindex="-1"></a><span class="co"># выведем ранее созданные таблицы</span></span>
-<span id="cb247-2"><a href="data.table-pt2.html#cb247-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(dt1)</span></code></pre></div>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="data.table-pt2.html#cb247-1" tabindex="-1"></a><span class="co"># выведем ранее созданные таблицы</span></span>
+<span id="cb247-2"><a href="data.table-pt2.html#cb247-2" tabindex="-1"></a><span class="fu">print</span>(dt1)</span></code></pre></div>
 <pre><code>##         tb col1           col3 col2
-## 1: table_1    8 only in table1    c
-## 2: table_1    2 only in table1    n
-## 3: table_1    6 only in table1    y</code></pre>
-<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="data.table-pt2.html#cb249-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(dt2)</span></code></pre></div>
+## 1: table_1    8 only in table1    m
+## 2: table_1    3 only in table1    v
+## 3: table_1    6 only in table1    a</code></pre>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="data.table-pt2.html#cb249-1" tabindex="-1"></a><span class="fu">print</span>(dt2)</span></code></pre></div>
 <pre><code>##         tb           col4 col1 col2
-## 1: table_2 only in table2    3    k
-## 2: table_2 only in table2    2    l
-## 3: table_2 only in table2    9    x</code></pre>
-<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="data.table-pt2.html#cb251-1" aria-hidden="true" tabindex="-1"></a><span class="co"># создадим колонки-номера строк</span></span>
-<span id="cb251-2"><a href="data.table-pt2.html#cb251-2" aria-hidden="true" tabindex="-1"></a>dt1[, indx <span class="sc">:</span><span class="er">=</span> <span class="dv">1</span><span class="sc">:</span>.N]</span>
-<span id="cb251-3"><a href="data.table-pt2.html#cb251-3" aria-hidden="true" tabindex="-1"></a>dt2[, indx <span class="sc">:</span><span class="er">=</span> <span class="dv">1</span><span class="sc">:</span>.N]</span>
-<span id="cb251-4"><a href="data.table-pt2.html#cb251-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb251-5"><a href="data.table-pt2.html#cb251-5" aria-hidden="true" tabindex="-1"></a><span class="co"># теперь отсортируем вторую таблицу по убыванию</span></span>
-<span id="cb251-6"><a href="data.table-pt2.html#cb251-6" aria-hidden="true" tabindex="-1"></a>dt2 <span class="ot">&lt;-</span> dt2[<span class="fu">order</span>(<span class="sc">-</span>indx)]</span>
-<span id="cb251-7"><a href="data.table-pt2.html#cb251-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb251-8"><a href="data.table-pt2.html#cb251-8" aria-hidden="true" tabindex="-1"></a><span class="co"># таблица получилась, но в строках бардак</span></span>
-<span id="cb251-9"><a href="data.table-pt2.html#cb251-9" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(dt1, dt2)</span></code></pre></div>
+## 1: table_2 only in table2    1    p
+## 2: table_2 only in table2    5    i
+## 3: table_2 only in table2    6    k</code></pre>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="data.table-pt2.html#cb251-1" tabindex="-1"></a><span class="co"># создадим колонки-номера строк</span></span>
+<span id="cb251-2"><a href="data.table-pt2.html#cb251-2" tabindex="-1"></a>dt1[, indx <span class="sc">:=</span> <span class="dv">1</span><span class="sc">:</span>.N]</span>
+<span id="cb251-3"><a href="data.table-pt2.html#cb251-3" tabindex="-1"></a>dt2[, indx <span class="sc">:=</span> <span class="dv">1</span><span class="sc">:</span>.N]</span>
+<span id="cb251-4"><a href="data.table-pt2.html#cb251-4" tabindex="-1"></a></span>
+<span id="cb251-5"><a href="data.table-pt2.html#cb251-5" tabindex="-1"></a><span class="co"># теперь отсортируем вторую таблицу по убыванию</span></span>
+<span id="cb251-6"><a href="data.table-pt2.html#cb251-6" tabindex="-1"></a>dt2 <span class="ot">&lt;-</span> dt2[<span class="fu">order</span>(<span class="sc">-</span>indx)]</span>
+<span id="cb251-7"><a href="data.table-pt2.html#cb251-7" tabindex="-1"></a></span>
+<span id="cb251-8"><a href="data.table-pt2.html#cb251-8" tabindex="-1"></a><span class="co"># таблица получилась, но в строках бардак</span></span>
+<span id="cb251-9"><a href="data.table-pt2.html#cb251-9" tabindex="-1"></a><span class="fu">cbind</span>(dt1, dt2)</span></code></pre></div>
 <pre><code>##         tb col1           col3 col2 indx      tb           col4 col1 col2 indx
-## 1: table_1    8 only in table1    c    1 table_2 only in table2    9    x    3
-## 2: table_1    2 only in table1    n    2 table_2 only in table2    2    l    2
-## 3: table_1    6 only in table1    y    3 table_2 only in table2    3    k    1</code></pre>
+## 1: table_1    8 only in table1    m    1 table_2 only in table2    6    k    3
+## 2: table_1    3 only in table1    v    2 table_2 only in table2    5    i    2
+## 3: table_1    6 only in table1    a    3 table_2 only in table2    1    p    1</code></pre>
 <p>В целом, <code>cbind()</code> — весьма редко используемый способ объединения таблиц. Его стоит использовать только тогда, когда есть однозначная уверенность в структуре данных (одинаковое количество строк, разные названия колонок, идентичная сортировка и т. д.), в противном случае это место, в котором очень легко ошибиться, при этом эту ошибку будет очень сложно найти.</p>
 </div>
 </div>

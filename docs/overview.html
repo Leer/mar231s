@@ -23,7 +23,7 @@
 <meta name="author" content="Ph.A.Upravitelev" />
 
 
-<meta name="date" content="2023-11-16" />
+<meta name="date" content="2023-11-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -565,7 +565,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2>Синтаксис<a href="overview.html#синтаксис" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="структура-выражения" class="section level3 unnumbered hasAnchor">
 <h3>Структура выражения<a href="overview.html#структура-выражения" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="overview.html#cb1-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="at">x =</span> <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="overview.html#cb1-1" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="at">x =</span> <span class="dv">4</span>)</span></code></pre></div>
 <p><code>sqrt()</code> - функция. <code>sqrt</code> - название функции, в <code>()</code> указываются аргументы, к которым будет применяться функция с таким названием.</p>
 <p><code>x</code> - обозначение аргумента функции (в разных функциях аргументы могут называться по-разному)</p>
 <p><code>4</code> - значение, которое мы передаем в аргумент функции (к коротому будет применена функция)</p>
@@ -576,23 +576,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="вывод-на-печать" class="section level3 unnumbered hasAnchor">
 <h3>Вывод на печать<a href="overview.html#вывод-на-печать" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Прямое указание:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="overview.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(result)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="overview.html#cb2-1" tabindex="-1"></a><span class="fu">print</span>(result)</span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 <p>Можно просто вызвать сам объект:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="overview.html#cb4-1" aria-hidden="true" tabindex="-1"></a>result</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="overview.html#cb4-1" tabindex="-1"></a>result</span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 <p><br></p>
 </div>
 <div id="присваивание" class="section level3 unnumbered hasAnchor">
 <h3>Присваивание<a href="overview.html#присваивание" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Оператор <code>&lt;-</code> - это оператор присваивания. Если до этого объект не был создан, то таким образом мы создадим объект <code>x</code>, в котором содержится значение <code>5</code>. Если до этого объект существовал, то ему будет присвоено новое значение.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="overview.html#cb6-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb6-2"><a href="overview.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="overview.html#cb6-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb6-2"><a href="overview.html#cb6-2" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
 <p>Когда значение или результат функции записываем в объект, ничего не печатается.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="overview.html#cb8-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="at">x =</span> <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="overview.html#cb8-1" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="at">x =</span> <span class="dv">4</span>)</span></code></pre></div>
 <p>Если нет присвоения, а только простой вызов функции, то результат будет напечатан, как если это был какой-то объект.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="overview.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="at">x =</span> <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="overview.html#cb9-1" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="at">x =</span> <span class="dv">4</span>)</span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 <p><br></p>
 </div>

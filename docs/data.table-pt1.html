@@ -23,7 +23,7 @@
 <meta name="author" content="Ph.A.Upravitelev" />
 
 
-<meta name="date" content="2023-11-16" />
+<meta name="date" content="2023-11-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -483,17 +483,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Код ниже создает иллюстрирует дисперсионный анализ. Прочитайте справки по <code>iris</code> и <code>aov</code>. Выполните выражения.</li>
 </ul>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="data.table-pt1.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb136-2"><a href="data.table-pt1.html#cb136-2" aria-hidden="true" tabindex="-1"></a>aov_stats <span class="ot">&lt;-</span> <span class="fu">aov</span>(Sepal.Length <span class="sc">~</span> Species, iris)</span>
-<span id="cb136-3"><a href="data.table-pt1.html#cb136-3" aria-hidden="true" tabindex="-1"></a>aov_stats_summary <span class="ot">&lt;-</span> <span class="fu">summary</span>(aov_stats)</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="data.table-pt1.html#cb136-1" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb136-2"><a href="data.table-pt1.html#cb136-2" tabindex="-1"></a>aov_stats <span class="ot">&lt;-</span> <span class="fu">aov</span>(Sepal.Length <span class="sc">~</span> Species, iris)</span>
+<span id="cb136-3"><a href="data.table-pt1.html#cb136-3" tabindex="-1"></a>aov_stats_summary <span class="ot">&lt;-</span> <span class="fu">summary</span>(aov_stats)</span></code></pre></div>
 <ul>
 <li><p>Выведите на печать объект <code>aov_stats_summary</code>. Выведите на печать и проанализируйте структуру объекта.</p></li>
 <li><p>***Выведите на печать уровень значимости (Pr(&gt;F))</p></li>
 </ul>
 <p>Решение. В списке <code>aov_stat_summary</code> неименованный подсписок. Этот подсписок является таблицей (data.frame). Соответственно, сначала нам надо обратиться к неименованному подсписку списка с помощью <code>[[</code>, а потом обратиться к первой строчке пятой колонки.
 Либо использовать то, что таблицы – это тоже списки, и обратиться к значению в синтаксисе списков, а не колонок.</p>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="data.table-pt1.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="co"># смотрим структуру объекта</span></span>
-<span id="cb137-2"><a href="data.table-pt1.html#cb137-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(aov_stats_summary)</span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="data.table-pt1.html#cb137-1" tabindex="-1"></a><span class="co"># смотрим структуру объекта</span></span>
+<span id="cb137-2"><a href="data.table-pt1.html#cb137-2" tabindex="-1"></a><span class="fu">str</span>(aov_stats_summary)</span></code></pre></div>
 <pre><code>## List of 1
 ##  $ :Classes &#39;anova&#39; and &#39;data.frame&#39;:    2 obs. of  5 variables:
 ##   ..$ Df     : num [1:2] 2 147
@@ -502,17 +502,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   ..$ F value: num [1:2] 119 NA
 ##   ..$ Pr(&gt;F) : num [1:2] 1.67e-31 NA
 ##  - attr(*, &quot;class&quot;)= chr [1:2] &quot;summary.aov&quot; &quot;listof&quot;</code></pre>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="data.table-pt1.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="co"># используем синтаксис списков</span></span>
-<span id="cb139-2"><a href="data.table-pt1.html#cb139-2" aria-hidden="true" tabindex="-1"></a>aov_stats_summary[[<span class="dv">1</span>]]<span class="sc">$</span><span class="st">`</span><span class="at">Pr(&gt;F)</span><span class="st">`</span>[<span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="data.table-pt1.html#cb139-1" tabindex="-1"></a><span class="co"># используем синтаксис списков</span></span>
+<span id="cb139-2"><a href="data.table-pt1.html#cb139-2" tabindex="-1"></a>aov_stats_summary[[<span class="dv">1</span>]]<span class="sc">$</span><span class="st">`</span><span class="at">Pr(&gt;F)</span><span class="st">`</span>[<span class="dv">1</span>]</span></code></pre></div>
 <pre><code>## [1] 1.669669e-31</code></pre>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="data.table-pt1.html#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="co"># используем синтаксис data.frame -- первая строка, пятая колонка</span></span>
-<span id="cb141-2"><a href="data.table-pt1.html#cb141-2" aria-hidden="true" tabindex="-1"></a>aov_stats_summary[[<span class="dv">1</span>]][<span class="dv">1</span>, <span class="dv">5</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="data.table-pt1.html#cb141-1" tabindex="-1"></a><span class="co"># используем синтаксис data.frame -- первая строка, пятая колонка</span></span>
+<span id="cb141-2"><a href="data.table-pt1.html#cb141-2" tabindex="-1"></a>aov_stats_summary[[<span class="dv">1</span>]][<span class="dv">1</span>, <span class="dv">5</span>]</span></code></pre></div>
 <pre><code>## [1] 1.669669e-31</code></pre>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="data.table-pt1.html#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="co"># так как мы умеем работать только с data.table</span></span>
-<span id="cb143-2"><a href="data.table-pt1.html#cb143-2" aria-hidden="true" tabindex="-1"></a><span class="co"># конвертируем в data.table и извлекаем значение аналогично data.frame</span></span>
-<span id="cb143-3"><a href="data.table-pt1.html#cb143-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
-<span id="cb143-4"><a href="data.table-pt1.html#cb143-4" aria-hidden="true" tabindex="-1"></a>aov_stats <span class="ot">&lt;-</span> <span class="fu">as.data.table</span>(aov_stats_summary[[<span class="dv">1</span>]])</span>
-<span id="cb143-5"><a href="data.table-pt1.html#cb143-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(aov_stats)</span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="data.table-pt1.html#cb143-1" tabindex="-1"></a><span class="co"># так как мы умеем работать только с data.table</span></span>
+<span id="cb143-2"><a href="data.table-pt1.html#cb143-2" tabindex="-1"></a><span class="co"># конвертируем в data.table и извлекаем значение аналогично data.frame</span></span>
+<span id="cb143-3"><a href="data.table-pt1.html#cb143-3" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb143-4"><a href="data.table-pt1.html#cb143-4" tabindex="-1"></a>aov_stats <span class="ot">&lt;-</span> <span class="fu">as.data.table</span>(aov_stats_summary[[<span class="dv">1</span>]])</span>
+<span id="cb143-5"><a href="data.table-pt1.html#cb143-5" tabindex="-1"></a><span class="fu">str</span>(aov_stats)</span></code></pre></div>
 <pre><code>## Classes &#39;data.table&#39; and &#39;data.frame&#39;:   2 obs. of  5 variables:
 ##  $ Df     : num  2 147
 ##  $ Sum Sq : num  63.2 39
@@ -520,12 +520,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  $ F value: num  119 NA
 ##  $ Pr(&gt;F) : num  1.67e-31 NA
 ##  - attr(*, &quot;.internal.selfref&quot;)=&lt;externalptr&gt;</code></pre>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="data.table-pt1.html#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="co"># по номеру колонки</span></span>
-<span id="cb145-2"><a href="data.table-pt1.html#cb145-2" aria-hidden="true" tabindex="-1"></a>aov_stats[<span class="dv">1</span>, <span class="dv">5</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="data.table-pt1.html#cb145-1" tabindex="-1"></a><span class="co"># по номеру колонки</span></span>
+<span id="cb145-2"><a href="data.table-pt1.html#cb145-2" tabindex="-1"></a>aov_stats[<span class="dv">1</span>, <span class="dv">5</span>]</span></code></pre></div>
 <pre><code>##          Pr(&gt;F)
 ## 1: 1.669669e-31</code></pre>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="data.table-pt1.html#cb147-1" aria-hidden="true" tabindex="-1"></a><span class="co"># по названию колонки</span></span>
-<span id="cb147-2"><a href="data.table-pt1.html#cb147-2" aria-hidden="true" tabindex="-1"></a>aov_stats[<span class="dv">1</span>, <span class="st">`</span><span class="at">Pr(&gt;F)</span><span class="st">`</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="data.table-pt1.html#cb147-1" tabindex="-1"></a><span class="co"># по названию колонки</span></span>
+<span id="cb147-2"><a href="data.table-pt1.html#cb147-2" tabindex="-1"></a>aov_stats[<span class="dv">1</span>, <span class="st">`</span><span class="at">Pr(&gt;F)</span><span class="st">`</span>]</span></code></pre></div>
 <pre><code>## [1] 1.669669e-31</code></pre>
 </div>
 <div id="таблицы.-импорт-данных-1" class="section level3 unnumbered hasAnchor">
@@ -537,30 +537,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>с помощью команды <code>titanic &lt;- fread('titanic3.csv')</code> импортируйте файл в рабочее окружение. Прочитайте справку по функции <code>fread()</code> и попробуйте импортировать данные без явного сохранения на диск (не сработает с файлом в слаке).</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="data.table-pt1.html#cb149-1" aria-hidden="true" tabindex="-1"></a><span class="co"># можно импортироватьс разу по ссылке</span></span>
-<span id="cb149-2"><a href="data.table-pt1.html#cb149-2" aria-hidden="true" tabindex="-1"></a>titanic <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&#39;https://gitlab.com/hse_mar/mar221s/-/raw/master/data/titanic3.csv&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="data.table-pt1.html#cb149-1" tabindex="-1"></a><span class="co"># можно импортироватьс разу по ссылке</span></span>
+<span id="cb149-2"><a href="data.table-pt1.html#cb149-2" tabindex="-1"></a>titanic <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&#39;https://gitlab.com/hse_mar/mar221s/-/raw/master/data/titanic3.csv&#39;</span>)</span></code></pre></div>
 <ul>
 <li>** попробуйте написать код, в котором сначала происходит сохранение файла на диск, а потом чтение файла в рабочее окружение R (чтобы не руками сохранять, а кодом).</li>
 </ul>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="data.table-pt1.html#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="co"># можно сохранить объект по ссылка на диск</span></span>
-<span id="cb150-2"><a href="data.table-pt1.html#cb150-2" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(</span>
-<span id="cb150-3"><a href="data.table-pt1.html#cb150-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&#39;https://gitlab.com/hse_mar/mar221s/-/raw/master/data/titanic3.csv&#39;</span>,</span>
-<span id="cb150-4"><a href="data.table-pt1.html#cb150-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&#39;titanic_new.csv&#39;</span></span>
-<span id="cb150-5"><a href="data.table-pt1.html#cb150-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb150-6"><a href="data.table-pt1.html#cb150-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-7"><a href="data.table-pt1.html#cb150-7" aria-hidden="true" tabindex="-1"></a><span class="co"># и потом прочитать с диска</span></span>
-<span id="cb150-8"><a href="data.table-pt1.html#cb150-8" aria-hidden="true" tabindex="-1"></a>titanic <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&#39;titanic_new.csv&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="data.table-pt1.html#cb150-1" tabindex="-1"></a><span class="co"># можно сохранить объект по ссылка на диск</span></span>
+<span id="cb150-2"><a href="data.table-pt1.html#cb150-2" tabindex="-1"></a><span class="fu">download.file</span>(</span>
+<span id="cb150-3"><a href="data.table-pt1.html#cb150-3" tabindex="-1"></a>  <span class="st">&#39;https://gitlab.com/hse_mar/mar221s/-/raw/master/data/titanic3.csv&#39;</span>,</span>
+<span id="cb150-4"><a href="data.table-pt1.html#cb150-4" tabindex="-1"></a>  <span class="st">&#39;titanic_new.csv&#39;</span></span>
+<span id="cb150-5"><a href="data.table-pt1.html#cb150-5" tabindex="-1"></a>)</span>
+<span id="cb150-6"><a href="data.table-pt1.html#cb150-6" tabindex="-1"></a></span>
+<span id="cb150-7"><a href="data.table-pt1.html#cb150-7" tabindex="-1"></a><span class="co"># и потом прочитать с диска</span></span>
+<span id="cb150-8"><a href="data.table-pt1.html#cb150-8" tabindex="-1"></a>titanic <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&#39;titanic_new.csv&#39;</span>)</span></code></pre></div>
 <ul>
 <li>посмотрите с помощью команды <code>class()</code> объекта. Если он отличается от <code>data.table</code> — преобразуйте в data.table с помощью функции <code>as.data.table()</code></li>
 </ul>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="data.table-pt1.html#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fread сразу читает в data.table</span></span>
-<span id="cb151-2"><a href="data.table-pt1.html#cb151-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(titanic)</span></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="data.table-pt1.html#cb151-1" tabindex="-1"></a><span class="co"># fread сразу читает в data.table</span></span>
+<span id="cb151-2"><a href="data.table-pt1.html#cb151-2" tabindex="-1"></a><span class="fu">class</span>(titanic)</span></code></pre></div>
 <pre><code>## [1] &quot;data.table&quot; &quot;data.frame&quot;</code></pre>
 </div>
 <div id="работа-со-строками-1" class="section level3 unnumbered hasAnchor">
 <h3>работа со строками<a href="data.table-pt1.html#работа-со-строками-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="data.table-pt1.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="co"># выберите те строки, где возраст пассажира меньше 1 (младенцы)</span></span>
-<span id="cb153-2"><a href="data.table-pt1.html#cb153-2" aria-hidden="true" tabindex="-1"></a>titanic[age <span class="sc">&lt;</span> <span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="data.table-pt1.html#cb153-1" tabindex="-1"></a><span class="co"># выберите те строки, где возраст пассажира меньше 1 (младенцы)</span></span>
+<span id="cb153-2"><a href="data.table-pt1.html#cb153-2" tabindex="-1"></a>titanic[age <span class="sc">&lt;</span> <span class="dv">1</span>]</span></code></pre></div>
 <pre><code>##     pclass survived                                      name    sex  age sibsp
 ##  1:      1        1            Allison, Master. Hudson Trevor   male 0.92     1
 ##  2:      2        1             Caldwell, Master. Alden Gates   male 0.83     0
@@ -600,8 +600,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10:        Devon, England Wichita, KS
 ## 11:                                  
 ## 12:</code></pre>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="data.table-pt1.html#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="co"># выберите те строки, где возраст пассажира в диапазоне 20 до 50 лет</span></span>
-<span id="cb155-2"><a href="data.table-pt1.html#cb155-2" aria-hidden="true" tabindex="-1"></a>titanic[age <span class="sc">&gt;=</span> <span class="dv">20</span> <span class="sc">&amp;</span> age <span class="sc">&lt;=</span> <span class="dv">50</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="data.table-pt1.html#cb155-1" tabindex="-1"></a><span class="co"># выберите те строки, где возраст пассажира в диапазоне 20 до 50 лет</span></span>
+<span id="cb155-2"><a href="data.table-pt1.html#cb155-2" tabindex="-1"></a>titanic[age <span class="sc">&gt;=</span> <span class="dv">20</span> <span class="sc">&amp;</span> age <span class="sc">&lt;=</span> <span class="dv">50</span>]</span></code></pre></div>
 <pre><code>##      pclass survived                                            name    sex
 ##   1:      1        1                   Allen, Miss. Elisabeth Walton female
 ##   2:      1        0            Allison, Mr. Hudson Joshua Creighton   male
@@ -638,8 +638,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 724:                                
 ## 725:                                
 ## 726:</code></pre>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="data.table-pt1.html#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="co"># выберите строки по выжившим младенцам (survived)</span></span>
-<span id="cb157-2"><a href="data.table-pt1.html#cb157-2" aria-hidden="true" tabindex="-1"></a>titanic[age <span class="sc">&lt;</span> <span class="dv">1</span> <span class="sc">&amp;</span> survived <span class="sc">==</span> <span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="data.table-pt1.html#cb157-1" tabindex="-1"></a><span class="co"># выберите строки по выжившим младенцам (survived)</span></span>
+<span id="cb157-2"><a href="data.table-pt1.html#cb157-2" tabindex="-1"></a>titanic[age <span class="sc">&lt;</span> <span class="dv">1</span> <span class="sc">&amp;</span> survived <span class="sc">==</span> <span class="dv">1</span>]</span></code></pre></div>
 <pre><code>##     pclass survived                                      name    sex  age sibsp
 ##  1:      1        1            Allison, Master. Hudson Trevor   male 0.92     1
 ##  2:      2        1             Caldwell, Master. Alden Gates   male 0.83     0
@@ -673,8 +673,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8:                Syria New York, NY
 ##  9:        Devon, England Wichita, KS
 ## 10:</code></pre>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="data.table-pt1.html#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="co"># выберите пассажирок, которые имеют титул lady</span></span>
-<span id="cb159-2"><a href="data.table-pt1.html#cb159-2" aria-hidden="true" tabindex="-1"></a>titanic[<span class="fu">grep</span>(<span class="st">&#39;lady&#39;</span>, name, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="data.table-pt1.html#cb159-1" tabindex="-1"></a><span class="co"># выберите пассажирок, которые имеют титул lady</span></span>
+<span id="cb159-2"><a href="data.table-pt1.html#cb159-2" tabindex="-1"></a>titanic[<span class="fu">grep</span>(<span class="st">&#39;lady&#39;</span>, name, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)]</span></code></pre></div>
 <pre><code>##    pclass survived
 ## 1:      1        1
 ## 2:      1        1
@@ -695,15 +695,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 2:             London / Paris
 ## 3: Devon, England Wichita, KS
 ## 4:</code></pre>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="data.table-pt1.html#cb161-1" aria-hidden="true" tabindex="-1"></a>titanic[<span class="fu">grep</span>(<span class="st">&#39;Lady&#39;</span>, name)]</span></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="data.table-pt1.html#cb161-1" tabindex="-1"></a>titanic[<span class="fu">grep</span>(<span class="st">&#39;Lady&#39;</span>, name)]</span></code></pre></div>
 <pre><code>##    pclass survived
 ## 1:      1        1
 ##                                                                   name    sex
 ## 1: Duff Gordon, Lady. (Lucille Christiana Sutherland) (&quot;&quot;Mrs Morgan&quot;&quot;) female
 ##    age sibsp parch ticket fare cabin embarked boat body      home.dest
 ## 1:  48     1     0  11755 39.6   A16        C    1   NA London / Paris</code></pre>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="data.table-pt1.html#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="co"># альтернативнй вариант, когда учитываем пробел (&#39; &#39; или  &#39;\\s&#39;)</span></span>
-<span id="cb163-2"><a href="data.table-pt1.html#cb163-2" aria-hidden="true" tabindex="-1"></a>titanic[<span class="fu">grep</span>(<span class="st">&#39;</span><span class="sc">\\</span><span class="st">slady&#39;</span>, name, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="data.table-pt1.html#cb163-1" tabindex="-1"></a><span class="co"># альтернативнй вариант, когда учитываем пробел (&#39; &#39; или  &#39;\\s&#39;)</span></span>
+<span id="cb163-2"><a href="data.table-pt1.html#cb163-2" tabindex="-1"></a>titanic[<span class="fu">grep</span>(<span class="st">&#39;</span><span class="sc">\\</span><span class="st">slady&#39;</span>, name, <span class="at">ignore.case =</span> <span class="cn">TRUE</span>)]</span></code></pre></div>
 <pre><code>##    pclass survived
 ## 1:      1        1
 ##                                                                   name    sex
@@ -721,17 +721,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="создание-data.table-таблиц-2" class="section level2 unnumbered hasAnchor">
 <h2>Создание data.table-таблиц<a href="data.table-pt1.html#создание-data.table-таблиц-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Создать <code>data.table</code> можно следующим образом (синтаксис немного напоминает создание именованного списка, как и для всех форматов таблиц):</p>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="data.table-pt1.html#cb165-1" aria-hidden="true" tabindex="-1"></a><span class="co"># подключаем пакет, если не был подключен ранее</span></span>
-<span id="cb165-2"><a href="data.table-pt1.html#cb165-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
-<span id="cb165-3"><a href="data.table-pt1.html#cb165-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb165-4"><a href="data.table-pt1.html#cb165-4" aria-hidden="true" tabindex="-1"></a><span class="co"># создаем датасет</span></span>
-<span id="cb165-5"><a href="data.table-pt1.html#cb165-5" aria-hidden="true" tabindex="-1"></a>dt1 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(</span>
-<span id="cb165-6"><a href="data.table-pt1.html#cb165-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">month_names =</span> month.name,</span>
-<span id="cb165-7"><a href="data.table-pt1.html#cb165-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">month_abb =</span> month.abb,</span>
-<span id="cb165-8"><a href="data.table-pt1.html#cb165-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">month_ord =</span> <span class="fu">seq_len</span>(<span class="fu">length</span>(month.abb)),</span>
-<span id="cb165-9"><a href="data.table-pt1.html#cb165-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">is_winter =</span> <span class="fu">grepl</span>(<span class="st">&#39;Jan|Dec|Feb&#39;</span>, month.abb)</span>
-<span id="cb165-10"><a href="data.table-pt1.html#cb165-10" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb165-11"><a href="data.table-pt1.html#cb165-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(dt1)</span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="data.table-pt1.html#cb165-1" tabindex="-1"></a><span class="co"># подключаем пакет, если не был подключен ранее</span></span>
+<span id="cb165-2"><a href="data.table-pt1.html#cb165-2" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb165-3"><a href="data.table-pt1.html#cb165-3" tabindex="-1"></a></span>
+<span id="cb165-4"><a href="data.table-pt1.html#cb165-4" tabindex="-1"></a><span class="co"># создаем датасет</span></span>
+<span id="cb165-5"><a href="data.table-pt1.html#cb165-5" tabindex="-1"></a>dt1 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(</span>
+<span id="cb165-6"><a href="data.table-pt1.html#cb165-6" tabindex="-1"></a>  <span class="at">month_names =</span> month.name,</span>
+<span id="cb165-7"><a href="data.table-pt1.html#cb165-7" tabindex="-1"></a>  <span class="at">month_abb =</span> month.abb,</span>
+<span id="cb165-8"><a href="data.table-pt1.html#cb165-8" tabindex="-1"></a>  <span class="at">month_ord =</span> <span class="fu">seq_len</span>(<span class="fu">length</span>(month.abb)),</span>
+<span id="cb165-9"><a href="data.table-pt1.html#cb165-9" tabindex="-1"></a>  <span class="at">is_winter =</span> <span class="fu">grepl</span>(<span class="st">&#39;Jan|Dec|Feb&#39;</span>, month.abb)</span>
+<span id="cb165-10"><a href="data.table-pt1.html#cb165-10" tabindex="-1"></a>)</span>
+<span id="cb165-11"><a href="data.table-pt1.html#cb165-11" tabindex="-1"></a><span class="fu">print</span>(dt1)</span></code></pre></div>
 <pre><code>##     month_names month_abb month_ord is_winter
 ##  1:     January       Jan         1      TRUE
 ##  2:    February       Feb         2      TRUE
@@ -749,29 +749,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="выбор-строки-1" class="section level2 unnumbered hasAnchor">
 <h2>Выбор строки<a href="data.table-pt1.html#выбор-строки-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Выбор строк в <code>data.table</code> осуществляется аналогично выбору элементов в векторе: по номеру строки или по какому-то условию. При выборе по номеру строки также можно указать вектор номеров строк, которые необходимо вернуть. При выборке строки по условию проверяется, удовлетворяет ли условию каждый элемент строки в определенной колонке, и если удовлетворяет, выделяется вся строка.</p>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="data.table-pt1.html#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="co">#  выбор по одному номеру строки</span></span>
-<span id="cb167-2"><a href="data.table-pt1.html#cb167-2" aria-hidden="true" tabindex="-1"></a>dt1[<span class="dv">1</span>, ]</span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="data.table-pt1.html#cb167-1" tabindex="-1"></a><span class="co">#  выбор по одному номеру строки</span></span>
+<span id="cb167-2"><a href="data.table-pt1.html#cb167-2" tabindex="-1"></a>dt1[<span class="dv">1</span>, ]</span></code></pre></div>
 <pre><code>##    month_names month_abb month_ord is_winter
 ## 1:     January       Jan         1      TRUE</code></pre>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="data.table-pt1.html#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="co"># выбор по нескольким номерам строк</span></span>
-<span id="cb169-2"><a href="data.table-pt1.html#cb169-2" aria-hidden="true" tabindex="-1"></a><span class="co"># сначала создаем вектор номеров строк</span></span>
-<span id="cb169-3"><a href="data.table-pt1.html#cb169-3" aria-hidden="true" tabindex="-1"></a>my_rows <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">8</span>)</span>
-<span id="cb169-4"><a href="data.table-pt1.html#cb169-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb169-5"><a href="data.table-pt1.html#cb169-5" aria-hidden="true" tabindex="-1"></a><span class="co"># выводим строки, которые мы указали в векторе</span></span>
-<span id="cb169-6"><a href="data.table-pt1.html#cb169-6" aria-hidden="true" tabindex="-1"></a>dt1[my_rows]</span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="data.table-pt1.html#cb169-1" tabindex="-1"></a><span class="co"># выбор по нескольким номерам строк</span></span>
+<span id="cb169-2"><a href="data.table-pt1.html#cb169-2" tabindex="-1"></a><span class="co"># сначала создаем вектор номеров строк</span></span>
+<span id="cb169-3"><a href="data.table-pt1.html#cb169-3" tabindex="-1"></a>my_rows <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">8</span>)</span>
+<span id="cb169-4"><a href="data.table-pt1.html#cb169-4" tabindex="-1"></a></span>
+<span id="cb169-5"><a href="data.table-pt1.html#cb169-5" tabindex="-1"></a><span class="co"># выводим строки, которые мы указали в векторе</span></span>
+<span id="cb169-6"><a href="data.table-pt1.html#cb169-6" tabindex="-1"></a>dt1[my_rows]</span></code></pre></div>
 <pre><code>##    month_names month_abb month_ord is_winter
 ## 1:    February       Feb         2      TRUE
 ## 2:         May       May         5     FALSE
 ## 3:      August       Aug         8     FALSE</code></pre>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="data.table-pt1.html#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="co"># или, аналогично, сразу указываем, какие строки хотим выделить</span></span>
-<span id="cb171-2"><a href="data.table-pt1.html#cb171-2" aria-hidden="true" tabindex="-1"></a>dt1[<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">8</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="data.table-pt1.html#cb171-1" tabindex="-1"></a><span class="co"># или, аналогично, сразу указываем, какие строки хотим выделить</span></span>
+<span id="cb171-2"><a href="data.table-pt1.html#cb171-2" tabindex="-1"></a>dt1[<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">8</span>)]</span></code></pre></div>
 <pre><code>##    month_names month_abb month_ord is_winter
 ## 1:    February       Feb         2      TRUE
 ## 2:         May       May         5     FALSE
 ## 3:      August       Aug         8     FALSE</code></pre>
 <p>Выбор по условию: мы сразу указываем название колонки, к значениям которых будем применять условие-фильтр. Писать в стиле <code>dt1[dt1$month_ord &lt;= 3]</code> избыточно, data.table понимает просто название колонки.</p>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="data.table-pt1.html#cb173-1" aria-hidden="true" tabindex="-1"></a><span class="co"># выводим все строки, в которых в колонке month_ord значения меньше или равны 3</span></span>
-<span id="cb173-2"><a href="data.table-pt1.html#cb173-2" aria-hidden="true" tabindex="-1"></a>dt1[month_ord <span class="sc">&lt;=</span> <span class="dv">3</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="data.table-pt1.html#cb173-1" tabindex="-1"></a><span class="co"># выводим все строки, в которых в колонке month_ord значения меньше или равны 3</span></span>
+<span id="cb173-2"><a href="data.table-pt1.html#cb173-2" tabindex="-1"></a>dt1[month_ord <span class="sc">&lt;=</span> <span class="dv">3</span>]</span></code></pre></div>
 <pre><code>##    month_names month_abb month_ord is_winter
 ## 1:     January       Jan         1      TRUE
 ## 2:    February       Feb         2      TRUE
@@ -783,10 +783,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3>Обращение к колонке<a href="data.table-pt1.html#обращение-к-колонке" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>В синтаксисе <code>data.table</code> все операции над колонками производятся после первой запятой. Выделение колонок также относится к операциям над колонками. Для выделения одной или нескольких колонок необходимо просто указать лист (список) с названиями колонки или колонок.</p>
 <p>Если указать название колонки, то будут возвращены значения из этой колонки. Если название обернуть в <code>list()</code>, то будет возвращена таблица, с которой будет одна эта колонка:</p>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="data.table-pt1.html#cb175-1" aria-hidden="true" tabindex="-1"></a>dt1[, month_names]</span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="data.table-pt1.html#cb175-1" tabindex="-1"></a>dt1[, month_names]</span></code></pre></div>
 <pre><code>##  [1] &quot;January&quot;   &quot;February&quot;  &quot;March&quot;     &quot;April&quot;     &quot;May&quot;       &quot;June&quot;     
 ##  [7] &quot;July&quot;      &quot;August&quot;    &quot;September&quot; &quot;October&quot;   &quot;November&quot;  &quot;December&quot;</code></pre>
-<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="data.table-pt1.html#cb177-1" aria-hidden="true" tabindex="-1"></a>dt1[, <span class="fu">list</span>(month_names)]</span></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="data.table-pt1.html#cb177-1" tabindex="-1"></a>dt1[, <span class="fu">list</span>(month_names)]</span></code></pre></div>
 <pre><code>##     month_names
 ##  1:     January
 ##  2:    February
@@ -801,9 +801,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 11:    November
 ## 12:    December</code></pre>
 <p>Если посмотреть структуру, то оба объекта будут различаться - вектор строковых значений и таблица соответственно:</p>
-<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="data.table-pt1.html#cb179-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(dt1[, month_names])</span></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="data.table-pt1.html#cb179-1" tabindex="-1"></a><span class="fu">str</span>(dt1[, month_names])</span></code></pre></div>
 <pre><code>##  chr [1:12] &quot;January&quot; &quot;February&quot; &quot;March&quot; &quot;April&quot; &quot;May&quot; &quot;June&quot; &quot;July&quot; ...</code></pre>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="data.table-pt1.html#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(dt1[, <span class="fu">list</span>(month_names)])</span></code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="data.table-pt1.html#cb181-1" tabindex="-1"></a><span class="fu">str</span>(dt1[, <span class="fu">list</span>(month_names)])</span></code></pre></div>
 <pre><code>## Classes &#39;data.table&#39; and &#39;data.frame&#39;:   12 obs. of  1 variable:
 ##  $ month_names: chr  &quot;January&quot; &quot;February&quot; &quot;March&quot; &quot;April&quot; ...
 ##  - attr(*, &quot;.internal.selfref&quot;)=&lt;externalptr&gt;</code></pre>
@@ -811,7 +811,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="выбор-нескольких-колонок" class="section level3 unnumbered hasAnchor">
 <h3>Выбор нескольких колонок<a href="data.table-pt1.html#выбор-нескольких-колонок" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Если мы хотим на основе большой таблицы создать новую таблицу, с какими-то определенными колонками, мы их можем также перечислить в <code>list()</code>:</p>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="data.table-pt1.html#cb183-1" aria-hidden="true" tabindex="-1"></a>dt1[, <span class="fu">list</span>(month_names, month_abb)]</span></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="data.table-pt1.html#cb183-1" tabindex="-1"></a>dt1[, <span class="fu">list</span>(month_names, month_abb)]</span></code></pre></div>
 <pre><code>##     month_names month_abb
 ##  1:     January       Jan
 ##  2:    February       Feb
@@ -827,10 +827,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 12:    December       Dec</code></pre>
 <p>При таком выделении можно сразу переименовывать колонки. Строго говоря, создается таблица с новой колонкой с требуемым именем, в которую записывается значения колонки, которую надо переименовать.
 Например:</p>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="data.table-pt1.html#cb185-1" aria-hidden="true" tabindex="-1"></a><span class="co"># выделяем в отдельную таблицу колонку month_names, month_abb</span></span>
-<span id="cb185-2"><a href="data.table-pt1.html#cb185-2" aria-hidden="true" tabindex="-1"></a><span class="co"># колонку month_names переименовываем в new_m_names</span></span>
-<span id="cb185-3"><a href="data.table-pt1.html#cb185-3" aria-hidden="true" tabindex="-1"></a>dt3 <span class="ot">&lt;-</span> dt1[, <span class="fu">list</span>(<span class="at">new_m_names =</span> month_names, month_abb)]</span>
-<span id="cb185-4"><a href="data.table-pt1.html#cb185-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(dt3)</span></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="data.table-pt1.html#cb185-1" tabindex="-1"></a><span class="co"># выделяем в отдельную таблицу колонку month_names, month_abb</span></span>
+<span id="cb185-2"><a href="data.table-pt1.html#cb185-2" tabindex="-1"></a><span class="co"># колонку month_names переименовываем в new_m_names</span></span>
+<span id="cb185-3"><a href="data.table-pt1.html#cb185-3" tabindex="-1"></a>dt3 <span class="ot">&lt;-</span> dt1[, <span class="fu">list</span>(<span class="at">new_m_names =</span> month_names, month_abb)]</span>
+<span id="cb185-4"><a href="data.table-pt1.html#cb185-4" tabindex="-1"></a><span class="fu">print</span>(dt3)</span></code></pre></div>
 <pre><code>##     new_m_names month_abb
 ##  1:     January       Jan
 ##  2:    February       Feb
@@ -848,8 +848,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="cоздание-колонок" class="section level3 unnumbered hasAnchor">
 <h3>Cоздание колонок<a href="data.table-pt1.html#cоздание-колонок" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Создать новую колонку в синтаксисе data.table можно с помощью оператора <code>:=</code>. Это точно такая же операция над колонками, как и все прочие, просто происходит создание новой колонки:</p>
-<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="data.table-pt1.html#cb187-1" aria-hidden="true" tabindex="-1"></a>dt1[, new_col <span class="sc">:</span><span class="er">=</span> <span class="dv">12</span><span class="sc">:</span><span class="dv">1</span>]</span>
-<span id="cb187-2"><a href="data.table-pt1.html#cb187-2" aria-hidden="true" tabindex="-1"></a>dt1</span></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="data.table-pt1.html#cb187-1" tabindex="-1"></a>dt1[, new_col <span class="sc">:=</span> <span class="dv">12</span><span class="sc">:</span><span class="dv">1</span>]</span>
+<span id="cb187-2"><a href="data.table-pt1.html#cb187-2" tabindex="-1"></a>dt1</span></code></pre></div>
 <pre><code>##     month_names month_abb month_ord is_winter new_col
 ##  1:     January       Jan         1      TRUE      12
 ##  2:    February       Feb         2      TRUE      11
@@ -867,8 +867,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="модификация-колонок" class="section level3 unnumbered hasAnchor">
 <h3>Модификация колонок<a href="data.table-pt1.html#модификация-колонок" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Оператор <code>:=</code> позволяет изменять объект на месте, поэтому мы можем просто колонке присвоить новое значение. Фактически мы на основе старой колонки создаем вектор новых значений и записываем его в в колонку с тем же названием.</p>
-<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="data.table-pt1.html#cb189-1" aria-hidden="true" tabindex="-1"></a>dt1[, new_col <span class="sc">:</span><span class="er">=</span> new_col <span class="sc">+</span> <span class="dv">5</span>]</span>
-<span id="cb189-2"><a href="data.table-pt1.html#cb189-2" aria-hidden="true" tabindex="-1"></a>dt1</span></code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="data.table-pt1.html#cb189-1" tabindex="-1"></a>dt1[, new_col <span class="sc">:=</span> new_col <span class="sc">+</span> <span class="dv">5</span>]</span>
+<span id="cb189-2"><a href="data.table-pt1.html#cb189-2" tabindex="-1"></a>dt1</span></code></pre></div>
 <pre><code>##     month_names month_abb month_ord is_winter new_col
 ##  1:     January       Jan         1      TRUE      17
 ##  2:    February       Feb         2      TRUE      16
@@ -883,8 +883,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 11:    November       Nov        11     FALSE       7
 ## 12:    December       Dec        12      TRUE       6</code></pre>
 <p>Можно совмещать фильтрацию по строкам и модификацию колонок. Например, для всех строк, где в колонке <code>month_ord</code> значения меньше или равны 5, в колонке <code>new_col</code> проставляем <code>NA</code>:</p>
-<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="data.table-pt1.html#cb191-1" aria-hidden="true" tabindex="-1"></a>dt1[month_ord <span class="sc">&lt;=</span> <span class="dv">5</span>, new_col <span class="sc">:</span><span class="er">=</span> <span class="cn">NA</span>]</span>
-<span id="cb191-2"><a href="data.table-pt1.html#cb191-2" aria-hidden="true" tabindex="-1"></a>dt1</span></code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="data.table-pt1.html#cb191-1" tabindex="-1"></a>dt1[month_ord <span class="sc">&lt;=</span> <span class="dv">5</span>, new_col <span class="sc">:=</span> <span class="cn">NA</span>]</span>
+<span id="cb191-2"><a href="data.table-pt1.html#cb191-2" tabindex="-1"></a>dt1</span></code></pre></div>
 <pre><code>##     month_names month_abb month_ord is_winter new_col
 ##  1:     January       Jan         1      TRUE      NA
 ##  2:    February       Feb         2      TRUE      NA
@@ -902,9 +902,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="удаление-колонок" class="section level3 unnumbered hasAnchor">
 <h3>Удаление колонок<a href="data.table-pt1.html#удаление-колонок" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Удаление колонок осуществляется схожим образом, просто колонке присваивается значение <code>NULL</code></p>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="data.table-pt1.html#cb193-1" aria-hidden="true" tabindex="-1"></a><span class="do">## удаление колонок</span></span>
-<span id="cb193-2"><a href="data.table-pt1.html#cb193-2" aria-hidden="true" tabindex="-1"></a>dt1[, new_col <span class="sc">:</span><span class="er">=</span> <span class="cn">NULL</span>]</span>
-<span id="cb193-3"><a href="data.table-pt1.html#cb193-3" aria-hidden="true" tabindex="-1"></a>dt1</span></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="data.table-pt1.html#cb193-1" tabindex="-1"></a><span class="do">## удаление колонок</span></span>
+<span id="cb193-2"><a href="data.table-pt1.html#cb193-2" tabindex="-1"></a>dt1[, new_col <span class="sc">:=</span> <span class="cn">NULL</span>]</span>
+<span id="cb193-3"><a href="data.table-pt1.html#cb193-3" tabindex="-1"></a>dt1</span></code></pre></div>
 <pre><code>##     month_names month_abb month_ord is_winter
 ##  1:     January       Jan         1      TRUE
 ##  2:    February       Feb         2      TRUE
@@ -922,36 +922,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="вычисления-по-одной-колонке" class="section level3 unnumbered hasAnchor">
 <h3>Вычисления по одной колонке<a href="data.table-pt1.html#вычисления-по-одной-колонке" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Так как каждая колонка в табличке — это вектор, к ним можно применять все функции, которые могут быть применены к векторам:</p>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="data.table-pt1.html#cb195-1" aria-hidden="true" tabindex="-1"></a><span class="co"># при создании новой колонки</span></span>
-<span id="cb195-2"><a href="data.table-pt1.html#cb195-2" aria-hidden="true" tabindex="-1"></a>dt1[, month_ord_sqrt <span class="sc">:</span><span class="er">=</span> <span class="fu">sqrt</span>(month_ord)]</span>
-<span id="cb195-3"><a href="data.table-pt1.html#cb195-3" aria-hidden="true" tabindex="-1"></a>dt1[, new_col_1 <span class="sc">:</span><span class="er">=</span> <span class="fu">rnorm</span>(.N)] <span class="co"># сэмпл из стандартного нормального распределения</span></span>
-<span id="cb195-4"><a href="data.table-pt1.html#cb195-4" aria-hidden="true" tabindex="-1"></a>dt1[, new_col_2 <span class="sc">:</span><span class="er">=</span> <span class="fu">runif</span>(.N)] <span class="co"># сэмпл из равномерного распределения</span></span>
-<span id="cb195-5"><a href="data.table-pt1.html#cb195-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-6"><a href="data.table-pt1.html#cb195-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-7"><a href="data.table-pt1.html#cb195-7" aria-hidden="true" tabindex="-1"></a><span class="co"># просто при вычислении какого-то значения</span></span>
-<span id="cb195-8"><a href="data.table-pt1.html#cb195-8" aria-hidden="true" tabindex="-1"></a><span class="co"># вычисление общей длины таблицы</span></span>
-<span id="cb195-9"><a href="data.table-pt1.html#cb195-9" aria-hidden="true" tabindex="-1"></a>dt1[, .N]</span></code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="data.table-pt1.html#cb195-1" tabindex="-1"></a><span class="co"># при создании новой колонки</span></span>
+<span id="cb195-2"><a href="data.table-pt1.html#cb195-2" tabindex="-1"></a>dt1[, month_ord_sqrt <span class="sc">:=</span> <span class="fu">sqrt</span>(month_ord)]</span>
+<span id="cb195-3"><a href="data.table-pt1.html#cb195-3" tabindex="-1"></a>dt1[, new_col_1 <span class="sc">:=</span> <span class="fu">rnorm</span>(.N)] <span class="co"># сэмпл из стандартного нормального распределения</span></span>
+<span id="cb195-4"><a href="data.table-pt1.html#cb195-4" tabindex="-1"></a>dt1[, new_col_2 <span class="sc">:=</span> <span class="fu">runif</span>(.N)] <span class="co"># сэмпл из равномерного распределения</span></span>
+<span id="cb195-5"><a href="data.table-pt1.html#cb195-5" tabindex="-1"></a></span>
+<span id="cb195-6"><a href="data.table-pt1.html#cb195-6" tabindex="-1"></a></span>
+<span id="cb195-7"><a href="data.table-pt1.html#cb195-7" tabindex="-1"></a><span class="co"># просто при вычислении какого-то значения</span></span>
+<span id="cb195-8"><a href="data.table-pt1.html#cb195-8" tabindex="-1"></a><span class="co"># вычисление общей длины таблицы</span></span>
+<span id="cb195-9"><a href="data.table-pt1.html#cb195-9" tabindex="-1"></a>dt1[, .N]</span></code></pre></div>
 <pre><code>## [1] 12</code></pre>
-<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="data.table-pt1.html#cb197-1" aria-hidden="true" tabindex="-1"></a><span class="co"># вычисление среднего значения по какой-то колонке</span></span>
-<span id="cb197-2"><a href="data.table-pt1.html#cb197-2" aria-hidden="true" tabindex="-1"></a>dt1[, <span class="fu">mean</span>(new_col_2)]</span></code></pre></div>
-<pre><code>## [1] 0.4672556</code></pre>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="data.table-pt1.html#cb197-1" tabindex="-1"></a><span class="co"># вычисление среднего значения по какой-то колонке</span></span>
+<span id="cb197-2"><a href="data.table-pt1.html#cb197-2" tabindex="-1"></a>dt1[, <span class="fu">mean</span>(new_col_2)]</span></code></pre></div>
+<pre><code>## [1] 0.5256889</code></pre>
 </div>
 <div id="группировка-по-нескольким-полям" class="section level3 unnumbered hasAnchor">
 <h3>Группировка по нескольким полям<a href="data.table-pt1.html#группировка-по-нескольким-полям" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Часто возникает необходимость вычислений сразу по нескольким полям.</p>
-<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="data.table-pt1.html#cb199-1" aria-hidden="true" tabindex="-1"></a>dt2 <span class="ot">&lt;-</span> dt1[, <span class="fu">list</span>(</span>
-<span id="cb199-2"><a href="data.table-pt1.html#cb199-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># всего строк</span></span>
-<span id="cb199-3"><a href="data.table-pt1.html#cb199-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">n_rows =</span> .N, </span>
-<span id="cb199-4"><a href="data.table-pt1.html#cb199-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># среднее по колонке new_col_1</span></span>
-<span id="cb199-5"><a href="data.table-pt1.html#cb199-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">new_col_1_mn =</span> <span class="fu">mean</span>(new_col_1),</span>
-<span id="cb199-6"><a href="data.table-pt1.html#cb199-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># медиана по колонке new_col_2</span></span>
-<span id="cb199-7"><a href="data.table-pt1.html#cb199-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">new_col_2_md =</span> <span class="fu">median</span>(new_col_2)</span>
-<span id="cb199-8"><a href="data.table-pt1.html#cb199-8" aria-hidden="true" tabindex="-1"></a>)]</span>
-<span id="cb199-9"><a href="data.table-pt1.html#cb199-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb199-10"><a href="data.table-pt1.html#cb199-10" aria-hidden="true" tabindex="-1"></a><span class="co"># в результате получаем вторую табличку</span></span>
-<span id="cb199-11"><a href="data.table-pt1.html#cb199-11" aria-hidden="true" tabindex="-1"></a>dt2</span></code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="data.table-pt1.html#cb199-1" tabindex="-1"></a>dt2 <span class="ot">&lt;-</span> dt1[, <span class="fu">list</span>(</span>
+<span id="cb199-2"><a href="data.table-pt1.html#cb199-2" tabindex="-1"></a>  <span class="co"># всего строк</span></span>
+<span id="cb199-3"><a href="data.table-pt1.html#cb199-3" tabindex="-1"></a>  <span class="at">n_rows =</span> .N, </span>
+<span id="cb199-4"><a href="data.table-pt1.html#cb199-4" tabindex="-1"></a>  <span class="co"># среднее по колонке new_col_1</span></span>
+<span id="cb199-5"><a href="data.table-pt1.html#cb199-5" tabindex="-1"></a>  <span class="at">new_col_1_mn =</span> <span class="fu">mean</span>(new_col_1),</span>
+<span id="cb199-6"><a href="data.table-pt1.html#cb199-6" tabindex="-1"></a>  <span class="co"># медиана по колонке new_col_2</span></span>
+<span id="cb199-7"><a href="data.table-pt1.html#cb199-7" tabindex="-1"></a>  <span class="at">new_col_2_md =</span> <span class="fu">median</span>(new_col_2)</span>
+<span id="cb199-8"><a href="data.table-pt1.html#cb199-8" tabindex="-1"></a>)]</span>
+<span id="cb199-9"><a href="data.table-pt1.html#cb199-9" tabindex="-1"></a></span>
+<span id="cb199-10"><a href="data.table-pt1.html#cb199-10" tabindex="-1"></a><span class="co"># в результате получаем вторую табличку</span></span>
+<span id="cb199-11"><a href="data.table-pt1.html#cb199-11" tabindex="-1"></a>dt2</span></code></pre></div>
 <pre><code>##    n_rows new_col_1_mn new_col_2_md
-## 1:     12   -0.1386256    0.4491593</code></pre>
+## 1:     12   -0.3741609    0.5839166</code></pre>
 <!-- ## Соотношение list() и `:=` в операциях над колонками. -->
 <!-- Нередко многие путаются в синтаксисе создания новых колонок и в выражении `list()`. Различие следующее: -->
 <!-- ```{r} -->
@@ -981,46 +981,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2>.SD (Advanced)<a href="data.table-pt1.html#sd-advanced" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Также можно выделить колонки таблицы data.table c помощью конструкций <code>.SD</code> и <code>.SDcols</code>. <code>.SD</code> служит ярлыком-указателем на колонки с которыми надо провести какое-то действие, а <code>.SDcols</code> - собственно вектор названий колонок или порядковых номеров колонок в таблице. Если <code>.SDcols</code> не указано, то подразумеваются все колонки таблицы. Оборачивать в <code>list()</code> конструкцию <code>.SD</code> не нужно.</p>
 <p>Например:</p>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="data.table-pt1.html#cb201-1" aria-hidden="true" tabindex="-1"></a><span class="co"># смотрим содержание таблицы</span></span>
-<span id="cb201-2"><a href="data.table-pt1.html#cb201-2" aria-hidden="true" tabindex="-1"></a>dt1[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="data.table-pt1.html#cb201-1" tabindex="-1"></a><span class="co"># смотрим содержание таблицы</span></span>
+<span id="cb201-2"><a href="data.table-pt1.html#cb201-2" tabindex="-1"></a>dt1[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
 <pre><code>##    month_names month_abb month_ord is_winter month_ord_sqrt  new_col_1
-## 1:     January       Jan         1      TRUE       1.000000 -1.6419635
-## 2:    February       Feb         2      TRUE       1.414214  0.9811086
-## 3:       March       Mar         3     FALSE       1.732051  0.9948590
-## 4:       April       Apr         4     FALSE       2.000000  0.3825809
-## 5:         May       May         5     FALSE       2.236068 -0.8417558
-##    new_col_2
-## 1: 0.3537801
-## 2: 0.4482507
-## 3: 0.6759893
-## 4: 0.8967619
-## 5: 0.1769315</code></pre>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="data.table-pt1.html#cb203-1" aria-hidden="true" tabindex="-1"></a><span class="co"># выделяем первую и третью колонки датасета</span></span>
-<span id="cb203-2"><a href="data.table-pt1.html#cb203-2" aria-hidden="true" tabindex="-1"></a>dt1[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, .SD, .SDcols <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)]</span></code></pre></div>
+## 1:     January       Jan         1      TRUE       1.000000 -1.7704953
+## 2:    February       Feb         2      TRUE       1.414214 -0.9027534
+## 3:       March       Mar         3     FALSE       1.732051  1.2681216
+## 4:       April       Apr         4     FALSE       2.000000  0.1417516
+## 5:         May       May         5     FALSE       2.236068  0.7761156
+##     new_col_2
+## 1: 0.49633606
+## 2: 0.71173518
+## 3: 0.66944598
+## 4: 0.04408171
+## 5: 0.71494999</code></pre>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="data.table-pt1.html#cb203-1" tabindex="-1"></a><span class="co"># выделяем первую и третью колонки датасета</span></span>
+<span id="cb203-2"><a href="data.table-pt1.html#cb203-2" tabindex="-1"></a>dt1[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, .SD, .SDcols <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)]</span></code></pre></div>
 <pre><code>##    month_names month_ord
 ## 1:     January         1
 ## 2:    February         2
 ## 3:       March         3
 ## 4:       April         4
 ## 5:         May         5</code></pre>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="data.table-pt1.html#cb205-1" aria-hidden="true" tabindex="-1"></a><span class="co"># выделяем эти же колонки по названиям</span></span>
-<span id="cb205-2"><a href="data.table-pt1.html#cb205-2" aria-hidden="true" tabindex="-1"></a>dt1[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, .SD, .SDcols <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&#39;month_names&#39;</span>, <span class="st">&#39;month_abb&#39;</span>, <span class="st">&#39;month_ord&#39;</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="data.table-pt1.html#cb205-1" tabindex="-1"></a><span class="co"># выделяем эти же колонки по названиям</span></span>
+<span id="cb205-2"><a href="data.table-pt1.html#cb205-2" tabindex="-1"></a>dt1[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, .SD, .SDcols <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&#39;month_names&#39;</span>, <span class="st">&#39;month_abb&#39;</span>, <span class="st">&#39;month_ord&#39;</span>)]</span></code></pre></div>
 <pre><code>##    month_names month_abb month_ord
 ## 1:     January       Jan         1
 ## 2:    February       Feb         2
 ## 3:       March       Mar         3
 ## 4:       April       Apr         4
 ## 5:         May       May         5</code></pre>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="data.table-pt1.html#cb207-1" aria-hidden="true" tabindex="-1"></a><span class="co"># выделяем эти же колонки по названиям, но паттерном &#39;month&#39; и использованием grep</span></span>
-<span id="cb207-2"><a href="data.table-pt1.html#cb207-2" aria-hidden="true" tabindex="-1"></a>dt1[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, .SD, .SDcols <span class="ot">=</span> <span class="fu">grep</span>(<span class="st">&#39;month&#39;</span>, <span class="fu">names</span>(dt1))]</span></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="data.table-pt1.html#cb207-1" tabindex="-1"></a><span class="co"># выделяем эти же колонки по названиям, но паттерном &#39;month&#39; и использованием grep</span></span>
+<span id="cb207-2"><a href="data.table-pt1.html#cb207-2" tabindex="-1"></a>dt1[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, .SD, .SDcols <span class="ot">=</span> <span class="fu">grep</span>(<span class="st">&#39;month&#39;</span>, <span class="fu">names</span>(dt1))]</span></code></pre></div>
 <pre><code>##    month_names month_abb month_ord month_ord_sqrt
 ## 1:     January       Jan         1       1.000000
 ## 2:    February       Feb         2       1.414214
 ## 3:       March       Mar         3       1.732051
 ## 4:       April       Apr         4       2.000000
 ## 5:         May       May         5       2.236068</code></pre>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="data.table-pt1.html#cb209-1" aria-hidden="true" tabindex="-1"></a><span class="co"># выделяем эти же колонки по названиям, но паттерном &#39;month&#39; и функцией patterns из пакета data.table</span></span>
-<span id="cb209-2"><a href="data.table-pt1.html#cb209-2" aria-hidden="true" tabindex="-1"></a>dt1[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, .SD, .SDcols <span class="ot">=</span> <span class="fu">patterns</span>(<span class="st">&#39;month&#39;</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="data.table-pt1.html#cb209-1" tabindex="-1"></a><span class="co"># выделяем эти же колонки по названиям, но паттерном &#39;month&#39; и функцией patterns из пакета data.table</span></span>
+<span id="cb209-2"><a href="data.table-pt1.html#cb209-2" tabindex="-1"></a>dt1[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, .SD, .SDcols <span class="ot">=</span> <span class="fu">patterns</span>(<span class="st">&#39;month&#39;</span>)]</span></code></pre></div>
 <pre><code>##    month_names month_abb month_ord month_ord_sqrt
 ## 1:     January       Jan         1       1.000000
 ## 2:    February       Feb         2       1.414214
@@ -1028,7 +1028,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4:       April       Apr         4       2.000000
 ## 5:         May       May         5       2.236068</code></pre>
 <p><code>.SD</code> используется в большом количестве операций. Например, когда надо провести какую-то одну операцию над сразу несколькими колонками. Например, если мы хотим узнать, какого типа данные лежат в указанных колонках (пример искусственный, в реальности проще воспользоваться <code>str()</code>):</p>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="data.table-pt1.html#cb211-1" aria-hidden="true" tabindex="-1"></a>dt1[, <span class="fu">lapply</span>(.SD, class), .SDcols <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&#39;month_names&#39;</span>, <span class="st">&#39;month_ord&#39;</span>, <span class="st">&#39;is_winter&#39;</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="data.table-pt1.html#cb211-1" tabindex="-1"></a>dt1[, <span class="fu">lapply</span>(.SD, class), .SDcols <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&#39;month_names&#39;</span>, <span class="st">&#39;month_ord&#39;</span>, <span class="st">&#39;is_winter&#39;</span>)]</span></code></pre></div>
 <pre><code>##    month_names month_ord is_winter
 ## 1:   character   integer   logical</code></pre>
 </div>
@@ -1074,15 +1074,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>для генерации времени поможет функция <code>as.POSIXct()</code>, плюс есть немного справочных материалов в учебнике: <a href="https://textbook.rintro.ru/objects.html#objects-time">раз</a>, <a href="https://textbook.rintro.ru/manipulations.html#manipulations-time">два</a></li>
 </ul>
 <pre><code>##       uid sid            login_ts session_length
-## 1: user_1   1 2023-09-01 22:04:31            497
-## 2: user_1   2 2023-09-02 20:40:56            344
-## 3: user_1   3 2023-09-04 23:39:56            151
-## 4: user_1   4 2023-09-05 04:15:22            420
-## 5: user_1   5 2023-09-05 15:24:42            352
-## 6: user_2   1 2023-09-05 21:41:15            252</code></pre>
+## 1: user_1   1 2023-09-01 03:27:05            467
+## 2: user_1   2 2023-09-01 03:51:39            415
+## 3: user_1   3 2023-09-01 22:47:59            528
+## 4: user_1   4 2023-09-02 22:25:18            477
+## 5: user_1   5 2023-09-04 22:31:26            543
+## 6: user_2   1 2023-09-05 01:03:02            570</code></pre>
 <p>Статистики:</p>
 <pre><code>##    n_users total_sessions session_per_user session_length_mn
-## 1:       3             15                5             287.7</code></pre>
+## 1:       3             15                5             416.1</code></pre>
 
 </div>
 </div>

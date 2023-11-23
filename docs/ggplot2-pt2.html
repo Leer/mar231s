@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>ggplot2 pt2 | Автоматизированный сбор больших данных в экономико-социологических исследованиях</title>
+  <meta name="description" content="ggplot2 pt2 | Автоматизированный сбор больших данных в экономико-социологических исследованиях" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="ggplot2 pt2 | Автоматизированный сбор больших данных в экономико-социологических исследованиях" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="ggplot2 pt2 | Автоматизированный сбор больших данных в экономико-социологических исследованиях" />
+  
+  
+  
+
+<meta name="author" content="Ph.A.Upravitelev" />
+
+
+<meta name="date" content="2023-11-23" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="ggplot2-pt1.html"/>
+<link rel="next" href="hw-1.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.10.2/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.2.0/leaflet.js"></script>
+<link href="libs/leaflet-markercluster-1.0.5/MarkerCluster.css" rel="stylesheet" />
+<link href="libs/leaflet-markercluster-1.0.5/MarkerCluster.Default.css" rel="stylesheet" />
+<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.js"></script>
+<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.freezable.js"></script>
+<script src="libs/leaflet-markercluster-1.0.5/leaflet.markercluster.layersupport.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R course</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Intro</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i>Введение</a>
+<ul>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#запись-занятия"><i class="fa fa-check"></i>Запись занятия</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#data-culture"><i class="fa fa-check"></i>Data culture</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#обо-мне"><i class="fa fa-check"></i>Обо мне</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#contacts"><i class="fa fa-check"></i>Contacts</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#mm-invite-link"><i class="fa fa-check"></i>MM invite link</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#syllabus"><i class="fa fa-check"></i>Syllabus</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#r-intro"><i class="fa fa-check"></i>R intro</a>
+<ul>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#short-history"><i class="fa fa-check"></i>Short history</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#r-ecosystem"><i class="fa fa-check"></i>R ecosystem</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#r-rstudio"><i class="fa fa-check"></i>R + RStudio</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#альтернативные-ide"><i class="fa fa-check"></i>Альтернативные IDE</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#style-guide"><i class="fa fa-check"></i>Style guide</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#синтаксис"><i class="fa fa-check"></i>Синтаксис</a>
+<ul>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#структура-выражения"><i class="fa fa-check"></i>Структура выражения</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#вывод-на-печать"><i class="fa fa-check"></i>Вывод на печать</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#присваивание"><i class="fa fa-check"></i>Присваивание</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#операторы-присвоения"><i class="fa fa-check"></i>Операторы присвоения</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#арифметические-операторы"><i class="fa fa-check"></i>Арифметические операторы</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#операторы-сравнения"><i class="fa fa-check"></i>Операторы сравнения</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#логические-операторы"><i class="fa fa-check"></i>Логические операторы</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#комментарии-и-кавычки"><i class="fa fa-check"></i>Комментарии и кавычки</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#окружение-и-подсказки"><i class="fa fa-check"></i>Окружение и подсказки</a>
+<ul>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#полезные-функции-для-работы-с-окружением"><i class="fa fa-check"></i>Полезные функции для работы с окружением</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#help"><i class="fa fa-check"></i>help</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#стандартные-ошибки-в-синтаксисе"><i class="fa fa-check"></i>Стандартные ошибки в синтаксисе</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#object-not-found"><i class="fa fa-check"></i>Object not found</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#дополнительные-материалы"><i class="fa fa-check"></i>Дополнительные материалы</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#домашнее-задание"><i class="fa fa-check"></i>Домашнее задание</a>
+<ul>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#организационное-mm"><i class="fa fa-check"></i>Организационное / MM</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#r"><i class="fa fa-check"></i>R</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#rstudio"><i class="fa fa-check"></i>RStudio</a></li>
+<li class="chapter" data-level="" data-path="overview.html"><a href="overview.html#операторы-и-создание-векторов"><i class="fa fa-check"></i>Операторы и создание векторов</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="vectors.html"><a href="vectors.html"><i class="fa fa-check"></i>Векторы</a>
+<ul>
+<li class="chapter" data-level="" data-path="vectors.html"><a href="vectors.html#запись-занятия-1"><i class="fa fa-check"></i>Запись занятия</a></li>
+<li class="chapter" data-level="" data-path="vectors.html"><a href="vectors.html#векторы"><i class="fa fa-check"></i>Векторы</a>
+<ul>
+<li class="chapter" data-level="" data-path="vectors.html"><a href="vectors.html#атомарные-типы-данных"><i class="fa fa-check"></i>Атомарные типы данных</a></li>
+<li class="chapter" data-level="" data-path="vectors.html"><a href="vectors.html#создание-векторов"><i class="fa fa-check"></i>Создание векторов</a></li>
+<li class="chapter" data-level="" data-path="vectors.html"><a href="vectors.html#приведение-типов"><i class="fa fa-check"></i>Приведение типов</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="vectors.html"><a href="vectors.html#выбор-элемента-вектора"><i class="fa fa-check"></i>Выбор элемента вектора</a>
+<ul>
+<li class="chapter" data-level="" data-path="vectors.html"><a href="vectors.html#выбор-по-номеру-позиции"><i class="fa fa-check"></i>Выбор по номеру позиции</a></li>
+<li class="chapter" data-level="" data-path="vectors.html"><a href="vectors.html#выбор-по-значению"><i class="fa fa-check"></i>Выбор по значению</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="vectors.html"><a href="vectors.html#проверка-на-na"><i class="fa fa-check"></i>Проверка на NA</a></li>
+<li class="chapter" data-level="" data-path="vectors.html"><a href="vectors.html#домашнее-задание-1"><i class="fa fa-check"></i>Домашнее задание</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="lists.html"><a href="lists.html"><i class="fa fa-check"></i>Списки и таблицы</a>
+<ul>
+<li class="chapter" data-level="" data-path="lists.html"><a href="lists.html#запись-занятия-23-сентября"><i class="fa fa-check"></i>Запись занятия 23 сентября</a></li>
+<li class="chapter" data-level="" data-path="lists.html"><a href="lists.html#векторы-1"><i class="fa fa-check"></i>Векторы</a>
+<ul>
+<li class="chapter" data-level="" data-path="lists.html"><a href="lists.html#поиск-по-вхождению-в-массив"><i class="fa fa-check"></i>Поиск по вхождению в массив</a></li>
+<li class="chapter" data-level="" data-path="lists.html"><a href="lists.html#поиск-по-строке"><i class="fa fa-check"></i>Поиск по строке</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="lists.html"><a href="lists.html#векторизованные-операции"><i class="fa fa-check"></i>Векторизованные операции</a></li>
+<li class="chapter" data-level="" data-path="lists.html"><a href="lists.html#recycling"><i class="fa fa-check"></i>Recycling</a></li>
+<li class="chapter" data-level="" data-path="lists.html"><a href="lists.html#изменение-элементов-объектов"><i class="fa fa-check"></i>Изменение элементов объектов</a></li>
+<li class="chapter" data-level="" data-path="lists.html"><a href="lists.html#списки"><i class="fa fa-check"></i>Списки</a>
+<ul>
+<li class="chapter" data-level="" data-path="lists.html"><a href="lists.html#создание-списков"><i class="fa fa-check"></i>Создание списков</a></li>
+<li class="chapter" data-level="" data-path="lists.html"><a href="lists.html#именованные-списки"><i class="fa fa-check"></i>Именованные списки</a></li>
+<li class="chapter" data-level="" data-path="lists.html"><a href="lists.html#выбор-элемента-списка"><i class="fa fa-check"></i>Выбор элемента списка</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="lists.html"><a href="lists.html#структура-объектов"><i class="fa fa-check"></i>Структура объектов</a></li>
+<li class="chapter" data-level="" data-path="lists.html"><a href="lists.html#таблицы"><i class="fa fa-check"></i>Таблицы</a>
+<ul>
+<li class="chapter" data-level="" data-path="lists.html"><a href="lists.html#data.frame-vs-data.table-vs-dplyr"><i class="fa fa-check"></i>data.frame vs data.table vs dplyr</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="lists.html"><a href="lists.html#data.table"><i class="fa fa-check"></i>data.table</a>
+<ul>
+<li class="chapter" data-level="" data-path="lists.html"><a href="lists.html#преимущества-data.table"><i class="fa fa-check"></i>Преимущества data.table</a></li>
+<li class="chapter" data-level="" data-path="lists.html"><a href="lists.html#установка-и-подключение-пакета"><i class="fa fa-check"></i>Установка и подключение пакета</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="lists.html"><a href="lists.html#создание-data.table-таблиц"><i class="fa fa-check"></i>Создание data.table-таблиц</a></li>
+<li class="chapter" data-level="" data-path="lists.html"><a href="lists.html#основная-формула-dt-синтаксиса"><i class="fa fa-check"></i>Основная формула dt-синтаксиса</a></li>
+<li class="chapter" data-level="" data-path="lists.html"><a href="lists.html#создание-data.table-таблиц-1"><i class="fa fa-check"></i>Создание data.table-таблиц</a></li>
+<li class="chapter" data-level="" data-path="lists.html"><a href="lists.html#выбор-строки"><i class="fa fa-check"></i>Выбор строки</a></li>
+<li class="chapter" data-level="" data-path="lists.html"><a href="lists.html#дополнительные-материалы-1"><i class="fa fa-check"></i>Дополнительные материалы</a></li>
+<li class="chapter" data-level="" data-path="lists.html"><a href="lists.html#домашнее-задание-2"><i class="fa fa-check"></i>Домашнее задание</a>
+<ul>
+<li class="chapter" data-level="" data-path="lists.html"><a href="lists.html#векторы-2"><i class="fa fa-check"></i>векторы</a></li>
+<li class="chapter" data-level="" data-path="lists.html"><a href="lists.html#списки-1"><i class="fa fa-check"></i>списки</a></li>
+<li class="chapter" data-level="" data-path="lists.html"><a href="lists.html#таблицы.-импорт-данных"><i class="fa fa-check"></i>таблицы. импорт данных</a></li>
+<li class="chapter" data-level="" data-path="lists.html"><a href="lists.html#работа-со-строками"><i class="fa fa-check"></i>работа со строками</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data.table-pt1.html"><a href="data.table-pt1.html"><i class="fa fa-check"></i>data.table pt1</a>
+<ul>
+<li class="chapter" data-level="" data-path="data.table-pt1.html"><a href="data.table-pt1.html#запись-занятия-2"><i class="fa fa-check"></i>Запись занятия</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt1.html"><a href="data.table-pt1.html#разбор-домашней-работы"><i class="fa fa-check"></i>Разбор домашней работы</a>
+<ul>
+<li class="chapter" data-level="" data-path="data.table-pt1.html"><a href="data.table-pt1.html#списки-2"><i class="fa fa-check"></i>списки</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt1.html"><a href="data.table-pt1.html#таблицы.-импорт-данных-1"><i class="fa fa-check"></i>таблицы. импорт данных</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt1.html"><a href="data.table-pt1.html#работа-со-строками-1"><i class="fa fa-check"></i>работа со строками</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data.table-pt1.html"><a href="data.table-pt1.html#основная-формула-dt-синтаксиса-1"><i class="fa fa-check"></i>Основная формула dt-синтаксиса</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt1.html"><a href="data.table-pt1.html#создание-data.table-таблиц-2"><i class="fa fa-check"></i>Создание data.table-таблиц</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt1.html"><a href="data.table-pt1.html#выбор-строки-1"><i class="fa fa-check"></i>Выбор строки</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt1.html"><a href="data.table-pt1.html#работа-с-колонками"><i class="fa fa-check"></i>Работа с колонками</a>
+<ul>
+<li class="chapter" data-level="" data-path="data.table-pt1.html"><a href="data.table-pt1.html#обращение-к-колонке"><i class="fa fa-check"></i>Обращение к колонке</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt1.html"><a href="data.table-pt1.html#выбор-нескольких-колонок"><i class="fa fa-check"></i>Выбор нескольких колонок</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt1.html"><a href="data.table-pt1.html#cоздание-колонок"><i class="fa fa-check"></i>Cоздание колонок</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt1.html"><a href="data.table-pt1.html#модификация-колонок"><i class="fa fa-check"></i>Модификация колонок</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt1.html"><a href="data.table-pt1.html#удаление-колонок"><i class="fa fa-check"></i>Удаление колонок</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt1.html"><a href="data.table-pt1.html#вычисления-по-одной-колонке"><i class="fa fa-check"></i>Вычисления по одной колонке</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt1.html"><a href="data.table-pt1.html#группировка-по-нескольким-полям"><i class="fa fa-check"></i>Группировка по нескольким полям</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data.table-pt1.html"><a href="data.table-pt1.html#sd-advanced"><i class="fa fa-check"></i>.SD (Advanced)</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt1.html"><a href="data.table-pt1.html#полезные-ссылки"><i class="fa fa-check"></i>Полезные ссылки</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt1.html"><a href="data.table-pt1.html#домашнее-задание-3"><i class="fa fa-check"></i>Домашнее задание</a>
+<ul>
+<li class="chapter" data-level="" data-path="data.table-pt1.html"><a href="data.table-pt1.html#работа-с-колонками-1"><i class="fa fa-check"></i>работа с колонками</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt1.html"><a href="data.table-pt1.html#для-тех-кто-любит-посложнее"><i class="fa fa-check"></i>для тех, кто любит посложнее</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html"><i class="fa fa-check"></i>data.table pt2</a>
+<ul>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#запись-занятия-3"><i class="fa fa-check"></i>Запись занятия</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#разбор-домашней-работы-1"><i class="fa fa-check"></i>Разбор домашней работы</a>
+<ul>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#работа-с-колонками-2"><i class="fa fa-check"></i>работа с колонками</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#для-тех-кто-любит-посложнее-1"><i class="fa fa-check"></i>для тех, кто любит посложнее</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#применение-функций"><i class="fa fa-check"></i>Применение функций</a>
+<ul>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#dataset"><i class="fa fa-check"></i>dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#применение-функций-1"><i class="fa fa-check"></i>Применение функций</a>
+<ul>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#количество-строк-и-значений-.n-uniquen"><i class="fa fa-check"></i>Количество строк и значений: .N, uniqueN</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#ветвления-ifelse-fifelse"><i class="fa fa-check"></i>Ветвления: ifelse / fifelse</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#агрегации"><i class="fa fa-check"></i>Агрегации</a>
+<ul>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#вычисления-по-одной-колонке-1"><i class="fa fa-check"></i>Вычисления по одной колонке</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#вычисления-по-нескольким-колонкам"><i class="fa fa-check"></i>Вычисления по нескольким колонкам</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#группировка-по-нескольким-полям-1"><i class="fa fa-check"></i>Группировка по нескольким полям</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#манипуляции-с-таблицами"><i class="fa fa-check"></i>Манипуляции с таблицами</a>
+<ul>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#rbind"><i class="fa fa-check"></i>rbind()</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#cbind"><i class="fa fa-check"></i>cbind()</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#домашнее-задание-4"><i class="fa fa-check"></i>Домашнее задание</a>
+<ul>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#level-1-iatytd"><i class="fa fa-check"></i>level 1 (IATYTD)</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#level-2-hntr"><i class="fa fa-check"></i>level 2 (HNTR)</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#level-3-hmp"><i class="fa fa-check"></i>level 3 (HMP)</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#level-4-uv"><i class="fa fa-check"></i>level 4 (UV)</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt2.html"><a href="data.table-pt2.html#level-5-n"><i class="fa fa-check"></i>level 5 (N)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html"><i class="fa fa-check"></i>data.table pt3</a>
+<ul>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#запись-занятия-4"><i class="fa fa-check"></i>Запись занятия</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#разбор-домашней-работы-2"><i class="fa fa-check"></i>Разбор домашней работы</a>
+<ul>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#level-3-hmp-1"><i class="fa fa-check"></i>level 3 (HMP)</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#level-4-uv-1"><i class="fa fa-check"></i>level 4 (UV)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#манипуляции-с-таблицами-1"><i class="fa fa-check"></i>Манипуляции с таблицами</a>
+<ul>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#merge"><i class="fa fa-check"></i>merge()</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#long-wide-форматы-данных"><i class="fa fa-check"></i>long / wide-форматы данных</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#dcast"><i class="fa fa-check"></i>dcast()</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#melt"><i class="fa fa-check"></i>melt()</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#соотношение-list-и-в-операциях-над-колонками."><i class="fa fa-check"></i>Соотношение list() и <code>:=</code> в операциях над колонками.</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#домашнее-задание-5"><i class="fa fa-check"></i>Домашнее задание</a>
+<ul>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#level-1-iatytd-1"><i class="fa fa-check"></i>level 1 (IATYTD)</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#level-2-hntr-1"><i class="fa fa-check"></i>level 2 (HNTR)</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#level-3-hmp-2"><i class="fa fa-check"></i>level 3 (HMP)</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#level-4-uv-2"><i class="fa fa-check"></i>level 4 (UV)</a></li>
+<li class="chapter" data-level="" data-path="data.table-pt3.html"><a href="data.table-pt3.html#level-5-n-1"><i class="fa fa-check"></i>level 5 (N)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html"><i class="fa fa-check"></i>dt + ETL</a>
+<ul>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#запись-занятия-5"><i class="fa fa-check"></i>Запись занятия</a></li>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#разбор-домашней-работы-3"><i class="fa fa-check"></i>Разбор домашней работы</a>
+<ul>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#level-3-hmp-3"><i class="fa fa-check"></i>level 3 (HMP)</a></li>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#level-4-uv-3"><i class="fa fa-check"></i>level 4 (UV)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#etl"><i class="fa fa-check"></i>ETL</a>
+<ul>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#чтение-и-запись-текстовых-файлов"><i class="fa fa-check"></i>Чтение и запись текстовых файлов</a></li>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#чтение-файлов-ms-excel"><i class="fa fa-check"></i>Чтение файлов MS Excel</a></li>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#чтение-файлов-spss"><i class="fa fa-check"></i>Чтение файлов SPSS</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#дополнительная-литература"><i class="fa fa-check"></i>Дополнительная литература</a></li>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#домашнее-задание-6"><i class="fa fa-check"></i>Домашнее задание</a>
+<ul>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#level-1-iatytd-2"><i class="fa fa-check"></i>level 1 (IATYTD)</a></li>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#level-2-hntr-2"><i class="fa fa-check"></i>level 2 (HNTR)</a></li>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#level-3-hmp-4"><i class="fa fa-check"></i>level 3 (HMP)</a></li>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#level-4-uv-4"><i class="fa fa-check"></i>level 4 (UV)</a></li>
+<li class="chapter" data-level="" data-path="dt-etl.html"><a href="dt-etl.html#level-5-n-2"><i class="fa fa-check"></i>level 5 (N)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html"><i class="fa fa-check"></i>Dataviz</a>
+<ul>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#запись-занятия-6"><i class="fa fa-check"></i>Запись занятия</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#intro-1"><i class="fa fa-check"></i>Intro</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#инфографика"><i class="fa fa-check"></i>Инфографика</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#типы-графиков"><i class="fa fa-check"></i>Типы графиков</a>
+<ul>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#scatter-plot"><i class="fa fa-check"></i>scatter plot</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#line-chart"><i class="fa fa-check"></i>line chart</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#bar-chart"><i class="fa fa-check"></i>bar chart</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#grouped-bar-chart"><i class="fa fa-check"></i>grouped bar chart</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#stacked-bar-chart"><i class="fa fa-check"></i>stacked bar chart</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#area-plot"><i class="fa fa-check"></i>area plot</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#area-plot-percentiles"><i class="fa fa-check"></i>area plot (percentiles)</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#boxplot"><i class="fa fa-check"></i>boxplot</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#violin-plot"><i class="fa fa-check"></i>violin plot</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#heatmap"><i class="fa fa-check"></i>heatmap</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#geo-plots-leaflet-map"><i class="fa fa-check"></i>geo plots: leaflet map</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#d3-data-driven-documents"><i class="fa fa-check"></i>d3 (Data-Driven Documents)</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#dashboards"><i class="fa fa-check"></i>Dashboards</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#focuses"><i class="fa fa-check"></i>Focuses</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#data-looks-better-naked"><i class="fa fa-check"></i>Data looks better naked</a>
+<ul>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#the-data-ink-ratio"><i class="fa fa-check"></i>the data-ink ratio</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#clear-off-the-table"><i class="fa fa-check"></i>clear-off-the-table</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#principles"><i class="fa fa-check"></i>Principles</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#misleading-charts"><i class="fa fa-check"></i>Misleading charts</a>
+<ul>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#плохой-дизайн"><i class="fa fa-check"></i>Плохой дизайн</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#арифметические-ошибки"><i class="fa fa-check"></i>Арифметические ошибки</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#манипуляция-вниманием"><i class="fa fa-check"></i>Манипуляция вниманием</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#неверный-масштаб"><i class="fa fa-check"></i>Неверный масштаб</a></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#несоответствие-графиков-цифрам"><i class="fa fa-check"></i>Несоответствие графиков цифрам</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="dataviz.html"><a href="dataviz.html#полезные-материалы"><i class="fa fa-check"></i>Полезные материалы</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html"><i class="fa fa-check"></i>ggplot2 pt1</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#запись-занятий"><i class="fa fa-check"></i>Запись занятий</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#решение-домашней-работы"><i class="fa fa-check"></i>Решение домашней работы</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#level-1-iatytd-3"><i class="fa fa-check"></i>level 1 (IATYTD)</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#level-2-hntr-3"><i class="fa fa-check"></i>level 2 (HNTR)</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#level-3-hmp-5"><i class="fa fa-check"></i>level 3 (HMP)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#ggplot2-package"><i class="fa fa-check"></i>ggplot2 package</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#компоненты-графика"><i class="fa fa-check"></i>Компоненты графика</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#базовые-геомы"><i class="fa fa-check"></i>Базовые геомы</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#геомы-визуальных-акцентов"><i class="fa fa-check"></i>геомы визуальных акцентов</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#дополнительные-материалы-2"><i class="fa fa-check"></i>Дополнительные материалы</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#домашнее-задание-7"><i class="fa fa-check"></i>Домашнее задание</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#задание-1"><i class="fa fa-check"></i>Задание 1</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#задание-2"><i class="fa fa-check"></i>Задание 2</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#задание-3"><i class="fa fa-check"></i>Задание 3</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#задание-4"><i class="fa fa-check"></i>Задание 4</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt1.html"><a href="ggplot2-pt1.html#задание-5"><i class="fa fa-check"></i>Задание 5</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html"><i class="fa fa-check"></i>ggplot2 pt2</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#запись-занятий-1"><i class="fa fa-check"></i>Запись занятий</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#решение-домашки"><i class="fa fa-check"></i>Решение домашки</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#пакеты-и-данные"><i class="fa fa-check"></i>пакеты и данные</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#статистические-геомы"><i class="fa fa-check"></i>Статистические геомы</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#geom_bar"><i class="fa fa-check"></i>geom_bar()</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#geom_histogram"><i class="fa fa-check"></i>geom_histogram()</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#geom_boxplot"><i class="fa fa-check"></i>geom_boxplot()</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#geom_smooth"><i class="fa fa-check"></i>geom_smooth()</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#кастомизация-графиков"><i class="fa fa-check"></i>Кастомизация графиков</a>
+<ul>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#параметры-осей"><i class="fa fa-check"></i>Параметры осей</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#lims"><i class="fa fa-check"></i>lims()</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#labs"><i class="fa fa-check"></i>labs()</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#координатная-плоскость"><i class="fa fa-check"></i>Координатная плоскость</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#фасеты"><i class="fa fa-check"></i>Фасеты</a></li>
+<li class="chapter" data-level="" data-path="ggplot2-pt2.html"><a href="ggplot2-pt2.html#визуальные-параметры-всего-графика"><i class="fa fa-check"></i>Визуальные параметры всего графика</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="hw-1.html"><a href="hw-1.html"><i class="fa fa-check"></i>HW 1</a>
+<ul>
+<li class="chapter" data-level="" data-path="hw-1.html"><a href="hw-1.html#общие-замечания"><i class="fa fa-check"></i>Общие замечания</a></li>
+<li class="chapter" data-level="" data-path="hw-1.html"><a href="hw-1.html#задание-1.-дома-в-игре-престолов."><i class="fa fa-check"></i>Задание 1. Дома в Игре престолов.</a>
+<ul>
+<li class="chapter" data-level="" data-path="hw-1.html"><a href="hw-1.html#импорт-данных"><i class="fa fa-check"></i>импорт данных</a></li>
+<li class="chapter" data-level="" data-path="hw-1.html"><a href="hw-1.html#чистка-данных"><i class="fa fa-check"></i>чистка данных</a></li>
+<li class="chapter" data-level="" data-path="hw-1.html"><a href="hw-1.html#график-численности-кланов"><i class="fa fa-check"></i>график численности кланов</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="hw-1.html"><a href="hw-1.html#задание-2.-агрессивность-персонажей-в-книгах-о-гарри-поттере."><i class="fa fa-check"></i>Задание 2. Агрессивность персонажей в книгах о Гарри Поттере.</a></li>
+<li class="chapter" data-level="" data-path="hw-1.html"><a href="hw-1.html#задание-3.-динамика-среднегодовой-температуры-в-период-1750-2015"><i class="fa fa-check"></i>Задание 3. Динамика среднегодовой температуры в период 1750-2015</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Автоматизированный сбор больших данных в экономико-социологических исследованиях</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ggplot2-pt2" class="section level1 unnumbered hasAnchor">
+<h1>ggplot2 pt2<a href="ggplot2-pt2.html#ggplot2-pt2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="запись-занятий-1" class="section level2 unnumbered hasAnchor">
+<h2>Запись занятий<a href="ggplot2-pt2.html#запись-занятий-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/95Mp1o45bAE?si=sXULQA2K2rLUhjPu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+</div>
+<div id="решение-домашки" class="section level2 hasAnchor">
+<h2>Решение домашки<a href="ggplot2-pt2.html#решение-домашки" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Импорт и подготовка данных:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="ggplot2-pt2.html#cb1-1" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb1-2"><a href="ggplot2-pt2.html#cb1-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-3"><a href="ggplot2-pt2.html#cb1-3" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="ggplot2-pt2.html#cb1-4" tabindex="-1"></a><span class="co"># задаем тему по умолчанию</span></span>
+<span id="cb1-5"><a href="ggplot2-pt2.html#cb1-5" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_classic</span>())</span>
+<span id="cb1-6"><a href="ggplot2-pt2.html#cb1-6" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="ggplot2-pt2.html#cb1-7" tabindex="-1"></a>diamonds_sample <span class="ot">&lt;-</span> <span class="fu">as.data.table</span>(diamonds)</span>
+<span id="cb1-8"><a href="ggplot2-pt2.html#cb1-8" tabindex="-1"></a>diamonds_sample <span class="ot">&lt;-</span> diamonds_sample[carat <span class="sc">&lt;</span> <span class="dv">3</span>]</span>
+<span id="cb1-9"><a href="ggplot2-pt2.html#cb1-9" tabindex="-1"></a>diamonds_sample <span class="ot">&lt;-</span> diamonds_sample[<span class="fu">sample</span>(.N, <span class="dv">10000</span>)]</span></code></pre></div>
+<p>Решение заданий 2-5:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="ggplot2-pt2.html#cb2-1" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb2-2"><a href="ggplot2-pt2.html#cb2-2" tabindex="-1"></a>  <span class="co"># задание 1</span></span>
+<span id="cb2-3"><a href="ggplot2-pt2.html#cb2-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> diamonds_sample,</span>
+<span id="cb2-4"><a href="ggplot2-pt2.html#cb2-4" tabindex="-1"></a>             <span class="co"># добавление color = cut -- решение задания 2</span></span>
+<span id="cb2-5"><a href="ggplot2-pt2.html#cb2-5" tabindex="-1"></a>             <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price, <span class="at">color =</span> cut), </span>
+<span id="cb2-6"><a href="ggplot2-pt2.html#cb2-6" tabindex="-1"></a>             <span class="at">shape =</span> <span class="st">&#39;diamond&#39;</span>) <span class="sc">+</span></span>
+<span id="cb2-7"><a href="ggplot2-pt2.html#cb2-7" tabindex="-1"></a>  <span class="co"># задание 3, закомментировано, так как для заданий 4-5 оно избыточно</span></span>
+<span id="cb2-8"><a href="ggplot2-pt2.html#cb2-8" tabindex="-1"></a>  <span class="co"># geom_vline(xintercept = 2) +</span></span>
+<span id="cb2-9"><a href="ggplot2-pt2.html#cb2-9" tabindex="-1"></a>  <span class="co"># geom_hline(yintercept = 15000) + </span></span>
+<span id="cb2-10"><a href="ggplot2-pt2.html#cb2-10" tabindex="-1"></a>  <span class="co"># задание 4</span></span>
+<span id="cb2-11"><a href="ggplot2-pt2.html#cb2-11" tabindex="-1"></a>  <span class="fu">geom_rect</span>(</span>
+<span id="cb2-12"><a href="ggplot2-pt2.html#cb2-12" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">xmin =</span> <span class="dv">2</span>, <span class="at">xmax =</span> <span class="cn">Inf</span>, <span class="at">ymin =</span> <span class="dv">15000</span>, <span class="at">ymax =</span> <span class="cn">Inf</span>),</span>
+<span id="cb2-13"><a href="ggplot2-pt2.html#cb2-13" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">&#39;green&#39;</span>, <span class="at">alpha =</span> <span class="fl">0.1</span></span>
+<span id="cb2-14"><a href="ggplot2-pt2.html#cb2-14" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
+<span id="cb2-15"><a href="ggplot2-pt2.html#cb2-15" tabindex="-1"></a>  <span class="fu">geom_rect</span>(</span>
+<span id="cb2-16"><a href="ggplot2-pt2.html#cb2-16" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">xmin =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">xmax =</span> <span class="dv">2</span>, <span class="at">ymin =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">ymax =</span> <span class="dv">15000</span>),</span>
+<span id="cb2-17"><a href="ggplot2-pt2.html#cb2-17" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">&#39;red&#39;</span>, <span class="at">alpha =</span> <span class="fl">0.1</span></span>
+<span id="cb2-18"><a href="ggplot2-pt2.html#cb2-18" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
+<span id="cb2-19"><a href="ggplot2-pt2.html#cb2-19" tabindex="-1"></a>  <span class="co"># задание 5, только цвет не &#39;black&#39;</span></span>
+<span id="cb2-20"><a href="ggplot2-pt2.html#cb2-20" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> diamonds_sample[(carat <span class="sc">&lt;</span> <span class="dv">2</span> <span class="sc">&amp;</span> price <span class="sc">&gt;=</span> <span class="dv">15000</span>)],</span>
+<span id="cb2-21"><a href="ggplot2-pt2.html#cb2-21" tabindex="-1"></a>             <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price), <span class="at">color =</span> <span class="st">&#39;grey80&#39;</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb2-22"><a href="ggplot2-pt2.html#cb2-22" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> diamonds_sample[(carat <span class="sc">&gt;=</span> <span class="dv">2</span> <span class="sc">&amp;</span> price <span class="sc">&lt;</span> <span class="dv">15000</span>)],</span>
+<span id="cb2-23"><a href="ggplot2-pt2.html#cb2-23" tabindex="-1"></a>             <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price), <span class="at">color =</span> <span class="st">&#39;grey80&#39;</span>, <span class="at">size =</span> <span class="dv">1</span>)    </span></code></pre></div>
+<p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+</div>
+<div id="пакеты-и-данные" class="section level2 unnumbered hasAnchor">
+<h2>пакеты и данные<a href="ggplot2-pt2.html#пакеты-и-данные" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="ggplot2-pt2.html#cb3-1" tabindex="-1"></a><span class="co"># подключаем библиотеки</span></span>
+<span id="cb3-2"><a href="ggplot2-pt2.html#cb3-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-3"><a href="ggplot2-pt2.html#cb3-3" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb3-4"><a href="ggplot2-pt2.html#cb3-4" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="ggplot2-pt2.html#cb3-5" tabindex="-1"></a><span class="co"># импорт данных</span></span>
+<span id="cb3-6"><a href="ggplot2-pt2.html#cb3-6" tabindex="-1"></a><span class="co"># imdb_link &lt;- &#39;https://gitlab.com/hse_mar/mar221s/raw/master/data/IMDb movies.csv&#39;</span></span>
+<span id="cb3-7"><a href="ggplot2-pt2.html#cb3-7" tabindex="-1"></a>imdb_link <span class="ot">&lt;-</span> <span class="st">&#39;./data/IMDb movies.csv&#39;</span></span>
+<span id="cb3-8"><a href="ggplot2-pt2.html#cb3-8" tabindex="-1"></a>tg_cols <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;director&quot;</span>, <span class="st">&quot;title&quot;</span>, <span class="st">&quot;original_title&quot;</span>, <span class="st">&quot;year&quot;</span>, </span>
+<span id="cb3-9"><a href="ggplot2-pt2.html#cb3-9" tabindex="-1"></a>             <span class="st">&quot;genre&quot;</span>, <span class="st">&quot;duration&quot;</span>, <span class="st">&quot;country&quot;</span>, <span class="st">&quot;avg_vote&quot;</span>)</span>
+<span id="cb3-10"><a href="ggplot2-pt2.html#cb3-10" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="ggplot2-pt2.html#cb3-11" tabindex="-1"></a>imdb <span class="ot">&lt;-</span> <span class="fu">fread</span>(imdb_link, <span class="at">select =</span> tg_cols)</span>
+<span id="cb3-12"><a href="ggplot2-pt2.html#cb3-12" tabindex="-1"></a>imdb[, year <span class="sc">:=</span> <span class="fu">as.numeric</span>(year)]</span>
+<span id="cb3-13"><a href="ggplot2-pt2.html#cb3-13" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="ggplot2-pt2.html#cb3-14" tabindex="-1"></a>imdb_woody <span class="ot">&lt;-</span> imdb[director <span class="sc">==</span> <span class="st">&#39;Woody Allen&#39;</span>]</span>
+<span id="cb3-15"><a href="ggplot2-pt2.html#cb3-15" tabindex="-1"></a>imdb_martin <span class="ot">&lt;-</span> imdb[director <span class="sc">==</span> <span class="st">&#39;Martin Scorsese&#39;</span>]</span>
+<span id="cb3-16"><a href="ggplot2-pt2.html#cb3-16" tabindex="-1"></a>imdb_lynch <span class="ot">&lt;-</span> imdb[director <span class="sc">==</span> <span class="st">&#39;David Lynch&#39;</span>]</span>
+<span id="cb3-17"><a href="ggplot2-pt2.html#cb3-17" tabindex="-1"></a>imdb_wm <span class="ot">&lt;-</span> <span class="fu">rbind</span>(imdb_woody, imdb_martin)</span>
+<span id="cb3-18"><a href="ggplot2-pt2.html#cb3-18" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="ggplot2-pt2.html#cb3-19" tabindex="-1"></a>imdb_genres <span class="ot">&lt;-</span> imdb[genre <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&#39;Horror&#39;</span>, <span class="st">&#39;Comedy&#39;</span>, <span class="st">&#39;Drama&#39;</span>)]</span>
+<span id="cb3-20"><a href="ggplot2-pt2.html#cb3-20" tabindex="-1"></a>imdb_genres_scores <span class="ot">&lt;-</span> imdb_genres[, </span>
+<span id="cb3-21"><a href="ggplot2-pt2.html#cb3-21" tabindex="-1"></a>                                  <span class="fu">list</span>(<span class="at">n_titles =</span> .N, <span class="at">votes =</span> <span class="fu">mean</span>(avg_vote)), </span>
+<span id="cb3-22"><a href="ggplot2-pt2.html#cb3-22" tabindex="-1"></a>                                  by <span class="ot">=</span> <span class="fu">list</span>(year, genre)] </span></code></pre></div>
+</div>
+<div id="статистические-геомы" class="section level2 unnumbered hasAnchor">
+<h2>Статистические геомы<a href="ggplot2-pt2.html#статистические-геомы" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="geom_bar" class="section level3 unnumbered hasAnchor">
+<h3>geom_bar()<a href="ggplot2-pt2.html#geom_bar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Геом используется для отрисовки столбиковых диаграмм (барчартов). При использовании геома по оси ОХ указывают переменную категорий (даты, строковые значения и проч). У геома есть, среди прочих, есть важный параметр, <code>stat</code>.</p>
+<p>Когда <code>stat = 'count'</code> (это значение по умолчанию), то ось OY указывать не надо. Так как при отрисовке графика происходит вычисление количества наблюдений (строк) на каждое значение по оси OX, и именно по этому вычисленному значению отрисовываются столбики. (предупреждение <code>Removed 108 rows containing non-finite values (stat_count).</code> означает, что есть пропуски в колонке <code>title_year</code>)</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="ggplot2-pt2.html#cb4-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb[genre <span class="sc">==</span> <span class="st">&#39;Horror&#39;</span>], <span class="fu">aes</span>(<span class="at">x =</span> year)) <span class="sc">+</span></span>
+<span id="cb4-2"><a href="ggplot2-pt2.html#cb4-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&#39;count&#39;</span>)</span></code></pre></div>
+<p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Когда <code>stat = 'identity'</code> (это значение надо пропиcывать), то необходимо указать и по значениям какой колонки строится ось OY. Этот вариант предпочтительнее в работе - лучше сначала явно создать отдельный объект, а потом его отрисовать, чем делать неявные вычисления при отрисовке графика. Здесь у нас не таблица с сырыми данными по фильмам, а агрегат по жанрам, который мы подготовили ранее (<code>imdb_genres_scores</code>).</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="ggplot2-pt2.html#cb5-1" tabindex="-1"></a><span class="co"># указываем год как x, а количество строк как y</span></span>
+<span id="cb5-2"><a href="ggplot2-pt2.html#cb5-2" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_genres_scores[genre <span class="sc">==</span> <span class="st">&#39;Horror&#39;</span>], <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> n_titles)) <span class="sc">+</span></span>
+<span id="cb5-3"><a href="ggplot2-pt2.html#cb5-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&#39;identity&#39;</span>)</span></code></pre></div>
+<p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><br></p>
+<div id="geom_bar-aesthetics" class="section level4 unnumbered hasAnchor">
+<h4>geom_bar() aesthetics<a href="ggplot2-pt2.html#geom_bar-aesthetics" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Основные параметры:</p>
+<ul>
+<li>colour: цвет края столбика (названимем или rgb-кодом)</li>
+<li>fill: цвет заливки столбика (названимем или rgb-кодом)</li>
+<li>alpha: прозрачность заливки столбика</li>
+<li>position: если групп несколько, то как должны быть организвоаны столбики по группам - “стопкой” или “рядом”</li>
+</ul>
+<p><br></p>
+</div>
+<div id="настройка-визуальных-параметров-3" class="section level4 unnumbered hasAnchor">
+<h4>Настройка визуальных параметров<a href="ggplot2-pt2.html#настройка-визуальных-параметров-3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Как и во всех геомах, можно использовать колонки датасета для того, чтобы задать цвет контура или заливки столбика. Обычно делается только в том случае, когда есть разные группы в датасете, и их надо выделить цветом. Во всех остальных случаях цвета контура и заливки, как правило, задаются фиксировнными значениями:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="ggplot2-pt2.html#cb6-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_genres_scores[genre <span class="sc">==</span> <span class="st">&#39;Horror&#39;</span>], <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> n_titles)) <span class="sc">+</span></span>
+<span id="cb6-2"><a href="ggplot2-pt2.html#cb6-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&#39;identity&#39;</span>,</span>
+<span id="cb6-3"><a href="ggplot2-pt2.html#cb6-3" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">&#39;darkblue&#39;</span>,</span>
+<span id="cb6-4"><a href="ggplot2-pt2.html#cb6-4" tabindex="-1"></a>           <span class="at">fill =</span> <span class="st">&#39;steelblue&#39;</span>,</span>
+<span id="cb6-5"><a href="ggplot2-pt2.html#cb6-5" tabindex="-1"></a>           <span class="at">alpha =</span> <span class="fl">0.1</span>)</span></code></pre></div>
+<p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>Группировка может быть двух видов - “стопкой”, когда в столбике на одном значении OX выделены цветом группы. Это значение по умолчанию, и задается с помощью параметра <code>position - 'stack'</code>. Отрисуем, сколько фильмов разных жанров снимали каждый год. Цвета заливки и контура столбика задаем по значениям колонки genre (каждая страна выделяется одним цветом):</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="ggplot2-pt2.html#cb7-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_genres_scores, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> n_titles)) <span class="sc">+</span></span>
+<span id="cb7-2"><a href="ggplot2-pt2.html#cb7-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(</span>
+<span id="cb7-3"><a href="ggplot2-pt2.html#cb7-3" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">color =</span> genre, <span class="at">fill =</span> genre),</span>
+<span id="cb7-4"><a href="ggplot2-pt2.html#cb7-4" tabindex="-1"></a>    <span class="at">stat =</span> <span class="st">&#39;identity&#39;</span>,</span>
+<span id="cb7-5"><a href="ggplot2-pt2.html#cb7-5" tabindex="-1"></a>    <span class="at">position =</span> <span class="st">&#39;stack&#39;</span></span>
+<span id="cb7-6"><a href="ggplot2-pt2.html#cb7-6" tabindex="-1"></a>  )</span></code></pre></div>
+<p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>Тот же самый график, но с группировкой “рядом”:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="ggplot2-pt2.html#cb8-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_genres_scores, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> n_titles)) <span class="sc">+</span></span>
+<span id="cb8-2"><a href="ggplot2-pt2.html#cb8-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(</span>
+<span id="cb8-3"><a href="ggplot2-pt2.html#cb8-3" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">color =</span> genre, <span class="at">fill =</span> genre),</span>
+<span id="cb8-4"><a href="ggplot2-pt2.html#cb8-4" tabindex="-1"></a>    <span class="at">stat =</span> <span class="st">&#39;identity&#39;</span>,</span>
+<span id="cb8-5"><a href="ggplot2-pt2.html#cb8-5" tabindex="-1"></a>    <span class="at">position =</span> <span class="st">&#39;dodge&#39;</span></span>
+<span id="cb8-6"><a href="ggplot2-pt2.html#cb8-6" tabindex="-1"></a>  )</span></code></pre></div>
+<p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><br></p>
+</div>
+</div>
+<div id="geom_histogram" class="section level3 unnumbered hasAnchor">
+<h3>geom_histogram()<a href="ggplot2-pt2.html#geom_histogram" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Гистограммы во многом похожи на барчарты c <code>stat = 'count'</code>, с единственным отличием. Барчарты строятся на дискретных значения оси OX (имя режиссера, дата и проч). А гистограммы строятся на интервальной шкале, то есть, позволяют самим выбирать, сколько значений по оси OX будет в одном столбике. Это задается параметром <code>binwidth</code>:</p>
+<p>Построим гистограмму по количеству фильмов с шагом пять лет:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="ggplot2-pt2.html#cb9-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb, <span class="fu">aes</span>(<span class="at">x =</span> year)) <span class="sc">+</span></span>
+<span id="cb9-2"><a href="ggplot2-pt2.html#cb9-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## Warning: Removed 1 rows containing non-finite values (`stat_bin()`).</code></pre>
+<p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>Построим гистограмму по количеству фильмов с шагом в 1 год, это должно быть идентично <code>geom_bar()</code>:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="ggplot2-pt2.html#cb11-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb, <span class="fu">aes</span>(<span class="at">x =</span> year)) <span class="sc">+</span></span>
+<span id="cb11-2"><a href="ggplot2-pt2.html#cb11-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## Warning: Removed 1 rows containing non-finite values (`stat_bin()`).</code></pre>
+<p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><br></p>
+</div>
+<div id="geom_boxplot" class="section level3 unnumbered hasAnchor">
+<h3>geom_boxplot()<a href="ggplot2-pt2.html#geom_boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Геом для отрисовки боксплотов, по конструкции похож на <code>geom_bar()</code>. Отрисуем боксплоты распределений оценок фильмов трех разных жанров:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="ggplot2-pt2.html#cb13-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_genres_scores, <span class="fu">aes</span>(<span class="at">x =</span> genre, <span class="at">y =</span> votes)) <span class="sc">+</span></span>
+<span id="cb13-2"><a href="ggplot2-pt2.html#cb13-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>Укажем, чтобы цвет заливки и контура боксплота были свои для каждого режиссера. Так как заливка в чистом виде непрозрачная, необходимо отдельно указать параметр <code>alpha</code>, который задаст степень прозрачности заливки:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="ggplot2-pt2.html#cb14-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_genres_scores, <span class="fu">aes</span>(<span class="at">x =</span> genre, <span class="at">y =</span> votes)) <span class="sc">+</span></span>
+<span id="cb14-2"><a href="ggplot2-pt2.html#cb14-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">colour =</span> genre, <span class="at">fill =</span> genre), <span class="at">alpha =</span> <span class="fl">0.1</span>)</span></code></pre></div>
+<p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p><br></p>
+</div>
+<div id="geom_smooth" class="section level3 unnumbered hasAnchor">
+<h3>geom_smooth()<a href="ggplot2-pt2.html#geom_smooth" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Геом задает линии тренда. Как правило, линии задаются формулой <code>y ~ x</code>, где значения по y - зависимая, а x - независимая, предиктор. Методов построения линии может быть несколько, не только <code>lm</code> и <code>loess</code> (линейная регрессия и локальная полиномиальная регрессия соответственно), подробнее в справке по геому в аргументе <code>method</code>.</p>
+<p>Построим по облаку точек фильмов из жанра <code>Drama</code> тренд imdb-оценок. Нарисуем сначала собственно облако точек, а потом зададим линию тренда с помощью <code>loess</code> и линейной регрессии.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="ggplot2-pt2.html#cb15-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_genres_scores[genre <span class="sc">==</span> <span class="st">&#39;Drama&#39;</span>], <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> votes)) <span class="sc">+</span></span>
+<span id="cb15-2"><a href="ggplot2-pt2.html#cb15-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb15-3"><a href="ggplot2-pt2.html#cb15-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&#39;glm&#39;</span>) <span class="sc">+</span> </span>
+<span id="cb15-4"><a href="ggplot2-pt2.html#cb15-4" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&#39;loess&#39;</span>)</span></code></pre></div>
+<pre><code>## `geom_smooth()` using formula = &#39;y ~ x&#39;
+## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
+<p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><br></p>
+<div id="geom_smooth-aesthetics" class="section level4 unnumbered hasAnchor">
+<h4>geom_smooth() aesthetics<a href="ggplot2-pt2.html#geom_smooth-aesthetics" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Визуальные параметры геома в первую очередь включают в себя параметры линии, а также параметры доверительного интервала:</p>
+<ul>
+<li>colour: цвет линии</li>
+<li>fill: цвет заливки области доверительного интервала</li>
+<li>alpha: прозрачность заливки области доверительного интервала</li>
+<li>se: если se = FALSE, то доверительный интервал скрывается</li>
+</ul>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="ggplot2-pt2.html#cb17-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_genres_scores[genre <span class="sc">==</span> <span class="st">&#39;Drama&#39;</span>], <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> votes)) <span class="sc">+</span></span>
+<span id="cb17-2"><a href="ggplot2-pt2.html#cb17-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb17-3"><a href="ggplot2-pt2.html#cb17-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&#39;glm&#39;</span>, <span class="at">color =</span> <span class="st">&#39;blue&#39;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span> </span>
+<span id="cb17-4"><a href="ggplot2-pt2.html#cb17-4" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&#39;loess&#39;</span>, <span class="at">color =</span> <span class="st">&#39;red&#39;</span>, <span class="at">fill =</span> <span class="st">&#39;red&#39;</span>, <span class="at">alpha =</span> <span class="fl">0.1</span>)</span></code></pre></div>
+<pre><code>## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+## ℹ Please use `linewidth` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.</code></pre>
+<pre><code>## `geom_smooth()` using formula = &#39;y ~ x&#39;
+## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
+<p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="кастомизация-графиков" class="section level2 unnumbered hasAnchor">
+<h2>Кастомизация графиков<a href="ggplot2-pt2.html#кастомизация-графиков" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="параметры-осей" class="section level3 unnumbered hasAnchor">
+<h3>Параметры осей<a href="ggplot2-pt2.html#параметры-осей" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Оси относятся к одному из тех компонентов графиков, которые едины для всех заданных слоев. Как правило, при создании графиков в параметрах осей задают названия осей, метки, градиенты цветов (если цвет в слое указан как зависящий от какой-то третьей переменной, в <code>aes()</code>), трансформации осей (логарифмические, квадратным корнем, инверсией) и прочее.</p>
+<div id="scale_xy_--" class="section level4 hasAnchor">
+<h4>scale_(x|y)_* {-}<a href="ggplot2-pt2.html#scale_xy_--" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Три группы функций, которые задают параметры осей OX или OY. Функции зависят от типа данных по оси:</p>
+<ul>
+<li>scale_(x|y)_continuous: когда данные оси интервальные</li>
+<li>scale_(x|y)_discrete: когда данные оси дискретные</li>
+<li>scale_(x|y)_date: даты</li>
+</ul>
+<p>Аргументы (и параметры) осей, которые можно задать:</p>
+<ul>
+<li>breaks: шаги деления оси</li>
+<li>labels: подписи для шагов</li>
+<li>name: название оси (аналогично слою <code>labs()</code>)</li>
+<li>limits: границы оси (аналогично слою <code>lims()</code>)</li>
+<li>trans: когда нужно трансформировать значения по оси. Варианты трансформаций: “asn”, “atanh”, “boxcox”, “exp”, “identity”, “log”, “log10”, “log1p”, “log2”, “logit”, “probability”, “probit”, “reciprocal”, “reverse”, “sqrt”.</li>
+</ul>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="ggplot2-pt2.html#cb20-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_woody, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> avg_vote)) <span class="sc">+</span></span>
+<span id="cb20-2"><a href="ggplot2-pt2.html#cb20-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb20-3"><a href="ggplot2-pt2.html#cb20-3" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1970</span>, <span class="dv">2000</span>, <span class="dv">2010</span>)) <span class="sc">+</span> </span>
+<span id="cb20-4"><a href="ggplot2-pt2.html#cb20-4" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">7</span>, <span class="fl">7.25</span>, <span class="fl">7.5</span>, <span class="fl">7.75</span>, <span class="dv">8</span>, <span class="dv">10</span>))</span></code></pre></div>
+<p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p>В том случае, если в слое задано изменение цвета элементов графика в зависимости от вариативности какой-то переменной в датасете (это указывается в аргументах функции aes(), которая задает значения аргумента mapping функции геома), то по умолчанию используются оттенки синего, в диапазоне от черного к белому. Есть необходимость изменить цвета шкалы, то следует воспользоваться одной из соответствующих функций семейства <code>scale_* -</code>scale_(colour|fill)<em>gradient()<code>,</code>scale</em>(colour|fill)_brewer()` и проч. С помощью разных функций можно либо задать свою палитру, либо выбрать из уже сконструированных (BrBG, Accent т.д.), в том числе указать цвет средней точки градиента.</p>
+<p>Основные термины функций:</p>
+<ul>
+<li><code>colour|fill</code> - <code>colour</code> применяется для графиков рассеяния, линий и прочих простых геометрических объектов. Функции с <code>fill</code> в названии применяются для барчартов и прочих объектов, для которых может быть вычислена площадь</li>
+<li><code>gradient</code> - функции с <code>gradient</code> (<code>scale_colour_gradient()</code>, <code>scale_fill_gradient2()</code>) применяются для интервальных значений</li>
+<li><code>brewer</code> - <code>brewer</code>- функции применяются для дискретных значений, в <code>ggplot2</code> есть целый ряд уже созданных палитр, как дискретизированных градиентов (<code>Blues</code>, <code>Greens</code>), так и контрастных (<code>BrBG</code>б <code>Set1</code>)</li>
+<li><code>distiller</code> - промежуточный вариант между <code>brewer</code> и <code>gradient</code>, который на основе данных интерполирует заданную дискретную палитру к интервальному виду.</li>
+</ul>
+<p><strong>scale_color_gradient()</strong></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="ggplot2-pt2.html#cb21-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_woody, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> avg_vote)) <span class="sc">+</span></span>
+<span id="cb21-2"><a href="ggplot2-pt2.html#cb21-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> avg_vote), <span class="at">shape =</span> <span class="st">&#39;circle&#39;</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span> </span>
+<span id="cb21-3"><a href="ggplot2-pt2.html#cb21-3" tabindex="-1"></a>  <span class="fu">scale_color_gradient</span>(<span class="at">low =</span> <span class="st">&#39;steelblue4&#39;</span>, <span class="at">high =</span> <span class="st">&#39;steelblue1&#39;</span>)</span></code></pre></div>
+<p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p><strong>scale_color_distiller()</strong></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="ggplot2-pt2.html#cb22-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_woody, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> avg_vote)) <span class="sc">+</span></span>
+<span id="cb22-2"><a href="ggplot2-pt2.html#cb22-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> avg_vote), <span class="at">shape =</span> <span class="st">&#39;circle&#39;</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span> </span>
+<span id="cb22-3"><a href="ggplot2-pt2.html#cb22-3" tabindex="-1"></a>  <span class="fu">scale_color_distiller</span>(<span class="at">palette =</span> <span class="st">&#39;Set1&#39;</span>)</span></code></pre></div>
+<p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p><strong>scale_color_brewer()</strong></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="ggplot2-pt2.html#cb23-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_woody, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> avg_vote)) <span class="sc">+</span></span>
+<span id="cb23-2"><a href="ggplot2-pt2.html#cb23-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> genre), <span class="at">shape =</span> <span class="st">&#39;circle&#39;</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span> </span>
+<span id="cb23-3"><a href="ggplot2-pt2.html#cb23-3" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">&#39;Set1&#39;</span>)</span></code></pre></div>
+<pre><code>## Warning in RColorBrewer::brewer.pal(n, pal): n too large, allowed maximum for palette Set1 is 9
+## Returning the palette you asked for with that many colors</code></pre>
+<pre><code>## Warning: Removed 17 rows containing missing values (`geom_point()`).</code></pre>
+<p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+</div>
+</div>
+<div id="lims" class="section level3 unnumbered hasAnchor">
+<h3>lims()<a href="ggplot2-pt2.html#lims" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Слой, который задается функцией <code>lims()</code>, позволяет явно ограничить график по осям. Для того, чтобы задать границы оси, надо в соответствующий аргумент передать вектор из двух значений, которые будут интерпертированы как максимальное и минимальное значения оси.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="ggplot2-pt2.html#cb26-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_lynch, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> avg_vote)) <span class="sc">+</span></span>
+<span id="cb26-2"><a href="ggplot2-pt2.html#cb26-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb26-3"><a href="ggplot2-pt2.html#cb26-3" tabindex="-1"></a>  <span class="fu">lims</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">2000</span>, <span class="dv">2010</span>))</span></code></pre></div>
+<p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+</div>
+<div id="labs" class="section level3 unnumbered hasAnchor">
+<h3>labs()<a href="ggplot2-pt2.html#labs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Помимо границ оси, можно задать и названия осей, также как и название графика. Функция <code>labs()</code> (от <code>labels</code>) имеет несколько аргументов, которые и отвечают за тексты на соответствующих элементах графика. Так, <code>title</code> задает заголовок всего графика, аргументы <code>x</code> и <code>y</code> - названия осей. Прочие аргументы могут соответствовать параметрам геомов. Например, мы задаем цвет и размер точек в геоме <code>geom_point()</code>. Соответственно, названия легенд для этих параметров могут быть заданы в <code>labs()</code> в аргументах <code>color</code> и <code>shape</code>:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="ggplot2-pt2.html#cb27-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_lynch, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> avg_vote)) <span class="sc">+</span></span>
+<span id="cb27-2"><a href="ggplot2-pt2.html#cb27-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> avg_vote, <span class="at">shape =</span> country), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
+<span id="cb27-3"><a href="ggplot2-pt2.html#cb27-3" tabindex="-1"></a>  <span class="fu">scale_color_gradient</span>(<span class="at">low =</span> <span class="st">&#39;steelblue4&#39;</span>, <span class="at">high =</span> <span class="st">&#39;steelblue1&#39;</span>) <span class="sc">+</span></span>
+<span id="cb27-4"><a href="ggplot2-pt2.html#cb27-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&#39;Рейтинги фильмов Дэвида Линча&#39;</span>,</span>
+<span id="cb27-5"><a href="ggplot2-pt2.html#cb27-5" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&#39;&#39;</span>,</span>
+<span id="cb27-6"><a href="ggplot2-pt2.html#cb27-6" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&#39;avg_vote&#39;</span>,</span>
+<span id="cb27-7"><a href="ggplot2-pt2.html#cb27-7" tabindex="-1"></a>       <span class="at">colour =</span> <span class="st">&#39;imdb score&#39;</span>,</span>
+<span id="cb27-8"><a href="ggplot2-pt2.html#cb27-8" tabindex="-1"></a>       <span class="at">shape =</span> <span class="st">&#39;country&#39;</span>)</span></code></pre></div>
+<p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+</div>
+</div>
+<div id="координатная-плоскость" class="section level2 unnumbered hasAnchor">
+<h2>Координатная плоскость<a href="ggplot2-pt2.html#координатная-плоскость" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Любой график немыслим без какой-то определенной системы координат. Стандартно и по умолчанию в <code>ggplot2</code> используется декартова система координат. Тем не менее, доступна также и полярная система координат. Декартова система координат используется по умолчанию, однако ее можно и явно задать и явно:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="ggplot2-pt2.html#cb28-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_genres, <span class="fu">aes</span>(<span class="at">x =</span> genre, <span class="at">y =</span> avg_vote)) <span class="sc">+</span></span>
+<span id="cb28-2"><a href="ggplot2-pt2.html#cb28-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">color =</span> genre)) <span class="sc">+</span> </span>
+<span id="cb28-3"><a href="ggplot2-pt2.html#cb28-3" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>()</span></code></pre></div>
+<p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p>Несмотря на то, что, на первый взгляд, оси ОХ и ОY идентичны и взаимозаменяемы, это не так. Для достаточно большого количества типов графиков важна ориентация. Например, столбиковые диаграммы (барчарты) и боксплоты ориентированы вертикально и просто сменой осей переориентировать их горизонтально не получится. Для таких целей как раз используют отдельную функцию поворота координатной плоскости, <code>coord_flip()</code>:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="ggplot2-pt2.html#cb29-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_genres, <span class="fu">aes</span>(<span class="at">x =</span> genre, <span class="at">y =</span> avg_vote)) <span class="sc">+</span></span>
+<span id="cb29-2"><a href="ggplot2-pt2.html#cb29-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">color =</span> genre)) <span class="sc">+</span> </span>
+<span id="cb29-3"><a href="ggplot2-pt2.html#cb29-3" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
+<p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+</div>
+<div id="фасеты" class="section level2 unnumbered hasAnchor">
+<h2>Фасеты<a href="ggplot2-pt2.html#фасеты" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Комбинация на одном графике данных по двум или нескольким градациям группирующей переменной позволяет сравнить несколько значений. Однако бывают ситуации, когда необходимо каким-то образом разделить и отдельно визуализировать данные по этим градациям - например, сравнить пробы по отдельным испытуемым, или показать графики значений и линии тренда в разные годы и тому подобное. Простое совмещение на одном графике всех данных может привести к потере читабельности - когда данных много и используются сложные комбинации слоев. В таких случаях, чтобы все нарисовать на одном графике, но раздельно, в своих блоках, используется функция <code>facet_grid()</code> или <code>facet_wrap()</code>. Функция <code>facet_wrap()</code> аналогична <code>facet_grid()</code>, только организует панели подграфиков в виде плитки, а <code>facet_grid()</code> - либо вертикально, либо горизонтально, либо плиткой (в случае, когда по оси OX задана одна группировка, а по оси OY - вторая).</p>
+<p>Основные аргументы функций фасет:</p>
+<ul>
+<li>facets: выражение вида <code>x ~ y</code>, когда <code>x ~ .</code> задает расположение панелей фасет горизонтально, по факторам переменной <code>x</code>, формула вида <code>. ~ y</code>задает вертикальное положение фасет. Формула <code>x ~ y</code> используется в том случае, если данные группируются и отрисовываются по комбинациям значений факторов переменных и <code>x</code>, и <code>y</code> - в таком случае в результате получится график, с сеткой панелей-фасет субграфиков.</li>
+<li>margins: используется в тех случаях, когда надо дополнительно отрисовать панель с общим графиком по всем значениям группирующей переменной (т.е., без группировки), в качестве значения принимает название группирующей переменной</li>
+<li>scales: для ситуаций, когда необходимо закрепить (<code>fixed</code>) или, наоброт, задать собственный (<code>free</code>) масштаб шкалы для каждой панели</li>
+</ul>
+<p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+</div>
+<div id="визуальные-параметры-всего-графика" class="section level2 unnumbered hasAnchor">
+<h2>Визуальные параметры всего графика<a href="ggplot2-pt2.html#визуальные-параметры-всего-графика" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>После того, как основные содержательные и структурные элемента графика заданы, можно перейти к доводке визуального оформления. Совокупность визуальных параметров названий, линий, текстов и прочих элементов графиков, не относящихся собственно к данным, называется темой, <code>theme</code>. В <code>ggplot2</code> есть ряд уже скомплектованных тем, и одна из них, оттенки серого, используется по умолчанию. Помимо использования уже готовы тем как из <code>ggplot2</code>, так и из пакетов расширений (например, <code>ggthemes</code>), можно самостоятельно менять оформление тех или иных элементов.</p>
+<p>Список готовых тем пакета <code>ggplot2</code>:</p>
+<ul>
+<li>theme_grey()</li>
+<li>theme_gray()</li>
+<li>theme_bw()</li>
+<li>theme_linedraw()</li>
+<li>theme_light()</li>
+<li>theme_dark()</li>
+<li>theme_minimal()</li>
+<li>theme_classic()</li>
+<li>theme_void()</li>
+</ul>
+<div id="theme" class="section level4 unnumbered hasAnchor">
+<h4>theme()<a href="ggplot2-pt2.html#theme" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Помимо использования уже готовы тем как из <code>ggplot2</code>, так и из пакетов расширений (например, <code>ggthemes</code>), можно самостоятельно менять оформление тех или иных элементов. Делается это с помощью функции theme(), которая вызывается после применения к объекту графика уже существующей темы.</p>
+<p>Функция <code>theme()</code> имеет огромное количество аргументов, все их названия построены по схеме <code>родитель.ребенок</code>, например, аргумент <code>plot.background</code>, который определяет параметры бэкграунда графика. Значения аргументов функции <code>theme()</code> задаются одной из четырех нижеследующих функций, в зависимости от формы объекта графика, которому надо придать какое-то оформление:</p>
+<ul>
+<li>element_blank(): используется в том случае, если объект не надо отрисовывать, например, надо убрать метки с оси</li>
+<li>element_rect(): задает параметры для границ и бэкграунда, как правило, цвет</li>
+<li>element_line(): задает параметры объектов-линий на графике (например, линия оси)</li>
+<li>element_text(): задает параметры объектов-текстов (например, тип или размер подписей к меткам оси)</li>
+<li>unit(): задает параметры для тех элементов, которым передаются какие-то размеры - размеры меток осей, расстояний между фасетами и проч. Можно задать различные измерения для этого параметра - дюймы, сантиметры и т.д. Также можно указать относительные размеры, в долях от размера всего графика (<code>npc</code> = Normalised Parent Coordinates, где точка (.5, .5) обозначает центр графика).</li>
+</ul>
+<p>Примеры аргументов и соответствующих элементов графика:</p>
+<p><strong>plot.*</strong></p>
+<ul>
+<li>plot.background: бэкграунд всего графика (element_rect)</li>
+<li>plot.title: название графика (element_text)</li>
+<li>plot.subtitle: подзаголовок графика (text appearance) (element_text)</li>
+<li>plot.caption: примечение под графиком (text appearance) (element_text)</li>
+<li>plot.margin: отступы вокруг графика</li>
+</ul>
+<p><strong>legend.*</strong></p>
+<ul>
+<li>legend.background: фон легенды (element_rect)</li>
+<li>legend.text: текст легенды (element_text)</li>
+<li>legend.title: заголовок легенды (element_text)</li>
+<li>legend.position: расположение легенды (“none”, “left”, “right”, “bottom”, “top”, or two-element numeric vector)</li>
+</ul>
+<p><strong>strip.*</strong></p>
+<ul>
+<li>strip.background: фон фасет (element_rect)</li>
+<li>strip.text: текст фасет (element_text)</li>
+</ul>
+<p>Пример кастомизации темы графика:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="ggplot2-pt2.html#cb30-1" tabindex="-1"></a><span class="fu">ggplot</span>(imdb_genres[country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&#39;USA&#39;</span>, <span class="st">&#39;France&#39;</span>, <span class="st">&#39;Italy&#39;</span>, <span class="st">&#39;India&#39;</span>, <span class="st">&#39;UK&#39;</span>)], </span>
+<span id="cb30-2"><a href="ggplot2-pt2.html#cb30-2" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> genre, <span class="at">y =</span> avg_vote)) <span class="sc">+</span></span>
+<span id="cb30-3"><a href="ggplot2-pt2.html#cb30-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">color =</span> genre)) <span class="sc">+</span> </span>
+<span id="cb30-4"><a href="ggplot2-pt2.html#cb30-4" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="cn">NULL</span>, <span class="at">breaks =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb30-5"><a href="ggplot2-pt2.html#cb30-5" tabindex="-1"></a>  <span class="fu">facet_grid</span>(. <span class="sc">~</span> country)<span class="sc">+</span> </span>
+<span id="cb30-6"><a href="ggplot2-pt2.html#cb30-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&#39;Пример theme()&#39;</span>,</span>
+<span id="cb30-7"><a href="ggplot2-pt2.html#cb30-7" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">&#39;на основе theme_minimal()&#39;</span>,</span>
+<span id="cb30-8"><a href="ggplot2-pt2.html#cb30-8" tabindex="-1"></a>       <span class="at">x =</span> <span class="cn">NULL</span>,</span>
+<span id="cb30-9"><a href="ggplot2-pt2.html#cb30-9" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&#39;imdb score&#39;</span>) <span class="sc">+</span></span>
+<span id="cb30-10"><a href="ggplot2-pt2.html#cb30-10" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
+<span id="cb30-11"><a href="ggplot2-pt2.html#cb30-11" tabindex="-1"></a>  <span class="co"># theme(legend.background = element_rect(color = &#39;grey80&#39;, fill = &#39;grey95&#39;),</span></span>
+<span id="cb30-12"><a href="ggplot2-pt2.html#cb30-12" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.background =</span> <span class="fu">element_blank</span>(),        </span>
+<span id="cb30-13"><a href="ggplot2-pt2.html#cb30-13" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">&#39;top&#39;</span>,</span>
+<span id="cb30-14"><a href="ggplot2-pt2.html#cb30-14" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb30-15"><a href="ggplot2-pt2.html#cb30-15" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">&#39;bold&#39;</span>, <span class="at">size =</span> <span class="dv">18</span>),        </span>
+<span id="cb30-16"><a href="ggplot2-pt2.html#cb30-16" tabindex="-1"></a>        <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">colour =</span> <span class="st">&#39;grey50&#39;</span>, <span class="at">face =</span> <span class="st">&#39;italic&#39;</span>),</span>
+<span id="cb30-17"><a href="ggplot2-pt2.html#cb30-17" tabindex="-1"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">&#39;grey95&#39;</span>),</span>
+<span id="cb30-18"><a href="ggplot2-pt2.html#cb30-18" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">&#39;grey97&#39;</span>),</span>
+<span id="cb30-19"><a href="ggplot2-pt2.html#cb30-19" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">&#39;italic&#39;</span>))</span></code></pre></div>
+<p><img src="10_ggplot2_pt2_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ggplot2-pt1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="hw-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "static"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -14,7 +14,7 @@ rmd_files: [
   "07_etl.Rmd",
   "08_dataviz.Rmd",
   "09_ggplot2_pt1.Rmd",
-  # "11_ggplot2_pt2.Rmd",
+  "10_ggplot2_pt2.Rmd",
   # "12_plotly.Rmd",
   # "13_rvest.Rmd",
   # "14_programming.Rmd",

@@ -23,7 +23,7 @@
 <meta name="author" content="Ph.A.Upravitelev" />
 
 
-<meta name="date" content="2023-11-16" />
+<meta name="date" content="2023-11-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -491,47 +491,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="создание-векторов" class="section level3 unnumbered hasAnchor">
 <h3>Создание векторов<a href="vectors.html#создание-векторов" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Чаще всего векторы создаются с помощью функции <code>c()</code> (<code>c</code> от <code>combine</code>). Например:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="vectors.html#cb11-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>)</span>
-<span id="cb11-2"><a href="vectors.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="vectors.html#cb11-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>)</span>
+<span id="cb11-2"><a href="vectors.html#cb11-2" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
 <pre><code>## [1] 1 3 5</code></pre>
 <p>Простую неименованную последовательность атомарного типа можно задать также другими командами, наиболее часто используемые из них:</p>
 <ul>
 <li><code>seq()</code> — создание последовательности значений в указанном интервале, с заданным шагом (<code>seq</code> от <code>sequence</code>). Например:</li>
 </ul>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="vectors.html#cb13-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">10</span>, <span class="at">to =</span> <span class="dv">2</span>, <span class="at">by =</span> <span class="sc">-</span><span class="dv">2</span>)</span>
-<span id="cb13-2"><a href="vectors.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="vectors.html#cb13-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">10</span>, <span class="at">to =</span> <span class="dv">2</span>, <span class="at">by =</span> <span class="sc">-</span><span class="dv">2</span>)</span>
+<span id="cb13-2"><a href="vectors.html#cb13-2" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
 <pre><code>## [1] 10  8  6  4  2</code></pre>
 <p>Первые два аргумента задают первое и последнее значения последовательности, а аргумент <code>by</code> - шаг последовательности (по умолчанию равен единице). Знак <code>-</code> для значения аргумента <code>by</code> маркирует, что последовательность убывающая.</p>
 <ul>
 <li><p><code>:</code> — аналог функции <code>seq()</code>, используется для создания последовательности целых чисел, где последующее отличается от предыдущего на <code>1</code>. Так выражение <code>5:1</code> тождественно выражению <code>seq(5, 1, -1)</code>.</p></li>
 <li><p><code>rep()</code> — повтор какого-либо элемента заданное число раз. В качестве элемента может выступать практически любой объект R (в зависимости от осмысленности в целом подобного выражения). Аргументы <code>times</code> или <code>each</code> задают, какое количество раз повторять весь объект или каждый элемент объекта соответственно:</p></li>
 </ul>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="vectors.html#cb15-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>)</span>
-<span id="cb15-2"><a href="vectors.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(x, <span class="at">times =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="vectors.html#cb15-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>)</span>
+<span id="cb15-2"><a href="vectors.html#cb15-2" tabindex="-1"></a><span class="fu">rep</span>(x, <span class="at">times =</span> <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;a&quot; &quot;b&quot; &quot;c&quot;</code></pre>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="vectors.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(x, <span class="at">each =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="vectors.html#cb17-1" tabindex="-1"></a><span class="fu">rep</span>(x, <span class="at">each =</span> <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;a&quot; &quot;a&quot; &quot;b&quot; &quot;b&quot; &quot;c&quot; &quot;c&quot;</code></pre>
 <p>Если значения аргументов задавать позиционно, то первый аргумент — это итерируемый объект, а второй аргумент — аргумент <code>times</code>:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="vectors.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(x, <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="vectors.html#cb19-1" tabindex="-1"></a><span class="fu">rep</span>(x, <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;a&quot; &quot;b&quot; &quot;c&quot;</code></pre>
 <ul>
 <li><code>sample()</code> — создание последовательности случайно выбранных значений из какого-то заданного вектора значений. Первый аргумент задает выборку, из которой необходимо извлечь подвыборку, второй аргумент (<code>size</code>) определяет объем извлекаемой выборки. Аргумент <code>replace</code> определяет, выборка извлекается с возвращением элементов или нет:</li>
 </ul>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="vectors.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">size =</span> <span class="dv">5</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<pre><code>## [1] 2 4 3 1 5</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="vectors.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">size =</span> <span class="dv">5</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<pre><code>## [1] 1 2 2 3 4</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="vectors.html#cb21-1" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">size =</span> <span class="dv">5</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] 4 1 3 5 2</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="vectors.html#cb23-1" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">size =</span> <span class="dv">5</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] 3 4 3 5 1</code></pre>
 </div>
 <div id="приведение-типов" class="section level3 unnumbered hasAnchor">
 <h3>Приведение типов<a href="vectors.html#приведение-типов" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>R используется достаточно простая система автоматического преобразования атомарных типов по логике от “самого строгого к самому гибкому”, то есть по цепочке <code>logical</code> -&gt; <code>integer</code> -&gt; <code>numeric</code> -&gt; <code>complex</code> -&gt; <code>character</code> (тип <code>raw</code> не включается в эту систему). Такое преобразование позволяет использовать конструкции вида <code>sum(5 == 5)</code>, потому что логический результат сравнения (<code>TRUE</code>) будет преобразован в целое числовое значение (<code>1</code>, так как <code>TRUE</code> преобразовывается в <code>1</code>, а FALSE - в <code>0</code>), и, следовательно, можно вычислить количество верных утверждений.</p>
 <p>Подобные процедуры крайне часто используются когда, например, надо посчитать количество определенных значений в векторе значений (или в колонке в таблице). Вообще, для избежания неожиданных результатов, рекомендуется избегать неявных преобразований и контролировать типы самостоятельно.</p>
 <p>Примеры приведений типов, все приводится к самому общему:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="vectors.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># к строке</span></span>
-<span id="cb25-2"><a href="vectors.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">&#39;a&#39;</span>, <span class="fl">3.6</span>, <span class="st">&#39;b&#39;</span>, <span class="fl">5.1</span>, <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="vectors.html#cb25-1" tabindex="-1"></a><span class="co"># к строке</span></span>
+<span id="cb25-2"><a href="vectors.html#cb25-2" tabindex="-1"></a><span class="fu">c</span>(<span class="st">&#39;a&#39;</span>, <span class="fl">3.6</span>, <span class="st">&#39;b&#39;</span>, <span class="fl">5.1</span>, <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;a&quot;    &quot;3.6&quot;  &quot;b&quot;    &quot;5.1&quot;  &quot;TRUE&quot;</code></pre>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="vectors.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># к numeric</span></span>
-<span id="cb27-2"><a href="vectors.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="fl">3.6</span>, <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="vectors.html#cb27-1" tabindex="-1"></a><span class="co"># к numeric</span></span>
+<span id="cb27-2"><a href="vectors.html#cb27-2" tabindex="-1"></a><span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="fl">3.6</span>, <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 1.0 3.6 2.0</code></pre>
 <p><br></p>
 </div>
@@ -544,12 +544,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="выбор-по-номеру-позиции" class="section level3 unnumbered hasAnchor">
 <h3>Выбор по номеру позиции<a href="vectors.html#выбор-по-номеру-позиции" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Простой вариант выбора определенных элементов последовательности - по номеру в последовательности (по индексу, индекс начинается с 1). Например, в последовательности <code>4, 3, 2</code> на третьем месте находится значение <code>2</code>. В коде выбор третьего элемента этой последовательности выглядит вот так:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="vectors.html#cb29-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>)</span>
-<span id="cb29-2"><a href="vectors.html#cb29-2" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">3</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="vectors.html#cb29-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>)</span>
+<span id="cb29-2"><a href="vectors.html#cb29-2" tabindex="-1"></a>x[<span class="dv">3</span>]</span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 <p>В список номеров последовательности также можно передавать не только единичное значение, но и вектор значений номеров последовательности, который мы хотим извлечь. Например:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="vectors.html#cb31-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>)</span>
-<span id="cb31-2"><a href="vectors.html#cb31-2" aria-hidden="true" tabindex="-1"></a>x[<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="vectors.html#cb31-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>)</span>
+<span id="cb31-2"><a href="vectors.html#cb31-2" tabindex="-1"></a>x[<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</span></code></pre></div>
 <pre><code>## [1] 3 1</code></pre>
 <p><br></p>
 </div>
@@ -557,19 +557,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3>Выбор по значению<a href="vectors.html#выбор-по-значению" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Также возможен выбор элементов вектора, которые удовлетворяют условию. Например, те, которые больше 10, или все, которые равны 3, или все четные. Логика такого выделения следующая: каждый элемент последовательности сравнивается с условием, и если сравнение верное (<code>5 == 5</code>, <code>TRUE</code>), то этот элемент возвращается как подходящий под условие. Фактически метка <code>TRUE</code> здесь является указателем элемента, который надо вернуть, аналогично номеру позиции при выделении по номеру позиции.</p>
 <p>Например:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="vectors.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># создаем вектор 8 случайных значений из массива от 1 до 10</span></span>
-<span id="cb33-2"><a href="vectors.html#cb33-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">8</span>)</span>
-<span id="cb33-3"><a href="vectors.html#cb33-3" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="vectors.html#cb33-1" tabindex="-1"></a><span class="co"># создаем вектор 8 случайных значений из массива от 1 до 10</span></span>
+<span id="cb33-2"><a href="vectors.html#cb33-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">8</span>)</span>
+<span id="cb33-3"><a href="vectors.html#cb33-3" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>## [1] 10  6  5  4  1  8  2  7</code></pre>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="vectors.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># сравниваем каждое значение с 5, смотрим результат сравнения</span></span>
-<span id="cb35-2"><a href="vectors.html#cb35-2" aria-hidden="true" tabindex="-1"></a>x_cond <span class="ot">&lt;-</span> x <span class="sc">&gt;</span> <span class="dv">5</span></span>
-<span id="cb35-3"><a href="vectors.html#cb35-3" aria-hidden="true" tabindex="-1"></a>x_cond</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="vectors.html#cb35-1" tabindex="-1"></a><span class="co"># сравниваем каждое значение с 5, смотрим результат сравнения</span></span>
+<span id="cb35-2"><a href="vectors.html#cb35-2" tabindex="-1"></a>x_cond <span class="ot">&lt;-</span> x <span class="sc">&gt;</span> <span class="dv">5</span></span>
+<span id="cb35-3"><a href="vectors.html#cb35-3" tabindex="-1"></a>x_cond</span></code></pre></div>
 <pre><code>## [1]  TRUE  TRUE FALSE FALSE FALSE  TRUE FALSE  TRUE</code></pre>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="vectors.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># делаем выбор по условию, с указанием вектора, удовлетворяет элемент условию или нет</span></span>
-<span id="cb37-2"><a href="vectors.html#cb37-2" aria-hidden="true" tabindex="-1"></a>x[x_cond]</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="vectors.html#cb37-1" tabindex="-1"></a><span class="co"># делаем выбор по условию, с указанием вектора, удовлетворяет элемент условию или нет</span></span>
+<span id="cb37-2"><a href="vectors.html#cb37-2" tabindex="-1"></a>x[x_cond]</span></code></pre></div>
 <pre><code>## [1] 10  6  8  7</code></pre>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="vectors.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># аналогично, но без создания отдельного вектора</span></span>
-<span id="cb39-2"><a href="vectors.html#cb39-2" aria-hidden="true" tabindex="-1"></a>x[x <span class="sc">&gt;</span> <span class="dv">5</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="vectors.html#cb39-1" tabindex="-1"></a><span class="co"># аналогично, но без создания отдельного вектора</span></span>
+<span id="cb39-2"><a href="vectors.html#cb39-2" tabindex="-1"></a>x[x <span class="sc">&gt;</span> <span class="dv">5</span>]</span></code></pre></div>
 <pre><code>## [1] 10  6  8  7</code></pre>
 <p><br></p>
 <!-- ### Поиск по вхождению в массив {-} -->
@@ -598,19 +598,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>NULL — объект и тип, используется в редких случаях, когда надо создать пустой объект (например <code>x &lt;- NULL</code>, но это плохая практика, для этого есть более корректные способы). Чаще нужен, когда надо удалить колонку в табличке.</li>
 </ul>
 <p>Для того, чтобы проверить, есть ли пропущенные значения в векторе, используется функция <code>is.na()</code>. Эта функция проверяет, есть ли значение у каждого элемента вектора (является <code>NA</code> или нет) и отдает вектор логических значений, где <code>TRUE</code> означает, что у соответствующего элемента в проверяемом векторе нет значения (он пропущен).</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="vectors.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># делаем вектор с одним NA-значением</span></span>
-<span id="cb41-2"><a href="vectors.html#cb41-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="cn">NA</span>, <span class="dv">5</span>)</span>
-<span id="cb41-3"><a href="vectors.html#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-4"><a href="vectors.html#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="co"># проверяем каждый элемент на то, пропущен он или нет</span></span>
-<span id="cb41-5"><a href="vectors.html#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="co"># видим, что для третьего элемента стоит TRUE, то есть пропущен</span></span>
-<span id="cb41-6"><a href="vectors.html#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="vectors.html#cb41-1" tabindex="-1"></a><span class="co"># делаем вектор с одним NA-значением</span></span>
+<span id="cb41-2"><a href="vectors.html#cb41-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="cn">NA</span>, <span class="dv">5</span>)</span>
+<span id="cb41-3"><a href="vectors.html#cb41-3" tabindex="-1"></a></span>
+<span id="cb41-4"><a href="vectors.html#cb41-4" tabindex="-1"></a><span class="co"># проверяем каждый элемент на то, пропущен он или нет</span></span>
+<span id="cb41-5"><a href="vectors.html#cb41-5" tabindex="-1"></a><span class="co"># видим, что для третьего элемента стоит TRUE, то есть пропущен</span></span>
+<span id="cb41-6"><a href="vectors.html#cb41-6" tabindex="-1"></a><span class="fu">is.na</span>(x)</span></code></pre></div>
 <pre><code>## [1] FALSE FALSE  TRUE FALSE</code></pre>
 <p>Функцию <code>is.na()</code> можно точно также использовать для ивзлечения элементов вектора. Например, если мы хотим вернуть все не-пропущенные значения, нам надо воспользоваться оператор логического отрицания <code>!</code>. Этот оператор превращает <code>TRUE</code> в <code>FALSE</code> и наоборот:</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="vectors.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># смотрим, как работает оператор !</span></span>
-<span id="cb43-2"><a href="vectors.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span><span class="cn">TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="vectors.html#cb43-1" tabindex="-1"></a><span class="co"># смотрим, как работает оператор !</span></span>
+<span id="cb43-2"><a href="vectors.html#cb43-2" tabindex="-1"></a><span class="sc">!</span><span class="cn">TRUE</span></span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="vectors.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># пробуем извлечь все непропущенные значения из x</span></span>
-<span id="cb45-2"><a href="vectors.html#cb45-2" aria-hidden="true" tabindex="-1"></a>x[<span class="sc">!</span><span class="fu">is.na</span>(x)]</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="vectors.html#cb45-1" tabindex="-1"></a><span class="co"># пробуем извлечь все непропущенные значения из x</span></span>
+<span id="cb45-2"><a href="vectors.html#cb45-2" tabindex="-1"></a>x[<span class="sc">!</span><span class="fu">is.na</span>(x)]</span></code></pre></div>
 <pre><code>## [1] 1 3 5</code></pre>
 <p><br></p>
 <!-- ## Изменение элементов объектов {-} -->
