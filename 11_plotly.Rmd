@@ -1,0 +1,361 @@
+# plotly {-}
+
+## Запись занятия {-}
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/S-9kqnPXwI8?si=DE__J6jyarSzvaGh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Пакеты и данные {-}
+
+```{r, warning=FALSE, message=FALSE}
+library(ggplot2)
+library(plotly)
+library(data.table)
+```
+
+
+```{r, warning=FALSE, message=FALSE}
+imdb_link <- 'https://gitlab.com/upravitelev/mar201s/raw/master/data/IMDb%20movies.csv'
+tg_cols <- c("director", "title", "original_title", "year", 
+             "genre", "duration", "country", "avg_vote")
+imdb <- fread(imdb_link, select = tg_cols)
+imdb[, year := as.numeric(year)]
+
+imdb_woody <- imdb[director == 'Woody Allen']
+imdb_martin <- imdb[director == 'Martin Scorsese']
+imdb_lynch <- imdb[director == 'David Lynch']
+
+imdb_genres <- imdb[genre %in% c('Horror', 'Comedy', 'Drama')]
+imdb_genres_scores <- imdb_genres[, 
+                                  list(n_titles = .N, votes = mean(avg_vote)), 
+                                  by = list(year, genre)] 
+```
+
+## Компоненты графика plotly  {-}
+### Данные и оси {-}
+Базовая функция для создания интерактивных графиков - `plot_ly()`. Для создания самого простого графика уже достаточно будет указать датасет, оси и тип графика. Оси задаются указанием названий колонок датасета, через оператор формулы (тильда, `~`). Вообще, такая форма используется во всех местах, где идет обращение к колонкам датасета (ховеры, цвета и группировки и проч). В `ggplot2` в какой-то мере аналогом такого обращения к колонкам датасета будет функция `aes()`.
+
+```{r line, eval=FALSE, fig.align='center', out.width = '100%'}
+plot_ly(economics,
+        x = ~date,
+        y = ~uempmed,
+        name = "unemployment",
+        marker = list(color="#264E86"),
+        type = "scatter", mode = "markers")
+```
+
+
+
+<br>
+
+## Типы графиков {-}
+В plotly реализованы базовые графики, в частности, линии, гистограммы и барчарты, боксплоты, тепловые карты, геокарты, а так же некоторые 3d-графики. Создавать собственные типы графиков средствами plotly, к сожалению, нельзя.
+
+Полный список графиков, реализованных в plotly, можно посмотреть на [сайте](https://plot.ly/r/) библиотеки или же на странице [документации](https://plot.ly/r/reference/). 
+
+
+### Точечный и линейный графики {-}
+Тип графиков задается аргументом `type` функции `plot_ly()`. Для некоторых графиков, в частности, для диаграмм рассеяния (точек) и линий используется один `type`, но с разными значениям доп.аргумента `mode`. Например, с помощью `type = 'scatter'` и `mode = 'markers'` задается точечный график. Для того, чтобы был правильный порядок точек и линий, необходимо отсортировать таблицу (в противном случае может получиться клубок линий).
+```{r, warning=FALSE, message=FALSE, out.width = '100%'}
+# отсортируем и построим точечный график
+imdb_genres_scores <- imdb_genres_scores[order(year, genre)]
+plot_ly(imdb_genres_scores[genre == 'Horror'], x = ~year, y = ~votes,
+        type = 'scatter', mode = 'markers')
+```
+
+Линейный график задается с помощью `type = 'scatter'` и `mode = 'lines'`:
+```{r, warning=FALSE, message=FALSE, out.width = '100%'}
+# построим линейный график
+plot_ly(imdb_genres_scores[genre == 'Horror'], x = ~year, y = ~votes,
+        type = 'scatter', mode = 'lines')
+```
+
+### Столбиковые диаграммы {-}
+Для отрисовки столбиковых диаграмм используется параметр `type = 'bar'`. Естественно, данные должны быть соответствующей структуры. Например, посчитаем количество фильмов каждого жанра в год и отрисуем столбиками (датасет подготовили ранее):
+```{r, warning=FALSE, message=FALSE, out.width = '100%'}
+plot_ly(imdb_genres_scores[year > 2010 & genre == 'Drama'], 
+        x = ~year, y = ~n_titles, type = 'bar')
+```
+
+
+### Боксплоты {-}
+Поведение точно такое же, как для типа `type = 'bar'` - по оси y выставляем переменную, по которой хотим увидеть боксплот, а в типе пишем `type = 'box'`:
+```{r, warning=FALSE, message=FALSE, out.width = '100%'}
+plot_ly(imdb_genres_scores, x = ~genre, y = ~votes, type = 'box')
+```
+
+
+## Группировка {-}
+plotly очень дружелюбен к пользователю в тех задачах, когда есть данные в long-формате и нужно на одном графике отразить данные разных групп. Сложным решением тут была бы отрисовка графиков в цикле, однако можно просто воспользоваться аргументом `color` функции `plot_ly()`. 
+
+Допустим, мы хотим отрисовать количество фильмов в год с разбивкой по жанрам. Для этого в параметр цвета передается название группирующей колонки:
+
+```{r, warning=FALSE, message=FALSE, out.width = '100%'}
+# считаем фильмы по режиссерам и странам
+plot_ly(imdb_genres_scores, x = ~year, y = ~n_titles, type = 'bar', color = ~genre)
+```
+
+В том случае, когда хочется нарисовать группы не отдельными столбиками, а стопкой, то надо указать аргумент `barmode = 'stack'` в отдельном слое `layout()` (о нем ниже, он используется для управления параметрами всего графика)
+
+```{r, warning=FALSE, message=FALSE, out.width = '100%'}
+plot_ly(imdb_genres_scores, x = ~year, y = ~n_titles, type = 'bar', color = ~genre) %>%
+  layout(barmode = 'stack')
+```
+
+<br>
+
+## Визуальные параметры графиков {-}
+
+### Легенда {-}
+Название элементов графика задается параметром `name` в графике. В него можно как передать какое-то значение, так и колонку, которая задает названия. Когда одна линия, то легенда не формируется. 
+```{r, warning=FALSE, message=FALSE, out.width = '100%'}
+plot_ly(imdb_woody, x = ~year, y = ~avg_vote, 
+        type = 'scatter', mode = 'markers+lines', name = 'markers+lines')
+```
+
+Легенду можно скрыть параметром `showlegend=FALSE`:
+```{r, warning=FALSE, message=FALSE, out.width = '100%'}
+plot_ly(imdb_woody, x = ~year, y = ~avg_vote, 
+        type = 'scatter', mode = 'markers+lines', name = 'markers+lines', 
+        showlegend = FALSE)
+```
+
+  
+
+### Параметры линий и точек {-}
+Линии и точки на графиках можно изменять на свой вкус - менять типы линий, размеры элементов, цвет. Параметры элементов задают через значения аргументов `marker` (для точек) или `line` для линий.
+
+```{r, warning=FALSE, message=FALSE, out.width = '100%'}
+plot_ly(
+  data = imdb_woody, 
+  x = ~year, y = ~avg_vote,
+  type = 'scatter', mode = 'markers',
+  color = ~country,
+  marker = list(
+    size = ~duration / 10,
+    symbol = 'diamond'
+  )
+)
+```
+
+Линии задаются также аргументом, в который надо передавать спиcок параметров, обычно это размер, тип линии или ее форма. Типы линий, которые доступны в plotly: "solid", "dot", "dash", "longdash", "dashdot":
+```{r, warning=FALSE, message=FALSE, out.width = '100%'}
+plot_ly(
+  data = imdb_woody, 
+  x = ~year, y = ~avg_vote,
+  type = 'scatter', mode = 'lines',
+  color = ~country,
+  line = list(
+    color = 'steelblue',
+    size = 3,
+    dash = 'dash'
+  )
+)
+```
+
+<br>
+
+### Ховеры {-}
+Ховеры, в общем виде, это разного рода эффекты (всплывающие подписи, подсказки, плавные переходы, трансформация, ротация, увеличение, смещение и пр.), которые наблюдаются при наведении на них курсора мыши. В plotly ховеры - это всплывающие подписи, которые содержат информацию о координатах (по умолчанию).
+
+При желании, можно изменить содержание ховеров. Для этого необходимо создать отдельную колонку, в которой в виде строки будут записаны все необходимые параметры, которые хочется показывать в ховере. При этом для кастомизации записи можно использовать html-теги, хотя бы тег `<br>` для разделения значений по строчкам.
+```{r, warning=FALSE, message=FALSE, out.width = '100%'}
+# создадим колонку с информацией о годе, оценке, названии и жанре фильма
+imdb_lynch[, my_hover := paste(
+  'year =', year, '<br>',
+  'imdb score =', avg_vote, '<br>',
+  'title = ', original_title, '<br>',
+  'genres =', genre)]
+
+# смотрим результат
+imdb_lynch[1:3, my_hover]
+```
+
+Указываем созданную переменную для использования в качестве ховера:
+```{r, warning=FALSE, message=FALSE, out.width = '100%'}
+plot_ly(imdb_lynch, x = ~year, y = ~avg_vote,
+        type = 'scatter', mode = 'markers', 
+        text = ~my_hover, hoverinfo = 'text')
+```
+
+<br>
+```{r, warning=FALSE, message=FALSE, out.width = '100%'}
+imdb_lynch[, my_hover := NULL]
+```
+
+## Добавляемые слои {-}
+### Наследование параметров {-}
+plotly в немалой части следует идеологии grammar of graphics, которая реализована в ggplot2. В частности, идее слоев и сочетания разных данных и типов графиков на одном пространстве координат. Конечно, очень разные по типу графики совместить сложно или невозможно, но совмещение линий, точек и баров, линий и боксплотов, и т.д. встречается очень часто.
+
+В частности, наложение графиков используется в ситуациях, когда данные необходимо отрисовать из разных колонок. Так, в данных по занятости населения США по строкам расположены года наблюдений, а в отдельных колонка - количество населения (pop) и количестве безработных (unemployed). Можно трансформировать датасет и перевести его в long-формат, однако проще добавить к графику еще один слой (след, trace, в терминологии plotly). Для каждого трейса можно задать свое название:
+
+```{r, warning=FALSE, message=FALSE, out.width = '100%'}
+plot_ly(imdb_genres_scores[genre == 'Horror'], x = ~year, y = ~votes,
+        type = 'scatter', mode = 'lines') %>%
+  add_trace(data = imdb_genres_scores[genre == 'Drama'], x = ~year, y = ~votes,
+        type = 'scatter', mode = 'lines')
+```
+
+
+Так же как и в `ggplot2` при наложении слоев возможно наследование параметров. Например, в графике выше можно оставить только те параметры, которые определяют именно этот слой (значение по оси OY и название линии):
+```{r, warning=FALSE, message=FALSE, out.width = '100%'}
+plot_ly(imdb_genres_scores[genre == 'Horror'], x = ~year, y = ~votes,
+        type = 'scatter', mode = 'lines') %>%
+  add_trace(data = imdb_genres_scores[genre == 'Drama'])
+```
+
+<br>
+
+## Общие параметры графиков {-}
+Отдельный слой на графиках plotly - это слой общих параметров графика, таких как заголовок, тип группировки баров или боксплотов, параметры осей (заголовки, диапазоны, шрифты и проч), а так же отступы от краев графика. Все параметры задаются с помощью базовой функции layout(), которая первым аргументом принимает plotly-объект, а все прочие аргументы формируют параметры объекта. Рассмотрим параметры заголовка и осей, параметры легенд и группировки баров и боксплотов описаны в соответствующих разделах.
+
+<br>
+
+### Заголовок {-}
+Заголовок на графиках формируется очень просто, с помощью аргумента `title` и, собственно, строки, которая должна быть заголовком графика. 
+```{r, warning=FALSE, message=FALSE, out.width = '100%'}
+plot_ly(rbind(imdb_woody, imdb_lynch), x = ~year, y = ~avg_vote,
+        type = 'scatter', mode = 'markers', color = ~director) %>%
+  layout(title = 'Woody + David')
+```
+
+Также, как и c некоторыми другими текстовыми метками на графиках plotly (ховеры, подписи осей, лейблы), в строке заголовка можно использовать html-теги:
+```{r, warning=FALSE, message=FALSE, out.width = '100%'}
+plot_ly(rbind(imdb_woody, imdb_lynch), x = ~year, y = ~avg_vote,
+        type = 'scatter', mode = 'markers', color = ~director) %>%
+  layout(title = 'Woody + David<br>используем тэг')
+```
+
+<br>
+
+### Параметры осей {-}
+Из параметров осей самые важные - это название оси (особенно важно при отрисовке совмещенных графиков), а так же диапазоны, которые должны быть отражены. Особенно это важно для оси OY, так как по умолчанию на линейных графиках ось начинается на с нуля, а с минимального значения, что несколько противоречит общепринятым нормам в визуализации данных.
+
+Параметры осей также задаются списками параметров. Название оси задается через параметр `title`, а диапазоны можно указать либо вектором с границами диапазона и параметром `range`. Параметр `rangemode` со значением `tozero` указывает что ось необходимо строить от нуля (можно также указать `nonnegative`, все неотрицательные). 
+```{r, warning=FALSE, message=FALSE, out.width = '100%'}
+plot_ly(rbind(imdb_woody, imdb_lynch), x = ~year, y = ~avg_vote,
+        type = 'scatter', mode = 'markers', color = ~director) %>%
+  layout(title = 'Woody + David',
+         xaxis = list(title = ''),
+         yaxis = list(rangemode = 'tozero'))
+```
+
+В параметрах осей также можно задавать параметры названия оси, меток (шрифт, наклон, количество и шаг меток), цвет и ширину линий осей и координатной сетки, а так же отдельные параметры для определенных типов графиков. Все это достаточно редкие в использовании кейсы, и все следуют общей логике - параметры элемента задаются списком параметров, некоторые из которых имеют ограниченный набор значений. Подробнее в [документации](https://plot.ly/r/reference/#layout) по функции `layout()`.
+
+<br>
+
+## Совмещенные графики {-}
+Одна из самых частых задач, котрые возникают при работе с `plotly`, это совмещение нескольких графиков на одном общем графике. В ggplot2 это аналог фасет.
+
+Для совмещения графиков используется функция `subplot()`, в которую первыми аргументами передаются `plot_ly`-объекты (графики). Для указания, вертикально или горизонтально компоновать графики, аргумент nrows. По умолчанию он равен единице, то есть графики компонуются в ряд по горизонтали, противном же случае идет компоновка по вертикали. Если же графиков больше, чем заданных строк, то сначала графики компонуются построчно так, чтобы на последней указанной строке был хотя бы один график. Также в функции `subplot()` есть еще ряд аргументов, которые задают соотношение графиков между собой - каково должно быть расстояние, будут ли объеденены подписи осей и т.д. На практике, впрочем, эти параметры используются нечасто.
+
+Пример совмещения графиков - показываем информацию по двум режиссерам на двух отдельных графиках, а не на одном. Параметр `nrows` задает, в сколько строк должны быть организованы графики, если параметр не указан, то графики компонуются вертикально, на одной линии:
+```{r, warning=FALSE, message=FALSE, out.width = '100%'}
+subplot(
+  plot_ly(imdb_woody, x = ~year, y = ~avg_vote,
+        type = 'scatter', mode = 'lines'),
+    plot_ly(imdb_lynch, x = ~year, y = ~avg_vote,
+        type = 'scatter', mode = 'lines'),
+  nrows = 2)
+```
+
+Задать название графика, названия и параметры осей можно также с помощью функции `layout()`, которая определяет параметры всего графика. Как и в прочих наших графиках, зададим название и укажем, что оси OY начинаются от нуля. Так как на графике несколько осей OX и OY, для их определения используется численный индекс, yaxis (или yaxis1), yaxis2, yaxis3 и т.д., по порядку вызова объектов в `subplot()`.
+
+```{r, warning=FALSE, message=FALSE, out.width = '100%'}
+subplot(
+  plot_ly(imdb_woody, x = ~year, y = ~avg_vote,
+        type = 'scatter', mode = 'lines'),
+    plot_ly(imdb_lynch, x = ~year, y = ~avg_vote,
+        type = 'scatter', mode = 'lines'),
+  nrows = 2) %>%
+  layout(title = 'Woody + Lynch',
+         xaxis = list(title = ''),
+         showlegend = FALSE,
+         yaxis = list(title = 'Woody Allen', rangemode = 'tozero'),
+         yaxis2 = list(title = 'David Lynch', rangemode = 'tozero'))
+```
+
+<!-- ## Домашняя работа -->
+
+<!-- ### level 1 (IATYTD) {-} -->
+<!-- С помощью пакета `plotly` отрисуйте график рассеяния, отражающий связь таких параметров, как `carat` и `price`. Используйте датасет ggplot2::diamonds, сделайте сабсет на 10000 строк (используйте `set.seed(1234)` для генерации зерна генератора случайных цифр). Удалите строки, в которых `carat > 3` -->
+
+<!-- ```{r 10-visualization-19, message=FALSE, echo=FALSE} -->
+<!-- library(ggplot2) -->
+<!-- library(plotly) -->
+<!-- library(data.table) -->
+
+<!-- set.seed(1234) -->
+<!-- # base R -->
+<!-- # diamonds_sample <- diamonds[sample(nrow(diamonds), 1000), ] -->
+<!-- # diamonds_sample <- diamonds_sample[diamonds_sample$carat <= 3, ] -->
+
+<!-- # data.table -->
+<!-- diamonds_sample <- as.data.table(diamonds) -->
+<!-- diamonds_sample <- diamonds_sample[sample(.N, 1000)] -->
+<!-- diamonds_sample <- diamonds_sample[carat <= 3] -->
+
+
+<!-- plot_ly(diamonds_sample, x = ~carat, y = ~price, type = 'scatter', mode = 'markers') -->
+<!-- ``` -->
+
+<!-- ### level 2 (HNTR) {-} -->
+
+<!-- Повторите предыдущий график, добавьте выделение цветом бриллиантов разного качества (`cut`) -->
+
+<!-- ```{r 10-visualization-20, echo = FALSE} -->
+<!-- plot_ly(diamonds_sample, x = ~carat, y = ~price, color = ~cut, type = 'scatter', mode = 'markers') -->
+<!-- ``` -->
+
+<!-- ### level 3 (HMP) {-} -->
+
+<!-- Наложите с помощью функций `fitted()` и `loess()` линию тренда, демонстрирующую взаимосвязь размера камня и его цены (`price ~ carat`). -->
+
+
+<!-- ### Level 4: Ultra-violence {-} -->
+
+<!-- Полученную линию тренда сделайте красной, размера 4 и пунктирной. Линию в легенде назовите как `loess trend`. Подпишите график задания и оси. В заголовке графика сделайте перенос строки. -->
+
+<!-- ```{r 10-visualization-26, echo = FALSE} -->
+<!-- plot_ly(diamonds_sample, x = ~carat, y = ~price, color = ~cut,  -->
+<!--         type = 'scatter', mode = 'markers') %>% -->
+<!--   add_lines(data = diamonds_sample, x = ~carat, y = ~fitted((loess(price ~ carat))), -->
+<!--             inherit = FALSE, name = 'loess trend',  -->
+<!--             line = list(color = 'red', width = 4, dash = "dash")) %>% -->
+<!--   layout( -->
+<!--     title = 'Взаимосвязь стоимости бриллиантов и их размера<br> + loess-линия тренда', -->
+<!--     xaxis = list(title = 'размер в каратах'), -->
+<!--     yaxis = list(title = 'стоимость в у.е.') -->
+<!--   ) -->
+<!-- ``` -->
+
+<!-- ### Level 5: Nightmare {-} -->
+<!-- Измените на графике информацию, которая дается в ховере (hover), сделайте более понятными обозначения и округлите значения до сотен, а также добавьте информацию о качестве огранки и чистоте камня. Пример ховера: "carat = 3, price = 8k, cut = Fair, clarity = I1", каждый параметр камня с новой строки. Для линии тренда менять ховер не нужно. -->
+
+<!-- ```{r 10-visualization-32, echo = FALSE} -->
+<!-- # data.frame -->
+<!-- # diamonds_sample$var_hover <-  -->
+<!-- #   paste0('carat = ', diamonds_sample$carat, '<br>', -->
+<!-- #          'price = ' , round(diamonds_sample$price, -3), 'k<br>', -->
+<!-- #          'cut = ', diamonds_sample$cut, '<br>', -->
+<!-- #          'clarity = ', diamonds_sample$clarity)] -->
+
+
+<!-- # data.table  -->
+<!-- setDT(diamonds_sample) -->
+<!-- diamonds_sample[, var_hover := paste0('carat = ', carat, '<br>',  -->
+<!--                              'price = ' , round(price, -3), 'k<br>', -->
+<!--                              'cut = ', cut, '<br>', -->
+<!--                              'clarity = ', clarity)] -->
+
+<!-- plot_ly(diamonds_sample, x = ~carat, y = ~price, color = ~cut,  -->
+<!--         type = 'scatter', mode = 'markers', -->
+<!--         text = ~var_hover, hoverinfo = 'text') %>% -->
+<!--   add_lines(data = diamonds_sample, x = ~carat, y = ~fitted((loess(price ~ carat))), -->
+<!--             inherit = FALSE, name = 'loess trend',  -->
+<!--             line = list(color = 'red', width = 4, dash = "dash")) %>% -->
+<!--   layout( -->
+<!--     title = 'Взаимосвязь стоимости бриллиантов и их размера<br> + loess-линия тренда', -->
+<!--     xaxis = list(title = 'размер в каратах'), -->
+<!--     yaxis = list(title = 'стоимость в у.е.') -->
+<!--   ) -->
+<!-- ``` -->

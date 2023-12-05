@@ -15,13 +15,13 @@ rmd_files: [
   "08_dataviz.Rmd",
   "09_ggplot2_pt1.Rmd",
   "10_ggplot2_pt2.Rmd",
-  # "12_plotly.Rmd",
-  # "13_rvest.Rmd",
+  "11_plotly.Rmd",
+  "12_rvest.Rmd",
   # "14_programming.Rmd",
   # "15_rvest_2.Rmd",
   # "16_api.Rmd",
   # "17_api.Rmd",
   # "17_vk_api.Rmd",
-  "HW1.Rmd",
+  # "HW1.Rmd",
   # "HW2.Rmd"
 ]
