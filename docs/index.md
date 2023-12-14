@@ -1,7 +1,7 @@
 --- 
 title: "Автоматизированный сбор больших данных в экономико-социологических исследованиях"
 author: 'Ph.A.Upravitelev'
-date: "2023-12-06"
+date: "2023-12-14"
 site: bookdown::bookdown_site
 # mainfont: Liberation Serif
 # sansfont: Liberation Sans

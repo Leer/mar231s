@@ -17,7 +17,7 @@ rmd_files: [
   "10_ggplot2_pt2.Rmd",
   "11_plotly.Rmd",
   "12_rvest.Rmd",
-  # "14_programming.Rmd",
+  "14_programming.Rmd",
   # "15_rvest_2.Rmd",
   # "16_api.Rmd",
   # "17_api.Rmd",
