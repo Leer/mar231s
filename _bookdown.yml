@@ -18,10 +18,8 @@ rmd_files: [
   "11_plotly.Rmd",
   "12_rvest.Rmd",
   "14_programming.Rmd",
-  # "15_rvest_2.Rmd",
-  # "16_api.Rmd",
-  # "17_api.Rmd",
-  # "17_vk_api.Rmd",
+  "15_api.Rmd",
+  "17_vk_api.Rmd",
   # "HW1.Rmd",
-  # "HW2.Rmd"
+  "HW2.Rmd"
 ]

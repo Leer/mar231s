@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>data.table pt2 | Автоматизированный сбор больших данных в экономико-социологических исследованиях</title>
-  <meta name="description" content="data.table pt2 | Автоматизированный сбор больших данных в экономико-социологических исследованиях" />
+  <title>API | Автоматизированный сбор больших данных в экономико-социологических исследованиях</title>
+  <meta name="description" content="API | Автоматизированный сбор больших данных в экономико-социологических исследованиях" />
   <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="data.table pt2 | Автоматизированный сбор больших данных в экономико-социологических исследованиях" />
+  <meta property="og:title" content="API | Автоматизированный сбор больших данных в экономико-социологических исследованиях" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="data.table pt2 | Автоматизированный сбор больших данных в экономико-социологических исследованиях" />
+  <meta name="twitter:title" content="API | Автоматизированный сбор больших данных в экономико-социологических исследованиях" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="data.table-pt1.html"/>
-<link rel="next" href="data.table-pt3.html"/>
+<link rel="prev" href="programming.html"/>
+<link rel="next" href="vk-api.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -622,346 +622,366 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data.table-pt2" class="section level1 unnumbered hasAnchor">
-<h1>data.table pt2<a href="data.table-pt2.html#data.table-pt2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="запись-занятия-3" class="section level2 unnumbered hasAnchor">
-<h2>Запись занятия<a href="data.table-pt2.html#запись-занятия-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Запись занятия 7 октября:</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/sbDHNk2R8nA?si=92jh3dwAVNohxMTW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+<div id="api" class="section level1 unnumbered hasAnchor">
+<h1>API<a href="api.html#api" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="запись-занятия-10" class="section level2 unnumbered hasAnchor">
+<h2>Запись занятия<a href="api.html#запись-занятия-10" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/xcNz0uVW3YU?si=C7L_vuirQMHyVawd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 </iframe>
 </div>
-<div id="разбор-домашней-работы-1" class="section level2 unnumbered hasAnchor">
-<h2>Разбор домашней работы<a href="data.table-pt2.html#разбор-домашней-работы-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="работа-с-колонками-2" class="section level3 unnumbered hasAnchor">
-<h3>работа с колонками<a href="data.table-pt2.html#работа-с-колонками-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="json" class="section level2 unnumbered hasAnchor">
+<h2>JSON<a href="api.html#json" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>JSON (javascript object notation) - один из самых распространенных форматов сообщений, с помощью которого происходит обмен данными между серверами, сервером и клиентом. Соответствующие файлы имеют расширене <code>.json</code>.</p>
+<div id="структура-json-объекта" class="section level3 unnumbered hasAnchor">
+<h3>Структура json-объекта<a href="api.html#структура-json-объекта" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>json-объект легко опознать по наличию фигурных скобок, которые структурируют объект, а также записям в кавычках и разделенными двоеточиями. Простейший пример json-объекта:</p>
+<div class="sourceCode" id="cb581"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb581-1"><a href="api.html#cb581-1" tabindex="-1"></a>{</span>
+<span id="cb581-2"><a href="api.html#cb581-2" tabindex="-1"></a>  <span class="st">&quot;name&quot;</span><span class="op">:</span><span class="st">&quot;Loki&quot;</span><span class="op">,</span> </span>
+<span id="cb581-3"><a href="api.html#cb581-3" tabindex="-1"></a>  <span class="st">&quot;parents&quot;</span><span class="op">:</span> {</span>
+<span id="cb581-4"><a href="api.html#cb581-4" tabindex="-1"></a>    <span class="st">&quot;father&quot;</span><span class="op">:</span><span class="st">&quot;Farbauti&quot;</span><span class="op">,</span> </span>
+<span id="cb581-5"><a href="api.html#cb581-5" tabindex="-1"></a>    <span class="st">&quot;mother&quot;</span><span class="op">:</span><span class="st">&quot;Laufey&quot;</span></span>
+<span id="cb581-6"><a href="api.html#cb581-6" tabindex="-1"></a>  }</span>
+<span id="cb581-7"><a href="api.html#cb581-7" tabindex="-1"></a>}</span></code></pre></div>
+<p>Пара, разделенная двоеточием - это пара ключа (названия параметра) и значения, которое передается в этом параметре. В табличках аналогом было бы название колонки и значение в ячейке. Ключ всегда указывается в двойных кавычках (<code>"</code>), разделитель ключа и значения - двоеточие, <code>:</code>. Значения могут быть разных типов, в том числе и сложные объекты (другие пары ключ: значение, множество таких пар, массивы значений и т.д.). Пара ключ:значение выделяется фигурными скобками (<code>{}</code>). Как правило, json-объект - это либо одна большая пара ключ-значение, притом, с большой вложенностью. Либо множество таких пар.</p>
+<p>Типы значений:
+- String: строковое значение, выделяется двойными кавычками. Пример: <code>{"name": "Baldr"}</code></p>
 <ul>
-<li>выделите в отдельный датасет всех погибших пассажиров, оставьте для них только значения пола, возраста и класса билета (<code>pclass</code>), переменную <code>pclass</code> переименуйте в <code>class</code></li>
+<li><p>Number: число, как целое, так и с мантиссой (вида 1e6). Из-за слабой типизации число можно передать как число, так и как строку (5 vs “5”). Пример пары: <code>{"age": 19}</code></p></li>
+<li><p>Boolean: логическое значение, слова true и false являются зарезервированными словами для значений ИСТИННО и ЛОЖНО. Пример: <code>{"is_alive": false}</code></p></li>
+<li><p>Null: Обычно в json-объектах пропуски не передаются - проще просто не задавать такую пару, все равно при парсинге json-объекта в таблицу на это место автоматически убдет проставлен NULL. Тем не менее, в спецификации есть. Пример: <code>{"extra": null}</code></p></li>
+<li><p>Object: Практически всегда в json-ах используются в качестве значения другие неупорядоченные пары ключ:значение, набор таких пар также выделяется фигурными скобками. Таким образом реализуется иерархия данных. Пример: <code>"death":{"killer":"Loki", "weapon":"omela"}</code></p></li>
+<li><p>Array: массив значений какого-то типа. Массив выделяется квадратными скобками, значения внутри массива разделяются запятыми: [1, 2, 3], [“a”, “b”]. Значениями массива такде могут быть и другие json-объекты (пары или множества пар ключ:значение). Пример, когда значением является массив json-объектов, каждый из который содержит две пары ключ:значение:</p></li>
 </ul>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="data.table-pt2.html#cb215-1" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
-<span id="cb215-2"><a href="data.table-pt2.html#cb215-2" tabindex="-1"></a>titanic <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&#39;https://gitlab.com/hse_mar/mar221s/-/raw/master/data/titanic3.csv&#39;</span>)</span>
-<span id="cb215-3"><a href="data.table-pt2.html#cb215-3" tabindex="-1"></a></span>
-<span id="cb215-4"><a href="data.table-pt2.html#cb215-4" tabindex="-1"></a>titanic_not_survived <span class="ot">&lt;-</span> titanic[survived <span class="sc">==</span> <span class="dv">0</span>, <span class="fu">list</span>(sex, age, <span class="at">class =</span> pclass)]</span>
-<span id="cb215-5"><a href="data.table-pt2.html#cb215-5" tabindex="-1"></a><span class="fu">str</span>(titanic_not_survived)</span></code></pre></div>
-<pre><code>## Classes &#39;data.table&#39; and &#39;data.frame&#39;:   809 obs. of  3 variables:
-##  $ sex  : chr  &quot;female&quot; &quot;male&quot; &quot;female&quot; &quot;male&quot; ...
-##  $ age  : num  2 30 25 39 71 47 NA 24 36 25 ...
-##  $ class: int  1 1 1 1 1 1 1 1 1 1 ...
-##  - attr(*, &quot;.internal.selfref&quot;)=&lt;externalptr&gt;</code></pre>
+<div class="sourceCode" id="cb582"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb582-1"><a href="api.html#cb582-1" tabindex="-1"></a>{</span>
+<span id="cb582-2"><a href="api.html#cb582-2" tabindex="-1"></a>  <span class="st">&quot;parents&quot;</span><span class="op">:</span> [</span>
+<span id="cb582-3"><a href="api.html#cb582-3" tabindex="-1"></a>    {<span class="st">&quot;name&quot;</span><span class="op">:</span> <span class="st">&quot;Odin&quot;</span><span class="op">,</span> <span class="st">&quot;group&quot;</span><span class="op">:</span><span class="st">&quot;aesir&quot;</span>}<span class="op">,</span> </span>
+<span id="cb582-4"><a href="api.html#cb582-4" tabindex="-1"></a>    {<span class="st">&quot;name&quot;</span><span class="op">:</span> <span class="st">&quot;Frigg&quot;</span><span class="op">,</span> <span class="st">&quot;group&quot;</span><span class="op">:</span><span class="st">&quot;aesir&quot;</span>}</span>
+<span id="cb582-5"><a href="api.html#cb582-5" tabindex="-1"></a>  ]</span>
+<span id="cb582-6"><a href="api.html#cb582-6" tabindex="-1"></a>}</span></code></pre></div>
+<p><br></p>
+</div>
+<div id="импорт-json-файлов-в-r" class="section level3 unnumbered hasAnchor">
+<h3>Импорт json-файлов в R<a href="api.html#импорт-json-файлов-в-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Для импорта json-файлов в R чаще всего используется пакет <code>jsonlite</code> и две его функции:</p>
 <ul>
-<li>в полученном датасете посчитайте количество пассажиров, их средний и медианный возраст, разброс по возрасту (<code>sd()</code>)</li>
+<li><p>fromJSON(): в большинстве случаев</p></li>
+<li><p>stream_in(): изредка встречается формат njson (есть некоторые различия в структуре объекта, расширение все то же), для парсинга которого рекомендуется использовать эту функцию.</p></li>
 </ul>
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="data.table-pt2.html#cb217-1" tabindex="-1"></a>titanic_not_survived[, <span class="fu">list</span>(</span>
-<span id="cb217-2"><a href="data.table-pt2.html#cb217-2" tabindex="-1"></a>  <span class="at">n_rows =</span> .N,</span>
-<span id="cb217-3"><a href="data.table-pt2.html#cb217-3" tabindex="-1"></a>  <span class="at">age_mn =</span> <span class="fu">mean</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb217-4"><a href="data.table-pt2.html#cb217-4" tabindex="-1"></a>  <span class="at">age_md =</span> <span class="fu">median</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb217-5"><a href="data.table-pt2.html#cb217-5" tabindex="-1"></a>  <span class="at">age_sd =</span> <span class="fu">sd</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))]</span></code></pre></div>
-<pre><code>##    n_rows   age_mn age_md   age_sd
-## 1:    809 30.54536     28 13.92255</code></pre>
+<p>При импорте json-объекта в R объект может быть импортирован как таблица (как правило, в редких случаях, когда json-объект плоский и не содержит вложений), чаще все же импортируется как объект класса <code>список</code> (<code>list</code>), то есть, именованный список с подсписками. Доступ к элементам списка классический - с помощью операторов <code>[[</code> и <code>[</code>. Впрочем, проще и надежнее использовать доступ по оператору <code>$</code> - из-за того, что практически всегда в json-объектах есть <code>ключ</code>, то в импортированном json-е этот ключ становится названием подсписка.</p>
+<p>Допустим, у нас есть вот такой json-файл. По факту это массив из двух json-объектов.</p>
+<div class="sourceCode" id="cb583"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb583-1"><a href="api.html#cb583-1" tabindex="-1"></a><span class="fu">cat</span> ./data/test.json</span></code></pre></div>
+<pre><code>## [{
+##   &quot;name&quot;:&quot;Thor&quot;, 
+##   &quot;parents&quot;: {
+##     &quot;father&quot;:&quot;Odin&quot;, 
+##     &quot;mother&quot;:&quot;Jord&quot;
+##   },
+##   &quot;weapon&quot;: &quot;Mjölnir&quot;
+## },
+## {
+##   &quot;name&quot;:&quot;Loki&quot;, 
+##   &quot;parents&quot;: {
+##     &quot;father&quot;:&quot;Farbauti&quot;, 
+##     &quot;mother&quot;:&quot;Laufey&quot;
+##   }
+## }]</code></pre>
+<p>При импорте он может быть импортирован как таблица (потому что оба вложенных json-объекта одинаковой длины). При импорте каждый из этих объектов будет обработан как строка в табличке. Ключи объектов задают колонки, значения - строки. Так как для ключа <code>parents</code> значение состоит из двух пар, то колонка <code>parents</code> умножится по количеству пар, и назания ключей сольются через <code>.</code>. Во втором объекте нет ключа <code>weapon</code>, поэтому в соответствующей строке будет проставлено <code>NA</code>:</p>
+<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="api.html#cb585-1" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
+<span id="cb585-2"><a href="api.html#cb585-2" tabindex="-1"></a><span class="fu">fromJSON</span>(<span class="st">&#39;data/test.json&#39;</span>)</span></code></pre></div>
+<pre><code>##   name parents.father parents.mother  weapon
+## 1 Thor           Odin           Jord Mjölnir
+## 2 Loki       Farbauti         Laufey    &lt;NA&gt;</code></pre>
+<p>При импорте файла в виде списка, каждый объект будет представлен в виде неименованного подсписок списка:</p>
+<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="api.html#cb587-1" tabindex="-1"></a>my_json <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="st">&#39;data/test.json&#39;</span>, <span class="at">simplifyDataFrame =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb587-2"><a href="api.html#cb587-2" tabindex="-1"></a><span class="fu">str</span>(my_json)</span></code></pre></div>
+<pre><code>## List of 2
+##  $ :List of 3
+##   ..$ name   : chr &quot;Thor&quot;
+##   ..$ parents:List of 2
+##   .. ..$ father: chr &quot;Odin&quot;
+##   .. ..$ mother: chr &quot;Jord&quot;
+##   ..$ weapon : chr &quot;Mjölnir&quot;
+##  $ :List of 2
+##   ..$ name   : chr &quot;Loki&quot;
+##   ..$ parents:List of 2
+##   .. ..$ father: chr &quot;Farbauti&quot;
+##   .. ..$ mother: chr &quot;Laufey&quot;</code></pre>
+<p>Если мы хотим получить имя отца Loki, то мы должны обратиться ко второму элементу списка my_json (в который мы импортировали json), так как это неименованные подсписки. Далее элементы уже имеют названия, и к ним можно обращаться с помощью <code>$</code> (если после $ в RStudio нажать Tab, то появится список элементов этого списка, но это работает только с именованными списками):</p>
+<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="api.html#cb589-1" tabindex="-1"></a>my_json[[<span class="dv">2</span>]]<span class="sc">$</span>parents<span class="sc">$</span>father</span></code></pre></div>
+<pre><code>## [1] &quot;Farbauti&quot;</code></pre>
+<p><br></p>
+</div>
+</div>
+<div id="api-1" class="section level2 unnumbered hasAnchor">
+<h2>API<a href="api.html#api-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="application-programming-interface" class="section level3 unnumbered hasAnchor">
+<h3>Application Programming Interface<a href="api.html#application-programming-interface" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>В общем виде API (программный интерфейс приложения, application programming interface) - описание способов, которыми одна компьютерная программа может взаимодействовать с другой программой. Применительно к получению данных от сторонних сервисов через интернет - интерфейс базы данных сервиса, к которому могут обращаться разработчики приложений или третьих сервисов. В таких случаях говорят о Web API или, что корректнее, REST API.</p>
+<p>Стандартный пример - сервис погоды. Сервис собирает и хранит данные о погоде у себя в базе данных. Однако предоставлять всем разработчикам мира доступ к базе данных неправильно (и с точки зрения безопасности, и с точки зрения архитектуры и надежности). Поэтому владельцы сервиса предоставляюи API - что-то вроде “прослойки” между внешними разработчиками и своей базой данных.</p>
+<p>Процесс выглядит следующим образом:</p>
 <ul>
-<li>*в датасете titanic попробуйте построить логистическую регрессию, которая бы предсказывала вероятность выживания пассажира (<code>survived</code>).</li>
+<li><p>разработчик делает по определенным правилам запрос к API. Правила запроса описаны в документации API, которую должен предоставить разработчик. Обычно в документации описывают ключевые элементы запроса (как и какими ключевыми словами формировать запрос), значения кодов ошибок, нередко есть “песочница” - можно в браузере попробовать собрать запрос, введя нужные значения в осоответствующие поля, и получить пример запроса и результ, который возвращает API на этот запрос.</p></li>
+<li><p>API получает запрос, и если запрос составлен корректно, то формирует на основе этого запроса обращение к базе данных сервиса</p></li>
+<li><p>полученная от БД информация отправляется клиенту (приложению), создавшему запрос. Как правило, для передачи информации используется формат json.</p></li>
 </ul>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="data.table-pt2.html#cb219-1" tabindex="-1"></a>lm_fit <span class="ot">&lt;-</span> <span class="fu">glm</span>(survived <span class="sc">~</span> sex <span class="sc">+</span> age <span class="sc">+</span> pclass <span class="sc">+</span> fare, <span class="at">data =</span> titanic, <span class="at">family =</span> <span class="st">&#39;binomial&#39;</span>)</span>
-<span id="cb219-2"><a href="data.table-pt2.html#cb219-2" tabindex="-1"></a><span class="fu">summary</span>(lm_fit)</span></code></pre></div>
-<pre><code>## 
-## Call:
-## glm(formula = survived ~ sex + age + pclass + fare, family = &quot;binomial&quot;, 
-##     data = titanic)
-## 
-## Coefficients:
-##               Estimate Std. Error z value Pr(&gt;|z|)    
-## (Intercept)  4.5009747  0.4616310   9.750  &lt; 2e-16 ***
-## sexmale     -2.4899900  0.1669830 -14.912  &lt; 2e-16 ***
-## age         -0.0336871  0.0062977  -5.349 8.84e-08 ***
-## pclass      -1.1079840  0.1284987  -8.623  &lt; 2e-16 ***
-## fare         0.0006614  0.0017242   0.384    0.701    
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-## 
-## (Dispersion parameter for binomial family taken to be 1)
-## 
-##     Null deviance: 1413.57  on 1044  degrees of freedom
-## Residual deviance:  982.81  on 1040  degrees of freedom
-##   (264 observations deleted due to missingness)
-## AIC: 992.81
-## 
-## Number of Fisher Scoring iterations: 4</code></pre>
-</div>
-<div id="для-тех-кто-любит-посложнее-1" class="section level3 unnumbered hasAnchor">
-<h3>для тех, кто любит посложнее<a href="data.table-pt2.html#для-тех-кто-любит-посложнее-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Создайте датасет:</p>
+<p><img src="pics/api2.png"></p>
+<p>Возможные нюансы:</p>
 <ul>
-<li>несколько пользователей</li>
-<li>по 5 сессий на каждого пользователя.</li>
-<li>поле логина, тип – дата и время (таймстамп), все логины в интервале 1-9 сентября. В юникс-формате или просто дата и время, на ваше усмотрение.</li>
-<li>для каждой сессии создайте случайную длину сессии (достаточно просто вектор длиной со всю таблицу, без учета пользователей) в секундах. Длина сессии должна варьировать в пределах 120 - 600 секунд</li>
-<li>посчитайте количество пользователей, среднее количество сессий на пользователя, среднюю длину сессий. Без учета вариативности внутри пользователя, overall по всему датасету.</li>
+<li><p>API может меняться (название категорий и прочие правила), а вот документацию обновить иногда забывают</p></li>
+<li><p>Могут быть разные формы доступа - и открытый доступ, без какой-либо авторизации, либо авторизация по api_key. Нередко для авторизации используется протокол OAuth</p></li>
+<li><p>В подавляющем числе случаев API либо закрыты и доступ платный, либо позволяют небольшое количество тестовых запросов</p></li>
+<li><p>Сервисы, которые предоставляют информацию, обычно имеют разные тарифные планы</p></li>
 </ul>
-<p>Подсказки:</p>
+<p><br></p>
+</div>
+<div id="основные-шаги-при-работе-с-api" class="section level3 unnumbered hasAnchor">
+<h3>Основные шаги при работе с API<a href="api.html#основные-шаги-при-работе-с-api" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li>датасет лучше создавать в несколько шагов</li>
-<li>есть полезная функция <code>expand.grid()</code></li>
-<li>для генерации времени поможет функция <code>as.POSIXct()</code>, плюс есть немного справочных материалов в учебнике: <a href="https://textbook.rintro.ru/objects.html#objects-time">раз</a>, <a href="https://textbook.rintro.ru/manipulations.html#manipulations-time">два</a></li>
+<li><p>определиться с задачей</p></li>
+<li><p>найти соответствующий сервис</p></li>
+<li><p>найти документацию по API: на сайтах не всегда есть прямая ссылка на документацию и прочие инструменты разработчиков. Временами проще просто погуглить что-то вроде <code>&lt;service name&gt; api</code>, например, <code>циан api</code></p></li>
+<li><p>получить API key / пройти OAuth-авторизацию: в зависимости от требвоаний сервиса, могут быть разные требования к процессу авторизации - надо читать документацию и условия использования сервиса.</p></li>
+<li><p>написать GET/POST-запрос. Либо воспользоваться R-пакетом, который внутри имеет все те же get-запросы, но более дружелюбен к пользователю. В основном имеет смысл при работе с сложными сервисами типа Google Analytics API.</p></li>
 </ul>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="data.table-pt2.html#cb221-1" tabindex="-1"></a>my_dt <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(</span>
-<span id="cb221-2"><a href="data.table-pt2.html#cb221-2" tabindex="-1"></a>  <span class="fu">paste0</span>(<span class="st">&#39;user_&#39;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>),</span>
-<span id="cb221-3"><a href="data.table-pt2.html#cb221-3" tabindex="-1"></a>  <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
-<span id="cb221-4"><a href="data.table-pt2.html#cb221-4" tabindex="-1"></a>)</span>
-<span id="cb221-5"><a href="data.table-pt2.html#cb221-5" tabindex="-1"></a>my_dt <span class="ot">&lt;-</span> <span class="fu">as.data.table</span>(my_dt)</span>
-<span id="cb221-6"><a href="data.table-pt2.html#cb221-6" tabindex="-1"></a><span class="fu">setnames</span>(my_dt, <span class="fu">c</span>(<span class="st">&#39;uid&#39;</span>, <span class="st">&#39;sid&#39;</span>))</span>
-<span id="cb221-7"><a href="data.table-pt2.html#cb221-7" tabindex="-1"></a><span class="fu">setkey</span>(my_dt, <span class="st">&#39;uid&#39;</span>)</span>
-<span id="cb221-8"><a href="data.table-pt2.html#cb221-8" tabindex="-1"></a></span>
-<span id="cb221-9"><a href="data.table-pt2.html#cb221-9" tabindex="-1"></a>time_seq <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">as.POSIXct</span>(<span class="st">&quot;2023-09-01 00:00:00&quot;</span>), <span class="fu">as.POSIXct</span>(<span class="st">&quot;2023-09-09 23:59:59&quot;</span>), <span class="at">by =</span> <span class="st">&quot;s&quot;</span>)</span>
-<span id="cb221-10"><a href="data.table-pt2.html#cb221-10" tabindex="-1"></a></span>
-<span id="cb221-11"><a href="data.table-pt2.html#cb221-11" tabindex="-1"></a>my_dt[, login_ts <span class="sc">:=</span> <span class="fu">sort</span>(<span class="fu">sample</span>(time_seq, .N))]</span>
-<span id="cb221-12"><a href="data.table-pt2.html#cb221-12" tabindex="-1"></a>my_dt[, session_length <span class="sc">:=</span> <span class="fu">sample</span>(<span class="dv">120</span><span class="sc">:</span><span class="dv">600</span>, .N)]</span>
-<span id="cb221-13"><a href="data.table-pt2.html#cb221-13" tabindex="-1"></a></span>
-<span id="cb221-14"><a href="data.table-pt2.html#cb221-14" tabindex="-1"></a><span class="fu">head</span>(my_dt)</span></code></pre></div>
-<pre><code>##       uid sid            login_ts session_length
-## 1: user_1   1 2023-09-01 08:21:02            345
-## 2: user_1   2 2023-09-04 07:12:07            253
-## 3: user_1   3 2023-09-04 15:56:35            576
-## 4: user_1   4 2023-09-05 03:49:41            185
-## 5: user_1   5 2023-09-05 13:59:18            432
-## 6: user_2   1 2023-09-05 21:13:00            595</code></pre>
+<p><br></p>
 </div>
-</div>
-<div id="применение-функций" class="section level2 unnumbered hasAnchor">
-<h2>Применение функций<a href="data.table-pt2.html#применение-функций" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="dataset" class="section level3 unnumbered hasAnchor">
-<h3>dataset<a href="data.table-pt2.html#dataset" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="data.table-pt2.html#cb223-1" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
-<span id="cb223-2"><a href="data.table-pt2.html#cb223-2" tabindex="-1"></a></span>
-<span id="cb223-3"><a href="data.table-pt2.html#cb223-3" tabindex="-1"></a><span class="co"># импортируем по ссылке</span></span>
-<span id="cb223-4"><a href="data.table-pt2.html#cb223-4" tabindex="-1"></a>sw <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&#39;http://bit.ly/39aOUne&#39;</span>)</span>
-<span id="cb223-5"><a href="data.table-pt2.html#cb223-5" tabindex="-1"></a></span>
-<span id="cb223-6"><a href="data.table-pt2.html#cb223-6" tabindex="-1"></a><span class="co"># смотрим структуру объекта</span></span>
-<span id="cb223-7"><a href="data.table-pt2.html#cb223-7" tabindex="-1"></a><span class="fu">str</span>(sw)</span></code></pre></div>
-<pre><code>## Classes &#39;data.table&#39; and &#39;data.frame&#39;:   77 obs. of  6 variables:
-##  $ name       : chr  &quot;Luke Skywalker&quot; &quot;C-3PO&quot; &quot;Darth Vader&quot; &quot;Owen Lars&quot; ...
-##  $ height     : int  172 167 202 178 165 97 183 188 163 183 ...
-##  $ mass       : num  77 75 136 120 75 32 84 84 NA NA ...
-##  $ skin_color : chr  &quot;fair&quot; &quot;gold&quot; &quot;white&quot; &quot;light&quot; ...
-##  $ gender     : chr  &quot;male&quot; &quot;n/a&quot; &quot;male&quot; &quot;male&quot; ...
-##  $ planet_name: chr  &quot;Tatooine&quot; &quot;Tatooine&quot; &quot;Tatooine&quot; &quot;Tatooine&quot; ...
-##  - attr(*, &quot;.internal.selfref&quot;)=&lt;externalptr&gt;</code></pre>
-</div>
-</div>
-<div id="применение-функций-1" class="section level2 unnumbered hasAnchor">
-<h2>Применение функций<a href="data.table-pt2.html#применение-функций-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="количество-строк-и-значений-.n-uniquen" class="section level3 unnumbered hasAnchor">
-<h3>Количество строк и значений: .N, uniqueN<a href="data.table-pt2.html#количество-строк-и-значений-.n-uniquen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>В data.table есть пара полезных функций, которые позволяет быстро и лаконично считать количество значений и количество уникальных значений.</p>
-<p>Считаем количество строк в табличке - для этого используется функция <code>.N</code> (в data.table есть еще несколько функций, которые начинаются с <code>.</code>, но мы их почти не будем касаться).</p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="data.table-pt2.html#cb225-1" tabindex="-1"></a>sw[, .N]</span></code></pre></div>
-<pre><code>## [1] 77</code></pre>
-<p>Функция <code>uniqueN()</code> считает количество уникальных значений. Аналогична сочетанию двух функций <code>length()</code> + <code>unique()</code>, просто короче и быстрее.</p>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="data.table-pt2.html#cb227-1" tabindex="-1"></a>sw[, <span class="fu">uniqueN</span>(planet_name)]</span></code></pre></div>
-<pre><code>## [1] 48</code></pre>
-</div>
-<div id="ветвления-ifelse-fifelse" class="section level3 unnumbered hasAnchor">
-<h3>Ветвления: ifelse / fifelse<a href="data.table-pt2.html#ветвления-ifelse-fifelse" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>В R есть два вида ветвлений с использованием if. Первое - стандартная для многих языков конструкция <code>if {} else{}</code>, она используется при создании функций и т.д. Для работы с таблицами полезнее функция <code>ifelse()</code> или ее быстрый аналог в data.table - <code>fifelse</code> (<code>f</code> от fast).</p>
-<p>В первом аргументе функции мы указываем проверку, в результате которой можно будет сказать TRUE или FALSE. Вторым аргументом - что должно быть возвращено, если результат проверки будет TRUE (логическое утверждение из первого аргумента истинно). Третий аргумент - что должно быть возвращено, если утверждение из первого аргумента ложно. Например, мы проверяем, истинно ли, что 5 тождественно 3. Так как 5 не равно трем, результатом сравнения 5 == 3 будет FALSE (утверждение ложно), соответственно, результатом <code>ifelse()</code> будет <code>'значение если неверно'</code>.</p>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="data.table-pt2.html#cb229-1" tabindex="-1"></a><span class="dv">5</span> <span class="sc">==</span> <span class="dv">3</span></span></code></pre></div>
-<pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="data.table-pt2.html#cb231-1" tabindex="-1"></a><span class="fu">ifelse</span>(<span class="dv">5</span> <span class="sc">==</span> <span class="dv">3</span>, <span class="st">&#39;значение если верно&#39;</span>, <span class="st">&#39;значение если неверно&#39;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;значение если неверно&quot;</code></pre>
-<p>Ключевое отличие <code>ifelse()</code> от классического <code>if {} else{}</code> в том, что эта функция векторизована. То есть, если в первом аргументе сравнивать вектор с каким-то значением, то проверка будет применяться к каждому элементу вектора. Соответственно, и результатов <code>ifelse</code> будет столько же, сколько элементов в векторе.</p>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="data.table-pt2.html#cb233-1" tabindex="-1"></a>my_vec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">9</span>)</span>
-<span id="cb233-2"><a href="data.table-pt2.html#cb233-2" tabindex="-1"></a><span class="fu">ifelse</span>(my_vec <span class="sc">==</span> <span class="dv">3</span>, <span class="st">&#39;значение если верно&#39;</span>, <span class="st">&#39;значение если неверно&#39;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;значение если неверно&quot; &quot;значение если верно&quot;   &quot;значение если неверно&quot;</code></pre>
-<p>Все это позволяет использовать ifelse/fifelse для операций над колонками - например, в примере мы проверяем с помощью функции <code>grepl</code>, встречается ли в значениях ячеек в колонке <code>skin_color</code> слово <code>grey</code>. И если встречается - то в новую колонку будет проставлено значение <code>grey</code>, а если не всречается - <code>no grey</code>.</p>
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="data.table-pt2.html#cb235-1" tabindex="-1"></a>sw[, new <span class="sc">:=</span> <span class="fu">fifelse</span>(<span class="fu">grepl</span>(<span class="st">&#39;grey&#39;</span>, skin_color), <span class="st">&#39;grey&#39;</span>, <span class="st">&#39;no grey&#39;</span>)]</span>
-<span id="cb235-2"><a href="data.table-pt2.html#cb235-2" tabindex="-1"></a>sw[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="fu">list</span>(name, skin_color, new)]</span></code></pre></div>
-<pre><code>##                   name skin_color     new
-##  1:     Luke Skywalker       fair no grey
-##  2:              C-3PO       gold no grey
-##  3:        Darth Vader      white no grey
-##  4:          Owen Lars      light no grey
-##  5: Beru Whitesun lars      light no grey
-##  6:              R5-D4 white, red no grey
-##  7:  Biggs Darklighter      light no grey
-##  8:   Anakin Skywalker       fair no grey
-##  9:     Shmi Skywalker       fair no grey
-## 10:        Cliegg Lars       fair no grey</code></pre>
-</div>
-</div>
-<div id="агрегации" class="section level2 unnumbered hasAnchor">
-<h2>Агрегации<a href="data.table-pt2.html#агрегации" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>В синтаксисе <code>data.table</code> есть конструкция <code>by</code>, которая отвечает за примененим операций над колонками отдельно для каждой группы (общая структура выглядит следующим образом: <code>dataset[выбор строк, операции над колонками, группировка]</code>).</p>
-<p>Общая логика группировки стандартная - <code>split - apply - combine</code>. То есть, датасет разделяется на блоки по значениям группирующей переменной, к колонкам каждого сабсета применяется какое-то выражение, и результат обратно собирается в таблицу. Результатом группировки в <code>data.table</code> всегда будет таблица.
-<img src="pics/split-apply-combine.jpg" /></p>
-<div id="вычисления-по-одной-колонке-1" class="section level3 unnumbered hasAnchor">
-<h3>Вычисления по одной колонке<a href="data.table-pt2.html#вычисления-по-одной-колонке-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Можно использовать группировку при применении функции к таблице, но удобнее результат операции с колонкой оборачивать в <code>list()</code>, так как это дает возможность переименовать колонку. В примере ниже мы считаем количество уникальных значений в колонке <code>name</code> для каждой группы по значениям колонки <code>gender</code>:</p>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="data.table-pt2.html#cb237-1" tabindex="-1"></a>sw[, <span class="fu">uniqueN</span>(name), by <span class="ot">=</span> gender]</span></code></pre></div>
-<pre><code>##           gender V1
-## 1:          male 57
-## 2:           n/a  3
-## 3:        female 16
-## 4: hermaphrodite  1</code></pre>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="data.table-pt2.html#cb239-1" tabindex="-1"></a>sw[, <span class="fu">list</span>(<span class="at">n_chars =</span> <span class="fu">uniqueN</span>(name)), by <span class="ot">=</span> gender]</span></code></pre></div>
-<pre><code>##           gender n_chars
-## 1:          male      57
-## 2:           n/a       3
-## 3:        female      16
-## 4: hermaphrodite       1</code></pre>
-</div>
-<div id="вычисления-по-нескольким-колонкам" class="section level3 unnumbered hasAnchor">
-<h3>Вычисления по нескольким колонкам<a href="data.table-pt2.html#вычисления-по-нескольким-колонкам" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Можно выполнять операции сразу с несколькими колонками:</p>
-<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="data.table-pt2.html#cb241-1" tabindex="-1"></a>sw[, <span class="fu">list</span>(</span>
-<span id="cb241-2"><a href="data.table-pt2.html#cb241-2" tabindex="-1"></a>  <span class="at">n_chars =</span> <span class="fu">uniqueN</span>(name),</span>
-<span id="cb241-3"><a href="data.table-pt2.html#cb241-3" tabindex="-1"></a>  <span class="at">mass_md =</span> <span class="fu">median</span>(mass, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb241-4"><a href="data.table-pt2.html#cb241-4" tabindex="-1"></a>), by <span class="ot">=</span> gender]</span></code></pre></div>
-<pre><code>##           gender n_chars mass_md
-## 1:          male      57    80.0
-## 2:           n/a       3    32.0
-## 3:        female      16    52.5
-## 4: hermaphrodite       1      NA</code></pre>
-</div>
-<div id="группировка-по-нескольким-полям-1" class="section level3 unnumbered hasAnchor">
-<h3>Группировка по нескольким полям<a href="data.table-pt2.html#группировка-по-нескольким-полям-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Часто возникает необходимость группировки сразу по нескольким полям - для этого колонки групп также указываются через список. В выражении ниже мы сначала фильтруем датасет и оставляем только строки, где в колонке <code>gender</code> есть значения <code>male</code> и <code>female</code>, после чего в группах по полу и цвету кожи считаем количество персонажей. Результат агрегации записываем в новый объект и выводим на печать только первые 5 строк (просто чтобы сократить вывод).</p>
-<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="data.table-pt2.html#cb243-1" tabindex="-1"></a>sw_grps <span class="ot">&lt;-</span> sw[gender <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&#39;male&#39;</span>, <span class="st">&#39;female&#39;</span>),</span>
-<span id="cb243-2"><a href="data.table-pt2.html#cb243-2" tabindex="-1"></a>              <span class="fu">list</span>(<span class="at">n_chars =</span> <span class="fu">uniqueN</span>(name)),</span>
-<span id="cb243-3"><a href="data.table-pt2.html#cb243-3" tabindex="-1"></a>              by <span class="ot">=</span> <span class="fu">list</span>(gender, skin_color)]</span>
-<span id="cb243-4"><a href="data.table-pt2.html#cb243-4" tabindex="-1"></a>sw_grps[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
-<pre><code>##    gender skin_color n_chars
-## 1:   male       fair      12
-## 2:   male      white       2
-## 3:   male      light       4
-## 4: female      light       5
-## 5: female       fair       3</code></pre>
-</div>
-</div>
-<div id="манипуляции-с-таблицами" class="section level2 unnumbered hasAnchor">
-<h2>Манипуляции с таблицами<a href="data.table-pt2.html#манипуляции-с-таблицами" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="rbind" class="section level3 unnumbered hasAnchor">
-<h3>rbind()<a href="data.table-pt2.html#rbind" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Функция <code>rbind()</code>(от <code>row bind</code>) используется для объединение двух или более таблиц по строкам. То есть, в результате получается таблица с таким же количеством колонок, но с увеличенным числом строк - по количеству строк в объединяемых таблицах.</p>
-<p>Нередко в объединяемых таблицах отсутствует какая-нибудь колонка или колонки перепутаны. В таких случаях необходимо использовать аргументы <code>use.names = TRUE</code> (проверка названий колонок при объединение) и <code>fill = TRUE</code> (создание колонки с <code>NA</code>-значениями). Обратите внимание, это работает только с <code>data.table</code>-объектами.</p>
-<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="data.table-pt2.html#cb245-1" tabindex="-1"></a><span class="co"># создаем первую таблицу</span></span>
-<span id="cb245-2"><a href="data.table-pt2.html#cb245-2" tabindex="-1"></a>dt1 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">tb =</span> <span class="st">&#39;table_1&#39;</span>,</span>
-<span id="cb245-3"><a href="data.table-pt2.html#cb245-3" tabindex="-1"></a>                  <span class="at">col1 =</span> <span class="fu">sample</span>(<span class="dv">9</span>, <span class="dv">3</span>),</span>
-<span id="cb245-4"><a href="data.table-pt2.html#cb245-4" tabindex="-1"></a>                  <span class="at">col3 =</span> <span class="st">&#39;only in table1&#39;</span>,</span>
-<span id="cb245-5"><a href="data.table-pt2.html#cb245-5" tabindex="-1"></a>                  <span class="at">col2 =</span> <span class="fu">sample</span>(letters, <span class="dv">3</span>))</span>
-<span id="cb245-6"><a href="data.table-pt2.html#cb245-6" tabindex="-1"></a></span>
-<span id="cb245-7"><a href="data.table-pt2.html#cb245-7" tabindex="-1"></a><span class="co"># создаем вторую таблицу</span></span>
-<span id="cb245-8"><a href="data.table-pt2.html#cb245-8" tabindex="-1"></a>dt2 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">tb =</span> <span class="st">&#39;table_2&#39;</span>,</span>
-<span id="cb245-9"><a href="data.table-pt2.html#cb245-9" tabindex="-1"></a>                  <span class="at">col4 =</span> <span class="st">&#39;only in table2&#39;</span>,</span>
-<span id="cb245-10"><a href="data.table-pt2.html#cb245-10" tabindex="-1"></a>                  <span class="at">col1 =</span> <span class="fu">sample</span>(<span class="dv">9</span>, <span class="dv">3</span>),</span>
-<span id="cb245-11"><a href="data.table-pt2.html#cb245-11" tabindex="-1"></a>                  <span class="at">col2 =</span> <span class="fu">sample</span>(letters, <span class="dv">3</span>))</span>
-<span id="cb245-12"><a href="data.table-pt2.html#cb245-12" tabindex="-1"></a></span>
-<span id="cb245-13"><a href="data.table-pt2.html#cb245-13" tabindex="-1"></a><span class="co"># объединяем по строкам</span></span>
-<span id="cb245-14"><a href="data.table-pt2.html#cb245-14" tabindex="-1"></a><span class="fu">rbind</span>(dt1, dt2, <span class="at">fill =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<pre><code>##         tb col1           col3 col2           col4
-## 1: table_1    6 only in table1    u           &lt;NA&gt;
-## 2: table_1    3 only in table1    e           &lt;NA&gt;
-## 3: table_1    4 only in table1    t           &lt;NA&gt;
-## 4: table_2    9           &lt;NA&gt;    y only in table2
-## 5: table_2    5           &lt;NA&gt;    z only in table2
-## 6: table_2    4           &lt;NA&gt;    e only in table2</code></pre>
-</div>
-<div id="cbind" class="section level3 unnumbered hasAnchor">
-<h3>cbind()<a href="data.table-pt2.html#cbind" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Функция <code>cbind()</code> (от <code>columns bind</code>) используется для объединения нескольких векторов или таблиц равной длины. В результате получается объединённая таблица такой же длины, как каждый из объединяемых векторов. При объединении таблиц — с таким же количеством строк, как в каждой из объединяемых таблиц, и с суммарным количеством колонок.</p>
-<p>При использовании <code>cbind()</code> в работе с таблицами необходимо помнить, что это буквально “склейка” таблиц независимо от порядка наблюдений по строкам. В противном случае можно получить наблюдение, где часть колонок описывает характеристики этого наблюдения, а другая часть — каких-то других наблюдений.</p>
-<p>Другой нюанс, который также необходимо учитывать: при объединении таблиц названия колонок останутся прежними. Так что если в нескольких таблицах встречается, например, колонка <code>col1</code>, то в финальном датасете будет несколько колонок с таким названием — по количеству объединяемых таблиц, в которых она была. В свою очередь, это усложняет задачи выбора колонки по названию и мешает понять, в какой колонке какое содержание.</p>
-<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="data.table-pt2.html#cb247-1" tabindex="-1"></a><span class="co"># выведем ранее созданные таблицы</span></span>
-<span id="cb247-2"><a href="data.table-pt2.html#cb247-2" tabindex="-1"></a><span class="fu">print</span>(dt1)</span></code></pre></div>
-<pre><code>##         tb col1           col3 col2
-## 1: table_1    6 only in table1    u
-## 2: table_1    3 only in table1    e
-## 3: table_1    4 only in table1    t</code></pre>
-<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="data.table-pt2.html#cb249-1" tabindex="-1"></a><span class="fu">print</span>(dt2)</span></code></pre></div>
-<pre><code>##         tb           col4 col1 col2
-## 1: table_2 only in table2    9    y
-## 2: table_2 only in table2    5    z
-## 3: table_2 only in table2    4    e</code></pre>
-<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="data.table-pt2.html#cb251-1" tabindex="-1"></a><span class="co"># создадим колонки-номера строк</span></span>
-<span id="cb251-2"><a href="data.table-pt2.html#cb251-2" tabindex="-1"></a>dt1[, indx <span class="sc">:=</span> <span class="dv">1</span><span class="sc">:</span>.N]</span>
-<span id="cb251-3"><a href="data.table-pt2.html#cb251-3" tabindex="-1"></a>dt2[, indx <span class="sc">:=</span> <span class="dv">1</span><span class="sc">:</span>.N]</span>
-<span id="cb251-4"><a href="data.table-pt2.html#cb251-4" tabindex="-1"></a></span>
-<span id="cb251-5"><a href="data.table-pt2.html#cb251-5" tabindex="-1"></a><span class="co"># теперь отсортируем вторую таблицу по убыванию</span></span>
-<span id="cb251-6"><a href="data.table-pt2.html#cb251-6" tabindex="-1"></a>dt2 <span class="ot">&lt;-</span> dt2[<span class="fu">order</span>(<span class="sc">-</span>indx)]</span>
-<span id="cb251-7"><a href="data.table-pt2.html#cb251-7" tabindex="-1"></a></span>
-<span id="cb251-8"><a href="data.table-pt2.html#cb251-8" tabindex="-1"></a><span class="co"># таблица получилась, но в строках бардак</span></span>
-<span id="cb251-9"><a href="data.table-pt2.html#cb251-9" tabindex="-1"></a><span class="fu">cbind</span>(dt1, dt2)</span></code></pre></div>
-<pre><code>##         tb col1           col3 col2 indx      tb           col4 col1 col2 indx
-## 1: table_1    6 only in table1    u    1 table_2 only in table2    4    e    3
-## 2: table_1    3 only in table1    e    2 table_2 only in table2    5    z    2
-## 3: table_1    4 only in table1    t    3 table_2 only in table2    9    y    1</code></pre>
-<p>В целом, <code>cbind()</code> — весьма редко используемый способ объединения таблиц. Его стоит использовать только тогда, когда есть однозначная уверенность в структуре данных (одинаковое количество строк, разные названия колонок, идентичная сортировка и т. д.), в противном случае это место, в котором очень легко ошибиться, при этом эту ошибку будет очень сложно найти.</p>
-</div>
-</div>
-<div id="домашнее-задание-4" class="section level2 unnumbered hasAnchor">
-<h2>Домашнее задание<a href="data.table-pt2.html#домашнее-задание-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="level-1-iatytd" class="section level3 unnumbered hasAnchor">
-<h3>level 1 (IATYTD)<a href="data.table-pt2.html#level-1-iatytd" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Импортируйте данные по Star Wars, файл по ссылке: <a href="http://bit.ly/39aOUne" class="uri">http://bit.ly/39aOUne</a>. Посмотрите структуру объекта. Посчитайте, сколько в таблице строк.</p>
-</div>
-<div id="level-2-hntr" class="section level3 unnumbered hasAnchor">
-<h3>level 2 (HNTR)<a href="data.table-pt2.html#level-2-hntr" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="accuweather" class="section level3 unnumbered hasAnchor">
+<h3>Accuweather<a href="api.html#accuweather" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Для примера мы работаем с сервисом, предоставляющим информацию о погоде в определенных географических точках. Сервис имеет возможность искать населенный пункт по названию (в том числе и на русском языке), а также отдает текущие и прогнозные значения погоды в этой точке.</p>
+<div id="получение-api-key" class="section level4 unnumbered hasAnchor">
+<h4>Получение api key<a href="api.html#получение-api-key" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Начало работы выглядит следующим образом, если следовать <a href="https://developer.accuweather.com/getting-started">справке</a> на сайте:</p>
+<p><strong>Registration</strong></p>
 <ul>
-<li><p>создайте копию колонки <code>mass</code> с названием <code>mass_corrected</code></p></li>
-<li><p>замените все NA в колонке <code>mass_corrected</code> средним значением по группе, группы выделяются по полу и планете (вам потребуется создать промежуточную колонку)</p></li>
+<li>Click “Register” or “Sign Up” on the homepage.</li>
+<li>A registration form will be displayed.</li>
+<li>Enter the required information in the form and click the “Create new account” button to submit the form.</li>
+<li>An email with login instructions will be sent to the email address that you supplied in the form.</li>
+<li>Use the one-time login link in the email to access your account information and set your password.</li>
 </ul>
+<p><strong>Package Purchase</strong></p>
+<ul>
+<li>Click “Packages and Pricing” in the main menu.</li>
+<li>Select the package you would like to purchase.</li>
+<li>Enter your billing information.</li>
+<li>Confirm purchase.</li>
+<li>Create an app to get your API key.</li>
+</ul>
+<p><strong>App Creation</strong></p>
+<ul>
+<li>Click “My Apps” in the main menu.</li>
+<li>Click the “Add a new App” button.</li>
+<li>Enter the required information and click the “Create App” button.</li>
+<li>The new App will be active immediately. Click on the App name to view your API Key and details about your App.</li>
+<li>Use your API Key to access the AccuWeather APIs.</li>
+</ul>
+<p>Для нас важны пункты, которые касаются создания приложения и получения API key. Приложение - это, грубо говоря, регистрация какой-то клиентской точки, с которой API будет получать запросы. При работе из R приложения как такового нет, можно сказать, что наш скрипт, который получает информацию от сервиса - своего рода такое “приложение”. В реальной жизни аткими приложениями могут встроенный виджет на сайт или в операционную систему, виджет или приложение в мобильном устройстве, какой-нибудь третий сервис по сличению и предсказанию погоды и т.д.</p>
+<p>Помимо просто авторизации, такая архитектура позволяет владельцам сервисов управлять доступом - например, создавать различные тарифные планы с разным количеством запросов, которые можно сделать к сервису (базовый план предполагает всего 50 запросов в сутки).</p>
+<p><strong>Я уже зарегистрировал приложение и получил API key (ключ будет опубликован в слаке в канале general, либо у меня по запросу). Это приложение идет по отдельному тарифному плану, поэтому количества запросов должно быть достаточно для учебных целей.</strong></p>
+<p><br></p>
 </div>
-<div id="level-3-hmp" class="section level3 unnumbered hasAnchor">
-<h3>level 3 (HMP)<a href="data.table-pt2.html#level-3-hmp" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p>изучите справку по функции <code>ifelse()</code> (или <code>fifelse()</code> в data.table)</p></li>
-<li><p>создайте копию колонки <code>gender</code>, назовите ее <code>gender_2</code>. Замените в ней все <code>n/a</code> и <code>hermaphrodite</code> на <code>other</code>. Посчитайте количество персонажей в зависимости от пола (<code>gender_2</code>):</p></li>
-</ul>
-<pre><code>##    gender_2  N
-## 1:     male 57
-## 2:    other  4
-## 3:   female 16</code></pre>
-<ul>
-<li>выполните предыдущее задание без создания промежуточной колонки <code>gender_2</code></li>
-</ul>
+<div id="flow" class="section level4 unnumbered hasAnchor">
+<h4>Flow<a href="api.html#flow" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Последовательность запросов при работе с API сервиса такая:
+<img src="https://developer.accuweather.com/sites/default/files/APIRequestDemo%20%282%29.jpg" /></p>
+<p><br></p>
 </div>
-<div id="level-4-uv" class="section level3 unnumbered hasAnchor">
-<h3>level 4 (UV)<a href="data.table-pt2.html#level-4-uv" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p>сделайте сводную таблицу <code>planet_chars</code> по персонажам каждой планеты, где в колонках будет количество персонажей, их средний рост и вес (оригинальный и скорректированный).</p></li>
-<li><p>округлите значения до 1 знака после запятой</p></li>
-</ul>
-<p>Первые 5 строк результата:</p>
-<pre><code>##    planet_name n_chars height_mn mass_mn mass_corrected_mn
-## 1:    Tatooine      10     169.8    85.4              85.8
-## 2:      Kamino       3     208.3    83.1              83.1
-## 3:    Geonosis       1     183.0    80.0              80.0
-## 4:      Utapau       1     206.0    80.0              80.0
-## 5:    Kashyyyk       2     231.0   124.0             124.0</code></pre>
+<div id="get-запрос" class="section level4 unnumbered hasAnchor">
+<h4>GET-запрос<a href="api.html#get-запрос" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Первый этап работы - получение location key, внутренний идентификатор геоточки. Это можно сделать разными способами - по координатам, по списку городов (если входит в топ 150), по почтовому индексу, по текстовому поиску (который можно ограничить до страны).</p>
+<p>Будм работать с поиском города по названию, с фильтрацией по стране. Документация по этому методу находится <a href="https://developer.accuweather.com/accuweather-locations-api/apis/get/locations/v1/cities/%7BcountryCode%7D/search">здесь</a>, там же есть песочница.</p>
+<p>Первое, что мы видим на странице - ссылка resource url. Это базовая ссылка метода API. То есть, запрос на поиск по названию и получение информации по городу состоит из этой ссылки и дополнительных параметров.</p>
+<p>Resource url. {countryCode} - плейсхолдер для указания, в какой стране ищем город по названию.</p>
+<div class="sourceCode" id="cb591"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb591-1"><a href="api.html#cb591-1" tabindex="-1"></a>http<span class="sc">:</span><span class="er">//</span>dataservice.accuweather.com<span class="sc">/</span>locations<span class="sc">/</span>v1<span class="sc">/</span>cities<span class="sc">/</span>{countryCode}<span class="sc">/</span>search</span></code></pre></div>
+<p>Ниже на странице есть поля для введения API key (<code>api_key</code>) и текстового поля, в которое вводим название города (<code>q</code>). Прочие параметры необязательны.</p>
+<p>После введения этих параметров можно нажать кнопку <code>send the request</code> - запрос по введнным параметрам будет отправлен, и в вкладках <code>Request</code>, <code>Response</code>, <code>cURL</code> можно будет увидеть, какой запрос был отправлен и что было получено в ответ. Чуть ниже, в <code>Response Error Details</code> перечислены, какие коды ошибок может вернуть API. Это стандартные коды ответов сервера (список можно посмотреть <a href="https://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D0%BA%D0%BE%D0%B4%D0%BE%D0%B2_%D1%81%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D1%8F_HTTP">здесь</a>), мы ожидаем получить код <code>200</code> - запрос обработан и сервер вернул требуемую информацию.</p>
+<p>Нас интересует вкладка <code>cURL</code> - на ней лучше всего видно, как и из чего формируется запрос (<code>curl -X GET</code> - консольная команда, сам запрос в кавычках), вместо <code>ХХХХ</code> должен быть API key:</p>
+<div class="sourceCode" id="cb592"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb592-1"><a href="api.html#cb592-1" tabindex="-1"></a>http<span class="sc">:</span><span class="er">//</span>dataservice.accuweather.com<span class="sc">/</span>locations<span class="sc">/</span>v1<span class="sc">/</span>cities<span class="sc">/</span>RU<span class="sc">/</span>search?apikey<span class="ot">=</span>ХХХХ<span class="sc">&amp;</span>q<span class="ot">=</span>Moscow</span></code></pre></div>
+<p>В этом запросе вместо <code>{countryCode}</code> у нас стоит <code>RU</code>, так как мы хотим ограничить область поиска Россией. Знак <code>?</code> маркирует, что после него идут параметры запроса - <code>api_key</code> и <code>q</code> (которые мы и указывали в параметрах запроса в форме). Параметры идут парой, через знак <code>=</code>, без пробелов: <code>параметр=значение</code> (например, <code>q=Moscow</code>). Объединение параметров происходит через знак <code>&amp;</code>: <code>apikey=ХХХХ&amp;q=Moscow</code>.</p>
+<p>В вкладке <code>Response</code> представлен ответ сервера на запрос - это информация о клиенте, параметры запроса и собственно сам ответ сервера в виде json-объекта. Полный список параметров представлен ниже, в <code>Response Parameters</code>. Интересующий нас <code>location key</code> находится в значении ключа <code>"Key": "294021"</code> (для Москвы).</p>
+<p>Соответственно, чтобы получить информацию о погоде в Москве надо использовать этот ключ в уже в других методах API, которые находятся в разделах.</p>
+<p><br></p>
 </div>
-<div id="level-5-n" class="section level3 unnumbered hasAnchor">
-<h3>level 5 (N)<a href="data.table-pt2.html#level-5-n" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Создайте датасет:</p>
+<div id="get-запросы-в-r" class="section level4 unnumbered hasAnchor">
+<h4>GET-запросы в R<a href="api.html#get-запросы-в-r" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>В R для создания запросов используется пакет <code>httr</code> и функции <code>GET()</code>, <code>POST()</code> (если предполагается отправка данных профиля клиента и запрос меняет состояние на сервере) и <code>content()</code> для извлечения данных из ответа сервера.</p>
+<p>Для того, чтобы сделать запрос, необходимо собрать его из соответствующих параметров (то, что на сайте делали в формах). Так как запрос - по сути, строка, то для сборки запроса можно использовать разные функции склеики объектов в строки, такие как <code>paste()</code> или <code>glue()</code> пакета <code>glue</code>.</p>
+<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb593-1"><a href="api.html#cb593-1" tabindex="-1"></a><span class="co"># подключаем пакет</span></span>
+<span id="cb593-2"><a href="api.html#cb593-2" tabindex="-1"></a><span class="fu">library</span>(httr)</span>
+<span id="cb593-3"><a href="api.html#cb593-3" tabindex="-1"></a></span>
+<span id="cb593-4"><a href="api.html#cb593-4" tabindex="-1"></a><span class="co"># указываем resource url, сразу с указанием страны</span></span>
+<span id="cb593-5"><a href="api.html#cb593-5" tabindex="-1"></a>city_search <span class="ot">&lt;-</span><span class="st">&#39;http://dataservice.accuweather.com/locations/v1/cities/RU/search&#39;</span></span>
+<span id="cb593-6"><a href="api.html#cb593-6" tabindex="-1"></a></span>
+<span id="cb593-7"><a href="api.html#cb593-7" tabindex="-1"></a><span class="co"># указываем переменную для хранения токена, вместо XXXX должен быть реальный ключ</span></span>
+<span id="cb593-8"><a href="api.html#cb593-8" tabindex="-1"></a>key <span class="ot">&lt;-</span> <span class="st">&#39;?apikey=XXXX&#39;</span></span>
+<span id="cb593-9"><a href="api.html#cb593-9" tabindex="-1"></a></span>
+<span id="cb593-10"><a href="api.html#cb593-10" tabindex="-1"></a><span class="co"># указываем переменную для хранения запроса названия города </span></span>
+<span id="cb593-11"><a href="api.html#cb593-11" tabindex="-1"></a>search_query <span class="ot">&lt;-</span> <span class="st">&#39;&amp;q=Moscow&#39;</span></span>
+<span id="cb593-12"><a href="api.html#cb593-12" tabindex="-1"></a></span>
+<span id="cb593-13"><a href="api.html#cb593-13" tabindex="-1"></a><span class="co"># собираем все в один url-запрос</span></span>
+<span id="cb593-14"><a href="api.html#cb593-14" tabindex="-1"></a>city_url <span class="ot">&lt;-</span> <span class="fu">paste</span>(city_search, key, search_query, <span class="at">sep =</span> <span class="st">&#39;&#39;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;http://dataservice.accuweather.com/locations/v1/cities/RU/search?apikey=XXXX&amp;q=Moscow&quot;</code></pre>
+<p>Полученный url используем в функции <code>GET()</code>. У функции есть и другие аргументы, однако в данный момент нам достаточно одного:</p>
+<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb595-1"><a href="api.html#cb595-1" tabindex="-1"></a>city_json <span class="ot">&lt;-</span> <span class="fu">GET</span>(<span class="at">url =</span> city_url)</span></code></pre></div>
+<p>Результат функции <code>GET()</code> - сложный объект, в котором интересующая нас информация хранится достаточно глубоко. Поэтому воспользуемся функцией <code>content()</code> все того же пакета <code>httr</code>, которая вернет нам json-объект в виде сложного списка с вложениями (<code>list</code>). Этот список должен содержать ту же информацию, которую мы получили на странице метода, когда тестировали запрос в формах:</p>
+<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb596-1"><a href="api.html#cb596-1" tabindex="-1"></a>city_json <span class="ot">&lt;-</span> <span class="fu">content</span>(city_json)</span>
+<span id="cb596-2"><a href="api.html#cb596-2" tabindex="-1"></a><span class="fu">str</span>(city_json)</span></code></pre></div>
+<pre><code>## List of 1
+##  $ :List of 15
+##   ..$ Version               : int 1
+##   ..$ Key                   : chr &quot;294021&quot;
+##   ..$ Type                  : chr &quot;City&quot;
+##   ..$ Rank                  : int 10
+##   ..$ LocalizedName         : chr &quot;Moscow&quot;
+##   ..$ EnglishName           : chr &quot;Moscow&quot;
+##   ..$ PrimaryPostalCode     : chr &quot;&quot;
+##   ..$ Region                :List of 3
+##   .. ..$ ID           : chr &quot;ASI&quot;
+##   .. ..$ LocalizedName: chr &quot;Asia&quot;
+##   .. ..$ EnglishName  : chr &quot;Asia&quot;
+##   ..$ Country               :List of 3
+##   .. ..$ ID           : chr &quot;RU&quot;
+##   .. ..$ LocalizedName: chr &quot;Russia&quot;
+##   .. ..$ EnglishName  : chr &quot;Russia&quot;
+##   ..$ AdministrativeArea    :List of 7
+##   .. ..$ ID           : chr &quot;MOW&quot;
+##   .. ..$ LocalizedName: chr &quot;Moscow&quot;
+##   .. ..$ EnglishName  : chr &quot;Moscow&quot;
+##   .. ..$ Level        : int 1
+##   .. ..$ LocalizedType: chr &quot;Federal City&quot;
+##   .. ..$ EnglishType  : chr &quot;Federal City&quot;
+##   .. ..$ CountryID    : chr &quot;RU&quot;
+##   ..$ TimeZone              :List of 5
+##   .. ..$ Code            : chr &quot;MSK&quot;
+##   .. ..$ Name            : chr &quot;Europe/Moscow&quot;
+##   .. ..$ GmtOffset       : num 3
+##   .. ..$ IsDaylightSaving: logi FALSE
+##   .. ..$ NextOffsetChange: NULL
+##   ..$ GeoPosition           :List of 3
+##   .. ..$ Latitude : num 55.8
+##   .. ..$ Longitude: num 37.6
+##   .. ..$ Elevation:List of 2
+##   .. .. ..$ Metric  :List of 3
+##   .. .. .. ..$ Value   : num 155
+##   .. .. .. ..$ Unit    : chr &quot;m&quot;
+##   .. .. .. ..$ UnitType: int 5
+##   .. .. ..$ Imperial:List of 3
+##   .. .. .. ..$ Value   : num 508
+##   .. .. .. ..$ Unit    : chr &quot;ft&quot;
+##   .. .. .. ..$ UnitType: int 0
+##   ..$ IsAlias               : logi FALSE
+##   ..$ SupplementalAdminAreas:List of 1
+##   .. ..$ :List of 3
+##   .. .. ..$ Level        : int 2
+##   .. .. ..$ LocalizedName: chr &quot;Tsentralny&quot;
+##   .. .. ..$ EnglishName  : chr &quot;Tsentralny&quot;
+##   ..$ DataSets              :List of 7
+##   .. ..$ : chr &quot;AirQualityCurrentConditions&quot;
+##   .. ..$ : chr &quot;AirQualityForecasts&quot;
+##   .. ..$ : chr &quot;Alerts&quot;
+##   .. ..$ : chr &quot;DailyPollenForecast&quot;
+##   .. ..$ : chr &quot;ForecastConfidence&quot;
+##   .. ..$ : chr &quot;FutureRadar&quot;
+##   .. ..$ : chr &quot;MinuteCast&quot;</code></pre>
+<p>Получить интересующий нас location key можно простым обращением к элементам списка и его подсписков:</p>
+<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb598-1"><a href="api.html#cb598-1" tabindex="-1"></a>city_key <span class="ot">&lt;-</span> city_json[[<span class="dv">1</span>]]<span class="sc">$</span>Key</span>
+<span id="cb598-2"><a href="api.html#cb598-2" tabindex="-1"></a>city_key</span></code></pre></div>
+<pre><code>## [1] &quot;294021&quot;</code></pre>
+</div>
+</div>
+<div id="функции-для-получения-погоды" class="section level3 hasAnchor">
+<h3>Функции для получения погоды<a href="api.html#функции-для-получения-погоды" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Функция для получения ключа города в России (вместо <code>XXXX</code> надо указать свой ключ):</p>
+<div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb600-1"><a href="api.html#cb600-1" tabindex="-1"></a><span class="co"># library(glue)</span></span>
+<span id="cb600-2"><a href="api.html#cb600-2" tabindex="-1"></a>get_location_key <span class="ot">&lt;-</span> <span class="cf">function</span>(city_name, <span class="at">apikey=</span>XXXX) {</span>
+<span id="cb600-3"><a href="api.html#cb600-3" tabindex="-1"></a>  method <span class="ot">&lt;-</span> <span class="st">&#39;http://dataservice.accuweather.com/locations/v1/cities/RU/search&#39;</span></span>
+<span id="cb600-4"><a href="api.html#cb600-4" tabindex="-1"></a>  <span class="co"># если использовать пакет glue</span></span>
+<span id="cb600-5"><a href="api.html#cb600-5" tabindex="-1"></a>  <span class="co"># lk_req &lt;- glue(&#39;{method}?apikey={apikey}&amp;q={city_name}&#39;)</span></span>
+<span id="cb600-6"><a href="api.html#cb600-6" tabindex="-1"></a>  lk_req <span class="ot">&lt;-</span> <span class="fu">paste0</span>(method, <span class="st">&#39;?apikey=&#39;</span>, apikey, <span class="st">&#39;&amp;q=&#39;</span>, city_name)</span>
+<span id="cb600-7"><a href="api.html#cb600-7" tabindex="-1"></a>  lk_data <span class="ot">&lt;-</span> <span class="fu">GET</span>(lk_req)</span>
+<span id="cb600-8"><a href="api.html#cb600-8" tabindex="-1"></a>  lk_data <span class="ot">&lt;-</span> <span class="fu">content</span>(lk_data)</span>
+<span id="cb600-9"><a href="api.html#cb600-9" tabindex="-1"></a>  key <span class="ot">&lt;-</span> lk_data[[<span class="dv">1</span>]]<span class="sc">$</span>Key</span>
+<span id="cb600-10"><a href="api.html#cb600-10" tabindex="-1"></a>  <span class="fu">return</span>(key)</span>
+<span id="cb600-11"><a href="api.html#cb600-11" tabindex="-1"></a>}</span>
+<span id="cb600-12"><a href="api.html#cb600-12" tabindex="-1"></a></span>
+<span id="cb600-13"><a href="api.html#cb600-13" tabindex="-1"></a><span class="co"># сокращенная запись</span></span>
+<span id="cb600-14"><a href="api.html#cb600-14" tabindex="-1"></a><span class="co"># get_location_key &lt;- function(city_name, apikey=XXXX) {</span></span>
+<span id="cb600-15"><a href="api.html#cb600-15" tabindex="-1"></a><span class="co">#   method &lt;- &#39;http://dataservice.accuweather.com/locations/v1/cities/RU/search&#39;</span></span>
+<span id="cb600-16"><a href="api.html#cb600-16" tabindex="-1"></a><span class="co">#   lk_req &lt;- paste0(method, &#39;?apikey=&#39;, apikey, &#39;&amp;q=&#39;, city_name)</span></span>
+<span id="cb600-17"><a href="api.html#cb600-17" tabindex="-1"></a><span class="co">#   content(GET(lk_req))[[1]]$Key</span></span>
+<span id="cb600-18"><a href="api.html#cb600-18" tabindex="-1"></a><span class="co"># }</span></span>
+<span id="cb600-19"><a href="api.html#cb600-19" tabindex="-1"></a></span>
+<span id="cb600-20"><a href="api.html#cb600-20" tabindex="-1"></a><span class="fu">get_location_key</span>(<span class="st">&#39;Moscow&#39;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;294021&quot;</code></pre>
+<p>Функция, которая возвращает погоду по указанному ключу города в России:</p>
+<div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb602-1"><a href="api.html#cb602-1" tabindex="-1"></a>get_current_conditions <span class="ot">&lt;-</span> <span class="cf">function</span>(location_key, <span class="at">apikey=</span>XXXX) {</span>
+<span id="cb602-2"><a href="api.html#cb602-2" tabindex="-1"></a>  method <span class="ot">&lt;-</span> <span class="st">&#39;http://dataservice.accuweather.com/currentconditions/v1/&#39;</span></span>
+<span id="cb602-3"><a href="api.html#cb602-3" tabindex="-1"></a>  cc_req <span class="ot">&lt;-</span> <span class="fu">glue</span>(<span class="st">&#39;{method}/{location_key}?apikey={apikey}&#39;</span>)</span>
+<span id="cb602-4"><a href="api.html#cb602-4" tabindex="-1"></a>  <span class="co"># cc_req &lt;- paste0(method, &#39;/&#39;, location_key, &#39;?apikey=&#39;, apikey)</span></span>
+<span id="cb602-5"><a href="api.html#cb602-5" tabindex="-1"></a>  cc_data <span class="ot">&lt;-</span> <span class="fu">content</span>(<span class="fu">GET</span>(cc_req))</span>
+<span id="cb602-6"><a href="api.html#cb602-6" tabindex="-1"></a>  cc_string <span class="ot">&lt;-</span> <span class="fu">glue</span>(<span class="st">&#39;Погода: {cc_data[[1]]$WeatherText}, температура: {cc_data[[1]]$Temperature$Metric$Value} C&#39;</span>)</span>
+<span id="cb602-7"><a href="api.html#cb602-7" tabindex="-1"></a>  <span class="fu">return</span>(cc_string)</span>
+<span id="cb602-8"><a href="api.html#cb602-8" tabindex="-1"></a>}</span>
+<span id="cb602-9"><a href="api.html#cb602-9" tabindex="-1"></a><span class="fu">get_current_conditions</span>(<span class="dv">294021</span>)</span></code></pre></div>
+<pre><code>## Погода: Cloudy, температура: 2.2 C</code></pre>
+<p>Функция, которая объединяет две функции выше:</p>
+<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb604-1"><a href="api.html#cb604-1" tabindex="-1"></a><span class="co"># если мы вдруг создали отдельный скрипт с функциями и хотим их подключить</span></span>
+<span id="cb604-2"><a href="api.html#cb604-2" tabindex="-1"></a><span class="co"># source(&#39;./src/weather_functions.R&#39;)</span></span>
+<span id="cb604-3"><a href="api.html#cb604-3" tabindex="-1"></a>get_weather <span class="ot">&lt;-</span> <span class="cf">function</span>(main_city_name, <span class="at">main_apikey=</span>XXXX) {</span>
+<span id="cb604-4"><a href="api.html#cb604-4" tabindex="-1"></a>  <span class="co"># чтобы можно было указывать города на криллице</span></span>
+<span id="cb604-5"><a href="api.html#cb604-5" tabindex="-1"></a>  main_city_name <span class="ot">&lt;-</span> <span class="fu">URLencode</span>(main_city_name)</span>
+<span id="cb604-6"><a href="api.html#cb604-6" tabindex="-1"></a>  key <span class="ot">&lt;-</span> <span class="fu">get_location_key</span>(<span class="at">city_name =</span> main_city_name, <span class="at">apikey =</span> main_apikey)</span>
+<span id="cb604-7"><a href="api.html#cb604-7" tabindex="-1"></a>  weather <span class="ot">&lt;-</span> <span class="fu">get_current_conditions</span>(key, <span class="at">apikey =</span> main_apikey)</span>
+<span id="cb604-8"><a href="api.html#cb604-8" tabindex="-1"></a>  <span class="fu">return</span>(weather)</span>
+<span id="cb604-9"><a href="api.html#cb604-9" tabindex="-1"></a>}</span>
+<span id="cb604-10"><a href="api.html#cb604-10" tabindex="-1"></a><span class="fu">get_weather</span>(<span class="st">&#39;Moscow&#39;</span>)</span></code></pre></div>
+<pre><code>## Погода: Cloudy, температура: 2.2 C</code></pre>
+<p><br></p>
+</div>
+</div>
+<div id="дополнительные-материалы-5" class="section level2 unnumbered hasAnchor">
+<h2>Дополнительные материалы<a href="api.html#дополнительные-материалы-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>несколько пользователей (например, 100), должен быть отдельный параметр <code>user_type</code> с значениями short, medium, long</li>
-<li>от 1 до 10 сессий на каждого пользователя, случайным образом.</li>
-<li>создайте поле логина, тип – дата и время (таймстамп), все логины в интервале 1-9 сентября. В юникс-формате или просто дата и время, на ваше усмотрение.</li>
-<li>создайте колонку session_num, которая будет маркировать номер сессии пользователя</li>
-<li>для каждой сессии создайте случайную длину сессии в секундах. Длина сессии должна варьировать в пределах 120 - 600 секунд. Длина сессии зависит от параметра <code>user_type</code>:
-<ul>
-<li>short: множитель к длине сессии из интервала (0, 1] (например, 0.27)</li>
-<li>medium: множитель к длине сессии из интервала (1, 3] (например, 2.51)</li>
-<li>long: множитель к длине сессии из интервала (5, 7] (например, 6.1)</li>
-</ul></li>
+<li><p><a href="https://medium.com/@stasonmars/%D0%B2%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-json-c798d2723107"><em>Перевод</em></a> неплохой статьи про основные особенности json-файлов.</p></li>
+<li><p>Более формальная <a href="https://www.json.org/json-ru.html"><em>документация</em></a> json.</p></li>
+<li><p><a href="https://starkovden.github.io/API-doc-sites-list.html"><em>Список 100+</em></a> сайтов API с документацией. К сожалению, немалая часть этих API сложные, требующие авторизации и многих других наюнсов. Зато понятно, насколько API распространены.</p></li>
+<li><p>Еще один <a href="https://www.programmableweb.com/apis/directory"><em>список</em></a>, фактически, поиск по базе данных API, с возможностью фильтрации. Сайт (верстка) иногда глючит.</p></li>
+<li><p>Примеры документации <a href="https://public-api.cian.ru/docs/latest"><em>ЦИАН</em></a> и <a href="https://www.gismeteo.ru/api/"><em>Гисметео</em></a>. Полезны в первую очередь примерами русскоязычных документаций. На сайте ЦИАН также есть интерактивная песочница, в которой можно потестить запросы.</p></li>
 </ul>
-<p>Посчитайте в датасете:</p>
-<ul>
-<li>количество пользователей</li>
-<li>среднее количество сессий на пользователя</li>
-<li>средний</li>
-<li>среднюю длину сессий</li>
-<li>средний интервал между концом одной сессии и началом другой сессии (обратите внимание на функцию <code>shift</code>)</li>
-</ul>
-<p>Расчеты в группах по <code>user_type</code> и <code>total</code> (без группировки). В итоговой таблице должно быть 4 строки и 5 колонок.</p>
+<p><br></p>
+<!-- ## Домашнее задание {-} -->
+<!-- ### level 1 (IATYTD) {-} -->
+<!-- -   прочитайте дополнительные материалы по функциям и циклам. Если слишком много букв -- прочитайте [раздел по элементам программирования](#programming) -->
+<!-- -   разберите код сбора данных статей всей рубрики. Обратите внимание на ветвление `if`. -->
+<!-- ### level 2 (HNTR) {-} -->
+<!-- -   в [**задачнике**](https://exercises.rintro.ru/%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D1%8B-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.html) решить раздел "Функции" -->
+<!-- -   в [**задачнике**](https://exercises.rintro.ru/%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D1%8B-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.html) из раздела "Циклы" решите 1, 3, 5 и 6 -->
+<!-- Для пятой задачи вам потребуются вот такие конструкции: -->
+<!-- ```{r} -->
+<!-- library(data.table) -->
+<!-- mtcars <- as.data.table(mtcars) -->
+<!-- names(mtcars) -->
+<!-- # обращение к колонке по номеру -->
+<!-- mtcars[, 1] -->
+<!-- ``` -->
+<!-- ### level 3 (HMP) {-} -->
+<!-- Прочитайте справку по функции `list.files()` и/или `list.dirs()`. Импортируйте названия файлов в какой-нибудь из ваших папок (или названия подпапок). В цикле выведите на печать первые пять названий. Например: -->
+<!-- ```{r, echo = FALSE} -->
+<!-- my_files <- list.files('./data') -->
+<!-- for (i in my_files[1:5]) print(i) -->
+<!-- ``` -->
+<!-- ### level 4 (UV) {-} -->
+<!-- Здесь и далее работаем с [*API Accuweather*](https://developer.accuweather.com/) -->
+<!--  - Зарегистрируйтесь на сайте сервиса и получите свой собственный API key -->
+<!--  - У бесплатного ключа лимит 50 запросов в сутки. Если выйдете за лимит -- возьмите ключ, который мы использовали на занятиях -->
+<!--  - Найдите метод API, который позволяет найти город в указанной стране -->
+<!--  - Напишите функцию, которая на вход принимала бы название города (на английском), api key и alpha-2 код страны (`RU` для России, например) и возвращала бы location key этого города -->
+<!-- ### level 5 (N) {-} -->
+<!-- Сделайте обработку ситуаций, когда у вас несколько одноименных городов в стране (например Moscow в US): -->
+<!-- - Добавьте аргумент `first` со значением по умолчанию `TRUE`. -->
+<!-- - Если в `first = TRUE`, то функция должна возвращать Location Key первого города из списка одноименных (в идеале надо сделать сортировку по рейтингу, он есть в ответе api) -->
+<!-- - Если `first = FALSE`, то функция должна возвращать табличку, с колонками city; rank; area_id, area_name, area_type (ID, EnglishName, EnglishType из блока AdministrativeArea соответственно); location_key. -->
 
-</div>
 </div>
 </div>
             </section>
@@ -969,8 +989,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="data.table-pt1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="data.table-pt3.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="programming.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="vk-api.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

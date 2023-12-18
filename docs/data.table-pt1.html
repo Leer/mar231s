@@ -23,7 +23,7 @@
 <meta name="author" content="Ph.A.Upravitelev" />
 
 
-<meta name="date" content="2023-12-14" />
+<meta name="date" content="2023-12-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -567,6 +567,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="programming.html"><a href="programming.html#level-5-n-4"><i class="fa fa-check"></i>level 5 (N)</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="api.html"><a href="api.html"><i class="fa fa-check"></i>API</a>
+<ul>
+<li class="chapter" data-level="" data-path="api.html"><a href="api.html#запись-занятия-10"><i class="fa fa-check"></i>Запись занятия</a></li>
+<li class="chapter" data-level="" data-path="api.html"><a href="api.html#json"><i class="fa fa-check"></i>JSON</a>
+<ul>
+<li class="chapter" data-level="" data-path="api.html"><a href="api.html#структура-json-объекта"><i class="fa fa-check"></i>Структура json-объекта</a></li>
+<li class="chapter" data-level="" data-path="api.html"><a href="api.html#импорт-json-файлов-в-r"><i class="fa fa-check"></i>Импорт json-файлов в R</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="api.html"><a href="api.html#api-1"><i class="fa fa-check"></i>API</a>
+<ul>
+<li class="chapter" data-level="" data-path="api.html"><a href="api.html#application-programming-interface"><i class="fa fa-check"></i>Application Programming Interface</a></li>
+<li class="chapter" data-level="" data-path="api.html"><a href="api.html#основные-шаги-при-работе-с-api"><i class="fa fa-check"></i>Основные шаги при работе с API</a></li>
+<li class="chapter" data-level="" data-path="api.html"><a href="api.html#accuweather"><i class="fa fa-check"></i>Accuweather</a></li>
+<li class="chapter" data-level="" data-path="api.html"><a href="api.html#функции-для-получения-погоды"><i class="fa fa-check"></i>Функции для получения погоды</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="api.html"><a href="api.html#дополнительные-материалы-5"><i class="fa fa-check"></i>Дополнительные материалы</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="vk-api.html"><a href="vk-api.html"><i class="fa fa-check"></i>VK API</a>
+<ul>
+<li class="chapter" data-level="" data-path="vk-api.html"><a href="vk-api.html#запись-занятия-11"><i class="fa fa-check"></i>Запись занятия</a></li>
+<li class="chapter" data-level="" data-path="vk-api.html"><a href="vk-api.html#vk-api-1"><i class="fa fa-check"></i>VK API</a>
+<ul>
+<li class="chapter" data-level="" data-path="vk-api.html"><a href="vk-api.html#авторизация"><i class="fa fa-check"></i>Авторизация</a></li>
+<li class="chapter" data-level="" data-path="vk-api.html"><a href="vk-api.html#методы-vk-api"><i class="fa fa-check"></i>Методы VK API</a></li>
+<li class="chapter" data-level="" data-path="vk-api.html"><a href="vk-api.html#правила-сервиса"><i class="fa fa-check"></i>Правила сервиса</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="vk-api.html"><a href="vk-api.html#сеть-друзей"><i class="fa fa-check"></i>Сеть друзей</a></li>
+<li class="chapter" data-level="" data-path="vk-api.html"><a href="vk-api.html#vkr-package"><i class="fa fa-check"></i>vkR package</a></li>
+<li class="chapter" data-level="" data-path="vk-api.html"><a href="vk-api.html#дополнительные-материалы-6"><i class="fa fa-check"></i>Дополнительные материалы</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="hw-2.html"><a href="hw-2.html"><i class="fa fa-check"></i>HW 2</a>
+<ul>
+<li class="chapter" data-level="" data-path="hw-2.html"><a href="hw-2.html#общие-замечания"><i class="fa fa-check"></i>Общие замечания</a></li>
+<li class="chapter" data-level="" data-path="hw-2.html"><a href="hw-2.html#задание-1-1"><i class="fa fa-check"></i>Задание 1</a></li>
+<li class="chapter" data-level="" data-path="hw-2.html"><a href="hw-2.html#задание-2-1"><i class="fa fa-check"></i>Задание 2</a></li>
+<li class="chapter" data-level="" data-path="hw-2.html"><a href="hw-2.html#задание-3-1"><i class="fa fa-check"></i>Задание 3</a></li>
+<li class="chapter" data-level="" data-path="hw-2.html"><a href="hw-2.html#альтернативное-задание"><i class="fa fa-check"></i>Альтернативное задание</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -1051,7 +1089,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## [1] 12</code></pre>
 <div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="data.table-pt1.html#cb197-1" tabindex="-1"></a><span class="co"># вычисление среднего значения по какой-то колонке</span></span>
 <span id="cb197-2"><a href="data.table-pt1.html#cb197-2" tabindex="-1"></a>dt1[, <span class="fu">mean</span>(new_col_2)]</span></code></pre></div>
-<pre><code>## [1] 0.5319222</code></pre>
+<pre><code>## [1] 0.4987756</code></pre>
 </div>
 <div id="группировка-по-нескольким-полям" class="section level3 unnumbered hasAnchor">
 <h3>Группировка по нескольким полям<a href="data.table-pt1.html#группировка-по-нескольким-полям" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1068,7 +1106,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb199-10"><a href="data.table-pt1.html#cb199-10" tabindex="-1"></a><span class="co"># в результате получаем вторую табличку</span></span>
 <span id="cb199-11"><a href="data.table-pt1.html#cb199-11" tabindex="-1"></a>dt2</span></code></pre></div>
 <pre><code>##    n_rows new_col_1_mn new_col_2_md
-## 1:     12    0.2557271      0.52853</code></pre>
+## 1:     12   -0.3823878    0.5591207</code></pre>
 <!-- ## Соотношение list() и `:=` в операциях над колонками. -->
 <!-- Нередко многие путаются в синтаксисе создания новых колонок и в выражении `list()`. Различие следующее: -->
 <!-- ```{r} -->
@@ -1101,17 +1139,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="data.table-pt1.html#cb201-1" tabindex="-1"></a><span class="co"># смотрим содержание таблицы</span></span>
 <span id="cb201-2"><a href="data.table-pt1.html#cb201-2" tabindex="-1"></a>dt1[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
 <pre><code>##    month_names month_abb month_ord is_winter month_ord_sqrt  new_col_1
-## 1:     January       Jan         1      TRUE       1.000000  0.3405874
-## 2:    February       Feb         2      TRUE       1.414214 -1.2709112
-## 3:       March       Mar         3     FALSE       1.732051  1.1781549
-## 4:       April       Apr         4     FALSE       2.000000 -0.3627532
-## 5:         May       May         5     FALSE       2.236068  1.4110508
-##     new_col_2
-## 1: 0.03905483
-## 2: 0.54304295
-## 3: 0.94854305
-## 4: 0.33589409
-## 5: 0.99786703</code></pre>
+## 1:     January       Jan         1      TRUE       1.000000  0.9427221
+## 2:    February       Feb         2      TRUE       1.414214  0.7540886
+## 3:       March       Mar         3     FALSE       1.732051 -1.1191283
+## 4:       April       Apr         4     FALSE       2.000000 -0.3489624
+## 5:         May       May         5     FALSE       2.236068  0.1808793
+##      new_col_2
+## 1: 0.001166158
+## 2: 0.702932341
+## 3: 0.505224346
+## 4: 0.721424749
+## 5: 0.402416395</code></pre>
 <div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="data.table-pt1.html#cb203-1" tabindex="-1"></a><span class="co"># выделяем первую и третью колонки датасета</span></span>
 <span id="cb203-2"><a href="data.table-pt1.html#cb203-2" tabindex="-1"></a>dt1[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, .SD, .SDcols <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)]</span></code></pre></div>
 <pre><code>##    month_names month_ord
@@ -1191,15 +1229,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>для генерации времени поможет функция <code>as.POSIXct()</code>, плюс есть немного справочных материалов в учебнике: <a href="https://textbook.rintro.ru/objects.html#objects-time">раз</a>, <a href="https://textbook.rintro.ru/manipulations.html#manipulations-time">два</a></li>
 </ul>
 <pre><code>##       uid sid            login_ts session_length
-## 1: user_1   1 2023-09-02 02:42:03            178
-## 2: user_1   2 2023-09-02 14:56:58            199
-## 3: user_1   3 2023-09-03 01:51:23            580
-## 4: user_1   4 2023-09-03 02:44:13            207
-## 5: user_1   5 2023-09-03 17:57:42            403
-## 6: user_2   1 2023-09-04 00:19:58            151</code></pre>
+## 1: user_1   1 2023-09-01 17:46:24            229
+## 2: user_1   2 2023-09-01 17:58:35            411
+## 3: user_1   3 2023-09-02 12:29:36            355
+## 4: user_1   4 2023-09-03 06:34:18            508
+## 5: user_1   5 2023-09-04 20:29:10            468
+## 6: user_2   1 2023-09-04 22:21:49            546</code></pre>
 <p>Статистики:</p>
 <pre><code>##    n_users total_sessions session_per_user session_length_mn
-## 1:       3             15                5             325.9</code></pre>
+## 1:       3             15                5             375.3</code></pre>
 
 </div>
 </div>

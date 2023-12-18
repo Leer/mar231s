@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>data.table pt2 | Автоматизированный сбор больших данных в экономико-социологических исследованиях</title>
-  <meta name="description" content="data.table pt2 | Автоматизированный сбор больших данных в экономико-социологических исследованиях" />
+  <title>VK API | Автоматизированный сбор больших данных в экономико-социологических исследованиях</title>
+  <meta name="description" content="VK API | Автоматизированный сбор больших данных в экономико-социологических исследованиях" />
   <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="data.table pt2 | Автоматизированный сбор больших данных в экономико-социологических исследованиях" />
+  <meta property="og:title" content="VK API | Автоматизированный сбор больших данных в экономико-социологических исследованиях" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="data.table pt2 | Автоматизированный сбор больших данных в экономико-социологических исследованиях" />
+  <meta name="twitter:title" content="VK API | Автоматизированный сбор больших данных в экономико-социологических исследованиях" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="data.table-pt1.html"/>
-<link rel="next" href="data.table-pt3.html"/>
+<link rel="prev" href="api.html"/>
+<link rel="next" href="hw-2.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -622,346 +622,293 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data.table-pt2" class="section level1 unnumbered hasAnchor">
-<h1>data.table pt2<a href="data.table-pt2.html#data.table-pt2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="запись-занятия-3" class="section level2 unnumbered hasAnchor">
-<h2>Запись занятия<a href="data.table-pt2.html#запись-занятия-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Запись занятия 7 октября:</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/sbDHNk2R8nA?si=92jh3dwAVNohxMTW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+<div id="vk-api" class="section level1 unnumbered hasAnchor">
+<h1>VK API<a href="vk-api.html#vk-api" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="запись-занятия-11" class="section level2 unnumbered hasAnchor">
+<h2>Запись занятия<a href="vk-api.html#запись-занятия-11" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Запись занятия, которое было 13 мая, можно найти здесь:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/W6Krs2vRcSQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 </iframe>
+<p><br></p>
 </div>
-<div id="разбор-домашней-работы-1" class="section level2 unnumbered hasAnchor">
-<h2>Разбор домашней работы<a href="data.table-pt2.html#разбор-домашней-работы-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="работа-с-колонками-2" class="section level3 unnumbered hasAnchor">
-<h3>работа с колонками<a href="data.table-pt2.html#работа-с-колонками-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="vk-api-1" class="section level2 unnumbered hasAnchor">
+<h2>VK API<a href="vk-api.html#vk-api-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="авторизация" class="section level3 unnumbered hasAnchor">
+<h3>Авторизация<a href="vk-api.html#авторизация" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>В API VK возможно несколько вариантов авторизации. Мы будем использовать <em>Implicit flow</em>. Это самый короткий и простой вариант, который использует идентификатор приложения и требует интерактивного подтверждения прав приложения в браузере.</p>
+<p>К API VK нельзя подключиться просто так, сразу из R - доступ выдается для приложений или VK-виджетов сайтов. То есть, для начала работы нам надо создать приложение и зарегистрировать его в VK API, потом получить для него access token и уже с этим токеном работать в R (создавать запросы к API).</p>
+<p><br></p>
+<div id="создание-приложения" class="section level4 unnumbered hasAnchor">
+<h4>Создание приложения<a href="vk-api.html#создание-приложения" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Для создания приложения надо перейти по ссылке <a href="https://vk.com/apps?act=manage" class="uri">https://vk.com/apps?act=manage</a> и нажать там на кнопку “Создать приложение”. После этого появится окно с описанием, что это за приложение. Необходимо ввести название (любое, например, <code>test</code>) выбрать тип <code>Standalone</code> и нажать “Подключить приложение”. Возможно VK после этого попросит подтвердить создание / привязать к аккаунту (авторизация звонком или смс-кодом).
+<img src="pics/vk1_api.png" />
+После этого появится окно настроек приложения. В левой панели надо перейти в раздел “Настройки”.
+Самое первое, что нам потребуется - ID приложения. Это тот самый client_id, который мы будем использовать при получении access token.</p>
+<p>Кроме этого необходимо выставить несколько дополнительных настроек.</p>
 <ul>
-<li>выделите в отдельный датасет всех погибших пассажиров, оставьте для них только значения пола, возраста и класса билета (<code>pclass</code>), переменную <code>pclass</code> переименуйте в <code>class</code></li>
+<li><p>В меню “Состояние” выбрать “приложение включено и видно всем” - если приложение будет выключено, то мы просто не получим токен.</p></li>
+<li><p>В меню “Open API” выбрать “Включен”, после этого появятся настройки протокола авторизации.</p></li>
+<li><p>В “Адрес сайта” можно указать любой сайт (так как мы делаем это в учебных целях), при работе с нормальным приложением указывают сайт приложения / компании. Я указал <code>yandex.ru</code>, точно также можно указать “hse.ru”, адрес сайта не участвует в процессе авторизации.</p></li>
+<li><p>В “Базовый домен” указываем домен сайта (в нашем случае <code>.ru</code>)</p></li>
 </ul>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="data.table-pt2.html#cb215-1" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
-<span id="cb215-2"><a href="data.table-pt2.html#cb215-2" tabindex="-1"></a>titanic <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&#39;https://gitlab.com/hse_mar/mar221s/-/raw/master/data/titanic3.csv&#39;</span>)</span>
-<span id="cb215-3"><a href="data.table-pt2.html#cb215-3" tabindex="-1"></a></span>
-<span id="cb215-4"><a href="data.table-pt2.html#cb215-4" tabindex="-1"></a>titanic_not_survived <span class="ot">&lt;-</span> titanic[survived <span class="sc">==</span> <span class="dv">0</span>, <span class="fu">list</span>(sex, age, <span class="at">class =</span> pclass)]</span>
-<span id="cb215-5"><a href="data.table-pt2.html#cb215-5" tabindex="-1"></a><span class="fu">str</span>(titanic_not_survived)</span></code></pre></div>
-<pre><code>## Classes &#39;data.table&#39; and &#39;data.frame&#39;:   809 obs. of  3 variables:
-##  $ sex  : chr  &quot;female&quot; &quot;male&quot; &quot;female&quot; &quot;male&quot; ...
-##  $ age  : num  2 30 25 39 71 47 NA 24 36 25 ...
-##  $ class: int  1 1 1 1 1 1 1 1 1 1 ...
-##  - attr(*, &quot;.internal.selfref&quot;)=&lt;externalptr&gt;</code></pre>
+<p><img src="pics/vk2_api.png" /></p>
+<p><br></p>
+</div>
+<div id="access-token" class="section level4 unnumbered hasAnchor">
+<h4>access token<a href="vk-api.html#access-token" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Для того, чтобы получить токен, необходимо в сфоромировать и вставить в адресную строку запрос вот такой структуры:</p>
+<pre><code>https://oauth.vk.com/authorize?client_id=MY_CLIENT_ID&amp;display=page&amp;redirect_uri=https://oauth.vk.com/blank.html&amp;scope=friends&amp;response_type=token&amp;v=5.21</code></pre>
+<p>В нем есть несколько частей:</p>
 <ul>
-<li>в полученном датасете посчитайте количество пассажиров, их средний и медианный возраст, разброс по возрасту (<code>sd()</code>)</li>
+<li><p><code>https://oauth.vk.com/authorize?</code> это блок, который в целом отвечает за вызов метода авторизации (то есть, этой ccылкой мы запускаем процесс авторизации)</p></li>
+<li><p><code>client_id=MY_CLIENT_ID</code> это параметр, в котором мы как раз указываем полученный ранее идентификатор приложения</p></li>
+<li><p><code>display=page&amp;redirect_uri=https://oauth.vk.com/blank.html</code> - технический параметр, который задает, что именно нужно сделать после авторизации и как показать результат</p></li>
+<li><p><code>scope=friends</code> - еще один параметр, который требует настройки. С помощью этого параметра указываем, к каким разделам мы хотим получить доступ (точнее, дать доступ приложению). Список разделов можно посмотреть <a href="https://vk.com/dev/permissions">здесь</a>. Разделы указываются через запятую, без пробелов. Например: <code>friends,wall,docs</code>. Общая практика и требование к разработчикам приложений (мобильных, в частности) — запрашивать только те права, которые реально нужны для работы, не надо просить лишнего.</p></li>
+<li><p><code>response_type=token&amp;v=5.131</code> - Два технических параметра, первый задает тип ответа на запрос об авторизации, второй указывает, какую версию API предполагается использовать. Есть <a href="https://vk.com/dev/versions">список</a> версий, однако он, кажется, не очень актуален.</p></li>
 </ul>
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="data.table-pt2.html#cb217-1" tabindex="-1"></a>titanic_not_survived[, <span class="fu">list</span>(</span>
-<span id="cb217-2"><a href="data.table-pt2.html#cb217-2" tabindex="-1"></a>  <span class="at">n_rows =</span> .N,</span>
-<span id="cb217-3"><a href="data.table-pt2.html#cb217-3" tabindex="-1"></a>  <span class="at">age_mn =</span> <span class="fu">mean</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb217-4"><a href="data.table-pt2.html#cb217-4" tabindex="-1"></a>  <span class="at">age_md =</span> <span class="fu">median</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb217-5"><a href="data.table-pt2.html#cb217-5" tabindex="-1"></a>  <span class="at">age_sd =</span> <span class="fu">sd</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))]</span></code></pre></div>
-<pre><code>##    n_rows   age_mn age_md   age_sd
-## 1:    809 30.54536     28 13.92255</code></pre>
+<p>Таким образом, мы должны модифицировать этот запрос и указать в нем идентификатор приложения и набор разделов, с которыми будем работать. Это можно сделать как просто в текстовом редакторе, так и кодом. <strong>Важно! В ссылке не должно быть пробелов, а пары параметр=значение объединяются через &amp;</strong></p>
+<div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb607-1"><a href="vk-api.html#cb607-1" tabindex="-1"></a>client_id <span class="ot">&lt;-</span> <span class="dv">8172745</span></span>
+<span id="cb607-2"><a href="vk-api.html#cb607-2" tabindex="-1"></a>scopes <span class="ot">&lt;-</span> <span class="st">&#39;friends,docs,wall,groups&#39;</span></span>
+<span id="cb607-3"><a href="vk-api.html#cb607-3" tabindex="-1"></a></span>
+<span id="cb607-4"><a href="vk-api.html#cb607-4" tabindex="-1"></a>access_url <span class="ot">&lt;-</span> <span class="fu">paste</span>(</span>
+<span id="cb607-5"><a href="vk-api.html#cb607-5" tabindex="-1"></a>  <span class="st">&#39;https://oauth.vk.com/authorize?client_id=&#39;</span>, client_id,</span>
+<span id="cb607-6"><a href="vk-api.html#cb607-6" tabindex="-1"></a>  <span class="st">&#39;&amp;display=page&amp;redirect_uri=https://oauth.vk.com/blank.html&amp;scope=&#39;</span>, scopes,</span>
+<span id="cb607-7"><a href="vk-api.html#cb607-7" tabindex="-1"></a>  <span class="st">&#39;&amp;response_type=token&amp;v=5.131&#39;</span>,</span>
+<span id="cb607-8"><a href="vk-api.html#cb607-8" tabindex="-1"></a>  <span class="at">sep =</span> <span class="st">&#39;&#39;</span></span>
+<span id="cb607-9"><a href="vk-api.html#cb607-9" tabindex="-1"></a>)</span>
+<span id="cb607-10"><a href="vk-api.html#cb607-10" tabindex="-1"></a></span>
+<span id="cb607-11"><a href="vk-api.html#cb607-11" tabindex="-1"></a><span class="co"># просто печатаем ссылку, чтобы потом вставить в адресную строку</span></span>
+<span id="cb607-12"><a href="vk-api.html#cb607-12" tabindex="-1"></a>access_url</span></code></pre></div>
+<pre><code>## [1] &quot;https://oauth.vk.com/authorize?client_id=8172745&amp;display=page&amp;redirect_uri=https://oauth.vk.com/blank.html&amp;scope=friends,docs,wall,groups&amp;response_type=token&amp;v=5.131&quot;</code></pre>
+<p>Переходим по полученной ссылке. Если права доступа приложению выдаются первый раз или же список разделов менялся, то вам предложат подтвердить, что это приложение имеет доступ к этим разделам.</p>
+<p><strong>Важно!</strong>
+Приложение запрашивает доступ к нашему аккаунту, к тем разделам, которые мы указали. Это имеет два следствия.</p>
+<p>Во-первых, через это приложение мы будем иметь доступ только к тем данным, к которым мы сами имеем как пользователи. То есть, если группа закрытая, а мы в ней не состоим, то мы не сможем получить список участников группы. Аналогично, если пользователь скрыл от всех список своих друзей (либо некоторых друзей из своего списка), то приложение также не будет иметь к нему доступ. Доступ к личным сообщениям имеют только те приложения, которые были отсмотрены представителями VK.</p>
+<p>Во-вторых, кому-то может не понравиться, что приложение имеет к чему-то доступ в вашем аккаунте. Это можно решить несколькими путями - никому не давать свой токен (хотя он истекает через сутки и жестко привязан к IP-адресу, с которого был получен). Либо после завершения работы надо выключить или даже удалить приложение. Если удалите приложение, то в следующий раз для получения ID придется заново создавать приложение.</p>
+<p><img src="pics/vk3_api.png" /></p>
+<p>После подтверждения прав мы перейдем на вот такую страницую Самое важное в ней - текст ссылки в адресной строке:</p>
+<p><img src="pics/vk4_api.png" />
+Вот так выглядит текст в адресной строке:</p>
+<pre><code>https://oauth.vk.com/blank.html#access_token=e9718c45d548f8b3dbb8e96f71ccf4415a6f7f6e7fa3687eece2f784f37cc1a8906a4f800e7d9c0c6aff5&amp;expires_in=86400&amp;user_id=689496</code></pre>
+<p>Нас интересует то, что находится между <code>access_token=</code> и <code>&amp;expires_in</code>. Это и есть токен, который мы будем использовать в наших запросах к API VK. Запишем его в отдельный объект.</p>
+<div class="sourceCode" id="cb610"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb610-1"><a href="vk-api.html#cb610-1" tabindex="-1"></a>token <span class="ot">&lt;-</span> <span class="st">&#39;vk1.a.ru-deB10Lpz23gsWUzgeoljiKp4giQyOryhe4nkPSwCyI9VWF5vCPB3rwkDmxyq9g7MMAKRvXJflWWbxr-KuKQUZm86NF-6VN6ulyXgsMOfOoO4awG50AUWBfNLf-KCKzNAze-5O8ddx4T-rZhafwJuxTk4KAgrNYNRRpInbf5olDf7mMRXsctLrTBQxWJ4fRve5bQUuCQFVooTQ1KSRpw&#39;</span></span></code></pre></div>
+<p><br></p>
+</div>
+</div>
+<div id="методы-vk-api" class="section level3 hasAnchor">
+<h3>Методы VK API<a href="vk-api.html#методы-vk-api" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>После получения токена, можно формировать запросы к API для сбора интересующих данных. Общая структура запроса выглядит следующим образом:</p>
+<pre><code>https://api.vk.com/method/friends.getOnline?v=5.21&amp;access_token=</code></pre>
 <ul>
-<li>*в датасете titanic попробуйте построить логистическую регрессию, которая бы предсказывала вероятность выживания пассажира (<code>survived</code>).</li>
+<li><p><code>https://api.vk.com/method/</code> - неизменная часть запроса, указание, что мы обращаемся к какому-то методу API</p></li>
+<li><p><code>friends.getOnline</code> - название метода. Обычно сочетает через точку название раздела и название действия, которое необходимо сделать. Указанный в примере метод возвращает список друзей онлайн. Списки разделов и методов можно посмотреть <a href="https://vk.com/dev/methods"><em>здесь</em></a>.</p></li>
+<li><p><code>?v=5.81&amp;access_token=</code> - после <code>?</code> идет перечисление параметров запроса. Неизменны в каждом запросе параметры версии (<code>v</code>) и токена, также здесь можно указать другие параметры. Список параметров и их возможные значения надо смотреть на странице соответствующего метода. Пары параметр=значение объединяются через &amp;.</p></li>
 </ul>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="data.table-pt2.html#cb219-1" tabindex="-1"></a>lm_fit <span class="ot">&lt;-</span> <span class="fu">glm</span>(survived <span class="sc">~</span> sex <span class="sc">+</span> age <span class="sc">+</span> pclass <span class="sc">+</span> fare, <span class="at">data =</span> titanic, <span class="at">family =</span> <span class="st">&#39;binomial&#39;</span>)</span>
-<span id="cb219-2"><a href="data.table-pt2.html#cb219-2" tabindex="-1"></a><span class="fu">summary</span>(lm_fit)</span></code></pre></div>
-<pre><code>## 
-## Call:
-## glm(formula = survived ~ sex + age + pclass + fare, family = &quot;binomial&quot;, 
-##     data = titanic)
-## 
-## Coefficients:
-##               Estimate Std. Error z value Pr(&gt;|z|)    
-## (Intercept)  4.5009747  0.4616310   9.750  &lt; 2e-16 ***
-## sexmale     -2.4899900  0.1669830 -14.912  &lt; 2e-16 ***
-## age         -0.0336871  0.0062977  -5.349 8.84e-08 ***
-## pclass      -1.1079840  0.1284987  -8.623  &lt; 2e-16 ***
-## fare         0.0006614  0.0017242   0.384    0.701    
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-## 
-## (Dispersion parameter for binomial family taken to be 1)
-## 
-##     Null deviance: 1413.57  on 1044  degrees of freedom
-## Residual deviance:  982.81  on 1040  degrees of freedom
-##   (264 observations deleted due to missingness)
-## AIC: 992.81
-## 
-## Number of Fisher Scoring iterations: 4</code></pre>
+<p><br></p>
 </div>
-<div id="для-тех-кто-любит-посложнее-1" class="section level3 unnumbered hasAnchor">
-<h3>для тех, кто любит посложнее<a href="data.table-pt2.html#для-тех-кто-любит-посложнее-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Создайте датасет:</p>
+<div id="правила-сервиса" class="section level3 unnumbered hasAnchor">
+<h3>Правила сервиса<a href="vk-api.html#правила-сервиса" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>При работе со всеми API следует соблюдать правила сервиса, в противном случае приложение будет заблокировано. Правила API VK можно прочитать <a href="https://vk.com/dev/rules"><em>здесь</em></a></p>
+<p><br></p>
+</div>
+</div>
+<div id="сеть-друзей" class="section level2 unnumbered hasAnchor">
+<h2>Сеть друзей<a href="vk-api.html#сеть-друзей" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Для примера работы с VK API попробуем построить сеть наших друзей (кто из друзей также является друзьями в VK). Для этого нам надо иметь доступ к разделу <code>friends</code> и работать с методом <code>friends.get</code>. Вот так выглядит запрос на список друзей (а также их город и ссылку на фото аватарки в размере 50*50 пикселей и прочие параметры). По умолчанию метод отдает только id друзей, список дополнительных данных о друзьях задается с помощью параметра <code>fields</code> (что можно указать в этом параметре - надо смотреть в документации метода). Если не указан параметр <code>user_id</code>, то по умолчанию возвращается список друзей того пользователя, кто создал приложение, токен которого используется в запросе (то есть наших друзей).</p>
+<div class="sourceCode" id="cb612"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb612-1"><a href="vk-api.html#cb612-1" tabindex="-1"></a>method_name <span class="ot">&lt;-</span> <span class="st">&#39;friends.get&#39;</span></span>
+<span id="cb612-2"><a href="vk-api.html#cb612-2" tabindex="-1"></a>fields <span class="ot">&lt;-</span> <span class="st">&#39;city,country,sceen_name,sex,education,photo_50&#39;</span></span>
+<span id="cb612-3"><a href="vk-api.html#cb612-3" tabindex="-1"></a></span>
+<span id="cb612-4"><a href="vk-api.html#cb612-4" tabindex="-1"></a>request_url <span class="ot">&lt;-</span> <span class="fu">paste</span>(</span>
+<span id="cb612-5"><a href="vk-api.html#cb612-5" tabindex="-1"></a>  <span class="st">&#39;https://api.vk.com/method/&#39;</span>, method_name,</span>
+<span id="cb612-6"><a href="vk-api.html#cb612-6" tabindex="-1"></a>  <span class="st">&#39;?access_token=&#39;</span>, token,</span>
+<span id="cb612-7"><a href="vk-api.html#cb612-7" tabindex="-1"></a>  <span class="st">&#39;&amp;fields=&#39;</span>, fields,</span>
+<span id="cb612-8"><a href="vk-api.html#cb612-8" tabindex="-1"></a>  <span class="co"># &#39;&amp;count=1&amp;order=random&#39;,</span></span>
+<span id="cb612-9"><a href="vk-api.html#cb612-9" tabindex="-1"></a>  <span class="st">&#39;&amp;v=5.81&#39;</span>,</span>
+<span id="cb612-10"><a href="vk-api.html#cb612-10" tabindex="-1"></a>  <span class="at">sep =</span> <span class="st">&#39;&#39;</span></span>
+<span id="cb612-11"><a href="vk-api.html#cb612-11" tabindex="-1"></a>)</span>
+<span id="cb612-12"><a href="vk-api.html#cb612-12" tabindex="-1"></a></span>
+<span id="cb612-13"><a href="vk-api.html#cb612-13" tabindex="-1"></a>request_url</span></code></pre></div>
+<pre><code>## [1] &quot;https://api.vk.com/method/friends.get?access_token=vk1.a.ru-deB10Lpz23gsWUzgeoljiKp4giQyOryhe4nkPSwCyI9VWF5vCPB3rwkDmxyq9g7MMAKRvXJflWWbxr-KuKQUZm86NF-6VN6ulyXgsMOfOoO4awG50AUWBfNLf-KCKzNAze-5O8ddx4T-rZhafwJuxTk4KAgrNYNRRpInbf5olDf7mMRXsctLrTBQxWJ4fRve5bQUuCQFVooTQ1KSRpw&amp;fields=city,country,sceen_name,sex,education,photo_50&amp;v=5.81&quot;</code></pre>
+<p>Далее эту ссылку используем в функции <code>GET()</code> пакета <code>httr</code> и разбираем результат с помощью <code>content()</code>. При этом можно проверить результат запроса, вызвав элемент <code>status_code</code> результата функции <code>GET()</code>. В норме должен был статус 200 (впрочем, если у приложения нет доступа к какому-то разделу, все равно будет код 200, но в ответе сервера будет текст, что доступ запрещен). Прочие коды надо либо смотреть в общей <a href="https://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D0%BA%D0%BE%D0%B4%D0%BE%D0%B2_%D1%81%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D1%8F_HTTP"><em>таблице</em></a> кодов ответов либо в <a href="https://vk.com/dev/errors"><em>списке</em></a> API VK, так как могут быть специальные коды именно этого API.</p>
+<div class="sourceCode" id="cb614"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb614-1"><a href="vk-api.html#cb614-1" tabindex="-1"></a><span class="fu">library</span>(httr)</span>
+<span id="cb614-2"><a href="vk-api.html#cb614-2" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb614-3"><a href="vk-api.html#cb614-3" tabindex="-1"></a></span>
+<span id="cb614-4"><a href="vk-api.html#cb614-4" tabindex="-1"></a><span class="co"># импортируем список друзей</span></span>
+<span id="cb614-5"><a href="vk-api.html#cb614-5" tabindex="-1"></a>my_friends <span class="ot">&lt;-</span> <span class="fu">GET</span>(request_url)</span>
+<span id="cb614-6"><a href="vk-api.html#cb614-6" tabindex="-1"></a></span>
+<span id="cb614-7"><a href="vk-api.html#cb614-7" tabindex="-1"></a><span class="co"># смотрим код ответа</span></span>
+<span id="cb614-8"><a href="vk-api.html#cb614-8" tabindex="-1"></a>my_friends<span class="sc">$</span>status_code</span>
+<span id="cb614-9"><a href="vk-api.html#cb614-9" tabindex="-1"></a></span>
+<span id="cb614-10"><a href="vk-api.html#cb614-10" tabindex="-1"></a><span class="co"># извлекаем содержание в многоуровневый список</span></span>
+<span id="cb614-11"><a href="vk-api.html#cb614-11" tabindex="-1"></a>my_friends <span class="ot">&lt;-</span> <span class="fu">content</span>(my_friends)</span></code></pre></div>
+<p>Вот так выглядит структура результата, если выгружать только одного пользователя (закомментированная мной строчка в запросе):</p>
+<div class="sourceCode" id="cb615"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb615-1"><a href="vk-api.html#cb615-1" tabindex="-1"></a><span class="fu">str</span>(my_friends)</span></code></pre></div>
+<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb616-1"><a href="vk-api.html#cb616-1" tabindex="-1"></a>List of <span class="dv">1</span></span>
+<span id="cb616-2"><a href="vk-api.html#cb616-2" tabindex="-1"></a> <span class="sc">$</span> response<span class="sc">:</span>List of <span class="dv">2</span></span>
+<span id="cb616-3"><a href="vk-api.html#cb616-3" tabindex="-1"></a>  ..<span class="sc">$</span> count<span class="sc">:</span> int <span class="dv">775</span></span>
+<span id="cb616-4"><a href="vk-api.html#cb616-4" tabindex="-1"></a>  ..<span class="sc">$</span> items<span class="sc">:</span>List of <span class="dv">1</span></span>
+<span id="cb616-5"><a href="vk-api.html#cb616-5" tabindex="-1"></a>  .. ..<span class="sc">$</span> <span class="er">:</span>List of <span class="dv">16</span></span>
+<span id="cb616-6"><a href="vk-api.html#cb616-6" tabindex="-1"></a>  .. .. ..<span class="sc">$</span> id              <span class="sc">:</span> int <span class="dv">999999</span></span>
+<span id="cb616-7"><a href="vk-api.html#cb616-7" tabindex="-1"></a>  .. .. ..<span class="sc">$</span> first_name      <span class="sc">:</span> chr <span class="st">&quot;Петр&quot;</span></span>
+<span id="cb616-8"><a href="vk-api.html#cb616-8" tabindex="-1"></a>  .. .. ..<span class="sc">$</span> last_name       <span class="sc">:</span> chr <span class="st">&quot;Петров&quot;</span></span>
+<span id="cb616-9"><a href="vk-api.html#cb616-9" tabindex="-1"></a>  .. .. ..<span class="sc">$</span> sex             <span class="sc">:</span> int <span class="dv">2</span></span>
+<span id="cb616-10"><a href="vk-api.html#cb616-10" tabindex="-1"></a>  .. .. ..<span class="sc">$</span> city            <span class="sc">:</span>List of <span class="dv">2</span></span>
+<span id="cb616-11"><a href="vk-api.html#cb616-11" tabindex="-1"></a>  .. .. .. ..<span class="sc">$</span> id   <span class="sc">:</span> int <span class="dv">969</span></span>
+<span id="cb616-12"><a href="vk-api.html#cb616-12" tabindex="-1"></a>  .. .. .. ..<span class="sc">$</span> title<span class="sc">:</span> chr <span class="st">&quot;City&quot;</span></span>
+<span id="cb616-13"><a href="vk-api.html#cb616-13" tabindex="-1"></a>  .. .. ..<span class="sc">$</span> country         <span class="sc">:</span>List of <span class="dv">2</span></span>
+<span id="cb616-14"><a href="vk-api.html#cb616-14" tabindex="-1"></a>  .. .. .. ..<span class="sc">$</span> id   <span class="sc">:</span> int <span class="dv">139</span></span>
+<span id="cb616-15"><a href="vk-api.html#cb616-15" tabindex="-1"></a>  .. .. .. ..<span class="sc">$</span> title<span class="sc">:</span> chr <span class="st">&quot;Country&quot;</span></span>
+<span id="cb616-16"><a href="vk-api.html#cb616-16" tabindex="-1"></a>  .. .. ..<span class="sc">$</span> photo_50        <span class="sc">:</span> chr <span class="st">&quot;photo_url&quot;</span></span>
+<span id="cb616-17"><a href="vk-api.html#cb616-17" tabindex="-1"></a>  .. .. ..<span class="sc">$</span> university      <span class="sc">:</span> int <span class="dv">999</span></span>
+<span id="cb616-18"><a href="vk-api.html#cb616-18" tabindex="-1"></a>  .. .. ..<span class="sc">$</span> university_name <span class="sc">:</span> chr <span class="st">&quot;unicersity&quot;</span></span>
+<span id="cb616-19"><a href="vk-api.html#cb616-19" tabindex="-1"></a>  .. .. ..<span class="sc">$</span> faculty         <span class="sc">:</span> int <span class="dv">999</span></span>
+<span id="cb616-20"><a href="vk-api.html#cb616-20" tabindex="-1"></a>  .. .. ..<span class="sc">$</span> faculty_name    <span class="sc">:</span> chr <span class="st">&quot;faculty&quot;</span></span>
+<span id="cb616-21"><a href="vk-api.html#cb616-21" tabindex="-1"></a>  .. .. ..<span class="sc">$</span> graduation      <span class="sc">:</span> int <span class="dv">999</span></span>
+<span id="cb616-22"><a href="vk-api.html#cb616-22" tabindex="-1"></a>  .. .. ..<span class="sc">$</span> education_form  <span class="sc">:</span> chr <span class="st">&quot;form&quot;</span></span>
+<span id="cb616-23"><a href="vk-api.html#cb616-23" tabindex="-1"></a>  .. .. ..<span class="sc">$</span> education_status<span class="sc">:</span> chr <span class="st">&quot;status&quot;</span></span>
+<span id="cb616-24"><a href="vk-api.html#cb616-24" tabindex="-1"></a>  .. .. ..<span class="sc">$</span> online          <span class="sc">:</span> int <span class="dv">0</span></span>
+<span id="cb616-25"><a href="vk-api.html#cb616-25" tabindex="-1"></a>  .. .. ..<span class="sc">$</span> track_code      <span class="sc">:</span> chr <span class="st">&quot;track_code&quot;</span></span></code></pre></div>
+<p>Результат - список, состоящий из одного подсписка <code>result</code>, который сам является список двух элементов - значения <code>count</code> (это общее количество моих друзей) <code>items</code> - это список друзей, где каждый подсписок содержит информацию по одному другу.</p>
+<p>Для того, чтобы можно было работать с этим объектом, его надо каким-то образом переконвертировать в табличный вид. Проще всего это сделать с помощью связки <code>lapply()</code> + <code>rbindlist()</code>. Итерироваться будем по подспискам списка <code>items.</code> Так как не у всех может быть указан город, в <code>rbindlist()</code> используем <code>fill = TRUE</code>, чтобы пропущенные были заменены на NA, и таблички склеились нормально.</p>
+<div class="sourceCode" id="cb617"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb617-1"><a href="vk-api.html#cb617-1" tabindex="-1"></a>my_friends_table <span class="ot">&lt;-</span> <span class="fu">lapply</span>(my_friends<span class="sc">$</span>response<span class="sc">$</span>items, <span class="cf">function</span>(x) {</span>
+<span id="cb617-2"><a href="vk-api.html#cb617-2" tabindex="-1"></a>  res <span class="ot">&lt;-</span> <span class="fu">data.table</span>(</span>
+<span id="cb617-3"><a href="vk-api.html#cb617-3" tabindex="-1"></a>    <span class="at">id =</span> x<span class="sc">$</span>id,</span>
+<span id="cb617-4"><a href="vk-api.html#cb617-4" tabindex="-1"></a>    <span class="at">city =</span> x<span class="sc">$</span>city<span class="sc">$</span>title,</span>
+<span id="cb617-5"><a href="vk-api.html#cb617-5" tabindex="-1"></a>    <span class="at">url =</span> x<span class="sc">$</span>photo_50</span>
+<span id="cb617-6"><a href="vk-api.html#cb617-6" tabindex="-1"></a>  )</span>
+<span id="cb617-7"><a href="vk-api.html#cb617-7" tabindex="-1"></a>  <span class="fu">return</span>(res)</span>
+<span id="cb617-8"><a href="vk-api.html#cb617-8" tabindex="-1"></a>})</span>
+<span id="cb617-9"><a href="vk-api.html#cb617-9" tabindex="-1"></a>my_friends_table <span class="ot">&lt;-</span> <span class="fu">rbindlist</span>(my_friends_table, <span class="at">fill =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>Смотрим табличку:</p>
+<div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb618-1"><a href="vk-api.html#cb618-1" tabindex="-1"></a>my_friends_table[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">id</th>
+<th align="left">city</th>
+<th align="left">url</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">999</td>
+<td align="left">Санкт-Петербург</td>
+<td align="left"><a href="https://sun1-20.userapi.com/" class="uri">https://sun1-20.userapi.com/</a>….</td>
+</tr>
+<tr class="even">
+<td align="right">1000</td>
+<td align="left">London</td>
+<td align="left"><a href="https://sun1-30.userapi.com/" class="uri">https://sun1-30.userapi.com/</a>….</td>
+</tr>
+<tr class="odd">
+<td align="right">1001</td>
+<td align="left">Санкт-Петербург</td>
+<td align="left"><a href="https://sun1-91.userapi.com/" class="uri">https://sun1-91.userapi.com/</a>….</td>
+</tr>
+<tr class="even">
+<td align="right">1002</td>
+<td align="left">NA</td>
+<td align="left"><a href="https://sun9-18.userapi.com/" class="uri">https://sun9-18.userapi.com/</a>….</td>
+</tr>
+<tr class="odd">
+<td align="right">1003</td>
+<td align="left">Санкт-Петербург</td>
+<td align="left"><a href="https://sun9-7.userapi.com/" class="uri">https://sun9-7.userapi.com/</a>…..</td>
+</tr>
+</tbody>
+</table>
+<p>Для того, чтобы не делать граф друзей очень большим (все-таки задача учебная), отфильтруем список друзей таким образом, чтобы осталось где-то несколько десятков пользователей, которые могут быть связаны друг с другом. Например, можно отфильтровать по городу, по вузу или по факультету - в зависимости от вашей структуры контактов.</p>
+<p>Сокращенный список назовем <code>friends_vertices</code>, так как эти люди будут вершинами графа на графике.</p>
+<div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb619-1"><a href="vk-api.html#cb619-1" tabindex="-1"></a>friends_vertices <span class="ot">&lt;-</span> my_friends_table[city <span class="sc">==</span> <span class="st">&#39;Барнаул&#39;</span>]</span></code></pre></div>
+<p>Так как мы хотим посмотреть, как дружат наши друзья друг с другом, то теперь нам надо импортировать список друзей наших друзей, и удалить оттуда тех, кого нет у нас в друзьях. Процедура в целом схожая с получением списка друзей, только здесь достаточно будет просто импортировать идентификаторы, плюс в параметрах запроса надо буде указывать, по какому пользователю мы импортируем друзей.
+<strong>Важно</strong> - если этот пользователь скрыл от нас каких-то друзей или вообще всех друзей, то мы получим пустой список для него.</p>
+<p>Сразу в цикле пробегаем по нашему списку друзей и используем идентификатор в запросе (<code>'&amp;user_id=', x</code>). Импортируем только идентификаторы друзей указанного пользователя, поэтому параметра <code>fields</code> в запросе нет. Для того, чтобы API VK не блочил слишком быстрые запросы (лимит в 3 запроса в секунду), вставляем примитивный замедлитель на 0.3 секунды (<code>Sys.sleep(0.3)</code>). Результат разбираем в табличку. Так как список <code>items</code> содержит один элемент для каждого пользователя, можно просто воспользоваться функцией <code>unlist</code>, которая превращает список в вектор (когда много элементов по пользователю, так не получится, все превратится в мешанину значений и в табличку разобрать будет сложно).</p>
+<div class="sourceCode" id="cb620"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb620-1"><a href="vk-api.html#cb620-1" tabindex="-1"></a>friends_of_friends <span class="ot">&lt;-</span> <span class="fu">lapply</span>(friends_vertices[, id], <span class="cf">function</span>(x) {</span>
+<span id="cb620-2"><a href="vk-api.html#cb620-2" tabindex="-1"></a>  request_url_fof <span class="ot">&lt;-</span> <span class="fu">paste</span>(</span>
+<span id="cb620-3"><a href="vk-api.html#cb620-3" tabindex="-1"></a>    <span class="st">&#39;https://api.vk.com/method/&#39;</span>, method_name,</span>
+<span id="cb620-4"><a href="vk-api.html#cb620-4" tabindex="-1"></a>    <span class="st">&#39;?access_token=&#39;</span>, token,</span>
+<span id="cb620-5"><a href="vk-api.html#cb620-5" tabindex="-1"></a>    <span class="st">&#39;&amp;user_id=&#39;</span>, x,</span>
+<span id="cb620-6"><a href="vk-api.html#cb620-6" tabindex="-1"></a>    <span class="st">&#39;&amp;v=5.81&#39;</span>,</span>
+<span id="cb620-7"><a href="vk-api.html#cb620-7" tabindex="-1"></a>    <span class="at">sep =</span> <span class="st">&#39;&#39;</span></span>
+<span id="cb620-8"><a href="vk-api.html#cb620-8" tabindex="-1"></a>  )</span>
+<span id="cb620-9"><a href="vk-api.html#cb620-9" tabindex="-1"></a>  res <span class="ot">&lt;-</span> <span class="fu">GET</span>(request_url_fof)</span>
+<span id="cb620-10"><a href="vk-api.html#cb620-10" tabindex="-1"></a>  <span class="fu">Sys.sleep</span>(<span class="fl">0.3</span>)</span>
+<span id="cb620-11"><a href="vk-api.html#cb620-11" tabindex="-1"></a>  res <span class="ot">&lt;-</span> <span class="fu">content</span>(res)</span>
+<span id="cb620-12"><a href="vk-api.html#cb620-12" tabindex="-1"></a>  res <span class="ot">&lt;-</span> <span class="fu">data.table</span>(</span>
+<span id="cb620-13"><a href="vk-api.html#cb620-13" tabindex="-1"></a>    <span class="at">from =</span> x,</span>
+<span id="cb620-14"><a href="vk-api.html#cb620-14" tabindex="-1"></a>    <span class="at">to =</span> <span class="fu">unlist</span>(res<span class="sc">$</span>response<span class="sc">$</span>items)</span>
+<span id="cb620-15"><a href="vk-api.html#cb620-15" tabindex="-1"></a>  )</span>
+<span id="cb620-16"><a href="vk-api.html#cb620-16" tabindex="-1"></a>  res</span>
+<span id="cb620-17"><a href="vk-api.html#cb620-17" tabindex="-1"></a>})</span>
+<span id="cb620-18"><a href="vk-api.html#cb620-18" tabindex="-1"></a>friends_of_friends <span class="ot">&lt;-</span> <span class="fu">rbindlist</span>(friends_of_friends)</span></code></pre></div>
+<p>Мы получили таблицу, в которой в колонке <code>from</code> - список наших друзей. В колонке <code>to</code> - идентификаторы друзей, с которыми дружат наши друзья. Если мы хотим посмотреть именно сеть, как связаны наши друзья из семпла, из колонки <code>to</code> следует удалить идентификаторы всех людей, кроме тех, кто есть в <code>from</code>. Результат можно проверить, посчитав количество уникальных идентификаторов в <code>from</code> и <code>to</code> - во второй колонке их должно столько же, сколько в <code>from</code>. В целом, эта таблица описывает связи наших друзей (каждая строчка описывает одну связь), если кто-то из наших друзей, по кому мы хотим нарисовать граф связей, ни с кем из наших друзей не связан, то его не должно быть в таблице после фильтраций.</p>
+<div class="sourceCode" id="cb621"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb621-1"><a href="vk-api.html#cb621-1" tabindex="-1"></a><span class="co"># удаляем незнакомых людей и оставляем только связи друзей</span></span>
+<span id="cb621-2"><a href="vk-api.html#cb621-2" tabindex="-1"></a>friends_edges <span class="ot">&lt;-</span> friends_of_friends[to <span class="sc">%in%</span> friends_vertices[, id]]</span></code></pre></div>
+<div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb622-1"><a href="vk-api.html#cb622-1" tabindex="-1"></a><span class="co"># считаем, сколько наших друзей ни с кем другим из наших друзей не связан</span></span>
+<span id="cb622-2"><a href="vk-api.html#cb622-2" tabindex="-1"></a>friends_vertices[, <span class="fu">uniqueN</span>(id)] <span class="sc">-</span> friends_edges[, <span class="fu">uniqueN</span>(from)]</span></code></pre></div>
+<pre><code>## [1] 8</code></pre>
+<p>График связей строится с помощью пакета <code>igraph</code>. Этот пакет, по сути, state-of-the-art в визуализации сетей в R. Однако это большой и сложный пакет, изучать его можно долго, поэтому ограничимся примерами из мануалов.</p>
+<p>Попробуем нарисовать сеть, при этом внесем некоторую кастомизацию. Во-первых, можно вместо идентификаторов пользователей и безличных кружочков вершин указать аватарки пользователей (именно для этого мы импортировали ссылки на их аватарки), во-вторых, можно попробовать выделить цветом группы друзей.</p>
+<p>Первым делом формируем igraph-объект, описывающий вершины социального графа и связи между ними.</p>
+<div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb624-1"><a href="vk-api.html#cb624-1" tabindex="-1"></a><span class="fu">library</span>(igraph)</span>
+<span id="cb624-2"><a href="vk-api.html#cb624-2" tabindex="-1"></a><span class="co"># из списка друзей и таблицы связей формируем объект</span></span>
+<span id="cb624-3"><a href="vk-api.html#cb624-3" tabindex="-1"></a><span class="co"># аргумент directed = FALSE означает, что у нас нет направления связи</span></span>
+<span id="cb624-4"><a href="vk-api.html#cb624-4" tabindex="-1"></a><span class="co"># (пример направленной связи - родитель - ребенок, учител - ученик и т.д.)</span></span>
+<span id="cb624-5"><a href="vk-api.html#cb624-5" tabindex="-1"></a>net <span class="ot">&lt;-</span> <span class="fu">graph_from_data_frame</span>(<span class="at">d =</span> friends_edges,</span>
+<span id="cb624-6"><a href="vk-api.html#cb624-6" tabindex="-1"></a>                             <span class="at">vertices =</span> friends_vertices,</span>
+<span id="cb624-7"><a href="vk-api.html#cb624-7" tabindex="-1"></a>                             <span class="at">directed =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb624-8"><a href="vk-api.html#cb624-8" tabindex="-1"></a><span class="co"># упрощаем объект</span></span>
+<span id="cb624-9"><a href="vk-api.html#cb624-9" tabindex="-1"></a>net <span class="ot">&lt;-</span> <span class="fu">simplify</span>(net, <span class="at">remove.multiple =</span> <span class="cn">TRUE</span>, <span class="at">remove.loops =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>Если мы хотим отрисовать аватарки вместо лейблов, то нам потребуется пакет <code>magick</code> (на *nix машинах и MacOS может потребовать дополнительные системные библиотеки):</p>
+<div class="sourceCode" id="cb625"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb625-1"><a href="vk-api.html#cb625-1" tabindex="-1"></a><span class="fu">library</span>(magick)</span>
+<span id="cb625-2"><a href="vk-api.html#cb625-2" tabindex="-1"></a><span class="co"># brew imagemagick@6</span></span>
+<span id="cb625-3"><a href="vk-api.html#cb625-3" tabindex="-1"></a></span>
+<span id="cb625-4"><a href="vk-api.html#cb625-4" tabindex="-1"></a><span class="co"># импортируем аватарки по ссылке в R-объект</span></span>
+<span id="cb625-5"><a href="vk-api.html#cb625-5" tabindex="-1"></a>friends_photos <span class="ot">&lt;-</span> <span class="fu">lapply</span>(friends_vertices[, url], image_read)</span>
+<span id="cb625-6"><a href="vk-api.html#cb625-6" tabindex="-1"></a></span>
+<span id="cb625-7"><a href="vk-api.html#cb625-7" tabindex="-1"></a><span class="co"># добавляем в описание вершин графа имопртированный список фотографий</span></span>
+<span id="cb625-8"><a href="vk-api.html#cb625-8" tabindex="-1"></a><span class="fu">V</span>(net)<span class="sc">$</span>raster <span class="ot">&lt;-</span> <span class="fu">unlist</span>(friends_photos)</span></code></pre></div>
+<p>Для кластеризации в <code>igraph</code> есть свои собственные функции (если интересен алогоритм - то лучше читать справку и гуглить, как они работают, я просто воспользовался примером из туториала). Создаем объект кластеров:</p>
+<div class="sourceCode" id="cb626"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb626-1"><a href="vk-api.html#cb626-1" tabindex="-1"></a><span class="co"># кластеризация</span></span>
+<span id="cb626-2"><a href="vk-api.html#cb626-2" tabindex="-1"></a>clp <span class="ot">&lt;-</span> <span class="fu">cluster_fast_greedy</span>(net)</span></code></pre></div>
+<p>После этого рисуем граф связей. Я не стал отрисовывать фотографии, поэтому мой код такой:</p>
+<div class="sourceCode" id="cb627"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb627-1"><a href="vk-api.html#cb627-1" tabindex="-1"></a><span class="fu">plot.igraph</span>(</span>
+<span id="cb627-2"><a href="vk-api.html#cb627-2" tabindex="-1"></a>  <span class="co"># объект-описание сети</span></span>
+<span id="cb627-3"><a href="vk-api.html#cb627-3" tabindex="-1"></a>  <span class="at">x =</span> net,</span>
+<span id="cb627-4"><a href="vk-api.html#cb627-4" tabindex="-1"></a></span>
+<span id="cb627-5"><a href="vk-api.html#cb627-5" tabindex="-1"></a>  <span class="co"># кластеры</span></span>
+<span id="cb627-6"><a href="vk-api.html#cb627-6" tabindex="-1"></a>  <span class="at">mark.groups =</span> clp,</span>
+<span id="cb627-7"><a href="vk-api.html#cb627-7" tabindex="-1"></a></span>
+<span id="cb627-8"><a href="vk-api.html#cb627-8" tabindex="-1"></a>  <span class="co"># скрываем подписи с вершин</span></span>
+<span id="cb627-9"><a href="vk-api.html#cb627-9" tabindex="-1"></a>  <span class="at">vertex.label  =</span> <span class="cn">NA</span></span>
+<span id="cb627-10"><a href="vk-api.html#cb627-10" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="17_vk_api_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p>Для отрисовки графа с фотографиями следует воспользоваться этим кодом:</p>
+<div class="sourceCode" id="cb628"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb628-1"><a href="vk-api.html#cb628-1" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb628-2"><a href="vk-api.html#cb628-2" tabindex="-1"></a>  <span class="at">x =</span> net,</span>
+<span id="cb628-3"><a href="vk-api.html#cb628-3" tabindex="-1"></a>  <span class="at">mark.groups =</span> clp,</span>
+<span id="cb628-4"><a href="vk-api.html#cb628-4" tabindex="-1"></a>  <span class="at">vertex.label  =</span> <span class="cn">NA</span>,</span>
+<span id="cb628-5"><a href="vk-api.html#cb628-5" tabindex="-1"></a></span>
+<span id="cb628-6"><a href="vk-api.html#cb628-6" tabindex="-1"></a>  <span class="co"># указываем, что при  отрисовке вершин используем</span></span>
+<span id="cb628-7"><a href="vk-api.html#cb628-7" tabindex="-1"></a>  <span class="co"># параметр raster, заданный ранее</span></span>
+<span id="cb628-8"><a href="vk-api.html#cb628-8" tabindex="-1"></a>  <span class="at">vertex.shape =</span> <span class="st">&quot;raster&quot;</span></span>
+<span id="cb628-9"><a href="vk-api.html#cb628-9" tabindex="-1"></a>)</span></code></pre></div>
+<p><br></p>
+</div>
+<div id="vkr-package" class="section level2 unnumbered hasAnchor">
+<h2>vkR package<a href="vk-api.html#vkr-package" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>В CRAN есть пакет <code>vkR</code>, который предназначен для работы с API VK. Этот пакет, в целом, имеет функции, которые мы только что написали руками - авторизацию, сбор информации по некоторым методам (друзьям, группам и т.д.).</p>
+<p>Авторизация осуществляется в пакете таким же образом, как и у нас - через создание приложение, получение ID и ссылку в браузере. В пакете есть костыль для неинтерактивной работы (можно указать логин и пароль, и тогда не надо будет копировать из браузера токен), но сделан он грязновато.</p>
+<p>В целом, я не рекомендую пользоваться этим пакетом - он был написан четыре года назад и с тех пор не обновлялся. За это время часть методов API VK существенно изменилась и легко можно получить ситуацию, когда что-то не работает или работает неправильно.</p>
+<p><br></p>
+</div>
+<div id="дополнительные-материалы-6" class="section level2 unnumbered hasAnchor">
+<h2>Дополнительные материалы<a href="vk-api.html#дополнительные-материалы-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>несколько пользователей</li>
-<li>по 5 сессий на каждого пользователя.</li>
-<li>поле логина, тип – дата и время (таймстамп), все логины в интервале 1-9 сентября. В юникс-формате или просто дата и время, на ваше усмотрение.</li>
-<li>для каждой сессии создайте случайную длину сессии (достаточно просто вектор длиной со всю таблицу, без учета пользователей) в секундах. Длина сессии должна варьировать в пределах 120 - 600 секунд</li>
-<li>посчитайте количество пользователей, среднее количество сессий на пользователя, среднюю длину сессий. Без учета вариативности внутри пользователя, overall по всему датасету.</li>
+<li><p><a href="https://dev.vk.com/api/getting-started"><em>Знакомство с API VK</em></a> - официальная документация, весьма подробная и понятная</p></li>
+<li><p>Наверное, лучший <a href="https://kateto.net/network-visualization"><em>туториал</em></a> по визуализации сетей. Почти половина туториала посвящена разным аспектам пакета <code>igraph</code>. С интерактивными визуализациями рекомендую быть осторожнее - на больших датасетах они нередко могут подвисать и крашить сессию.</p></li>
 </ul>
-<p>Подсказки:</p>
-<ul>
-<li>датасет лучше создавать в несколько шагов</li>
-<li>есть полезная функция <code>expand.grid()</code></li>
-<li>для генерации времени поможет функция <code>as.POSIXct()</code>, плюс есть немного справочных материалов в учебнике: <a href="https://textbook.rintro.ru/objects.html#objects-time">раз</a>, <a href="https://textbook.rintro.ru/manipulations.html#manipulations-time">два</a></li>
-</ul>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="data.table-pt2.html#cb221-1" tabindex="-1"></a>my_dt <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(</span>
-<span id="cb221-2"><a href="data.table-pt2.html#cb221-2" tabindex="-1"></a>  <span class="fu">paste0</span>(<span class="st">&#39;user_&#39;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>),</span>
-<span id="cb221-3"><a href="data.table-pt2.html#cb221-3" tabindex="-1"></a>  <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
-<span id="cb221-4"><a href="data.table-pt2.html#cb221-4" tabindex="-1"></a>)</span>
-<span id="cb221-5"><a href="data.table-pt2.html#cb221-5" tabindex="-1"></a>my_dt <span class="ot">&lt;-</span> <span class="fu">as.data.table</span>(my_dt)</span>
-<span id="cb221-6"><a href="data.table-pt2.html#cb221-6" tabindex="-1"></a><span class="fu">setnames</span>(my_dt, <span class="fu">c</span>(<span class="st">&#39;uid&#39;</span>, <span class="st">&#39;sid&#39;</span>))</span>
-<span id="cb221-7"><a href="data.table-pt2.html#cb221-7" tabindex="-1"></a><span class="fu">setkey</span>(my_dt, <span class="st">&#39;uid&#39;</span>)</span>
-<span id="cb221-8"><a href="data.table-pt2.html#cb221-8" tabindex="-1"></a></span>
-<span id="cb221-9"><a href="data.table-pt2.html#cb221-9" tabindex="-1"></a>time_seq <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">as.POSIXct</span>(<span class="st">&quot;2023-09-01 00:00:00&quot;</span>), <span class="fu">as.POSIXct</span>(<span class="st">&quot;2023-09-09 23:59:59&quot;</span>), <span class="at">by =</span> <span class="st">&quot;s&quot;</span>)</span>
-<span id="cb221-10"><a href="data.table-pt2.html#cb221-10" tabindex="-1"></a></span>
-<span id="cb221-11"><a href="data.table-pt2.html#cb221-11" tabindex="-1"></a>my_dt[, login_ts <span class="sc">:=</span> <span class="fu">sort</span>(<span class="fu">sample</span>(time_seq, .N))]</span>
-<span id="cb221-12"><a href="data.table-pt2.html#cb221-12" tabindex="-1"></a>my_dt[, session_length <span class="sc">:=</span> <span class="fu">sample</span>(<span class="dv">120</span><span class="sc">:</span><span class="dv">600</span>, .N)]</span>
-<span id="cb221-13"><a href="data.table-pt2.html#cb221-13" tabindex="-1"></a></span>
-<span id="cb221-14"><a href="data.table-pt2.html#cb221-14" tabindex="-1"></a><span class="fu">head</span>(my_dt)</span></code></pre></div>
-<pre><code>##       uid sid            login_ts session_length
-## 1: user_1   1 2023-09-01 08:21:02            345
-## 2: user_1   2 2023-09-04 07:12:07            253
-## 3: user_1   3 2023-09-04 15:56:35            576
-## 4: user_1   4 2023-09-05 03:49:41            185
-## 5: user_1   5 2023-09-05 13:59:18            432
-## 6: user_2   1 2023-09-05 21:13:00            595</code></pre>
-</div>
-</div>
-<div id="применение-функций" class="section level2 unnumbered hasAnchor">
-<h2>Применение функций<a href="data.table-pt2.html#применение-функций" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="dataset" class="section level3 unnumbered hasAnchor">
-<h3>dataset<a href="data.table-pt2.html#dataset" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="data.table-pt2.html#cb223-1" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
-<span id="cb223-2"><a href="data.table-pt2.html#cb223-2" tabindex="-1"></a></span>
-<span id="cb223-3"><a href="data.table-pt2.html#cb223-3" tabindex="-1"></a><span class="co"># импортируем по ссылке</span></span>
-<span id="cb223-4"><a href="data.table-pt2.html#cb223-4" tabindex="-1"></a>sw <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&#39;http://bit.ly/39aOUne&#39;</span>)</span>
-<span id="cb223-5"><a href="data.table-pt2.html#cb223-5" tabindex="-1"></a></span>
-<span id="cb223-6"><a href="data.table-pt2.html#cb223-6" tabindex="-1"></a><span class="co"># смотрим структуру объекта</span></span>
-<span id="cb223-7"><a href="data.table-pt2.html#cb223-7" tabindex="-1"></a><span class="fu">str</span>(sw)</span></code></pre></div>
-<pre><code>## Classes &#39;data.table&#39; and &#39;data.frame&#39;:   77 obs. of  6 variables:
-##  $ name       : chr  &quot;Luke Skywalker&quot; &quot;C-3PO&quot; &quot;Darth Vader&quot; &quot;Owen Lars&quot; ...
-##  $ height     : int  172 167 202 178 165 97 183 188 163 183 ...
-##  $ mass       : num  77 75 136 120 75 32 84 84 NA NA ...
-##  $ skin_color : chr  &quot;fair&quot; &quot;gold&quot; &quot;white&quot; &quot;light&quot; ...
-##  $ gender     : chr  &quot;male&quot; &quot;n/a&quot; &quot;male&quot; &quot;male&quot; ...
-##  $ planet_name: chr  &quot;Tatooine&quot; &quot;Tatooine&quot; &quot;Tatooine&quot; &quot;Tatooine&quot; ...
-##  - attr(*, &quot;.internal.selfref&quot;)=&lt;externalptr&gt;</code></pre>
-</div>
-</div>
-<div id="применение-функций-1" class="section level2 unnumbered hasAnchor">
-<h2>Применение функций<a href="data.table-pt2.html#применение-функций-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="количество-строк-и-значений-.n-uniquen" class="section level3 unnumbered hasAnchor">
-<h3>Количество строк и значений: .N, uniqueN<a href="data.table-pt2.html#количество-строк-и-значений-.n-uniquen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>В data.table есть пара полезных функций, которые позволяет быстро и лаконично считать количество значений и количество уникальных значений.</p>
-<p>Считаем количество строк в табличке - для этого используется функция <code>.N</code> (в data.table есть еще несколько функций, которые начинаются с <code>.</code>, но мы их почти не будем касаться).</p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="data.table-pt2.html#cb225-1" tabindex="-1"></a>sw[, .N]</span></code></pre></div>
-<pre><code>## [1] 77</code></pre>
-<p>Функция <code>uniqueN()</code> считает количество уникальных значений. Аналогична сочетанию двух функций <code>length()</code> + <code>unique()</code>, просто короче и быстрее.</p>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="data.table-pt2.html#cb227-1" tabindex="-1"></a>sw[, <span class="fu">uniqueN</span>(planet_name)]</span></code></pre></div>
-<pre><code>## [1] 48</code></pre>
-</div>
-<div id="ветвления-ifelse-fifelse" class="section level3 unnumbered hasAnchor">
-<h3>Ветвления: ifelse / fifelse<a href="data.table-pt2.html#ветвления-ifelse-fifelse" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>В R есть два вида ветвлений с использованием if. Первое - стандартная для многих языков конструкция <code>if {} else{}</code>, она используется при создании функций и т.д. Для работы с таблицами полезнее функция <code>ifelse()</code> или ее быстрый аналог в data.table - <code>fifelse</code> (<code>f</code> от fast).</p>
-<p>В первом аргументе функции мы указываем проверку, в результате которой можно будет сказать TRUE или FALSE. Вторым аргументом - что должно быть возвращено, если результат проверки будет TRUE (логическое утверждение из первого аргумента истинно). Третий аргумент - что должно быть возвращено, если утверждение из первого аргумента ложно. Например, мы проверяем, истинно ли, что 5 тождественно 3. Так как 5 не равно трем, результатом сравнения 5 == 3 будет FALSE (утверждение ложно), соответственно, результатом <code>ifelse()</code> будет <code>'значение если неверно'</code>.</p>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="data.table-pt2.html#cb229-1" tabindex="-1"></a><span class="dv">5</span> <span class="sc">==</span> <span class="dv">3</span></span></code></pre></div>
-<pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="data.table-pt2.html#cb231-1" tabindex="-1"></a><span class="fu">ifelse</span>(<span class="dv">5</span> <span class="sc">==</span> <span class="dv">3</span>, <span class="st">&#39;значение если верно&#39;</span>, <span class="st">&#39;значение если неверно&#39;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;значение если неверно&quot;</code></pre>
-<p>Ключевое отличие <code>ifelse()</code> от классического <code>if {} else{}</code> в том, что эта функция векторизована. То есть, если в первом аргументе сравнивать вектор с каким-то значением, то проверка будет применяться к каждому элементу вектора. Соответственно, и результатов <code>ifelse</code> будет столько же, сколько элементов в векторе.</p>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="data.table-pt2.html#cb233-1" tabindex="-1"></a>my_vec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">9</span>)</span>
-<span id="cb233-2"><a href="data.table-pt2.html#cb233-2" tabindex="-1"></a><span class="fu">ifelse</span>(my_vec <span class="sc">==</span> <span class="dv">3</span>, <span class="st">&#39;значение если верно&#39;</span>, <span class="st">&#39;значение если неверно&#39;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;значение если неверно&quot; &quot;значение если верно&quot;   &quot;значение если неверно&quot;</code></pre>
-<p>Все это позволяет использовать ifelse/fifelse для операций над колонками - например, в примере мы проверяем с помощью функции <code>grepl</code>, встречается ли в значениях ячеек в колонке <code>skin_color</code> слово <code>grey</code>. И если встречается - то в новую колонку будет проставлено значение <code>grey</code>, а если не всречается - <code>no grey</code>.</p>
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="data.table-pt2.html#cb235-1" tabindex="-1"></a>sw[, new <span class="sc">:=</span> <span class="fu">fifelse</span>(<span class="fu">grepl</span>(<span class="st">&#39;grey&#39;</span>, skin_color), <span class="st">&#39;grey&#39;</span>, <span class="st">&#39;no grey&#39;</span>)]</span>
-<span id="cb235-2"><a href="data.table-pt2.html#cb235-2" tabindex="-1"></a>sw[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="fu">list</span>(name, skin_color, new)]</span></code></pre></div>
-<pre><code>##                   name skin_color     new
-##  1:     Luke Skywalker       fair no grey
-##  2:              C-3PO       gold no grey
-##  3:        Darth Vader      white no grey
-##  4:          Owen Lars      light no grey
-##  5: Beru Whitesun lars      light no grey
-##  6:              R5-D4 white, red no grey
-##  7:  Biggs Darklighter      light no grey
-##  8:   Anakin Skywalker       fair no grey
-##  9:     Shmi Skywalker       fair no grey
-## 10:        Cliegg Lars       fair no grey</code></pre>
-</div>
-</div>
-<div id="агрегации" class="section level2 unnumbered hasAnchor">
-<h2>Агрегации<a href="data.table-pt2.html#агрегации" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>В синтаксисе <code>data.table</code> есть конструкция <code>by</code>, которая отвечает за примененим операций над колонками отдельно для каждой группы (общая структура выглядит следующим образом: <code>dataset[выбор строк, операции над колонками, группировка]</code>).</p>
-<p>Общая логика группировки стандартная - <code>split - apply - combine</code>. То есть, датасет разделяется на блоки по значениям группирующей переменной, к колонкам каждого сабсета применяется какое-то выражение, и результат обратно собирается в таблицу. Результатом группировки в <code>data.table</code> всегда будет таблица.
-<img src="pics/split-apply-combine.jpg" /></p>
-<div id="вычисления-по-одной-колонке-1" class="section level3 unnumbered hasAnchor">
-<h3>Вычисления по одной колонке<a href="data.table-pt2.html#вычисления-по-одной-колонке-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Можно использовать группировку при применении функции к таблице, но удобнее результат операции с колонкой оборачивать в <code>list()</code>, так как это дает возможность переименовать колонку. В примере ниже мы считаем количество уникальных значений в колонке <code>name</code> для каждой группы по значениям колонки <code>gender</code>:</p>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="data.table-pt2.html#cb237-1" tabindex="-1"></a>sw[, <span class="fu">uniqueN</span>(name), by <span class="ot">=</span> gender]</span></code></pre></div>
-<pre><code>##           gender V1
-## 1:          male 57
-## 2:           n/a  3
-## 3:        female 16
-## 4: hermaphrodite  1</code></pre>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="data.table-pt2.html#cb239-1" tabindex="-1"></a>sw[, <span class="fu">list</span>(<span class="at">n_chars =</span> <span class="fu">uniqueN</span>(name)), by <span class="ot">=</span> gender]</span></code></pre></div>
-<pre><code>##           gender n_chars
-## 1:          male      57
-## 2:           n/a       3
-## 3:        female      16
-## 4: hermaphrodite       1</code></pre>
-</div>
-<div id="вычисления-по-нескольким-колонкам" class="section level3 unnumbered hasAnchor">
-<h3>Вычисления по нескольким колонкам<a href="data.table-pt2.html#вычисления-по-нескольким-колонкам" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Можно выполнять операции сразу с несколькими колонками:</p>
-<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="data.table-pt2.html#cb241-1" tabindex="-1"></a>sw[, <span class="fu">list</span>(</span>
-<span id="cb241-2"><a href="data.table-pt2.html#cb241-2" tabindex="-1"></a>  <span class="at">n_chars =</span> <span class="fu">uniqueN</span>(name),</span>
-<span id="cb241-3"><a href="data.table-pt2.html#cb241-3" tabindex="-1"></a>  <span class="at">mass_md =</span> <span class="fu">median</span>(mass, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb241-4"><a href="data.table-pt2.html#cb241-4" tabindex="-1"></a>), by <span class="ot">=</span> gender]</span></code></pre></div>
-<pre><code>##           gender n_chars mass_md
-## 1:          male      57    80.0
-## 2:           n/a       3    32.0
-## 3:        female      16    52.5
-## 4: hermaphrodite       1      NA</code></pre>
-</div>
-<div id="группировка-по-нескольким-полям-1" class="section level3 unnumbered hasAnchor">
-<h3>Группировка по нескольким полям<a href="data.table-pt2.html#группировка-по-нескольким-полям-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Часто возникает необходимость группировки сразу по нескольким полям - для этого колонки групп также указываются через список. В выражении ниже мы сначала фильтруем датасет и оставляем только строки, где в колонке <code>gender</code> есть значения <code>male</code> и <code>female</code>, после чего в группах по полу и цвету кожи считаем количество персонажей. Результат агрегации записываем в новый объект и выводим на печать только первые 5 строк (просто чтобы сократить вывод).</p>
-<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="data.table-pt2.html#cb243-1" tabindex="-1"></a>sw_grps <span class="ot">&lt;-</span> sw[gender <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&#39;male&#39;</span>, <span class="st">&#39;female&#39;</span>),</span>
-<span id="cb243-2"><a href="data.table-pt2.html#cb243-2" tabindex="-1"></a>              <span class="fu">list</span>(<span class="at">n_chars =</span> <span class="fu">uniqueN</span>(name)),</span>
-<span id="cb243-3"><a href="data.table-pt2.html#cb243-3" tabindex="-1"></a>              by <span class="ot">=</span> <span class="fu">list</span>(gender, skin_color)]</span>
-<span id="cb243-4"><a href="data.table-pt2.html#cb243-4" tabindex="-1"></a>sw_grps[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
-<pre><code>##    gender skin_color n_chars
-## 1:   male       fair      12
-## 2:   male      white       2
-## 3:   male      light       4
-## 4: female      light       5
-## 5: female       fair       3</code></pre>
-</div>
-</div>
-<div id="манипуляции-с-таблицами" class="section level2 unnumbered hasAnchor">
-<h2>Манипуляции с таблицами<a href="data.table-pt2.html#манипуляции-с-таблицами" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="rbind" class="section level3 unnumbered hasAnchor">
-<h3>rbind()<a href="data.table-pt2.html#rbind" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Функция <code>rbind()</code>(от <code>row bind</code>) используется для объединение двух или более таблиц по строкам. То есть, в результате получается таблица с таким же количеством колонок, но с увеличенным числом строк - по количеству строк в объединяемых таблицах.</p>
-<p>Нередко в объединяемых таблицах отсутствует какая-нибудь колонка или колонки перепутаны. В таких случаях необходимо использовать аргументы <code>use.names = TRUE</code> (проверка названий колонок при объединение) и <code>fill = TRUE</code> (создание колонки с <code>NA</code>-значениями). Обратите внимание, это работает только с <code>data.table</code>-объектами.</p>
-<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="data.table-pt2.html#cb245-1" tabindex="-1"></a><span class="co"># создаем первую таблицу</span></span>
-<span id="cb245-2"><a href="data.table-pt2.html#cb245-2" tabindex="-1"></a>dt1 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">tb =</span> <span class="st">&#39;table_1&#39;</span>,</span>
-<span id="cb245-3"><a href="data.table-pt2.html#cb245-3" tabindex="-1"></a>                  <span class="at">col1 =</span> <span class="fu">sample</span>(<span class="dv">9</span>, <span class="dv">3</span>),</span>
-<span id="cb245-4"><a href="data.table-pt2.html#cb245-4" tabindex="-1"></a>                  <span class="at">col3 =</span> <span class="st">&#39;only in table1&#39;</span>,</span>
-<span id="cb245-5"><a href="data.table-pt2.html#cb245-5" tabindex="-1"></a>                  <span class="at">col2 =</span> <span class="fu">sample</span>(letters, <span class="dv">3</span>))</span>
-<span id="cb245-6"><a href="data.table-pt2.html#cb245-6" tabindex="-1"></a></span>
-<span id="cb245-7"><a href="data.table-pt2.html#cb245-7" tabindex="-1"></a><span class="co"># создаем вторую таблицу</span></span>
-<span id="cb245-8"><a href="data.table-pt2.html#cb245-8" tabindex="-1"></a>dt2 <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">tb =</span> <span class="st">&#39;table_2&#39;</span>,</span>
-<span id="cb245-9"><a href="data.table-pt2.html#cb245-9" tabindex="-1"></a>                  <span class="at">col4 =</span> <span class="st">&#39;only in table2&#39;</span>,</span>
-<span id="cb245-10"><a href="data.table-pt2.html#cb245-10" tabindex="-1"></a>                  <span class="at">col1 =</span> <span class="fu">sample</span>(<span class="dv">9</span>, <span class="dv">3</span>),</span>
-<span id="cb245-11"><a href="data.table-pt2.html#cb245-11" tabindex="-1"></a>                  <span class="at">col2 =</span> <span class="fu">sample</span>(letters, <span class="dv">3</span>))</span>
-<span id="cb245-12"><a href="data.table-pt2.html#cb245-12" tabindex="-1"></a></span>
-<span id="cb245-13"><a href="data.table-pt2.html#cb245-13" tabindex="-1"></a><span class="co"># объединяем по строкам</span></span>
-<span id="cb245-14"><a href="data.table-pt2.html#cb245-14" tabindex="-1"></a><span class="fu">rbind</span>(dt1, dt2, <span class="at">fill =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<pre><code>##         tb col1           col3 col2           col4
-## 1: table_1    6 only in table1    u           &lt;NA&gt;
-## 2: table_1    3 only in table1    e           &lt;NA&gt;
-## 3: table_1    4 only in table1    t           &lt;NA&gt;
-## 4: table_2    9           &lt;NA&gt;    y only in table2
-## 5: table_2    5           &lt;NA&gt;    z only in table2
-## 6: table_2    4           &lt;NA&gt;    e only in table2</code></pre>
-</div>
-<div id="cbind" class="section level3 unnumbered hasAnchor">
-<h3>cbind()<a href="data.table-pt2.html#cbind" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Функция <code>cbind()</code> (от <code>columns bind</code>) используется для объединения нескольких векторов или таблиц равной длины. В результате получается объединённая таблица такой же длины, как каждый из объединяемых векторов. При объединении таблиц — с таким же количеством строк, как в каждой из объединяемых таблиц, и с суммарным количеством колонок.</p>
-<p>При использовании <code>cbind()</code> в работе с таблицами необходимо помнить, что это буквально “склейка” таблиц независимо от порядка наблюдений по строкам. В противном случае можно получить наблюдение, где часть колонок описывает характеристики этого наблюдения, а другая часть — каких-то других наблюдений.</p>
-<p>Другой нюанс, который также необходимо учитывать: при объединении таблиц названия колонок останутся прежними. Так что если в нескольких таблицах встречается, например, колонка <code>col1</code>, то в финальном датасете будет несколько колонок с таким названием — по количеству объединяемых таблиц, в которых она была. В свою очередь, это усложняет задачи выбора колонки по названию и мешает понять, в какой колонке какое содержание.</p>
-<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="data.table-pt2.html#cb247-1" tabindex="-1"></a><span class="co"># выведем ранее созданные таблицы</span></span>
-<span id="cb247-2"><a href="data.table-pt2.html#cb247-2" tabindex="-1"></a><span class="fu">print</span>(dt1)</span></code></pre></div>
-<pre><code>##         tb col1           col3 col2
-## 1: table_1    6 only in table1    u
-## 2: table_1    3 only in table1    e
-## 3: table_1    4 only in table1    t</code></pre>
-<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="data.table-pt2.html#cb249-1" tabindex="-1"></a><span class="fu">print</span>(dt2)</span></code></pre></div>
-<pre><code>##         tb           col4 col1 col2
-## 1: table_2 only in table2    9    y
-## 2: table_2 only in table2    5    z
-## 3: table_2 only in table2    4    e</code></pre>
-<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="data.table-pt2.html#cb251-1" tabindex="-1"></a><span class="co"># создадим колонки-номера строк</span></span>
-<span id="cb251-2"><a href="data.table-pt2.html#cb251-2" tabindex="-1"></a>dt1[, indx <span class="sc">:=</span> <span class="dv">1</span><span class="sc">:</span>.N]</span>
-<span id="cb251-3"><a href="data.table-pt2.html#cb251-3" tabindex="-1"></a>dt2[, indx <span class="sc">:=</span> <span class="dv">1</span><span class="sc">:</span>.N]</span>
-<span id="cb251-4"><a href="data.table-pt2.html#cb251-4" tabindex="-1"></a></span>
-<span id="cb251-5"><a href="data.table-pt2.html#cb251-5" tabindex="-1"></a><span class="co"># теперь отсортируем вторую таблицу по убыванию</span></span>
-<span id="cb251-6"><a href="data.table-pt2.html#cb251-6" tabindex="-1"></a>dt2 <span class="ot">&lt;-</span> dt2[<span class="fu">order</span>(<span class="sc">-</span>indx)]</span>
-<span id="cb251-7"><a href="data.table-pt2.html#cb251-7" tabindex="-1"></a></span>
-<span id="cb251-8"><a href="data.table-pt2.html#cb251-8" tabindex="-1"></a><span class="co"># таблица получилась, но в строках бардак</span></span>
-<span id="cb251-9"><a href="data.table-pt2.html#cb251-9" tabindex="-1"></a><span class="fu">cbind</span>(dt1, dt2)</span></code></pre></div>
-<pre><code>##         tb col1           col3 col2 indx      tb           col4 col1 col2 indx
-## 1: table_1    6 only in table1    u    1 table_2 only in table2    4    e    3
-## 2: table_1    3 only in table1    e    2 table_2 only in table2    5    z    2
-## 3: table_1    4 only in table1    t    3 table_2 only in table2    9    y    1</code></pre>
-<p>В целом, <code>cbind()</code> — весьма редко используемый способ объединения таблиц. Его стоит использовать только тогда, когда есть однозначная уверенность в структуре данных (одинаковое количество строк, разные названия колонок, идентичная сортировка и т. д.), в противном случае это место, в котором очень легко ошибиться, при этом эту ошибку будет очень сложно найти.</p>
-</div>
-</div>
-<div id="домашнее-задание-4" class="section level2 unnumbered hasAnchor">
-<h2>Домашнее задание<a href="data.table-pt2.html#домашнее-задание-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="level-1-iatytd" class="section level3 unnumbered hasAnchor">
-<h3>level 1 (IATYTD)<a href="data.table-pt2.html#level-1-iatytd" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Импортируйте данные по Star Wars, файл по ссылке: <a href="http://bit.ly/39aOUne" class="uri">http://bit.ly/39aOUne</a>. Посмотрите структуру объекта. Посчитайте, сколько в таблице строк.</p>
-</div>
-<div id="level-2-hntr" class="section level3 unnumbered hasAnchor">
-<h3>level 2 (HNTR)<a href="data.table-pt2.html#level-2-hntr" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p>создайте копию колонки <code>mass</code> с названием <code>mass_corrected</code></p></li>
-<li><p>замените все NA в колонке <code>mass_corrected</code> средним значением по группе, группы выделяются по полу и планете (вам потребуется создать промежуточную колонку)</p></li>
-</ul>
-</div>
-<div id="level-3-hmp" class="section level3 unnumbered hasAnchor">
-<h3>level 3 (HMP)<a href="data.table-pt2.html#level-3-hmp" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p>изучите справку по функции <code>ifelse()</code> (или <code>fifelse()</code> в data.table)</p></li>
-<li><p>создайте копию колонки <code>gender</code>, назовите ее <code>gender_2</code>. Замените в ней все <code>n/a</code> и <code>hermaphrodite</code> на <code>other</code>. Посчитайте количество персонажей в зависимости от пола (<code>gender_2</code>):</p></li>
-</ul>
-<pre><code>##    gender_2  N
-## 1:     male 57
-## 2:    other  4
-## 3:   female 16</code></pre>
-<ul>
-<li>выполните предыдущее задание без создания промежуточной колонки <code>gender_2</code></li>
-</ul>
-</div>
-<div id="level-4-uv" class="section level3 unnumbered hasAnchor">
-<h3>level 4 (UV)<a href="data.table-pt2.html#level-4-uv" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p>сделайте сводную таблицу <code>planet_chars</code> по персонажам каждой планеты, где в колонках будет количество персонажей, их средний рост и вес (оригинальный и скорректированный).</p></li>
-<li><p>округлите значения до 1 знака после запятой</p></li>
-</ul>
-<p>Первые 5 строк результата:</p>
-<pre><code>##    planet_name n_chars height_mn mass_mn mass_corrected_mn
-## 1:    Tatooine      10     169.8    85.4              85.8
-## 2:      Kamino       3     208.3    83.1              83.1
-## 3:    Geonosis       1     183.0    80.0              80.0
-## 4:      Utapau       1     206.0    80.0              80.0
-## 5:    Kashyyyk       2     231.0   124.0             124.0</code></pre>
-</div>
-<div id="level-5-n" class="section level3 unnumbered hasAnchor">
-<h3>level 5 (N)<a href="data.table-pt2.html#level-5-n" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Создайте датасет:</p>
-<ul>
-<li>несколько пользователей (например, 100), должен быть отдельный параметр <code>user_type</code> с значениями short, medium, long</li>
-<li>от 1 до 10 сессий на каждого пользователя, случайным образом.</li>
-<li>создайте поле логина, тип – дата и время (таймстамп), все логины в интервале 1-9 сентября. В юникс-формате или просто дата и время, на ваше усмотрение.</li>
-<li>создайте колонку session_num, которая будет маркировать номер сессии пользователя</li>
-<li>для каждой сессии создайте случайную длину сессии в секундах. Длина сессии должна варьировать в пределах 120 - 600 секунд. Длина сессии зависит от параметра <code>user_type</code>:
-<ul>
-<li>short: множитель к длине сессии из интервала (0, 1] (например, 0.27)</li>
-<li>medium: множитель к длине сессии из интервала (1, 3] (например, 2.51)</li>
-<li>long: множитель к длине сессии из интервала (5, 7] (например, 6.1)</li>
-</ul></li>
-</ul>
-<p>Посчитайте в датасете:</p>
-<ul>
-<li>количество пользователей</li>
-<li>среднее количество сессий на пользователя</li>
-<li>средний</li>
-<li>среднюю длину сессий</li>
-<li>средний интервал между концом одной сессии и началом другой сессии (обратите внимание на функцию <code>shift</code>)</li>
-</ul>
-<p>Расчеты в группах по <code>user_type</code> и <code>total</code> (без группировки). В итоговой таблице должно быть 4 строки и 5 колонок.</p>
 
-</div>
 </div>
 </div>
             </section>
@@ -969,8 +916,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="data.table-pt1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="data.table-pt3.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="api.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="hw-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
