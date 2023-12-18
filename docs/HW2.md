@@ -53,11 +53,11 @@ API сервиса не требует ключей авторизации и т
 
 |homeworld |name               |gender |hair_color  |skin_color |birth_year |
 |:---------|:------------------|:------|:-----------|:----------|:----------|
-|NA        |Luke Skywalker     |male   |blond       |fair       |19BBY      |
-|NA        |C-3PO              |n/a    |n/a         |gold       |112BBY     |
-|NA        |Darth Vader        |male   |none        |white      |41.9BBY    |
-|NA        |Owen Lars          |male   |brown, grey |light      |52BBY      |
-|NA        |Beru Whitesun lars |female |brown       |light      |47BBY      |
+|Tatooine  |Luke Skywalker     |male   |blond       |fair       |19BBY      |
+|Tatooine  |C-3PO              |n/a    |n/a         |gold       |112BBY     |
+|Tatooine  |Darth Vader        |male   |none        |white      |41.9BBY    |
+|Tatooine  |Owen Lars          |male   |brown, grey |light      |52BBY      |
+|Tatooine  |Beru Whitesun lars |female |brown       |light      |47BBY      |
 
 ## Задание 3 {-}
 

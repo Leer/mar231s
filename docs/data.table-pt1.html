@@ -1089,7 +1089,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## [1] 12</code></pre>
 <div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="data.table-pt1.html#cb197-1" tabindex="-1"></a><span class="co"># вычисление среднего значения по какой-то колонке</span></span>
 <span id="cb197-2"><a href="data.table-pt1.html#cb197-2" tabindex="-1"></a>dt1[, <span class="fu">mean</span>(new_col_2)]</span></code></pre></div>
-<pre><code>## [1] 0.4987756</code></pre>
+<pre><code>## [1] 0.3753465</code></pre>
 </div>
 <div id="группировка-по-нескольким-полям" class="section level3 unnumbered hasAnchor">
 <h3>Группировка по нескольким полям<a href="data.table-pt1.html#группировка-по-нескольким-полям" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1106,7 +1106,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb199-10"><a href="data.table-pt1.html#cb199-10" tabindex="-1"></a><span class="co"># в результате получаем вторую табличку</span></span>
 <span id="cb199-11"><a href="data.table-pt1.html#cb199-11" tabindex="-1"></a>dt2</span></code></pre></div>
 <pre><code>##    n_rows new_col_1_mn new_col_2_md
-## 1:     12   -0.3823878    0.5591207</code></pre>
+## 1:     12   -0.1897743    0.4151255</code></pre>
 <!-- ## Соотношение list() и `:=` в операциях над колонками. -->
 <!-- Нередко многие путаются в синтаксисе создания новых колонок и в выражении `list()`. Различие следующее: -->
 <!-- ```{r} -->
@@ -1139,17 +1139,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="data.table-pt1.html#cb201-1" tabindex="-1"></a><span class="co"># смотрим содержание таблицы</span></span>
 <span id="cb201-2"><a href="data.table-pt1.html#cb201-2" tabindex="-1"></a>dt1[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
 <pre><code>##    month_names month_abb month_ord is_winter month_ord_sqrt  new_col_1
-## 1:     January       Jan         1      TRUE       1.000000  0.9427221
-## 2:    February       Feb         2      TRUE       1.414214  0.7540886
-## 3:       March       Mar         3     FALSE       1.732051 -1.1191283
-## 4:       April       Apr         4     FALSE       2.000000 -0.3489624
-## 5:         May       May         5     FALSE       2.236068  0.1808793
-##      new_col_2
-## 1: 0.001166158
-## 2: 0.702932341
-## 3: 0.505224346
-## 4: 0.721424749
-## 5: 0.402416395</code></pre>
+## 1:     January       Jan         1      TRUE       1.000000 -0.8628418
+## 2:    February       Feb         2      TRUE       1.414214 -0.7699878
+## 3:       March       Mar         3     FALSE       1.732051 -1.0632321
+## 4:       April       Apr         4     FALSE       2.000000 -1.3508855
+## 5:         May       May         5     FALSE       2.236068  1.1591956
+##     new_col_2
+## 1: 0.03260952
+## 2: 0.26642305
+## 3: 0.48327842
+## 4: 0.46380045
+## 5: 0.02403901</code></pre>
 <div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="data.table-pt1.html#cb203-1" tabindex="-1"></a><span class="co"># выделяем первую и третью колонки датасета</span></span>
 <span id="cb203-2"><a href="data.table-pt1.html#cb203-2" tabindex="-1"></a>dt1[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, .SD, .SDcols <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)]</span></code></pre></div>
 <pre><code>##    month_names month_ord
@@ -1229,15 +1229,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>для генерации времени поможет функция <code>as.POSIXct()</code>, плюс есть немного справочных материалов в учебнике: <a href="https://textbook.rintro.ru/objects.html#objects-time">раз</a>, <a href="https://textbook.rintro.ru/manipulations.html#manipulations-time">два</a></li>
 </ul>
 <pre><code>##       uid sid            login_ts session_length
-## 1: user_1   1 2023-09-01 17:46:24            229
-## 2: user_1   2 2023-09-01 17:58:35            411
-## 3: user_1   3 2023-09-02 12:29:36            355
-## 4: user_1   4 2023-09-03 06:34:18            508
-## 5: user_1   5 2023-09-04 20:29:10            468
-## 6: user_2   1 2023-09-04 22:21:49            546</code></pre>
+## 1: user_1   1 2023-09-01 01:59:07            464
+## 2: user_1   2 2023-09-01 10:23:32            251
+## 3: user_1   3 2023-09-01 18:38:58            526
+## 4: user_1   4 2023-09-01 19:33:50            429
+## 5: user_1   5 2023-09-01 21:24:17            200
+## 6: user_2   1 2023-09-02 09:52:04            274</code></pre>
 <p>Статистики:</p>
 <pre><code>##    n_users total_sessions session_per_user session_length_mn
-## 1:       3             15                5             375.3</code></pre>
+## 1:       3             15                5             413.5</code></pre>
 
 </div>
 </div>

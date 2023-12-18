@@ -679,9 +679,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Например, функция <code>round()</code>, если в качестве аргумента использовать вектор значений, округлит до нужного знака каждый элемент вектора:</p>
 <div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="lists.html#cb63-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">5</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
 <span id="cb63-2"><a href="lists.html#cb63-2" tabindex="-1"></a>x</span></code></pre></div>
-<pre><code>## [1]  0.2737096 -0.6370709 -1.0109461  0.9874995  0.6147022</code></pre>
+<pre><code>## [1] -0.24325476  0.01592832  0.54399614  1.22622405 -0.15622975</code></pre>
 <div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="lists.html#cb65-1" tabindex="-1"></a><span class="fu">round</span>(x, <span class="dv">3</span>)</span></code></pre></div>
-<pre><code>## [1]  0.274 -0.637 -1.011  0.987  0.615</code></pre>
+<pre><code>## [1] -0.243  0.016  0.544  1.226 -0.156</code></pre>
 <p>В какой-то мере к векторизованным операциям можно отнести и простые арифметические операции над векторами. В частности, если мы попробуем сложить или умножить векторы одинаковой длины, то произойдет попарные сумма или произведение элементов векторов:</p>
 <div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="lists.html#cb67-1" tabindex="-1"></a><span class="co"># создаем векторы</span></span>
 <span id="cb67-2"><a href="lists.html#cb67-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>)</span>

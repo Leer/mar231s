@@ -717,12 +717,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb221-13"><a href="data.table-pt2.html#cb221-13" tabindex="-1"></a></span>
 <span id="cb221-14"><a href="data.table-pt2.html#cb221-14" tabindex="-1"></a><span class="fu">head</span>(my_dt)</span></code></pre></div>
 <pre><code>##       uid sid            login_ts session_length
-## 1: user_1   1 2023-09-01 08:21:02            345
-## 2: user_1   2 2023-09-04 07:12:07            253
-## 3: user_1   3 2023-09-04 15:56:35            576
-## 4: user_1   4 2023-09-05 03:49:41            185
-## 5: user_1   5 2023-09-05 13:59:18            432
-## 6: user_2   1 2023-09-05 21:13:00            595</code></pre>
+## 1: user_1   1 2023-09-01 05:11:38            122
+## 2: user_1   2 2023-09-01 16:18:04            130
+## 3: user_1   3 2023-09-01 22:30:57            203
+## 4: user_1   4 2023-09-02 13:15:47            543
+## 5: user_1   5 2023-09-03 05:31:37            414
+## 6: user_2   1 2023-09-03 07:57:42            454</code></pre>
 </div>
 </div>
 <div id="применение-функций" class="section level2 unnumbered hasAnchor">
@@ -856,12 +856,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb245-13"><a href="data.table-pt2.html#cb245-13" tabindex="-1"></a><span class="co"># объединяем по строкам</span></span>
 <span id="cb245-14"><a href="data.table-pt2.html#cb245-14" tabindex="-1"></a><span class="fu">rbind</span>(dt1, dt2, <span class="at">fill =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>##         tb col1           col3 col2           col4
-## 1: table_1    6 only in table1    u           &lt;NA&gt;
-## 2: table_1    3 only in table1    e           &lt;NA&gt;
-## 3: table_1    4 only in table1    t           &lt;NA&gt;
-## 4: table_2    9           &lt;NA&gt;    y only in table2
-## 5: table_2    5           &lt;NA&gt;    z only in table2
-## 6: table_2    4           &lt;NA&gt;    e only in table2</code></pre>
+## 1: table_1    6 only in table1    f           &lt;NA&gt;
+## 2: table_1    5 only in table1    w           &lt;NA&gt;
+## 3: table_1    9 only in table1    n           &lt;NA&gt;
+## 4: table_2    5           &lt;NA&gt;    g only in table2
+## 5: table_2    3           &lt;NA&gt;    t only in table2
+## 6: table_2    2           &lt;NA&gt;    d only in table2</code></pre>
 </div>
 <div id="cbind" class="section level3 unnumbered hasAnchor">
 <h3>cbind()<a href="data.table-pt2.html#cbind" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -871,14 +871,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="data.table-pt2.html#cb247-1" tabindex="-1"></a><span class="co"># выведем ранее созданные таблицы</span></span>
 <span id="cb247-2"><a href="data.table-pt2.html#cb247-2" tabindex="-1"></a><span class="fu">print</span>(dt1)</span></code></pre></div>
 <pre><code>##         tb col1           col3 col2
-## 1: table_1    6 only in table1    u
-## 2: table_1    3 only in table1    e
-## 3: table_1    4 only in table1    t</code></pre>
+## 1: table_1    6 only in table1    f
+## 2: table_1    5 only in table1    w
+## 3: table_1    9 only in table1    n</code></pre>
 <div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="data.table-pt2.html#cb249-1" tabindex="-1"></a><span class="fu">print</span>(dt2)</span></code></pre></div>
 <pre><code>##         tb           col4 col1 col2
-## 1: table_2 only in table2    9    y
-## 2: table_2 only in table2    5    z
-## 3: table_2 only in table2    4    e</code></pre>
+## 1: table_2 only in table2    5    g
+## 2: table_2 only in table2    3    t
+## 3: table_2 only in table2    2    d</code></pre>
 <div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="data.table-pt2.html#cb251-1" tabindex="-1"></a><span class="co"># создадим колонки-номера строк</span></span>
 <span id="cb251-2"><a href="data.table-pt2.html#cb251-2" tabindex="-1"></a>dt1[, indx <span class="sc">:=</span> <span class="dv">1</span><span class="sc">:</span>.N]</span>
 <span id="cb251-3"><a href="data.table-pt2.html#cb251-3" tabindex="-1"></a>dt2[, indx <span class="sc">:=</span> <span class="dv">1</span><span class="sc">:</span>.N]</span>
@@ -889,9 +889,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb251-8"><a href="data.table-pt2.html#cb251-8" tabindex="-1"></a><span class="co"># таблица получилась, но в строках бардак</span></span>
 <span id="cb251-9"><a href="data.table-pt2.html#cb251-9" tabindex="-1"></a><span class="fu">cbind</span>(dt1, dt2)</span></code></pre></div>
 <pre><code>##         tb col1           col3 col2 indx      tb           col4 col1 col2 indx
-## 1: table_1    6 only in table1    u    1 table_2 only in table2    4    e    3
-## 2: table_1    3 only in table1    e    2 table_2 only in table2    5    z    2
-## 3: table_1    4 only in table1    t    3 table_2 only in table2    9    y    1</code></pre>
+## 1: table_1    6 only in table1    f    1 table_2 only in table2    2    d    3
+## 2: table_1    5 only in table1    w    2 table_2 only in table2    3    t    2
+## 3: table_1    9 only in table1    n    3 table_2 only in table2    5    g    1</code></pre>
 <p>В целом, <code>cbind()</code> — весьма редко используемый способ объединения таблиц. Его стоит использовать только тогда, когда есть однозначная уверенность в структуре данных (одинаковое количество строк, разные названия колонок, идентичная сортировка и т. д.), в противном случае это место, в котором очень легко ошибиться, при этом эту ошибку будет очень сложно найти.</p>
 </div>
 </div>

@@ -60,7 +60,7 @@ knitr::kable(sw_chars_full[1:5])
 
 ```{r, echo=FALSE}
 planets <- lapply(1:60, function(x) {
-  url <- paste0('http://swapi.dev/api/planets/', x, '/')
+  url <- paste0('https://swapi.dev/api/planets/', x, '/')
   sw_planets <- GET(url)
   data.table(
     homeworld = url,
